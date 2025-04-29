@@ -21,3 +21,32 @@ MealMateAI/
 ├── docker-compose.yml           # Orchestrates all containers
 ├── .env.example                 # Template for environment variables
 └── README.md                    # This file
+
+## ⚙️ Setup
+
+## 🐳 Running with Docker
+
+1. **Build & start all services (attached)**  
+   ```bash
+   docker-compose up --build
+   ```
+
+2. **Build & start all services (detached)**  
+   ```bash
+   docker-compose up -d --build
+   ```
+
+3. **View logs**  
+   ```bash
+   docker-compose logs -f
+   ```
+
+4. **Stop & remove containers, networks, and volumes**  
+   ```bash
+   docker-compose down
+   ```
+
+5. **Rebuild a single service**  
+   ```bash
+   docker-compose build <service-name>
+   ```
