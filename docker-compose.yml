@@ -1,8 +1,40 @@
 version: '3.8'
 services:
-  api-gateway:
-    build: ./api-gateway
+  user-service:
+    build: ./services/user-service
     ports:
-      - "4000:4000"
-    env_file:
-      - .env
+      - "8000:8000"
+    environment:
+      - MYSQL_USER=user_service_user
+      - MYSQL_PASSWORD=user_service_password
+      - MYSQL_HOST=mysql
+      - MYSQL_PORT=3306
+      - MYSQL_DB=user_service_db
+    depends_on:
+      - mysql
+    restart: always
+    volumes:
+      - ./services/user-service:/app
+      - /app/__pycache__
+      - /app/app/__pycache__
+      - /app/app/controllers/__pycache__
+      - /app/app/models/__pycache__
+      - /app/app/repositories/__pycache__
+      - /app/app/services/__pycache__
+
+  mysql:
+    image: mysql:8.0
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=rootpassword
+      - MYSQL_DATABASE=user_service_db
+      - MYSQL_USER=user_service_user
+      - MYSQL_PASSWORD=user_service_password
+    volumes:
+      - mysql_data:/var/lib/mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+
+volumes:
+  mysql_data:
