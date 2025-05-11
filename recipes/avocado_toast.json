@@ -1,0 +1,116 @@
+[
+  {
+    "title": "Classic Avocado Toast",
+    "ingredients": [
+      {
+        "item": "avocado",
+        "quantity": 1,
+        "unit": "piece",
+        "optional": false
+      },
+      {
+        "item": "bread",
+        "quantity": 2,
+        "unit": "slice",
+        "varieties": [
+          "sourdough",
+          "multigrain",
+          "rye"
+        ],
+        "optional": false
+      },
+      {
+        "item": "salt",
+        "quantity": 0.25,
+        "unit": "tsp",
+        "optional": false
+      },
+      {
+        "item": "pepper",
+        "quantity": 0.25,
+        "unit": "tsp",
+        "optional": false
+      },
+      {
+        "item": "olive oil",
+        "quantity": 1,
+        "unit": "tbsp",
+        "optional": true
+      },
+      {
+        "item": "lemon juice",
+        "quantity": 1,
+        "unit": "tsp",
+        "optional": true
+      },
+      {
+        "item": "red pepper flakes",
+        "quantity": 0.25,
+        "unit": "tsp",
+        "optional": true
+      },
+      {
+        "item": "egg",
+        "quantity": 1,
+        "unit": "piece",
+        "alternatives": [
+          "fried",
+          "poached"
+        ],
+        "optional": false
+      },
+      {
+        "item": "cherry tomato",
+        "quantity": 4,
+        "unit": "piece",
+        "preparation": "sliced",
+        "optional": false
+      },
+      {
+        "item": "feta cheese",
+        "quantity": 2,
+        "unit": "tbsp",
+        "alternatives": [
+          "goat cheese"
+        ],
+        "optional": false
+      },
+      {
+        "item": "microgreens",
+        "quantity": 0.25,
+        "unit": "cup",
+        "alternatives": [
+          "arugula"
+        ],
+        "optional": false
+      },
+      {
+        "item": "everything bagel seasoning",
+        "quantity": 1,
+        "unit": "tsp",
+        "optional": false
+      },
+      {
+        "item": "smoked salmon",
+        "quantity": 2,
+        "unit": "slice",
+        "optional": false
+      }
+    ],
+    "allergens": [
+      "dairy",
+      "egg",
+      "fish",
+      "gluten"
+    ],
+    "meal_type": "breakfast",
+    "dietary_tags": ["Pescatarian","Nut-Free","Kosher", "Low-Sugar" , "Sugar-Free"],
+    "cuisine": "American",
+    "difficulty": "Hard",
+    "tags": [
+      "classic_avocado_toast",
+      "quick",
+      "breakfast"
+    ]
+  }
+]

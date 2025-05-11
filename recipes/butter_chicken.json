@@ -1,0 +1,143 @@
+[
+  {
+    "title": "Butter Chicken (Murgh Makhani)",
+    "ingredients": [
+      {
+        "item": "boneless skinless chicken thighs or breasts",
+        "quantity": 450,
+        "unit": "g",
+        "preparation": "cut into bite-sized pieces",
+        "optional": false
+      },
+      {
+        "item": "plain yogurt",
+        "quantity": 1,
+        "unit": "cup",
+        "optional": false
+      },
+      {
+        "item": "ginger-garlic paste",
+        "quantity": 1,
+        "unit": "tbsp",
+        "optional": false
+      },
+      {
+        "item": "lemon juice",
+        "quantity": 1,
+        "unit": "tbsp",
+        "optional": false
+      },
+      {
+        "item": "ground cumin",
+        "quantity": 1,
+        "unit": "tbsp",
+        "optional": false
+      },
+      {
+        "item": "ground coriander",
+        "quantity": 1,
+        "unit": "tsp",
+        "optional": false
+      },
+      {
+        "item": "turmeric powder",
+        "quantity": 1,
+        "unit": "tsp",
+        "optional": false
+      },
+      {
+        "item": "garam masala",
+        "quantity": 1,
+        "unit": "tsp",
+        "optional": false
+      },
+      {
+        "item": "chili powder",
+        "quantity": 1,
+        "unit": "tsp",
+        "optional": false
+      },
+      {
+        "item": "salt",
+        "unit": "to taste",
+        "optional": false
+      },
+      {
+        "item": "butter",
+        "quantity": 2,
+        "unit": "tbsp",
+        "optional": false
+      },
+      {
+        "item": "onion",
+        "quantity": 1,
+        "unit": "large",
+        "preparation": "finely chopped",
+        "optional": false
+      },
+      {
+        "item": "garlic",
+        "quantity": 2,
+        "unit": "clove",
+        "preparation": "minced",
+        "optional": false
+      },
+      {
+        "item": "ginger",
+        "quantity": 1,
+        "unit": "tbsp",
+        "preparation": "minced",
+        "optional": false
+      },
+      {
+        "item": "crushed tomatoes",
+        "quantity": 1,
+        "unit": "can",
+        "size": "400 g (14 oz)",
+        "optional": false
+      },
+      {
+        "item": "heavy cream",
+        "quantity": 1,
+        "unit": "cup",
+        "alternatives": [
+          "coconut cream"
+        ],
+        "optional": false
+      },
+      {
+        "item": "sugar",
+        "quantity": 1,
+        "unit": "tsp",
+        "purpose": "balance acidity",
+        "optional": true
+      },
+      {
+        "item": "fresh cilantro",
+        "quantity": 1,
+        "unit": "tbsp",
+        "preparation": "chopped",
+        "optional": true
+      }
+    ],
+    "allergens": [
+      "dairy"
+    ],
+    "meal_type": [
+      "lunch",
+      "dinner"
+    ],
+    "dietary_tags": [
+      "Gluten-Free",
+      "Nut-Free",
+      "Egg-Free",
+      "High-Protein"
+    ],
+    "cuisine": "",
+    "difficulty": "Hard",
+    "tags": [
+      "butter",
+      "quick"
+    ]
+  }
+]

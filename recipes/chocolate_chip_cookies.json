@@ -1,0 +1,94 @@
+[
+  {
+    "title": "Classic Chocolate Chip Cookies",
+    "ingredients": [
+      {
+        "item": "butter",
+        "quantity": 0.5,
+        "unit": "cup",
+        "preparation": "softened",
+        "optional": false
+      },
+      {
+        "item": "white sugar",
+        "quantity": 0.25,
+        "unit": "cup",
+        "optional": false
+      },
+      {
+        "item": "brown sugar",
+        "quantity": 0.25,
+        "unit": "cup",
+        "preparation": "packed",
+        "optional": false
+      },
+      {
+        "item": "vanilla extract",
+        "quantity": 1,
+        "unit": "tsp",
+        "optional": false
+      },
+      {
+        "item": "egg",
+        "quantity": 2,
+        "unit": "piece",
+        "preparation": "large",
+        "optional": false
+      },
+      {
+        "item": "all-purpose flour",
+        "quantity": 2.25,
+        "unit": "cup",
+        "optional": false
+      },
+      {
+        "item": "baking soda",
+        "quantity": 1,
+        "unit": "tsp",
+        "optional": false
+      },
+      {
+        "item": "salt",
+        "quantity": 0.5,
+        "unit": "tsp",
+        "optional": false
+      },
+      {
+        "item": "semisweet chocolate chips",
+        "quantity": 2,
+        "unit": "cup",
+        "optional": false
+      },
+      {
+        "item": "add_ins",
+        "quantity": 1,
+        "unit": "cup",
+        "alternatives": [
+          "walnuts",
+          "pecans"
+        ],
+        "optional": true
+      }
+    ],
+    "allergens": [
+      "dairy",
+      "egg",
+      "gluten"
+    ],
+    "meal_type": [
+      "breakfast"
+    ],
+    "dietary_tags": [
+      "vegetarian",
+      "Pescatarian",
+      "Nut-Free",
+      "Kosher"
+    ],
+    "cuisine": "",
+    "difficulty": "Hard",
+    "tags": [
+      "classic",
+      "quick"
+    ]
+  }
+]

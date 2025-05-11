@@ -1,0 +1,151 @@
+[
+  {
+    "title": "Burrito Bowl",
+    "ingredients": [
+      {
+        "item": "cooked rice",
+        "quantity": 1,
+        "unit": "cup",
+        "alternatives": [
+          "brown rice",
+          "cilantro-lime rice"
+        ],
+        "optional": false
+      },
+      {
+        "item": "beans",
+        "quantity": 1,
+        "unit": "can",
+        "alternatives": [
+          "pinto beans"
+        ],
+        "preparation": "drained and rinsed",
+        "optional": false
+      },
+      {
+        "item": "protein",
+        "quantity": 1,
+        "unit": "lb",
+        "alternatives": [
+          "beef",
+          "tofu"
+        ],
+        "optional": false
+      },
+      {
+        "item": "corn kernels",
+        "quantity": 1,
+        "unit": "cup",
+        "alternatives": [
+          "frozen corn",
+          "canned corn"
+        ],
+        "optional": false
+      },
+      {
+        "item": "avocado",
+        "quantity": 1,
+        "unit": "piece",
+        "preparation": "sliced",
+        "optional": false
+      },
+      {
+        "item": "red onion",
+        "quantity": 1,
+        "unit": "small",
+        "preparation": "thinly sliced",
+        "optional": false
+      },
+      {
+        "item": "diced tomatoes",
+        "quantity": 1,
+        "unit": "cup",
+        "alternatives": [
+          "salsa"
+        ],
+        "optional": false
+      },
+      {
+        "item": "lettuce",
+        "quantity": 2,
+        "unit": "cup",
+        "optional": true
+      },
+      {
+        "item": "lime juice",
+        "quantity": 1,
+        "unit": "tbsp",
+        "optional": true
+      },
+      {
+        "item": "cilantro",
+        "quantity": 1,
+        "unit": "tbsp",
+        "optional": true
+      },
+      {
+        "item": "salt",
+        "unit": "to taste",
+        "optional": false
+      },
+      {
+        "item": "cheese",
+        "quantity": 1,
+        "unit": "cup",
+        "alternatives": [
+          "Mexican blend"
+        ],
+        "optional": false
+      },
+      {
+        "item": "sour cream",
+        "quantity": 0.5,
+        "unit": "cup",
+        "alternatives": [
+          "Greek yogurt"
+        ],
+        "optional": false
+      },
+      {
+        "item": "salsa",
+        "unit": "to taste",
+        "alternatives": [
+          "pico de gallo"
+        ],
+        "optional": false
+      },
+      {
+        "item": "fresh cilantro",
+        "quantity": 1,
+        "unit": "tbsp",
+        "optional": true
+      },
+      {
+        "item": "hot sauce",
+        "quantity": 1,
+        "unit": "tsp",
+        "optional": true
+      }
+    ],
+    "allergens": [
+      "dairy",
+      "egg"
+    ],
+    "meal_type": [
+      "breakfast"
+    ],
+    "dietary_tags": [
+      "gluten-free",
+      "Nut-Free",
+      "Sugar-Free",
+      "High-Protein"
+    ],
+    "cuisine": "Mexican",
+    "difficulty": "Hard",
+    "tags": [
+      "burrito",
+      "quick",
+      "mexican"
+    ]
+  }
+]

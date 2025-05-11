@@ -1,0 +1,104 @@
+[
+  {
+    "title": "Classic Bagel with Cream Cheese",
+    "ingredients": [
+      {
+        "item": "bagel",
+        "quantity": 1,
+        "unit": "piece",
+        "varieties": [
+          "plain",
+          "everything",
+          "sesame"
+        ],
+        "optional": false
+      },
+      {
+        "item": "cream cheese",
+        "quantity": 3,
+        "unit": "tbsp",
+        "alternatives": [
+          "plain",
+          "flavored"
+        ],
+        "optional": false
+      },
+      {
+        "item": "tomato",
+        "quantity": 1,
+        "unit": "piece",
+        "preparation": "sliced",
+        "optional": false
+      },
+      {
+        "item": "red onion",
+        "quantity": 1,
+        "unit": "small",
+        "preparation": "thinly sliced",
+        "optional": false
+      },
+      {
+        "item": "capers",
+        "quantity": 1,
+        "unit": "tbsp",
+        "optional": false
+      },
+      {
+        "item": "smoked salmon",
+        "quantity": 2,
+        "unit": "slice",
+        "alternatives": [
+          "lox"
+        ],
+        "optional": false
+      },
+      {
+        "item": "cucumber",
+        "quantity": 4,
+        "unit": "slice",
+        "preparation": "sliced",
+        "optional": false
+      },
+      {
+        "item": "fresh herbs",
+        "quantity": 1,
+        "unit": "tbsp",
+        "alternatives": [
+          "dill",
+          "chives"
+        ],
+        "optional": true
+      },
+      {
+        "item": "avocado",
+        "quantity": 1,
+        "unit": "piece",
+        "optional": false
+      }
+    ],
+    "allergens": [
+      "dairy",
+      "fish",
+      "sesame",
+      "gluten"
+    ],
+    "meal_type": [
+      "lunch",
+      "dinner"
+    ],
+    "dietary_tags": [
+      "Pescatarian",
+      "Nut-Free",
+      "Egg-Free",
+      "Low-Sugar",
+      "Kosher",
+      "High-Protein"
+    ],
+    "cuisine": "",
+    "difficulty": "Medium",
+    "tags": [
+      "classic_bagel_with_cream_cheese",
+      "quick"
+    ]
+  }
+]

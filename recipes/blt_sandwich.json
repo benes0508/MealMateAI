@@ -1,0 +1,93 @@
+[
+  {
+    "title": "Classic BLT Sandwich",
+    "ingredients": [
+      {
+        "item": "sandwich bread",
+        "quantity": 2,
+        "unit": "slice",
+        "varieties": [
+          "white",
+          "whole grain",
+          "sourdough"
+        ],
+        "optional": false
+      },
+      {
+        "item": "bacon",
+        "quantity": 4,
+        "unit": "slice",
+        "optional": false
+      },
+      {
+        "item": "tomato",
+        "quantity": 3,
+        "unit": "slice",
+        "optional": false
+      },
+      {
+        "item": "lettuce",
+        "quantity": 2,
+        "unit": "leaf",
+        "varieties": [
+          "romaine",
+          "iceberg",
+          "butter lettuce"
+        ],
+        "optional": false
+      },
+      {
+        "item": "mayonnaise",
+        "quantity": 2,
+        "unit": "tbsp",
+        "optional": false
+      },
+      {
+        "item": "salt",
+        "unit": "to taste",
+        "optional": false
+      },
+      {
+        "item": "black pepper",
+        "unit": "to taste",
+        "optional": false
+      },
+      {
+        "item": "avocado",
+        "quantity": 1,
+        "unit": "piece",
+        "optional": true
+      },
+      {
+        "item": "hot sauce",
+        "quantity": 1,
+        "unit": "tsp",
+        "optional": true
+      },
+      {
+        "item": "mustard",
+        "quantity": 1,
+        "unit": "tsp",
+        "optional": true
+      }
+    ],
+    "allergens": [
+      "gluten",
+      "mustard",
+      "Eggs"
+    ],
+    "meal_type": [
+      "breakfast"
+    ],
+    "dietary_tags": ["Nut-Free",
+      "Low-Sugar",
+      "High-Protein"],
+    "cuisine": "American",
+    "difficulty": "Medium",
+    "tags": [
+      "classic",
+      "quick",
+      "american"
+    ]
+  }
+]

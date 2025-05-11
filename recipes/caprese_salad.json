@@ -1,0 +1,81 @@
+[
+  {
+    "title": "Classic Caprese Salad (Insalata Caprese)",
+    "ingredients": [
+      {
+        "item": "tomato",
+        "quantity": 2,
+        "unit": "piece",
+        "varieties": [
+          "heirloom",
+          "Roma"
+        ],
+        "preparation": "sliced",
+        "optional": false
+      },
+      {
+        "item": "mozzarella",
+        "quantity": 1,
+        "unit": "ball",
+        "size": "8 oz (225 g)",
+        "preparation": "sliced",
+        "optional": false
+      },
+      {
+        "item": "basil leaves",
+        "quantity": 1,
+        "unit": "handful",
+        "optional": false
+      },
+      {
+        "item": "virgin olive oil",
+        "quantity": 2,
+        "unit": "tbsp",
+        "optional": false
+      },
+      {
+        "item": "salt",
+        "unit": "to taste",
+        "optional": false
+      },
+      {
+        "item": "black pepper",
+        "unit": "to taste",
+        "optional": false
+      },
+      {
+        "item": "balsamic glaze",
+        "quantity": 1,
+        "unit": "tbsp",
+        "alternatives": [
+          "balsamic reduction"
+        ],
+        "optional": true
+      }
+    ],
+    "allergens": [
+      "Dairy",
+      "Mustard"
+    ],
+    "meal_type": [
+      "lunch",
+      "dinner"
+    ],
+    "dietary_tags": [
+      "gluten-free",
+      "vegetarian",
+      "Pescatarian",
+      "Gluten-Free",
+      "Nut-Free",
+      "Egg-Free",
+      "Low-Sugar",
+      "Kosher"
+    ],
+    "cuisine": "",
+    "difficulty": "Medium",
+    "tags": [
+      "classic",
+      "quick"
+    ]
+  }
+]

@@ -1,0 +1,142 @@
+[
+  {
+    "title": "Classic Beef Chili",
+    "ingredients": [
+      {
+        "item": "olive oil",
+        "quantity": 1,
+        "unit": "tbsp",
+        "optional": false
+      },
+      {
+        "item": "onion",
+        "quantity": 1,
+        "unit": "medium",
+        "preparation": "diced",
+        "optional": false
+      },
+      {
+        "item": "garlic",
+        "quantity": 2,
+        "unit": "clove",
+        "preparation": "minced",
+        "optional": false
+      },
+      {
+        "item": "ground beef",
+        "quantity": 1,
+        "unit": "lb",
+        "optional": false
+      },
+      {
+        "item": "chili powder",
+        "quantity": 1,
+        "unit": "tbsp",
+        "optional": false
+      },
+      {
+        "item": "ground cumin",
+        "quantity": 1,
+        "unit": "tsp",
+        "optional": false
+      },
+      {
+        "item": "paprika",
+        "quantity": 1,
+        "unit": "tsp",
+        "optional": false
+      },
+      {
+        "item": "oregano",
+        "quantity": 0.5,
+        "unit": "tsp",
+        "optional": false
+      },
+      {
+        "item": "salt",
+        "quantity": 0.5,
+        "unit": "tsp",
+        "notes": "or to taste",
+        "optional": false
+      },
+      {
+        "item": "black pepper",
+        "quantity": 0.25,
+        "unit": "tsp",
+        "optional": false
+      },
+      {
+        "item": "diced tomatoes",
+        "quantity": 1,
+        "unit": "can",
+        "size": "14 oz (400 g)",
+        "optional": false
+      },
+      {
+        "item": "kidney beans",
+        "quantity": 1,
+        "unit": "can",
+        "size": "14 oz (400 g)",
+        "preparation": "drained and rinsed",
+        "optional": false
+      },
+      {
+        "item": "black beans",
+        "quantity": 1,
+        "unit": "can",
+        "size": "14 oz (400 g)",
+        "alternatives": [
+          "pinto beans"
+        ],
+        "optional": true
+      },
+      {
+        "item": "tomato paste",
+        "quantity": 1,
+        "unit": "tbsp",
+        "optional": false
+      },
+      {
+        "item": "beef broth",
+        "quantity": 1,
+        "unit": "cup",
+        "alternatives": [
+          "water"
+        ],
+        "optional": false
+      },
+      {
+        "item": "cayenne pepper",
+        "quantity": 0.5,
+        "unit": "tsp",
+        "alternatives": [
+          "hot sauce"
+        ],
+        "optional": true
+      }
+    ],
+    "allergens": [
+      
+    ],
+    "meal_type": [
+      "lunch",
+      "dinner"
+    ],
+    "dietary_tags": [
+      "gluten-free",
+      "Dairy-Free",
+      "Nut-Free",
+      "Egg-Free",
+      "Sugar-Free",
+      "Kosher",
+      "High-Protein"
+    ],
+    "cuisine": "Mexican",
+    "difficulty": "Hard",
+    "tags": [
+      "classic",
+      "quick",
+      "mexican"
+    ]
+  }
+]

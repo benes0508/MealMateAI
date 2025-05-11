@@ -1,0 +1,119 @@
+[
+  {
+    "title": "Classic Hamburger",
+    "ingredients": [
+      {
+        "item": "ground beef",
+        "quantity": 1,
+        "unit": "lb",
+        "notes": "80% lean, 20% fat",
+        "optional": false
+      },
+      {
+        "item": "salt",
+        "unit": "to taste",
+        "optional": false
+      },
+      {
+        "item": "black pepper",
+        "unit": "to taste",
+        "optional": false
+      },
+      {
+        "item": "Worcestershire sauce",
+        "quantity": 1,
+        "unit": "tbsp",
+        "optional": true
+      },
+      {
+        "item": "garlic powder",
+        "quantity": 1,
+        "unit": "tsp",
+        "optional": true
+      },
+      {
+        "item": "onion powder",
+        "quantity": 1,
+        "unit": "tsp",
+        "optional": true
+      },
+      {
+        "item": "hamburger bun",
+        "quantity": 4,
+        "unit": "piece",
+        "optional": false
+      },
+      {
+        "item": "lettuce",
+        "quantity": 4,
+        "unit": "leaf",
+        "optional": false
+      },
+      {
+        "item": "tomato",
+        "quantity": 1,
+        "unit": "piece",
+        "preparation": "sliced",
+        "optional": false
+      },
+      {
+        "item": "onion",
+        "quantity": 1,
+        "unit": "piece",
+        "preparation": "sliced into rings",
+        "optional": false
+      },
+      {
+        "item": "pickles",
+        "unit": "to taste",
+        "optional": true
+      },
+      {
+        "item": "cheese slices",
+        "quantity": 4,
+        "unit": "slice",
+        "alternatives": [
+          "cheddar",
+          "American",
+          "Swiss"
+        ],
+        "optional": false
+      },
+      {
+        "item": "ketchup",
+        "unit": "to taste",
+        "optional": true
+      },
+      {
+        "item": "mustard",
+        "unit": "to taste",
+        "optional": true
+      },
+      {
+        "item": "mayonnaise",
+        "unit": "to taste",
+        "optional": true
+      }
+    ],
+    "allergens": [
+      "dairy",
+      "egg",
+      "gluten"
+    ],
+    "meal_type": [
+      "breakfast"
+    ],
+    "dietary_tags": [
+      "Nut-Free",
+      "Low-Sugar",
+      "High-Protein"
+    ],
+    "cuisine": "American",
+    "difficulty": "Hard",
+    "tags": [
+      "classic",
+      "quick",
+      "american"
+    ]
+  }
+]

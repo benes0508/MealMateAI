@@ -1,0 +1,122 @@
+[
+  {
+    "title": "Classic Breakfast Burrito",
+    "ingredients": [
+      {
+        "item": "egg",
+        "quantity": 2,
+        "unit": "piece",
+        "optional": false
+      },
+      {
+        "item": "flour tortilla",
+        "quantity": 1,
+        "unit": "piece",
+        "size": "10-inch",
+        "optional": false
+      },
+      {
+        "item": "shredded cheese",
+        "quantity": 0.5,
+        "unit": "cup",
+        "alternatives": [
+          "Monterey Jack"
+        ],
+        "optional": false
+      },
+      {
+        "item": "breakfast meat",
+        "quantity": 0.5,
+        "unit": "cup",
+        "alternatives": [
+          "bacon",
+          "plant-based alternative"
+        ],
+        "optional": true
+      },
+      {
+        "item": "hash browns",
+        "quantity": 0.5,
+        "unit": "cup",
+        "alternatives": [
+          "diced potatoes"
+        ],
+        "optional": false
+      },
+      {
+        "item": "onion",
+        "quantity": 0.25,
+        "unit": "cup",
+        "preparation": "diced",
+        "optional": true
+      },
+      {
+        "item": "bell pepper",
+        "quantity": 0.25,
+        "unit": "cup",
+        "preparation": "diced",
+        "optional": false
+      },
+      {
+        "item": "salt",
+        "unit": "to taste",
+        "optional": false
+      },
+      {
+        "item": "black pepper",
+        "unit": "to taste",
+        "optional": false
+      },
+      {
+        "item": "milk",
+        "quantity": 2,
+        "unit": "tbsp",
+        "optional": true
+      },
+      {
+        "item": "oil",
+        "quantity": 1,
+        "unit": "tbsp",
+        "alternatives": [
+          "butter"
+        ],
+        "optional": false
+      },
+      {
+        "item": "salsa",
+        "unit": "to taste",
+        "optional": true
+      },
+      {
+        "item": "sour cream",
+        "unit": "to taste",
+        "optional": true
+      },
+      {
+        "item": "hot sauce",
+        "unit": "to taste",
+        "optional": true
+      }
+    ],
+    "allergens": [
+      "dairy",
+      "egg",
+      "gluten"
+    ],
+    "meal_type": [
+      "breakfast"
+    ],
+    "dietary_tags": [
+      "Nut-Free",
+      "Sugar-Free",
+      "High-Protein"
+    ],
+    "cuisine": "Mexican",
+    "difficulty": "Hard",
+    "tags": [
+      "classic",
+      "quick",
+      "mexican"
+    ]
+  }
+]

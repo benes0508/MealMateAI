@@ -1,0 +1,120 @@
+[
+  {
+    "title": "Classic Chicken Noodle Soup",
+    "ingredients": [
+      {
+        "item": "olive oil",
+        "quantity": 1,
+        "unit": "tbsp",
+        "alternatives": [
+          "butter"
+        ],
+        "optional": false
+      },
+      {
+        "item": "onion",
+        "quantity": 1,
+        "unit": "medium",
+        "preparation": "chopped",
+        "optional": false
+      },
+      {
+        "item": "garlic",
+        "quantity": 2,
+        "unit": "clove",
+        "preparation": "minced",
+        "optional": false
+      },
+      {
+        "item": "carrot",
+        "quantity": 2,
+        "unit": "medium",
+        "preparation": "sliced",
+        "optional": false
+      },
+      {
+        "item": "celery",
+        "quantity": 2,
+        "unit": "stalk",
+        "preparation": "sliced",
+        "optional": false
+      },
+      {
+        "item": "chicken broth",
+        "quantity": 6,
+        "unit": "cup",
+        "optional": false
+      },
+      {
+        "item": "chicken",
+        "quantity": 2,
+        "unit": "cup",
+        "preparation": "cooked and shredded",
+        "optional": false
+      },
+      {
+        "item": "egg noodles",
+        "quantity": 0.5,
+        "unit": "cup",
+        "alternatives": [
+          "pasta of choice"
+        ],
+        "optional": false
+      },
+      {
+        "item": "dried thyme",
+        "quantity": 1,
+        "unit": "tsp",
+        "alternatives": [
+          "Italian seasoning"
+        ],
+        "optional": false
+      },
+      {
+        "item": "salt",
+        "unit": "to taste",
+        "optional": false
+      },
+      {
+        "item": "black pepper",
+        "unit": "to taste",
+        "optional": false
+      },
+      {
+        "item": "parsley",
+        "quantity": 2,
+        "unit": "tbsp",
+        "preparation": "chopped",
+        "optional": true
+      },
+      {
+        "item": "lemon juice",
+        "quantity": 1,
+        "unit": "tsp",
+        "purpose": "brighten",
+        "optional": true
+      }
+    ],
+    "allergens": [
+    ],
+    "meal_type": [
+      "breakfast"
+    ],
+    "dietary_tags": [
+      "Gluten-Free",
+      "Dairy-Free",
+      "Nut-Free",
+      "Egg-Free",
+      "Low-Sugar",
+      "Kosher",
+      "High-Protein"
+    ],
+    "cuisine": "Italian",
+    "difficulty": "Hard",
+    "tags": [
+      "classic",
+      "quick",
+      "italian"
+    ]
+  }
+]

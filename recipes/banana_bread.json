@@ -1,0 +1,89 @@
+[
+  {
+    "title": "Classic Banana Bread",
+    "ingredients": [
+      {
+        "item": "banana",
+        "quantity": 1.5,
+        "unit": "cup",
+        "preparation": "mashed",
+        "optional": false
+      },
+      {
+        "item": "butter",
+        "quantity": 0.3333333333333333,
+        "unit": "cup",
+        "preparation": "melted",
+        "optional": false
+      },
+      {
+        "item": "baking soda",
+        "quantity": 1,
+        "unit": "teaspoon",
+        "optional": false
+      },
+      {
+        "item": "salt",
+        "quantity": 1,
+        "unit": "pinch",
+        "optional": false
+      },
+      {
+        "item": "sugar",
+        "quantity": 0.25,
+        "unit": "cup",
+        "optional": false
+      },
+      {
+        "item": "egg",
+        "quantity": 1,
+        "unit": "large",
+        "preparation": "beaten",
+        "optional": false
+      },
+      {
+        "item": "vanilla extract",
+        "quantity": 1,
+        "unit": "teaspoon",
+        "optional": false
+      },
+      {
+        "item": "flour",
+        "quantity": 2,
+        "unit": "cup",
+        "optional": false
+      },
+      {
+        "item": "add_ins",
+        "quantity": 0.5,
+        "unit": "cup",
+        "alternatives": [
+          "walnuts",
+          "pecans",
+          "chocolate chips"
+        ],
+        "optional": true
+      }
+    ],
+    "allergens": [
+      "dairy",
+      "egg",
+      "gluten"
+    ],
+    "meal_type": [
+      "breakfast"
+    ],
+    "dietary_tags": [
+      "vegetarian", 
+      "Pescatarian",
+      "Nut-Free",
+      "Kosher"
+    ],
+    "cuisine": "",
+    "difficulty": "Hard",
+    "tags": [
+      "classic_banana_bread",
+      "quick"
+    ]
+  }
+]

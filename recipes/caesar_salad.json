@@ -1,0 +1,115 @@
+[
+  {
+    "title": "Classic Caesar Salad",
+    "ingredients": [
+      {
+        "item": "romaine lettuce",
+        "quantity": 1,
+        "unit": "head",
+        "preparation": "chopped",
+        "optional": false
+      },
+      {
+        "item": "croutons",
+        "quantity": 0.25,
+        "unit": "cup",
+        "optional": false
+      },
+      {
+        "item": "Parmesan cheese",
+        "quantity": 0.25,
+        "unit": "cup",
+        "preparation": "grated or shaved",
+        "optional": false
+      },
+      {
+        "item": "egg yolk",
+        "quantity": 1,
+        "unit": "piece",
+        "alternatives": [
+          "1 tbsp mayonnaise"
+        ],
+        "optional": false
+      },
+      {
+        "item": "Dijon mustard",
+        "quantity": 1,
+        "unit": "tsp",
+        "optional": false
+      },
+      {
+        "item": "Worcestershire sauce",
+        "quantity": 1,
+        "unit": "tsp",
+        "optional": false
+      },
+      {
+        "item": "anchovy fillets",
+        "quantity": 2,
+        "unit": "piece",
+        "optional": true
+      },
+      {
+        "item": "garlic",
+        "quantity": 1,
+        "unit": "clove",
+        "preparation": "minced",
+        "optional": false
+      },
+      {
+        "item": "lemon juice",
+        "quantity": 1,
+        "unit": "tbsp",
+        "optional": false
+      },
+      {
+        "item": "olive oil",
+        "quantity": 0.25,
+        "unit": "cup",
+        "optional": false
+      },
+      {
+        "item": "Parmesan cheese",
+        "quantity": 1,
+        "unit": "tbsp",
+        "preparation": "grated",
+        "optional": false
+      },
+      {
+        "item": "salt",
+        "unit": "to taste",
+        "optional": false
+      },
+      {
+        "item": "black pepper",
+        "unit": "to taste",
+        "optional": false
+      }
+    ],
+    "allergens": [
+      "dairy",
+      "egg",
+      "fish",
+      "mustard",
+      "Gluten"
+    ],
+    "meal_type": [
+      "breakfast"
+    ],
+    "dietary_tags": [
+      "gluten-free",
+      "vegetarian",
+      "Pescatarian",
+      "Nut-Free",
+      "Low-Sugar",
+      "Kosher",
+      "High-Protein"
+    ],
+    "cuisine": "",
+    "difficulty": "Hard",
+    "tags": [
+      "classic",
+      "quick"
+    ]
+  }
+]

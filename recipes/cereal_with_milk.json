@@ -1,0 +1,50 @@
+[
+  {
+    "title": "Cereal with Milk",
+    "ingredients": [
+      {
+        "item": "cereal",
+        "quantity": 1,
+        "unit": "cup",
+        "varieties": [
+          "cornflakes",
+          "granola",
+          "oats"
+        ],
+        "optional": false
+      },
+      {
+        "item": "milk",
+        "quantity": 1,
+        "unit": "cup",
+        "alternatives": [
+          "almond milk",
+          "oat milk",
+          "soy milk"
+        ],
+        "optional": false
+      }
+    ],
+    "allergens": [
+      "dairy"
+    ],
+    "meal_type": [
+      "breakfast"
+    ],
+    "dietary_tags": [
+      "gluten-free",
+      "vegetarian",
+      "Pescatarian",
+      "Gluten-Free",
+      "Nut-Free",
+      "Egg-Free",
+      "Kosher"
+    ],
+    "cuisine": "",
+    "difficulty": "Easy",
+    "tags": [
+      "ingredients",
+      "quick"
+    ]
+  }
+]

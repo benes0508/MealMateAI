@@ -1,0 +1,107 @@
+[
+  {
+    "title": "Grilled Chicken Wrap",
+    "ingredients": [
+      {
+        "item": "flour tortilla",
+        "quantity": 1,
+        "unit": "piece",
+        "size": "10-inch",
+        "optional": false
+      },
+      {
+        "item": "chicken breast",
+        "quantity": 1,
+        "unit": "piece",
+        "preparation": "grilled and sliced",
+        "optional": false
+      },
+      {
+        "item": "lettuce",
+        "quantity": 0.5,
+        "unit": "cup",
+        "preparation": "shredded",
+        "optional": false
+      },
+      {
+        "item": "tomato",
+        "quantity": 0.5,
+        "unit": "cup",
+        "alternatives": [
+          "cherry tomatoes"
+        ],
+        "preparation": "chopped",
+        "optional": false
+      },
+      {
+        "item": "cheese",
+        "quantity": 0.25,
+        "unit": "cup",
+        "alternatives": [
+          "cheddar",
+          "mozzarella"
+        ],
+        "preparation": "shredded",
+        "optional": false
+      },
+      {
+        "item": "avocado",
+        "quantity": 0.25,
+        "unit": "piece",
+        "preparation": "sliced",
+        "optional": true
+      },
+      {
+        "item": "sauce",
+        "quantity": 2,
+        "unit": "tbsp",
+        "alternatives": [
+          "ranch",
+          "garlic mayo",
+          "tzatziki",
+          "Caesar",
+          "hummus"
+        ],
+        "optional": false
+      },
+      {
+        "item": "salt",
+        "unit": "to taste",
+        "optional": false
+      },
+      {
+        "item": "black pepper",
+        "unit": "to taste",
+        "optional": false
+      },
+      {
+        "item": "olive oil",
+        "quantity": 1,
+        "unit": "tbsp",
+        "purpose": "for cooking",
+        "optional": true
+      }
+    ],
+    "allergens": [
+      "dairy",
+      "gluten"
+    ],
+    "meal_type": [
+      "lunch",
+      "dinner"
+    ],
+    "dietary_tags": [
+      "Nut-Free",
+      "Egg-Free",
+      "Low-Sugar",
+      "High-Protein"
+    ],
+    "cuisine": "Mexican",
+    "difficulty": "Medium",
+    "tags": [
+      "grilled",
+      "quick",
+      "mexican"
+    ]
+  }
+]
