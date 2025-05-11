@@ -1,4 +1,5 @@
-version: '3.8'
+#version: '3.8'
+
 services:
   user-service:
     build: ./services/user-service
@@ -36,5 +37,31 @@ services:
     command: --default-authentication-plugin=mysql_native_password
     restart: always
 
+  recipe-service:
+    build: ./services/recipe-service
+    ports:
+      - "8001:8001"
+    environment:
+      - DATABASE_URL=postgresql://recipe_user:recipe_password@postgres:5432/recipe_db
+    depends_on:
+      - postgres
+    restart: always
+    volumes:
+      - ./services/recipe-service:/app
+
+  postgres:
+    image: postgres:15
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=recipe_db
+      - POSTGRES_USER=recipe_user
+      - POSTGRES_PASSWORD=recipe_password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./services/recipe-service/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    restart: always
+
 volumes:
   mysql_data:
+  postgres_data:
