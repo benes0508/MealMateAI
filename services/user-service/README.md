@@ -19,6 +19,82 @@ The User Service is a core microservice of the MealMateAI platform that handles 
 - **Docker**: Containerization
 - **Passlib**: Password hashing and verification
 
+## System Architecture
+
+### Block Diagram
+
+```
+┌─────────────────┐     ┌───────────────────────────────────────────────────────────────────────┐
+│                 │     │                                                                       │
+│    Frontend     │◄────┤                           API Gateway                                 │
+│  (React App)    │     │                          (Express.js)                                 │
+│                 │     │                                                                       │
+└────────┬────────┘     └───────┬────────────────────┬────────────────────┬────────────────────┘
+         │                      │                    │                    │                     
+         │                      │                    │                    │                     
+         │                      ▼                    ▼                    ▼                     
+         │        ┌─────────────────────┐  ┌─────────────────────┐ ┌─────────────────────┐     
+         │        │                     │  │                     │ │                     │     
+         └───────►│    User Service     │  │   Recipe Service    │ │  Meal-Planner       │     
+                  │    (FastAPI)        │  │   (FastAPI)         │ │  Service (FastAPI)  │     
+                  │                     │  │                     │ │                     │     
+                  └────────┬────────────┘  └────────┬────────────┘ └─────────┬───────────┘     
+                           │                        │                        │                  
+                           │                        │                        │                  
+                           ▼                        ▼                        ▼                  
+                  ┌─────────────────────┐  ┌─────────────────────┐  ┌─────────────────────┐    
+                  │                     │  │                     │  │                     │    
+                  │    User Database    │  │   Recipe Database   │  │   Meal Plans DB     │    
+                  │      (MySQL)        │  │     (Planned)       │  │     (Planned)       │    
+                  │                     │  │                     │  │                     │    
+                  └─────────────────────┘  └─────────────────────┘  └─────────────────────┘    
+                                                                                               
+                                           ┌─────────────────────┐                             
+                                           │                     │                             
+                                           │  Notification       │                             
+                                           │  Service (FastAPI)  │                             
+                                           │                     │                             
+                                           └─────────┬───────────┘                             
+                                                     │                                          
+                                                     │                                          
+                                                     ▼                                          
+                                           ┌─────────────────────┐                             
+                                           │                     │                             
+                                           │ Notification DB     │                             
+                                           │    (Planned)        │                             
+                                           │                     │                             
+                                           └─────────────────────┘                             
+```
+
+### Communication Flow
+
+1. **Client-to-Server Communication**:
+   - The React frontend communicates with the API Gateway via RESTful HTTP requests
+   - The API Gateway authenticates requests and routes them to the appropriate microservice
+
+2. **Inter-Service Communication**:
+   - **User Service** serves as an identity provider and manages user profiles
+     - Exposes `/api/users/` endpoints for user management
+     - Stores user data including dietary preferences in MySQL
+   - **Recipe Service** (planned) will handle recipe storage and retrieval
+     - Will communicate with User Service to get user preferences for personalization
+   - **Meal Planner Service** (planned) will generate meal plans
+     - Will communicate with Recipe Service to get recipe details
+     - Will communicate with User Service to get user preferences
+   - **Notification Service** (planned) will handle email notifications
+     - Will communicate with User Service to get user contact information
+     - Will communicate with Meal Planner Service to get scheduled meal information
+
+3. **Data Storage**:
+   - Each service maintains its own dedicated database
+   - User Service: MySQL database for user information
+   - Other services will have their own dedicated databases (not yet implemented)
+
+4. **Authentication Flow**:
+   - Authentication happens via the User Service
+   - JWT tokens are issued to authenticated clients
+   - API Gateway validates tokens for protected routes
+
 ## API Endpoints
 
 ### User Management
