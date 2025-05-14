@@ -26,7 +26,7 @@ services:
   mysql:
     image: mysql:8.0
     ports:
-      - "3306:3306"
+      - "13306:3306"  # Changed from 3306:3306 to avoid conflict
     environment:
       - MYSQL_ROOT_PASSWORD=rootpassword
       - MYSQL_DATABASE=user_service_db
@@ -50,17 +50,41 @@ services:
       - ./services/recipe-service:/app
 
   postgres:
-    image: postgres:15
+    image: pgvector/pgvector:pg15
     ports:
-      - "5432:5432"
+      - "15432:5432"  # Changed from 5432:5432 to avoid conflict
     environment:
       - POSTGRES_DB=recipe_db
       - POSTGRES_USER=recipe_user
       - POSTGRES_PASSWORD=recipe_password
     volumes:
       - postgres_data:/var/lib/postgresql/data
-      - ./services/recipe-service/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+      - ./services/recipe-service/init.sql:/docker-entrypoint-initdb.d/01-recipe-init.sql:ro
+      - ./services/meal-planner-service/init.sql:/docker-entrypoint-initdb.d/02-meal-planner-init.sql:ro
     restart: always
+
+  meal-planner-service:
+    build: ./services/meal-planner-service
+    ports:
+      - "8002:8002"
+    environment:
+      - DATABASE_URL=postgresql://meal_planner_user:meal_planner_password@postgres:5432/meal_planner_db
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY}
+      - USER_SERVICE_URL=http://user-service:8000
+      - RECIPE_SERVICE_URL=http://recipe-service:8001
+    depends_on:
+      - postgres
+      - user-service
+      - recipe-service
+    restart: always
+    volumes:
+      - ./services/meal-planner-service:/app
+      - /app/__pycache__
+      - /app/app/__pycache__
+      - /app/app/controllers/__pycache__
+      - /app/app/models/__pycache__
+      - /app/app/repositories/__pycache__
+      - /app/app/services/__pycache__
 
 volumes:
   mysql_data:
