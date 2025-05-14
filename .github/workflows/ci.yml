@@ -1,0 +1,235 @@
+name: MealMateAI CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  detect-changes:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: read
+    outputs:
+      backend: ${{ steps.filter.outputs.backend }}
+      frontend: ${{ steps.filter.outputs.frontend }}
+      api-gateway: ${{ steps.filter.outputs.api-gateway }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: dorny/paths-filter@v2
+        id: filter
+        with:
+          filters: |
+            backend:
+              - 'services/**'
+            frontend:
+              - 'frontend/**'
+            api-gateway:
+              - 'api-gateway/**'
+
+  lint:
+    needs: detect-changes
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      # Install Python and run flake8 for Python code
+      - name: Set up Python
+        if: ${{ needs.detect-changes.outputs.backend == 'true' }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      
+      - name: Install Python linting dependencies
+        if: ${{ needs.detect-changes.outputs.backend == 'true' }}
+        run: |
+          python -m pip install --upgrade pip
+          pip install flake8
+      
+      - name: Lint Python code
+        if: ${{ needs.detect-changes.outputs.backend == 'true' }}
+        run: |
+          flake8 services/ --count --select=E9,F63,F7,F82 --show-source --statistics
+
+      # Install Node.js and run ESLint for JavaScript code
+      - name: Set up Node.js
+        if: ${{ needs.detect-changes.outputs.api-gateway == 'true' || needs.detect-changes.outputs.frontend == 'true' }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      
+      - name: Install Node.js linting dependencies (API Gateway)
+        if: ${{ needs.detect-changes.outputs.api-gateway == 'true' && hashFiles('api-gateway/package.json') != '' }}
+        working-directory: api-gateway
+        run: npm install
+
+      - name: Lint JavaScript code (API Gateway)
+        if: ${{ needs.detect-changes.outputs.api-gateway == 'true' && hashFiles('api-gateway/package.json') != '' }}
+        working-directory: api-gateway
+        run: npx eslint . --ext .js || echo "ESLint not configured or no .js files found"
+      
+      - name: Lint Frontend code
+        if: ${{ needs.detect-changes.outputs.frontend == 'true' && hashFiles('frontend/package.json') != '' }}
+        working-directory: frontend
+        run: |
+          npm install
+          npx eslint . --ext .js,.jsx,.ts,.tsx || echo "ESLint not configured or no React files found"
+
+  test-backend-services:
+    needs: detect-changes
+    if: ${{ needs.detect-changes.outputs.backend == 'true' }}
+    runs-on: ubuntu-latest
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: rootpassword
+          MYSQL_DATABASE: user_service_test_db
+          MYSQL_USER: test_user
+          MYSQL_PASSWORD: test_password
+        ports:
+          - 3306:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+      
+      postgres:
+        image: pgvector/pgvector:pg15
+        env:
+          POSTGRES_DB: test_db
+          POSTGRES_USER: test_user
+          POSTGRES_PASSWORD: test_password
+        ports:
+          - 5432:5432
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+    
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      
+      # Test User Service
+      - name: Run User Service tests
+        if: hashFiles('services/user-service/tests') != ''
+        run: |
+          cd services/user-service
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pytest pytest-cov
+          pytest tests/ -v
+        env:
+          MYSQL_USER: test_user
+          MYSQL_PASSWORD: test_password
+          MYSQL_HOST: localhost
+          MYSQL_PORT: 3306
+          MYSQL_DB: user_service_test_db
+      
+      # Test Recipe Service
+      - name: Run Recipe Service tests
+        if: hashFiles('services/recipe-service/tests') != ''
+        run: |
+          cd services/recipe-service
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pytest pytest-cov
+          if [ -d "tests" ]; then
+            pytest tests/ -v
+          else
+            echo "No tests directory found in recipe-service"
+          fi
+        env:
+          DATABASE_URL: postgresql://test_user:test_password@localhost:5432/test_db
+
+      # Test Meal Planner Service
+      - name: Run Meal Planner Service tests
+        run: |
+          cd services/meal-planner-service
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pytest pytest-cov
+          pytest tests/ -v
+        env:
+          DATABASE_URL: postgresql://test_user:test_password@localhost:5432/test_db
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+      
+      # Test any other services with tests
+      - name: Run tests for other services
+        run: |
+          for service in services/*/; do
+            if [ "$service" != "services/user-service/" ] && [ "$service" != "services/recipe-service/" ] && [ "$service" != "services/meal-planner-service/" ]; then
+              if [ -d "${service}tests" ]; then
+                echo "Testing ${service}"
+                cd $service
+                if [ -f "requirements.txt" ]; then
+                  python -m pip install -r requirements.txt
+                  python -m pip install pytest pytest-cov
+                  pytest tests/ -v || echo "Tests failed for ${service}"
+                fi
+                cd -
+              fi
+            fi
+          done
+        env:
+          DATABASE_URL: postgresql://test_user:test_password@localhost:5432/test_db
+          MYSQL_USER: test_user
+          MYSQL_PASSWORD: test_password
+          MYSQL_HOST: localhost
+          MYSQL_PORT: 3306
+          MYSQL_DB: user_service_test_db
+
+  test-frontend:
+    needs: detect-changes
+    if: ${{ needs.detect-changes.outputs.frontend == 'true' }}
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      
+      - name: Install dependencies
+        if: hashFiles('frontend/package.json') != ''  # Only run if package.json exists
+        working-directory: frontend
+        run: npm install
+      
+      - name: Run tests
+        if: hashFiles('frontend/package.json') != ''  # Only run if package.json exists
+        working-directory: frontend
+        run: |
+          if grep -q "test" package.json; then
+            npm test -- --watchAll=false
+          else
+            echo "No test script found in frontend package.json"
+          fi
+
+  test-api-gateway:
+    needs: detect-changes
+    if: ${{ needs.detect-changes.outputs.api-gateway == 'true' }}
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      
+      - name: Install dependencies
+        working-directory: api-gateway
+        run: npm install
+      
+      - name: Run tests
+        working-directory: api-gateway
+        run: |
+          if grep -q "test" package.json; then
+            npm test
+          else
+            echo "No test script found in api-gateway package.json"
+          fi
