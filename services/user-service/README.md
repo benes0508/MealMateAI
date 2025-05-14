@@ -107,7 +107,7 @@ The User Service is a core microservice of the MealMateAI platform that handles 
 ## Setup and Installation
 
 ### Prerequisites
-- Docker and Docker Compose
+- Docker and Docker Compose (for Docker-based setup)
 - Python 3.11+ (for local development)
 
 ### Environment Variables
@@ -132,8 +132,33 @@ To run only the user service and its dependencies:
 docker-compose up --build user-service mysql
 ```
 
+### Running Locally Without Docker
+For easy local development without Docker, use the provided script:
+
+```bash
+# Create a virtual environment
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Run the service with SQLite (easiest for local development)
+python run_local.py
+
+# Or run with MySQL if you have a local MySQL server
+python run_local.py --db mysql
+```
+
+This will start the service on http://localhost:8000 with API documentation available at http://localhost:8000/docs.
+
+The local development script (`run_local.py`) automatically:
+1. Sets up environment variables
+2. Configures the database (SQLite by default for easy local development)
+3. Starts the FastAPI server with hot-reload enabled
+
 ### Local Development Setup
-For local development without Docker:
+For manual local development setup:
 
 ```bash
 # Create a virtual environment
