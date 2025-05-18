@@ -1,8 +1,17 @@
 # api-gateway/Dockerfile
 FROM node:18-alpine
+
 WORKDIR /app
+
+# Copy package files and install dependencies
 COPY package*.json ./
-RUN npm install --production
+RUN npm ci --only=production
+
+# Copy app source code
 COPY . .
+
+# Expose the port the app will run on
 EXPOSE 4000
-CMD ["node", "src/index.js"]
+
+# Start the application
+CMD ["npm", "start"]
