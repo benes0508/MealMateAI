@@ -19,6 +19,82 @@ The User Service is a core microservice of the MealMateAI platform that handles 
 - **Docker**: Containerization
 - **Passlib**: Password hashing and verification
 
+## System Architecture
+
+### Block Diagram
+
+```
+┌─────────────────┐     ┌───────────────────────────────────────────────────────────────────────┐
+│                 │     │                                                                       │
+│    Frontend     │◄────┤                           API Gateway                                 │
+│  (React App)    │     │                          (Express.js)                                 │
+│                 │     │                                                                       │
+└────────┬────────┘     └───────┬────────────────────┬────────────────────┬────────────────────┘
+         │                      │                    │                    │                     
+         │                      │                    │                    │                     
+         │                      ▼                    ▼                    ▼                     
+         │        ┌─────────────────────┐  ┌─────────────────────┐ ┌─────────────────────┐     
+         │        │                     │  │                     │ │                     │     
+         └───────►│    User Service     │  │   Recipe Service    │ │  Meal-Planner       │     
+                  │    (FastAPI)        │  │   (FastAPI)         │ │  Service (FastAPI)  │     
+                  │                     │  │                     │ │                     │     
+                  └────────┬────────────┘  └────────┬────────────┘ └─────────┬───────────┘     
+                           │                        │                        │                  
+                           │                        │                        │                  
+                           ▼                        ▼                        ▼                  
+                  ┌─────────────────────┐  ┌─────────────────────┐  ┌─────────────────────┐    
+                  │                     │  │                     │  │                     │    
+                  │    User Database    │  │   Recipe Database   │  │   Meal Plans DB     │    
+                  │      (MySQL)        │  │     (Planned)       │  │     (Planned)       │    
+                  │                     │  │                     │  │                     │    
+                  └─────────────────────┘  └─────────────────────┘  └─────────────────────┘    
+                                                                                               
+                                           ┌─────────────────────┐                             
+                                           │                     │                             
+                                           │  Notification       │                             
+                                           │  Service (FastAPI)  │                             
+                                           │                     │                             
+                                           └─────────┬───────────┘                             
+                                                     │                                          
+                                                     │                                          
+                                                     ▼                                          
+                                           ┌─────────────────────┐                             
+                                           │                     │                             
+                                           │ Notification DB     │                             
+                                           │    (Planned)        │                             
+                                           │                     │                             
+                                           └─────────────────────┘                             
+```
+
+### Communication Flow
+
+1. **Client-to-Server Communication**:
+   - The React frontend communicates with the API Gateway via RESTful HTTP requests
+   - The API Gateway authenticates requests and routes them to the appropriate microservice
+
+2. **Inter-Service Communication**:
+   - **User Service** serves as an identity provider and manages user profiles
+     - Exposes `/api/users/` endpoints for user management
+     - Stores user data including dietary preferences in MySQL
+   - **Recipe Service** (planned) will handle recipe storage and retrieval
+     - Will communicate with User Service to get user preferences for personalization
+   - **Meal Planner Service** (planned) will generate meal plans
+     - Will communicate with Recipe Service to get recipe details
+     - Will communicate with User Service to get user preferences
+   - **Notification Service** (planned) will handle email notifications
+     - Will communicate with User Service to get user contact information
+     - Will communicate with Meal Planner Service to get scheduled meal information
+
+3. **Data Storage**:
+   - Each service maintains its own dedicated database
+   - User Service: MySQL database for user information
+   - Other services will have their own dedicated databases (not yet implemented)
+
+4. **Authentication Flow**:
+   - Authentication happens via the User Service
+   - JWT tokens are issued to authenticated clients
+   - API Gateway validates tokens for protected routes
+
 ## API Endpoints
 
 ### User Management
@@ -31,7 +107,7 @@ The User Service is a core microservice of the MealMateAI platform that handles 
 ## Setup and Installation
 
 ### Prerequisites
-- Docker and Docker Compose
+- Docker and Docker Compose (for Docker-based setup)
 - Python 3.11+ (for local development)
 
 ### Environment Variables
@@ -56,8 +132,33 @@ To run only the user service and its dependencies:
 docker-compose up --build user-service mysql
 ```
 
+### Running Locally Without Docker
+For easy local development without Docker, use the provided script:
+
+```bash
+# Create a virtual environment
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Run the service with SQLite (easiest for local development)
+python run_local.py
+
+# Or run with MySQL if you have a local MySQL server
+python run_local.py --db mysql
+```
+
+This will start the service on http://localhost:8000 with API documentation available at http://localhost:8000/docs.
+
+The local development script (`run_local.py`) automatically:
+1. Sets up environment variables
+2. Configures the database (SQLite by default for easy local development)
+3. Starts the FastAPI server with hot-reload enabled
+
 ### Local Development Setup
-For local development without Docker:
+For manual local development setup:
 
 ```bash
 # Create a virtual environment

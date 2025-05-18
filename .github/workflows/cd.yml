@@ -1,0 +1,139 @@
+name: MealMateAI CD
+
+on:
+  workflow_dispatch:
+    inputs:
+      deploy_user_service:
+        description: 'Deploy User Service'
+        type: boolean
+        default: false
+      deploy_recipe_service:
+        description: 'Deploy Recipe Service'
+        type: boolean
+        default: false
+      deploy_meal_planner_service:
+        description: 'Deploy Meal Planner Service'
+        type: boolean
+        default: false
+      deploy_api_gateway:
+        description: 'Deploy API Gateway'
+        type: boolean
+        default: false
+      deploy_frontend:
+        description: 'Deploy Frontend'
+        type: boolean
+        default: false
+      environment:
+        description: 'Environment to deploy to'
+        type: choice
+        options:
+          - development
+          - staging
+          - production
+        default: 'development'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+      
+      - name: Login to DockerHub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      
+      # User Service
+      - name: Build and push User Service
+        if: ${{ inputs.deploy_user_service }}
+        uses: docker/build-push-action@v4
+        with:
+          context: ./services/user-service
+          push: true
+          tags: |
+            ${{ secrets.DOCKERHUB_USERNAME }}/mealmate-user-service:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/mealmate-user-service:${{ inputs.environment }}
+      
+      # Recipe Service
+      - name: Build and push Recipe Service
+        if: ${{ inputs.deploy_recipe_service }}
+        uses: docker/build-push-action@v4
+        with:
+          context: ./services/recipe-service
+          push: true
+          tags: |
+            ${{ secrets.DOCKERHUB_USERNAME }}/mealmate-recipe-service:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/mealmate-recipe-service:${{ inputs.environment }}
+      
+      # Meal Planner Service
+      - name: Build and push Meal Planner Service
+        if: ${{ inputs.deploy_meal_planner_service }}
+        uses: docker/build-push-action@v4
+        with:
+          context: ./services/meal-planner-service
+          push: true
+          tags: |
+            ${{ secrets.DOCKERHUB_USERNAME }}/mealmate-meal-planner-service:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/mealmate-meal-planner-service:${{ inputs.environment }}
+      
+      # API Gateway
+      - name: Build and push API Gateway
+        if: ${{ inputs.deploy_api_gateway }}
+        uses: docker/build-push-action@v4
+        with:
+          context: ./api-gateway
+          push: true
+          tags: |
+            ${{ secrets.DOCKERHUB_USERNAME }}/mealmate-api-gateway:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/mealmate-api-gateway:${{ inputs.environment }}
+      
+      # Frontend
+      - name: Build and push Frontend
+        if: ${{ inputs.deploy_frontend }}
+        uses: docker/build-push-action@v4
+        with:
+          context: ./frontend
+          push: true
+          tags: |
+            ${{ secrets.DOCKERHUB_USERNAME }}/mealmate-frontend:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/mealmate-frontend:${{ inputs.environment }}
+      
+      # Deploy to server based on selected environment
+      - name: Deploy to server
+        if: ${{ inputs.deploy_user_service || inputs.deploy_recipe_service || inputs.deploy_meal_planner_service || inputs.deploy_api_gateway || inputs.deploy_frontend }}
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            cd /path/to/${{ inputs.environment }}/deployment
+            
+            # Pull only the services that were selected for deployment
+            if ${{ inputs.deploy_user_service }}; then
+              docker pull ${{ secrets.DOCKERHUB_USERNAME }}/mealmate-user-service:${{ inputs.environment }}
+            fi
+            
+            if ${{ inputs.deploy_recipe_service }}; then
+              docker pull ${{ secrets.DOCKERHUB_USERNAME }}/mealmate-recipe-service:${{ inputs.environment }}
+            fi
+            
+            if ${{ inputs.deploy_meal_planner_service }}; then
+              docker pull ${{ secrets.DOCKERHUB_USERNAME }}/mealmate-meal-planner-service:${{ inputs.environment }}
+            fi
+            
+            if ${{ inputs.deploy_api_gateway }}; then
+              docker pull ${{ secrets.DOCKERHUB_USERNAME }}/mealmate-api-gateway:${{ inputs.environment }}
+            fi
+            
+            if ${{ inputs.deploy_frontend }}; then
+              docker pull ${{ secrets.DOCKERHUB_USERNAME }}/mealmate-frontend:${{ inputs.environment }}
+            fi
+            
+            # Update the docker-compose.yml file with environment-specific configurations
+            # and restart the affected services
+            docker-compose up -d
