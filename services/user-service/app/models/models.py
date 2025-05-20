@@ -1,4 +1,5 @@
 from sqlalchemy import Column, Integer, String, Boolean, DateTime
+from sqlalchemy.dialects.mysql import JSON
 from sqlalchemy.sql import func
 from app.database import Base
 
@@ -14,3 +15,7 @@ class User(Base):
     is_admin = Column(Boolean, default=False)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     updated_at = Column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now())
+    allergies = Column(JSON, nullable=False, server_default='[]')
+    disliked_ingredients = Column(JSON, nullable=False, server_default='[]')
+    preferred_cuisines = Column(JSON, nullable=False, server_default='[]')
+    preferences = Column(JSON, nullable=False, server_default='{}')

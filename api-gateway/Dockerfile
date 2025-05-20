@@ -3,9 +3,12 @@ FROM node:18-alpine
 
 WORKDIR /app
 
-# Copy package files and install dependencies
+# Copy package files
 COPY package*.json ./
-RUN npm ci --only=production
+
+# Install dependencies
+# Removed --production flag to ensure all dependencies including dev dependencies are installed
+RUN npm install
 
 # Copy app source code
 COPY . .
