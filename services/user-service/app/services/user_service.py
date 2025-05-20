@@ -31,7 +31,11 @@ class UserService:
             email=user_data.email,
             username=user_data.username,
             password=user_data.password,
-            full_name=user_data.full_name
+            full_name=user_data.full_name,
+            allergies=user_data.allergies,
+            disliked_ingredients=user_data.disliked_ingredients,
+            preferred_cuisines=user_data.preferred_cuisines,
+            preferences=user_data.preferences
         )
     
     def update_user(self, user_id: int, user_data: UserUpdate) -> Optional[Dict[str, Any]]:
@@ -41,6 +45,23 @@ class UserService:
         # If there are no fields to update, return None
         if not update_data:
             return None
+            
+        return self.repository.update_user(user_id, update_data)
+    
+    def update_user_preferences(self, user_id: int, 
+                              allergies: Optional[List[str]] = None,
+                              disliked_ingredients: Optional[List[str]] = None,
+                              preferred_cuisines: Optional[List[str]] = None,
+                              preferences: Optional[Dict] = None) -> Optional[Dict[str, Any]]:
+        update_data = {}
+        if allergies is not None:
+            update_data['allergies'] = allergies
+        if disliked_ingredients is not None:
+            update_data['disliked_ingredients'] = disliked_ingredients
+        if preferred_cuisines is not None:
+            update_data['preferred_cuisines'] = preferred_cuisines
+        if preferences is not None:
+            update_data['preferences'] = preferences
             
         return self.repository.update_user(user_id, update_data)
     

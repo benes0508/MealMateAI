@@ -34,6 +34,23 @@ def update_user(user_id: int, user_data: schemas.UserUpdate, db: Session = Depen
         raise HTTPException(status_code=404, detail="User not found")
     return user
 
+@router.put("/{user_id}/preferences", response_model=schemas.UserResponse)
+def update_user_preferences(
+    user_id: int,
+    preferences: schemas.UserPreferencesUpdate,
+    db: Session = Depends(get_db)
+):
+    user = UserService(db).update_user_preferences(
+        user_id,
+        allergies=preferences.allergies,
+        disliked_ingredients=preferences.disliked_ingredients,
+        preferred_cuisines=preferences.preferred_cuisines,
+        preferences=preferences.preferences
+    )
+    if user is None:
+        raise HTTPException(status_code=404, detail="User not found")
+    return user
+
 @router.delete("/{user_id}", status_code=status.HTTP_204_NO_CONTENT)
 def delete_user(user_id: int, db: Session = Depends(get_db)):
     deleted = UserService(db).delete_user(user_id)
@@ -50,5 +67,4 @@ def login(username: str, password: str, db: Session = Depends(get_db)):
             detail="Incorrect username or password",
             headers={"WWW-Authenticate": "Bearer"},
         )
-    # In a real application, you'd generate a JWT token here
-    return {"message": "Login successful"}
+    return {"message": "Login successful", "user": user}

@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
 from sqlalchemy.exc import IntegrityError
-from typing import List, Optional
+from typing import List, Optional, Dict, Any
 from app.models.models import User
 from passlib.context import CryptContext
 
@@ -23,13 +23,19 @@ class UserRepository:
     def get_user_by_username(self, username: str) -> Optional[User]:
         return self.db.query(User).filter(User.username == username).first()
     
-    def create_user(self, email: str, username: str, password: str, full_name: str = None) -> User:
+    def create_user(self, email: str, username: str, password: str, full_name: str = None,
+                   allergies: List[str] = None, disliked_ingredients: List[str] = None,
+                   preferred_cuisines: List[str] = None, preferences: Dict = None) -> User:
         hashed_password = pwd_context.hash(password)
         user = User(
             email=email,
             username=username,
             hashed_password=hashed_password,
-            full_name=full_name
+            full_name=full_name,
+            allergies=allergies or [],
+            disliked_ingredients=disliked_ingredients or [],
+            preferred_cuisines=preferred_cuisines or [],
+            preferences=preferences or {}
         )
         
         try:
@@ -41,7 +47,7 @@ class UserRepository:
             self.db.rollback()
             raise ValueError("User with this email or username already exists")
     
-    def update_user(self, user_id: int, user_data: dict) -> Optional[User]:
+    def update_user(self, user_id: int, user_data: Dict[str, Any]) -> Optional[User]:
         user = self.get_user_by_id(user_id)
         if not user:
             return None
