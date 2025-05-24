@@ -17,12 +17,15 @@ const notificationsRoutes = require('./routes/notifications');
 
 const app = express();
 
+// Trust proxy - important when running behind Nginx
+app.set('trust proxy', 1);
+
 // Apply security middleware
 app.use(helmet());
 
-// Configure CORS
+// Configure CORS to allow requests from the frontend container
 app.use(cors({
-  origin: config.CORS_ORIGIN || '*', // in production, restrict to your frontend domain
+  origin: ['http://localhost', 'http://frontend', 'http://localhost:80'],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));

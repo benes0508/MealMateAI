@@ -36,7 +36,7 @@ import {
   VisibilityOff as VisibilityOffIcon
 } from '@mui/icons-material';
 import { useAuth } from '../context/AuthContext';
-import authService, { UserPreferences, UpdateProfileData } from '../services/authService';
+import authService from '../services/authService';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -62,6 +62,24 @@ function TabPanel(props: TabPanelProps) {
       )}
     </div>
   );
+}
+
+interface UserPreferences {
+  allergies: string[];
+  disliked_ingredients: string[];
+  preferred_cuisines: string[];
+  preferences: {
+    dietary_restrictions?: string[];
+    cooking_skill?: string;
+    meal_prep_time?: string;
+  };
+}
+
+interface UpdateProfileData {
+  name?: string;
+  email?: string;
+  current_password?: string;
+  new_password?: string;
 }
 
 const UserProfile = () => {
@@ -90,26 +108,20 @@ const UserProfile = () => {
 
   // Preferences state
   const [preferences, setPreferences] = useState<UserPreferences>({
-    dietaryRestrictions: {
-      vegetarian: false,
-      vegan: false,
-      glutenFree: false,
-      dairyFree: false,
-      nutFree: false,
-      keto: false,
-      paleo: false
-    },
     allergies: [],
-    dislikedIngredients: [],
-    favoriteIngredients: [],
-    calorieTarget: '2000',
-    cookingSkill: 'intermediate'
+    disliked_ingredients: [],
+    preferred_cuisines: [],
+    preferences: {
+      dietary_restrictions: [],
+      cooking_skill: 'intermediate',
+      meal_prep_time: '30-60min'
+    }
   });
 
   // New ingredient input states
   const [newAllergy, setNewAllergy] = useState('');
   const [newDislikedIngredient, setNewDislikedIngredient] = useState('');
-  const [newFavoriteIngredient, setNewFavoriteIngredient] = useState('');
+  const [newPreferredCuisine, setNewPreferredCuisine] = useState('');
 
   useEffect(() => {
     if (!user) {
@@ -133,7 +145,16 @@ const UserProfile = () => {
         });
         
         // Set preferences
-        setPreferences(data.preferences);
+        setPreferences({
+          allergies: data.preferences.allergies || [],
+          disliked_ingredients: data.preferences.disliked_ingredients || [],
+          preferred_cuisines: data.preferences.preferred_cuisines || [],
+          preferences: data.preferences.preferences || {
+            dietary_restrictions: [],
+            cooking_skill: 'intermediate',
+            meal_prep_time: '30-60min'
+          }
+        });
         
       } catch (err) {
         console.error('Failed to fetch user profile:', err);
@@ -161,23 +182,39 @@ const UserProfile = () => {
   };
 
   // Handle dietary restriction changes
-  const handleDietaryChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, checked } = e.target;
-    setPreferences(prev => ({
-      ...prev,
-      dietaryRestrictions: {
-        ...prev.dietaryRestrictions,
-        [name]: checked
+  const handleDietaryChange = (restriction: string) => (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { checked } = e.target;
+    setPreferences(prev => {
+      const currentRestrictions = prev.preferences.dietary_restrictions || [];
+      
+      let updatedRestrictions;
+      if (checked) {
+        updatedRestrictions = [...currentRestrictions, restriction];
+      } else {
+        updatedRestrictions = currentRestrictions.filter(item => item !== restriction);
       }
-    }));
+      
+      return {
+        ...prev,
+        preferences: {
+          ...prev.preferences,
+          dietary_restrictions: updatedRestrictions
+        }
+      };
+    });
   };
 
-  // Handle calorie target and cooking skill changes
-  const handlePreferenceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  // Handle cooking skill and meal prep time changes
+  const handlePreferenceChange = (e: React.ChangeEvent<HTMLInputElement | { name?: string; value: unknown }>) => {
     const { name, value } = e.target;
+    if (!name) return;
+    
     setPreferences(prev => ({
       ...prev,
-      [name]: value
+      preferences: {
+        ...prev.preferences,
+        [name]: value as string
+      }
     }));
   };
 
@@ -200,21 +237,21 @@ const UserProfile = () => {
     
     setPreferences(prev => ({
       ...prev,
-      dislikedIngredients: [...prev.dislikedIngredients, newDislikedIngredient.trim()]
+      disliked_ingredients: [...prev.disliked_ingredients, newDislikedIngredient.trim()]
     }));
     setNewDislikedIngredient('');
   };
 
-  // Add a new favorite ingredient
-  const handleAddFavoriteIngredient = (e: React.FormEvent) => {
+  // Add a new preferred cuisine
+  const handleAddPreferredCuisine = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!newFavoriteIngredient.trim()) return;
+    if (!newPreferredCuisine.trim()) return;
     
     setPreferences(prev => ({
       ...prev,
-      favoriteIngredients: [...prev.favoriteIngredients, newFavoriteIngredient.trim()]
+      preferred_cuisines: [...prev.preferred_cuisines, newPreferredCuisine.trim()]
     }));
-    setNewFavoriteIngredient('');
+    setNewPreferredCuisine('');
   };
 
   // Remove an allergy
@@ -229,15 +266,15 @@ const UserProfile = () => {
   const handleRemoveDislikedIngredient = (ingredient: string) => {
     setPreferences(prev => ({
       ...prev,
-      dislikedIngredients: prev.dislikedIngredients.filter(i => i !== ingredient)
+      disliked_ingredients: prev.disliked_ingredients.filter(i => i !== ingredient)
     }));
   };
 
-  // Remove a favorite ingredient
-  const handleRemoveFavoriteIngredient = (ingredient: string) => {
+  // Remove a preferred cuisine
+  const handleRemovePreferredCuisine = (cuisine: string) => {
     setPreferences(prev => ({
       ...prev,
-      favoriteIngredients: prev.favoriteIngredients.filter(i => i !== ingredient)
+      preferred_cuisines: prev.preferred_cuisines.filter(c => c !== cuisine)
     }));
   };
 
@@ -320,8 +357,7 @@ const UserProfile = () => {
   // Delete account handler
   const handleDeleteAccount = async () => {
     try {
-      // Implement account deletion logic here
-      // await authService.deleteAccount(user!.id);
+      await authService.deleteAccount(user!.id);
       authService.logout();
       navigate('/login');
     } catch (err) {
@@ -339,6 +375,11 @@ const UserProfile = () => {
       </Box>
     );
   }
+
+  // Is restriction selected
+  const isRestrictionSelected = (restriction: string): boolean => {
+    return (preferences.preferences.dietary_restrictions || []).includes(restriction);
+  };
 
   return (
     <Container maxWidth="md" sx={{ mt: 4, mb: 8 }}>
@@ -362,7 +403,7 @@ const UserProfile = () => {
         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
           <Tabs value={activeTab} onChange={handleTabChange} aria-label="profile tabs">
             <Tab label="Account Settings" />
-            <Tab label="Preferences" />
+            <Tab label="Food Preferences" />
           </Tabs>
         </Box>
         
@@ -495,8 +536,8 @@ const UserProfile = () => {
                         <FormControlLabel
                           control={
                             <Checkbox
-                              checked={preferences.dietaryRestrictions.vegetarian}
-                              onChange={handleDietaryChange}
+                              checked={isRestrictionSelected('vegetarian')}
+                              onChange={handleDietaryChange('vegetarian')}
                               name="vegetarian"
                             />
                           }
@@ -507,8 +548,8 @@ const UserProfile = () => {
                         <FormControlLabel
                           control={
                             <Checkbox
-                              checked={preferences.dietaryRestrictions.vegan}
-                              onChange={handleDietaryChange}
+                              checked={isRestrictionSelected('vegan')}
+                              onChange={handleDietaryChange('vegan')}
                               name="vegan"
                             />
                           }
@@ -519,9 +560,9 @@ const UserProfile = () => {
                         <FormControlLabel
                           control={
                             <Checkbox
-                              checked={preferences.dietaryRestrictions.glutenFree}
-                              onChange={handleDietaryChange}
-                              name="glutenFree"
+                              checked={isRestrictionSelected('gluten-free')}
+                              onChange={handleDietaryChange('gluten-free')}
+                              name="gluten-free"
                             />
                           }
                           label="Gluten-Free"
@@ -531,9 +572,9 @@ const UserProfile = () => {
                         <FormControlLabel
                           control={
                             <Checkbox
-                              checked={preferences.dietaryRestrictions.dairyFree}
-                              onChange={handleDietaryChange}
-                              name="dairyFree"
+                              checked={isRestrictionSelected('dairy-free')}
+                              onChange={handleDietaryChange('dairy-free')}
+                              name="dairy-free"
                             />
                           }
                           label="Dairy-Free"
@@ -543,9 +584,9 @@ const UserProfile = () => {
                         <FormControlLabel
                           control={
                             <Checkbox
-                              checked={preferences.dietaryRestrictions.nutFree}
-                              onChange={handleDietaryChange}
-                              name="nutFree"
+                              checked={isRestrictionSelected('nut-free')}
+                              onChange={handleDietaryChange('nut-free')}
+                              name="nut-free"
                             />
                           }
                           label="Nut-Free"
@@ -555,8 +596,8 @@ const UserProfile = () => {
                         <FormControlLabel
                           control={
                             <Checkbox
-                              checked={preferences.dietaryRestrictions.keto}
-                              onChange={handleDietaryChange}
+                              checked={isRestrictionSelected('keto')}
+                              onChange={handleDietaryChange('keto')}
                               name="keto"
                             />
                           }
@@ -567,8 +608,8 @@ const UserProfile = () => {
                         <FormControlLabel
                           control={
                             <Checkbox
-                              checked={preferences.dietaryRestrictions.paleo}
-                              onChange={handleDietaryChange}
+                              checked={isRestrictionSelected('paleo')}
+                              onChange={handleDietaryChange('paleo')}
                               name="paleo"
                             />
                           }
@@ -586,25 +627,11 @@ const UserProfile = () => {
 
               <Grid item xs={12} sm={6}>
                 <TextField
-                  name="calorieTarget"
-                  label="Daily Calorie Target"
-                  type="number"
-                  fullWidth
-                  value={preferences.calorieTarget}
-                  onChange={handlePreferenceChange}
-                  InputProps={{
-                    endAdornment: <InputAdornment position="end">kcal</InputAdornment>
-                  }}
-                />
-              </Grid>
-              
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  name="cookingSkill"
+                  name="cooking_skill"
                   label="Cooking Skill Level"
                   select
                   fullWidth
-                  value={preferences.cookingSkill}
+                  value={preferences.preferences.cooking_skill || 'intermediate'}
                   onChange={handlePreferenceChange}
                   SelectProps={{
                     native: true
@@ -613,6 +640,25 @@ const UserProfile = () => {
                   <option value="beginner">Beginner</option>
                   <option value="intermediate">Intermediate</option>
                   <option value="advanced">Advanced</option>
+                </TextField>
+              </Grid>
+              
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  name="meal_prep_time"
+                  label="Preferred Meal Prep Time"
+                  select
+                  fullWidth
+                  value={preferences.preferences.meal_prep_time || '30-60min'}
+                  onChange={handlePreferenceChange}
+                  SelectProps={{
+                    native: true
+                  }}
+                >
+                  <option value="under-15min">Under 15 minutes</option>
+                  <option value="15-30min">15-30 minutes</option>
+                  <option value="30-60min">30-60 minutes</option>
+                  <option value="over-60min">Over 60 minutes</option>
                 </TextField>
               </Grid>
               
@@ -647,15 +693,21 @@ const UserProfile = () => {
                 </Box>
                 
                 <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
-                  {preferences.allergies.map((allergy, index) => (
-                    <Chip
-                      key={index}
-                      label={allergy}
-                      onDelete={() => handleRemoveAllergy(allergy)}
-                      color="primary"
-                      variant="outlined"
-                    />
-                  ))}
+                  {preferences.allergies.length > 0 ? (
+                    preferences.allergies.map((allergy, index) => (
+                      <Chip
+                        key={index}
+                        label={allergy}
+                        onDelete={() => handleRemoveAllergy(allergy)}
+                        color="primary"
+                        variant="outlined"
+                      />
+                    ))
+                  ) : (
+                    <Typography variant="body2" color="text.secondary">
+                      No allergies added.
+                    </Typography>
+                  )}
                 </Box>
               </Grid>
               
@@ -686,29 +738,35 @@ const UserProfile = () => {
                 </Box>
                 
                 <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
-                  {preferences.dislikedIngredients.map((ingredient, index) => (
-                    <Chip
-                      key={index}
-                      label={ingredient}
-                      onDelete={() => handleRemoveDislikedIngredient(ingredient)}
-                      color="primary"
-                      variant="outlined"
-                    />
-                  ))}
+                  {preferences.disliked_ingredients.length > 0 ? (
+                    preferences.disliked_ingredients.map((ingredient, index) => (
+                      <Chip
+                        key={index}
+                        label={ingredient}
+                        onDelete={() => handleRemoveDislikedIngredient(ingredient)}
+                        color="primary"
+                        variant="outlined"
+                      />
+                    ))
+                  ) : (
+                    <Typography variant="body2" color="text.secondary">
+                      No disliked ingredients added.
+                    </Typography>
+                  )}
                 </Box>
               </Grid>
               
-              {/* Favorite Ingredients Section */}
+              {/* Preferred Cuisines Section */}
               <Grid item xs={12}>
                 <Typography variant="subtitle1" gutterBottom>
-                  Favorite Ingredients
+                  Preferred Cuisines
                 </Typography>
                 
-                <Box component="form" onSubmit={handleAddFavoriteIngredient} sx={{ display: 'flex', mb: 2 }}>
+                <Box component="form" onSubmit={handleAddPreferredCuisine} sx={{ display: 'flex', mb: 2 }}>
                   <TextField 
-                    value={newFavoriteIngredient}
-                    onChange={(e) => setNewFavoriteIngredient(e.target.value)}
-                    placeholder="Add a favorite ingredient"
+                    value={newPreferredCuisine}
+                    onChange={(e) => setNewPreferredCuisine(e.target.value)}
+                    placeholder="Add a preferred cuisine"
                     fullWidth
                     size="small"
                     variant="outlined"
@@ -718,22 +776,28 @@ const UserProfile = () => {
                     variant="contained" 
                     startIcon={<AddIcon />} 
                     sx={{ ml: 1 }}
-                    disabled={!newFavoriteIngredient.trim()}
+                    disabled={!newPreferredCuisine.trim()}
                   >
                     Add
                   </Button>
                 </Box>
                 
                 <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
-                  {preferences.favoriteIngredients.map((ingredient, index) => (
-                    <Chip
-                      key={index}
-                      label={ingredient}
-                      onDelete={() => handleRemoveFavoriteIngredient(ingredient)}
-                      color="primary"
-                      variant="outlined"
-                    />
-                  ))}
+                  {preferences.preferred_cuisines.length > 0 ? (
+                    preferences.preferred_cuisines.map((cuisine, index) => (
+                      <Chip
+                        key={index}
+                        label={cuisine}
+                        onDelete={() => handleRemovePreferredCuisine(cuisine)}
+                        color="primary"
+                        variant="outlined"
+                      />
+                    ))
+                  ) : (
+                    <Typography variant="body2" color="text.secondary">
+                      No preferred cuisines added.
+                    </Typography>
+                  )}
                 </Box>
               </Grid>
               
