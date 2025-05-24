@@ -20,7 +20,7 @@ const createServiceProxy = (serviceName) => {
   switch (serviceName) {
     case 'users':
       target = USER_SERVICE_URL;
-      pathRewrite = { '^/api/users': '' }; // Rewrite /api/users to / for user service
+      // No path rewrite for user service
       break;
     case 'recipes':
       target = RECIPE_SERVICE_URL;
@@ -42,28 +42,69 @@ const createServiceProxy = (serviceName) => {
     target,
     changeOrigin: true,
     pathRewrite,
-    logLevel: 'silent', // Options: 'debug', 'info', 'warn', 'error', 'silent'
+    logLevel: 'debug',
+    timeout: 30000,
+    proxyTimeout: 30000,
     onError: (err, req, res) => {
-      console.error(`Proxy error for ${serviceName} service:`, err);
-      res.status(500).json({
+      console.error(`[PROXY ERROR] ${serviceName} service error:`, err);
+      console.error(`[PROXY ERROR] Request details: ${req.method} ${req.originalUrl} -> ${target}${req.path}`);
+      console.error(`[PROXY ERROR] Headers:`, req.headers);
+      
+      res.status(502).json({
         message: `Service ${serviceName} is currently unavailable`,
         error: process.env.NODE_ENV === 'production' ? undefined : err.message
       });
     },
     onProxyReq: (proxyReq, req, res) => {
-      // Add custom headers or modify the proxy request if needed
+      // Log full request details
+      console.log(`[PROXY REQUEST] --------------------------------------------------------`);
+      console.log(`[PROXY REQUEST] ${req.method} ${req.originalUrl} -> ${target}${req.path}`);
+      console.log(`[PROXY REQUEST] Headers:`, JSON.stringify(req.headers));
+      
+      // Log request body for debugging if it's a POST/PUT
+      if (req.body && (req.method === 'POST' || req.method === 'PUT')) {
+        const bodyData = JSON.stringify(req.body);
+        console.log(`[PROXY REQUEST] Body: ${bodyData}`);
+        
+        // Need to rewrite body to the proxied request since we've already read it
+        proxyReq.setHeader('Content-Length', Buffer.byteLength(bodyData));
+        proxyReq.write(bodyData);
+        proxyReq.end();
+      }
+      
       if (req.user) {
-        // Pass user ID to microservices for authorization
         proxyReq.setHeader('X-User-ID', req.user.id);
         proxyReq.setHeader('X-User-Role', req.user.role || 'user');
       }
       
-      // Log request
-      console.log(`Proxying ${req.method} ${req.path} to ${serviceName} service`);
+      // Log the full target URL
+      console.log(`[PROXY REQUEST] Full target URL: ${target}${req.path}`);
     },
     onProxyRes: (proxyRes, req, res) => {
-      // Modify the proxy response if needed
-      // For example, add custom headers or log response metrics
+      console.log(`[PROXY RESPONSE] --------------------------------------------------------`);
+      console.log(`[PROXY RESPONSE] ${proxyRes.statusCode} ${proxyRes.statusMessage} for ${req.method} ${req.originalUrl}`);
+      console.log(`[PROXY RESPONSE] Headers:`, JSON.stringify(proxyRes.headers));
+      
+      // Collect response body for logging
+      let responseBody = '';
+      proxyRes.on('data', (chunk) => {
+        responseBody += chunk;
+      });
+      
+      proxyRes.on('end', () => {
+        try {
+          // Try to parse as JSON for better logging
+          const parsedBody = JSON.parse(responseBody);
+          console.log(`[PROXY RESPONSE] Body: `, JSON.stringify(parsedBody));
+        } catch (e) {
+          // If not JSON or too large, log truncated
+          if (responseBody.length > 300) {
+            console.log(`[PROXY RESPONSE] Body (truncated): ${responseBody.substring(0, 300)}...`);
+          } else {
+            console.log(`[PROXY RESPONSE] Body: ${responseBody}`);
+          }
+        }
+      });
     }
   });
 };

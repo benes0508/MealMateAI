@@ -16,8 +16,10 @@ import Recipes from './pages/Recipes';
 import RecipeDetail from './pages/RecipeDetail';
 import MealPlanner from './pages/MealPlanner';
 import UserProfile from './pages/UserProfile';
+import UserSpace from './pages/UserSpace';
 import NotFound from './pages/NotFound';
 import ProtectedRoute from './components/ProtectedRoute';
+import PreferenceSetup from './components/PreferenceSetup';
 
 function App() {
   const { theme } = useTheme();
@@ -63,6 +65,22 @@ function App() {
             element={
               <ProtectedRoute>
                 <UserProfile />
+              </ProtectedRoute>
+            } 
+          />
+          <Route 
+            path="/user-space" 
+            element={
+              <ProtectedRoute>
+                <UserSpace />
+              </ProtectedRoute>
+            } 
+          />
+          <Route 
+            path="/preference-setup" 
+            element={
+              <ProtectedRoute>
+                <PreferenceSetup />
               </ProtectedRoute>
             } 
           />

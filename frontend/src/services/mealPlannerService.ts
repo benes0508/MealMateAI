@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:8000/api/meal-plans';
+const API_URL = 'http://api-gateway:4000/api/meal-plans';
 
 export interface MealPlanResponse {
   day: string;
@@ -23,6 +23,22 @@ export const getMealPlan = async () => {
     return response.data;
   } catch (error) {
     console.error('Error fetching meal plan:', error);
+    throw error;
+  }
+};
+
+// Get all meal plans for the user
+export const getUserMealPlans = async () => {
+  try {
+    const token = localStorage.getItem('token');
+    const response = await axios.get(`${API_URL}/user`, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    });
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching user meal plans:', error);
     throw error;
   }
 };
@@ -61,4 +77,12 @@ export const updateMeal = async (dayId: string, mealType: string, recipeId: stri
     console.error('Error updating meal:', error);
     throw error;
   }
+};
+
+// Create a default export with all functions
+export default {
+  getMealPlan,
+  getUserMealPlans,
+  generateMealPlan,
+  updateMeal
 };

@@ -58,12 +58,24 @@ const Register = () => {
         // Registration successful, user will be redirected to login page by the auth context
       } catch (err: any) {
         // Handle different error cases
-        if (err.response && err.response.status === 409) {
-          setError('Email already exists. Please use a different email or try to login.');
+        console.error('Registration failed:', err);
+        if (err.response) {
+          // The request was made and the server responded with a status code
+          // that falls out of the range of 2xx
+          if (err.response.status === 409) {
+            setError('Email or username already exists. Please use different credentials.');
+          } else if (err.response.status === 400) {
+            setError(`Validation error: ${err.response.data?.detail || 'Please check your information'}`);
+          } else {
+            setError(`Server error: ${err.response.data?.message || 'Registration failed'}`);
+          }
+        } else if (err.request) {
+          // The request was made but no response was received
+          setError('No response from server. Please check your internet connection or try again later.');
         } else {
+          // Something happened in setting up the request that triggered an error
           setError('Registration failed. Please try again later.');
         }
-        console.error('Registration failed:', err);
       } finally {
         setIsSubmitting(false);
       }

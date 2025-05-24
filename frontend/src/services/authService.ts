@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000/api';
+// Use relative URL for browser requests - this will be handled by Nginx proxy
+const API_URL = '/api'; // Changed from hardcoded Docker service URL
 
 export interface User {
   id: string;
@@ -65,9 +66,46 @@ const authService = {
     }
   },
 
-  async register(data: RegisterData): Promise<AuthResponse> {
+  async register(nameOrData: string | RegisterData, email?: string, password?: string): Promise<AuthResponse> {
     try {
-      const response = await axios.post(`${API_URL}/users/register`, data);
+      let userData: any;
+      
+      // Handle both parameter styles
+      if (typeof nameOrData === 'object') {
+        // Called with a data object
+        userData = {
+          email: nameOrData.email,
+          username: nameOrData.email?.includes('@') ? nameOrData.email.split('@')[0] : `user_${Date.now()}`,
+          full_name: nameOrData.name || '',
+          password: nameOrData.password || '',
+          allergies: [],
+          disliked_ingredients: [],
+          preferred_cuisines: [],
+          preferences: {}
+        };
+      } else {
+        // Called with individual parameters
+        if (!email) {
+          throw new Error('Email is required for registration');
+        }
+        
+        userData = {
+          email: email,
+          username: email.includes('@') ? email.split('@')[0] : `user_${Date.now()}`,
+          full_name: nameOrData || '',
+          password: password || '',
+          allergies: [],
+          disliked_ingredients: [],
+          preferred_cuisines: [],
+          preferences: {}
+        };
+      }
+      
+      // Use the simplified registration endpoint to avoid body reading issues
+      console.log("Sending registration request:", userData);
+      const response = await axios.post(`${API_URL}/users/register/simple`, userData);
+      console.log("Registration response:", response.data);
+      
       if (response.data.token) {
         localStorage.setItem('token', response.data.token);
         axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.token}`;
