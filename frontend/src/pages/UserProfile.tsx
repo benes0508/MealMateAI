@@ -135,21 +135,22 @@ const UserProfile = () => {
         setError(null);
         
         const data = await authService.getUserProfile(user.id);
+        console.log(data);
         
-        // Set profile data
+        // Set profile data - use full_name instead of name to match backend field
         setProfileData({
-          name: data.user.name,
-          email: data.user.email,
+          name: data.full_name || user.name, // Use full_name from response or fallback to user context
+          email: data.email,
           current_password: '',
           new_password: ''
         });
         
         // Set preferences
         setPreferences({
-          allergies: data.preferences.allergies || [],
-          disliked_ingredients: data.preferences.disliked_ingredients || [],
-          preferred_cuisines: data.preferences.preferred_cuisines || [],
-          preferences: data.preferences.preferences || {
+          allergies: data.allergies || [],
+          disliked_ingredients: data.disliked_ingredients || [],
+          preferred_cuisines: data.preferred_cuisines || [],
+          preferences: data.preferences || {
             dietary_restrictions: [],
             cooking_skill: 'intermediate',
             meal_prep_time: '30-60min'

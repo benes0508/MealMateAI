@@ -20,7 +20,8 @@ const createServiceProxy = (serviceName) => {
   switch (serviceName) {
     case 'users':
       target = USER_SERVICE_URL;
-      // No path rewrite for user service
+      // Path rewrite for user service - keep the /users prefix but remove /api
+      pathRewrite = { '^/api/users': '/users' };
       break;
     case 'recipes':
       target = RECIPE_SERVICE_URL;

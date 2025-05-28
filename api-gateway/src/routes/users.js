@@ -105,18 +105,22 @@ router.get('/me', async (req, res) => {
     
     console.log('[API-GATEWAY] Getting current user data for id:', req.user.id);
     
-    // Forward the request to user service to get full user details
-    const response = await axios.get(`${USER_SERVICE_URL}/${req.user.id}`, {
+    // Forward the request to user service to get full user details with the correct path
+    const response = await axios.get(`${USER_SERVICE_URL}/users/${req.user.id}`, {
       headers: {
         'Content-Type': 'application/json',
       },
     });
+    
+    console.log('[API-GATEWAY] User service response:', response.status);
     
     // Return the response from user service
     res.status(response.status).json(response.data);
   } catch (error) {
     console.error('[API-GATEWAY] Error getting current user:', error.message);
     if (error.response) {
+      console.error('[API-GATEWAY] Error response status:', error.response.status);
+      console.error('[API-GATEWAY] Error details:', error.response.data);
       res.status(error.response.status).json(error.response.data);
     } else {
       res.status(500).json({ 

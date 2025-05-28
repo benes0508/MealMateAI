@@ -48,4 +48,7 @@ class UserInDB(UserBase):
         from_attributes = True
         
 class UserResponse(UserInDB):
-    pass
+    # Add 'name' field that maps to 'full_name' to match frontend expectations
+    @property
+    def name(self) -> Optional[str]:
+        return self.full_name

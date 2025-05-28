@@ -34,8 +34,8 @@ async def health_check():
     logger.info("Health check endpoint called")
     return {"status": "healthy", "service": "user-service"}
 
-# Include user controller router
-app.include_router(user_controller.router, tags=["users"])
+# Include user controller router WITH the /users prefix
+app.include_router(user_controller.router, prefix="/users", tags=["users"])
 
 # Add this section to run the app directly
 if __name__ == "__main__":

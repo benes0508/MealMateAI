@@ -13,25 +13,46 @@ const authenticateToken = async (req, res, next) => {
   const token = authHeader && authHeader.split(' ')[1]; // Bearer TOKEN format
   
   if (!token) {
+    console.log('[AUTH] No token provided in request');
     return res.status(401).json({ message: 'Authentication required' });
   }
 
   try {
     // If token is using older dummy format, reject it
     if (token.startsWith('dummy_token_')) {
-      console.error('Deprecated token format used');
+      console.error('[AUTH] Deprecated token format used');
       return res.status(401).json({ message: 'Token format deprecated, please log in again' });
     }
 
-    // Verify token
-    const decoded = jwt.verify(token, JWT_SECRET);
+    // Log token info for debugging (but don't log the full token for security)
+    console.log(`[AUTH] Verifying token: ${token.substring(0, 15)}...`);
+    console.log(`[AUTH] Using secret: ${JWT_SECRET.substring(0, 5)}...`);
     
-    // Add user data to request
-    req.user = decoded;
-    
-    next();
+    // Verify token with more debugging
+    try {
+      const decoded = jwt.verify(token, JWT_SECRET);
+      
+      // Log successful verification
+      console.log(`[AUTH] Token verified successfully for user id: ${decoded.id}, role: ${decoded.role}`);
+      
+      // Add user data to request
+      req.user = decoded;
+      
+      next();
+    } catch (jwtError) {
+      console.error('[AUTH] JWT verification failed:', jwtError.message);
+      // Try to decode without verification to see what's in the token
+      try {
+        const decodedWithoutVerify = jwt.decode(token);
+        console.log('[AUTH] Token contents without verification:', decodedWithoutVerify);
+      } catch (e) {
+        console.error('[AUTH] Could not decode token without verification');
+      }
+      
+      return res.status(403).json({ message: 'Invalid or expired token: ' + jwtError.message });
+    }
   } catch (error) {
-    console.error('Token validation error:', error);
+    console.error('[AUTH] Token validation error:', error);
     return res.status(403).json({ message: 'Invalid or expired token' });
   }
 };
@@ -76,7 +97,7 @@ const isSameUser = (req, res, next) => {
   const userId = req.params.userId || req.params.id;
   
   // Log for debugging
-  console.log('isSameUser middleware check:', {
+  console.log('[AUTH] isSameUser middleware check:', {
     requestedUserId: userId,
     currentUserId: req.user ? req.user.id : 'not authenticated',
     userRole: req.user ? req.user.role : 'none'
@@ -86,14 +107,18 @@ const isSameUser = (req, res, next) => {
   const requestedId = String(userId);
   const currentUserId = req.user ? String(req.user.id) : null;
   
-  if (!req.user || (currentUserId !== requestedId && req.user.role !== 'admin')) {
+  // Allow if admin role OR if accessing own data
+  if (req.user && (currentUserId === requestedId || req.user.role === 'admin')) {
+    console.log('[AUTH] Access granted - same user or admin');
+    next();
+  } else {
+    console.log('[AUTH] Access denied - user ID mismatch or not admin');
     return res.status(403).json({ 
       message: 'Access denied: You can only access your own data',
       requested: requestedId,
       current: currentUserId
     });
   }
-  next();
 };
 
 module.exports = { authenticateToken, authorize, isAdmin, isSameUser };

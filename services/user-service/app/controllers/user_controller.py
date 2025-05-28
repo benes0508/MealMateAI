@@ -21,10 +21,15 @@ logger.addHandler(handler)
 # Create router
 router = APIRouter()
 
-# JWT Configuration
-JWT_SECRET_KEY = os.getenv("JWT_SECRET_KEY", "your_development_secret_key_not_for_production")
-JWT_ALGORITHM = os.getenv("JWT_ALGORITHM", "HS256")
-JWT_EXPIRATION_MINUTES = int(os.getenv("JWT_EXPIRATION_MINUTES", "1440"))  # 24 hours default
+# JWT Configuration - HARDCODED to match API Gateway
+# IMPORTANT: This is only for development. In production, use environment variables.
+JWT_SECRET_KEY = "your-secret-key-for-development-only"  # MUST match API gateway's JWT_SECRET
+JWT_ALGORITHM = "HS256"
+JWT_EXPIRATION_MINUTES = 1440  # 24 hours
+
+# Log JWT configuration
+logger.info(f"Using JWT secret key: {JWT_SECRET_KEY[:5]}...")
+logger.info(f"Using JWT algorithm: {JWT_ALGORITHM}")
 
 def create_jwt_token(user_data: dict) -> str:
     """Generate a JWT token with user data and expiration"""
@@ -35,8 +40,15 @@ def create_jwt_token(user_data: dict) -> str:
     expire = datetime.utcnow() + expires_delta
     token_data.update({"exp": expire})
     
+    logger.debug(f"Creating JWT token with data: {token_data}")
+    logger.debug(f"Using secret key: {JWT_SECRET_KEY[:5]}...")
+    
     # Create token
     encoded_jwt = jwt.encode(token_data, JWT_SECRET_KEY, algorithm=JWT_ALGORITHM)
+    
+    # Debug log the token
+    logger.debug(f"Generated token: {encoded_jwt[:15]}...")
+    
     return encoded_jwt
 
 # Updated registration endpoint that doesn't rely on request.json()
