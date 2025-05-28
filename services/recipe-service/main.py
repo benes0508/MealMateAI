@@ -22,8 +22,8 @@ engine = create_engine(db_url, future=True)
 def health():
     return {"status": "ok"}
 
-# List all recipes
-@app.get("/api/recipes/")
+# List all recipes - removing /api/recipes prefix
+@app.get("/")
 def list_recipes():
     try:
         with engine.connect() as conn:
@@ -34,8 +34,8 @@ def list_recipes():
     except SQLAlchemyError as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-# Search recipes
-@app.get("/api/recipes/search")
+# Search recipes - removing /api/recipes prefix
+@app.get("/search")
 def search_recipes(
     query: str = "",
     dietary: Optional[List[str]] = Query(None),
@@ -104,8 +104,8 @@ def search_recipes(
     except SQLAlchemyError as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-# Get one recipe by ID
-@app.get("/api/recipes/{recipe_id}")
+# Get one recipe by ID - removing /api/recipes prefix
+@app.get("/{recipe_id}")
 def get_recipe(recipe_id: int):
     try:
         with engine.connect() as conn:
