@@ -17,7 +17,8 @@ router.post('/register', async (req, res) => {
     console.log('[API-GATEWAY] Registration request received:', req.body);
     
     // Forward the request to user service manually instead of using proxy
-    const response = await axios.post(`${USER_SERVICE_URL}/register/simple`, req.body, {
+    // Updated path to include /users prefix
+    const response = await axios.post(`${USER_SERVICE_URL}/users/register/simple`, req.body, {
       headers: {
         'Content-Type': 'application/json',
       },
@@ -64,7 +65,8 @@ router.post('/login', async (req, res) => {
     }
     
     // Forward the request to user service's JSON login endpoint
-    const response = await axios.post(`${USER_SERVICE_URL}/login/json`, loginData, {
+    // Updated path to include /users prefix
+    const response = await axios.post(`${USER_SERVICE_URL}/users/login/json`, loginData, {
       headers: {
         'Content-Type': 'application/json',
       },
@@ -94,6 +96,42 @@ router.post('/', userServiceProxy); // Add root POST endpoint for user creation/
 
 // Protected routes that require authentication
 router.use(authenticateToken);
+
+// Current user endpoint
+router.get('/me', async (req, res) => {
+  try {
+    // The user data comes from the JWT token, extracted in authenticateToken middleware
+    if (!req.user || !req.user.id) {
+      return res.status(401).json({ message: 'User not authenticated' });
+    }
+    
+    console.log('[API-GATEWAY] Getting current user data for id:', req.user.id);
+    
+    // Forward the request to user service to get full user details with the correct path
+    const response = await axios.get(`${USER_SERVICE_URL}/users/${req.user.id}`, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    
+    console.log('[API-GATEWAY] User service response:', response.status);
+    
+    // Return the response from user service
+    res.status(response.status).json(response.data);
+  } catch (error) {
+    console.error('[API-GATEWAY] Error getting current user:', error.message);
+    if (error.response) {
+      console.error('[API-GATEWAY] Error response status:', error.response.status);
+      console.error('[API-GATEWAY] Error details:', error.response.data);
+      res.status(error.response.status).json(error.response.data);
+    } else {
+      res.status(500).json({ 
+        message: 'Internal server error getting current user',
+        error: error.message 
+      });
+    }
+  }
+});
 
 // Routes that require users to access only their own data
 router.get('/:id', isSameUser, userServiceProxy);

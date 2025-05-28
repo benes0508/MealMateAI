@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://api-gateway:4000/api/meal-plans';
+const API_URL = '/api/meal-plans'; // Changed from hardcoded Docker service URL
 
 export interface MealPlanResponse {
   day: string;

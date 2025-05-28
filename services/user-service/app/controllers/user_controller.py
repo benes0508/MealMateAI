@@ -4,6 +4,9 @@ from sqlalchemy.orm import Session
 from typing import List, Dict, Any, Optional
 import logging
 import json
+import jwt
+from datetime import datetime, timedelta
+import os
 from app.database import get_db
 from app.models import schemas
 from app.services.user_service import UserService
@@ -17,6 +20,36 @@ logger.addHandler(handler)
 
 # Create router
 router = APIRouter()
+
+# JWT Configuration - HARDCODED to match API Gateway
+# IMPORTANT: This is only for development. In production, use environment variables.
+JWT_SECRET_KEY = "your-secret-key-for-development-only"  # MUST match API gateway's JWT_SECRET
+JWT_ALGORITHM = "HS256"
+JWT_EXPIRATION_MINUTES = 1440  # 24 hours
+
+# Log JWT configuration
+logger.info(f"Using JWT secret key: {JWT_SECRET_KEY[:5]}...")
+logger.info(f"Using JWT algorithm: {JWT_ALGORITHM}")
+
+def create_jwt_token(user_data: dict) -> str:
+    """Generate a JWT token with user data and expiration"""
+    token_data = user_data.copy()
+    
+    # Add expiration time
+    expires_delta = timedelta(minutes=JWT_EXPIRATION_MINUTES)
+    expire = datetime.utcnow() + expires_delta
+    token_data.update({"exp": expire})
+    
+    logger.debug(f"Creating JWT token with data: {token_data}")
+    logger.debug(f"Using secret key: {JWT_SECRET_KEY[:5]}...")
+    
+    # Create token
+    encoded_jwt = jwt.encode(token_data, JWT_SECRET_KEY, algorithm=JWT_ALGORITHM)
+    
+    # Debug log the token
+    logger.debug(f"Generated token: {encoded_jwt[:15]}...")
+    
+    return encoded_jwt
 
 # Updated registration endpoint that doesn't rely on request.json()
 @router.post("/register", status_code=status.HTTP_201_CREATED)
@@ -84,12 +117,13 @@ async def register_user(
                 "id": user.id,
                 "email": user.email,
                 "name": user.full_name,
+                "role": "user",
                 "createdAt": user.created_at.isoformat() if hasattr(user, 'created_at') else None,
                 "updatedAt": user.updated_at.isoformat() if hasattr(user, 'updated_at') else None,
             }
             
-            # Generate a simple token for now
-            token = f"dummy_token_{user.id}"
+            # Generate proper JWT token
+            token = create_jwt_token(user_dict)
             
             return {
                 "user": user_dict,
@@ -156,12 +190,13 @@ def register_simple(user_data: Dict[str, Any] = Body(...), db: Session = Depends
                 "id": user.id,
                 "email": user.email,
                 "name": user.full_name,
+                "role": "user",
                 "createdAt": user.created_at.isoformat() if hasattr(user, 'created_at') else None,
                 "updatedAt": user.updated_at.isoformat() if hasattr(user, 'updated_at') else None,
             }
             
-            # Generate a simple token for now
-            token = f"dummy_token_{user.id}"
+            # Generate proper JWT token
+            token = create_jwt_token(user_dict)
             
             return {
                 "user": user_dict,
@@ -220,21 +255,88 @@ def update_user(user_id: int, user_data: schemas.UserUpdate, db: Session = Depen
     return user
 
 @router.put("/{user_id}/preferences", response_model=schemas.UserResponse)
-def update_user_preferences(
+async def update_user_preferences(
+    request: Request,
     user_id: int,
-    preferences: schemas.UserPreferencesUpdate,
     db: Session = Depends(get_db)
 ):
-    user = UserService(db).update_user_preferences(
-        user_id,
-        allergies=preferences.allergies,
-        disliked_ingredients=preferences.disliked_ingredients,
-        preferred_cuisines=preferences.preferred_cuisines,
-        preferences=preferences.preferences
-    )
-    if user is None:
-        raise HTTPException(status_code=404, detail="User not found")
-    return user
+    """Update user preferences with better error handling"""
+    try:
+        # Log the request details
+        logger.debug(f"Preferences update endpoint called for user_id: {user_id}")
+        
+        # Read raw body to avoid middleware conflicts
+        try:
+            raw_body = await request.body()
+            body_str = raw_body.decode('utf-8')
+            logger.debug(f"Raw request body: {body_str}")
+            preferences_data = json.loads(body_str)
+            logger.debug(f"Parsed preferences data: {preferences_data}")
+        except Exception as e:
+            logger.error(f"Error reading request body: {str(e)}")
+            return JSONResponse(
+                status_code=400,
+                content={"detail": f"Could not parse request body: {str(e)}"}
+            )
+        
+        # Extract preference fields from the request
+        allergies = preferences_data.get("allergies", [])
+        disliked_ingredients = preferences_data.get("disliked_ingredients", [])
+        preferred_cuisines = preferences_data.get("preferred_cuisines", [])
+        preferences_dict = preferences_data.get("preferences", {})
+        
+        logger.debug(f"Extracted allergies: {allergies}")
+        logger.debug(f"Extracted disliked_ingredients: {disliked_ingredients}")
+        logger.debug(f"Extracted preferred_cuisines: {preferred_cuisines}")
+        logger.debug(f"Extracted preferences: {preferences_dict}")
+        
+        # Update preferences
+        try:
+            user = UserService(db).update_user_preferences(
+                user_id,
+                allergies=allergies,
+                disliked_ingredients=disliked_ingredients,
+                preferred_cuisines=preferred_cuisines,
+                preferences=preferences_dict
+            )
+            
+            if user is None:
+                logger.error(f"User not found: {user_id}")
+                return JSONResponse(
+                    status_code=404,
+                    content={"detail": "User not found"}
+                )
+            
+            logger.info(f"Preferences updated successfully for user: {user_id}")
+            return user
+            
+        except Exception as e:
+            logger.error(f"Error updating preferences: {str(e)}")
+            return JSONResponse(
+                status_code=500,
+                content={"detail": f"Error updating preferences: {str(e)}"}
+            )
+            
+    except Exception as e:
+        logger.exception(f"Preferences update error: {str(e)}")
+        return JSONResponse(
+            status_code=500,
+            content={"detail": f"Server error: {str(e)}"}
+        )
+
+# Debug endpoint for preferences update
+@router.post("/{user_id}/preferences/debug", status_code=200)
+async def debug_preferences_update(request: Request, user_id: int):
+    """Debug endpoint for preferences update"""
+    try:
+        body = await request.body()
+        body_str = body.decode('utf-8')
+        body_json = json.loads(body_str)
+        logger.info(f"Debug preferences update called for user {user_id} with body: {body_str}")
+        return {"message": "Debug preferences update received", "data": body_json, "user_id": user_id}
+    except Exception as e:
+        logger.error(f"Debug preferences update error: {str(e)}")
+        return {"error": str(e)}
 
 @router.delete("/{user_id}", status_code=status.HTTP_204_NO_CONTENT)
 def delete_user(user_id: int, db: Session = Depends(get_db)):
@@ -301,8 +403,8 @@ def login_json(login_data: Dict[str, Any] = Body(...), db: Session = Depends(get
                 "updatedAt": user.updated_at.isoformat() if hasattr(user, 'updated_at') else None,
             }
             
-            # Generate dummy token for now
-            token = f"dummy_token_{user.id}"
+            # Generate proper JWT token
+            token = create_jwt_token(user_dict)
             
             # Return user and token
             return {

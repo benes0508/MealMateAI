@@ -21,7 +21,7 @@ services:
       - USER_SERVICE_URL=http://user-service:8000
       - RECIPE_SERVICE_URL=http://recipe-service:8001
       - MEAL_PLANNER_SERVICE_URL=http://meal-planner-service:8002
-      - JWT_SECRET=your_jwt_secret_here
+      - JWT_SECRET=your-secret-key-for-development-only
       - CORS_ORIGIN=http://localhost
     depends_on:
       - user-service
@@ -39,6 +39,9 @@ services:
       - MYSQL_HOST=mysql
       - MYSQL_PORT=3306
       - MYSQL_DB=user_service_db
+      - JWT_SECRET_KEY=your-secret-key-for-development-only  # Must match api-gateway's JWT_SECRET
+      - JWT_ALGORITHM=HS256
+      - JWT_EXPIRATION_MINUTES=1440
     depends_on:
       - mysql
     restart: always
