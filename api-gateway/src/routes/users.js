@@ -95,6 +95,38 @@ router.post('/', userServiceProxy); // Add root POST endpoint for user creation/
 // Protected routes that require authentication
 router.use(authenticateToken);
 
+// Current user endpoint
+router.get('/me', async (req, res) => {
+  try {
+    // The user data comes from the JWT token, extracted in authenticateToken middleware
+    if (!req.user || !req.user.id) {
+      return res.status(401).json({ message: 'User not authenticated' });
+    }
+    
+    console.log('[API-GATEWAY] Getting current user data for id:', req.user.id);
+    
+    // Forward the request to user service to get full user details
+    const response = await axios.get(`${USER_SERVICE_URL}/${req.user.id}`, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    
+    // Return the response from user service
+    res.status(response.status).json(response.data);
+  } catch (error) {
+    console.error('[API-GATEWAY] Error getting current user:', error.message);
+    if (error.response) {
+      res.status(error.response.status).json(error.response.data);
+    } else {
+      res.status(500).json({ 
+        message: 'Internal server error getting current user',
+        error: error.message 
+      });
+    }
+  }
+});
+
 // Routes that require users to access only their own data
 router.get('/:id', isSameUser, userServiceProxy);
 router.put('/:id', isSameUser, userServiceProxy);

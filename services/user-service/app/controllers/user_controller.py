@@ -4,6 +4,9 @@ from sqlalchemy.orm import Session
 from typing import List, Dict, Any, Optional
 import logging
 import json
+import jwt
+from datetime import datetime, timedelta
+import os
 from app.database import get_db
 from app.models import schemas
 from app.services.user_service import UserService
@@ -17,6 +20,24 @@ logger.addHandler(handler)
 
 # Create router
 router = APIRouter()
+
+# JWT Configuration
+JWT_SECRET_KEY = os.getenv("JWT_SECRET_KEY", "your_development_secret_key_not_for_production")
+JWT_ALGORITHM = os.getenv("JWT_ALGORITHM", "HS256")
+JWT_EXPIRATION_MINUTES = int(os.getenv("JWT_EXPIRATION_MINUTES", "1440"))  # 24 hours default
+
+def create_jwt_token(user_data: dict) -> str:
+    """Generate a JWT token with user data and expiration"""
+    token_data = user_data.copy()
+    
+    # Add expiration time
+    expires_delta = timedelta(minutes=JWT_EXPIRATION_MINUTES)
+    expire = datetime.utcnow() + expires_delta
+    token_data.update({"exp": expire})
+    
+    # Create token
+    encoded_jwt = jwt.encode(token_data, JWT_SECRET_KEY, algorithm=JWT_ALGORITHM)
+    return encoded_jwt
 
 # Updated registration endpoint that doesn't rely on request.json()
 @router.post("/register", status_code=status.HTTP_201_CREATED)
@@ -84,12 +105,13 @@ async def register_user(
                 "id": user.id,
                 "email": user.email,
                 "name": user.full_name,
+                "role": "user",
                 "createdAt": user.created_at.isoformat() if hasattr(user, 'created_at') else None,
                 "updatedAt": user.updated_at.isoformat() if hasattr(user, 'updated_at') else None,
             }
             
-            # Generate a simple token for now
-            token = f"dummy_token_{user.id}"
+            # Generate proper JWT token
+            token = create_jwt_token(user_dict)
             
             return {
                 "user": user_dict,
@@ -156,12 +178,13 @@ def register_simple(user_data: Dict[str, Any] = Body(...), db: Session = Depends
                 "id": user.id,
                 "email": user.email,
                 "name": user.full_name,
+                "role": "user",
                 "createdAt": user.created_at.isoformat() if hasattr(user, 'created_at') else None,
                 "updatedAt": user.updated_at.isoformat() if hasattr(user, 'updated_at') else None,
             }
             
-            # Generate a simple token for now
-            token = f"dummy_token_{user.id}"
+            # Generate proper JWT token
+            token = create_jwt_token(user_dict)
             
             return {
                 "user": user_dict,
@@ -301,8 +324,8 @@ def login_json(login_data: Dict[str, Any] = Body(...), db: Session = Depends(get
                 "updatedAt": user.updated_at.isoformat() if hasattr(user, 'updated_at') else None,
             }
             
-            # Generate dummy token for now
-            token = f"dummy_token_{user.id}"
+            # Generate proper JWT token
+            token = create_jwt_token(user_dict)
             
             # Return user and token
             return {

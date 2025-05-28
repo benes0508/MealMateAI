@@ -2,6 +2,7 @@ import { createContext, useContext, useState, useEffect, ReactNode } from 'react
 import jwtDecode from 'jwt-decode';
 import { useNavigate, useLocation } from 'react-router-dom';
 import authService from '../services/authService';
+import axios from 'axios';
 
 type User = {
   id: string;
@@ -38,6 +39,33 @@ type AuthProviderProps = {
   children: ReactNode;
 };
 
+// Setup axios interceptor for token refresh
+const setupAxiosInterceptors = () => {
+  // Remove existing interceptors to avoid duplicates
+  axios.interceptors.response.eject(axios.interceptors.response.handlers?.[0]);
+
+  axios.interceptors.response.use(
+    response => response,
+    error => {
+      // Only handle auth errors (401) automatically
+      // Don't log out for 403 errors as they could be permission related
+      if (error.response && error.response.status === 401) {
+        console.warn('Unauthorized request detected (401). Logging out.');
+        localStorage.removeItem('token');
+        delete axios.defaults.headers.common['Authorization'];
+        
+        // Use window.location for hard redirect only if it's not an API check
+        // This prevents logout loops during authentication checks
+        const isAuthCheck = error.config.url.includes('/api/users/me');
+        if (!isAuthCheck) {
+          window.location.href = '/login';
+        }
+      }
+      return Promise.reject(error);
+    }
+  );
+};
+
 export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
@@ -46,88 +74,113 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   const navigate = useNavigate();
   const location = useLocation();
 
+  // Setup axios interceptors once on component mount
+  useEffect(() => {
+    setupAxiosInterceptors();
+  }, []);
+
+  // This function will try to restore the user session from the JWT token
   useEffect(() => {
     const checkTokenAndSetUser = async () => {
-      const token = localStorage.getItem('token');
-      if (token) {
+      try {
+        const token = localStorage.getItem('token');
+        if (!token) {
+          console.log('No token found in localStorage');
+          setLoading(false);
+          return;
+        }
+
+        // Set authorization header for all future requests
+        axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+
+        // First check if we can extract user data directly from token
         try {
-          // For static tokens, manually create the user object
-          if (token.startsWith('dummy_token_')) {
-            const userId = token.replace('dummy_token_', '');
-            // Try to fetch the user profile
+          // Decode the JWT token to get user data
+          const decoded = jwtDecode<any>(token);
+          console.log('Token decoded successfully');
+          
+          // Check token expiration
+          const currentTime = Date.now() / 1000;
+          if (decoded.exp && decoded.exp < currentTime) {
+            console.warn('Token has expired. Logging out.');
+            localStorage.removeItem('token');
+            delete axios.defaults.headers.common['Authorization'];
+            setLoading(false);
+            return;
+          }
+          
+          // Set user data from token while we wait for the API
+          // This gives instant authentication on page load
+          if (decoded.id) {
+            console.log('Setting user from decoded token');
+            setUser({
+              id: decoded.id,
+              email: decoded.email || '',
+              name: decoded.name || '',
+              role: decoded.role || 'user'
+            });
+            
+            // Critical change: We are now authenticated even if API fails
+            // This ensures the user stays logged in even if API is temporarily unavailable
+          }
+        } catch (e) {
+          console.error('Failed to decode token:', e);
+          // Continue to API fallback
+        }
+
+        // Try to fetch user data from API
+        try {
+          console.log('Fetching current user data from API');
+          const currentUser = await authService.getCurrentUser();
+          
+          if (currentUser) {
+            console.log('User data successfully fetched from API');
+            // Update with full user data from API
+            setUser({
+              id: currentUser.id,
+              email: currentUser.email,
+              name: currentUser.name,
+              role: currentUser.role || 'user'
+            });
+  
+            // Check if user has preferences
             try {
-              const userProfile = await authService.getUserProfile(userId);
-              setUser({
-                id: userId,
-                email: userProfile.user.email,
-                name: userProfile.user.name,
-                role: 'user'
-              });
-            } catch (error) {
-              console.error('Error fetching user profile:', error);
-              localStorage.removeItem('token');
-              setUser(null);
-            }
-          } else {
-            // Try to parse JWT token
-            try {
-              const decoded = jwtDecode<User & { exp: number }>(token);
+              const userProfile = await authService.getUserProfile(currentUser.id);
+              const hasPrefs = userProfile.preferences && 
+                (userProfile.preferences.allergies?.length > 0 || 
+                userProfile.preferences.preferred_cuisines?.length > 0 ||
+                userProfile.preferences.disliked_ingredients?.length > 0 ||
+                (userProfile.preferences.preferences?.dietary_restrictions?.length > 0));
               
-              // Check if token is expired
-              const currentTime = Date.now() / 1000;
-              if (decoded.exp && decoded.exp < currentTime) {
-                // Token expired
-                localStorage.removeItem('token');
-                setUser(null);
-              } else {
-                // Valid token
-                const userData = {
-                  id: decoded.id,
-                  email: decoded.email,
-                  name: decoded.name,
-                  role: decoded.role || 'user'
-                };
-                setUser(userData);
-                
-                // Check if user has preferences
-                try {
-                  const userProfile = await authService.getUserProfile(userData.id);
-                  // Consider preferences completed if any preferences exist
-                  const hasPrefs = userProfile.preferences && 
-                    (userProfile.preferences.allergies?.length > 0 || 
-                     userProfile.preferences.preferred_cuisines?.length > 0 ||
-                     userProfile.preferences.disliked_ingredients?.length > 0 ||
-                     (userProfile.preferences.preferences?.dietary_restrictions?.length > 0));
-                  
-                  setHasCompletedPreferences(hasPrefs);
-                } catch (error) {
-                  console.error('Error checking user preferences', error);
-                }
-              }
+              setHasCompletedPreferences(hasPrefs);
             } catch (error) {
-              console.error('Invalid token, falling back to basic user data', error);
-              
-              // If JWT parsing fails, still try to use the token as a plain token
-              // This is a fallback mechanism for development
-              try {
-                await authService.getCurrentUser(); // This will use the token to get current user
-              } catch (e) {
-                console.error('Could not get current user with token, logging out');
-                localStorage.removeItem('token');
-                setUser(null);
-              }
+              console.error('Error checking user preferences, but continuing session:', error);
+              // Don't clear auth - just log the error
             }
           }
-        } catch (error) {
-          console.error('Error processing token:', error);
-          localStorage.removeItem('token');
-          setUser(null);
+        } catch (apiError) {
+          // If API call fails but we have user data from token,
+          // don't log out - just keep using the token data
+          console.error('API user fetch failed, using token data instead:', apiError);
+          
+          // Only clear auth if we don't have user data from token
+          if (!user) {
+            console.warn('No user data from token or API - logging out');
+            localStorage.removeItem('token');
+            delete axios.defaults.headers.common['Authorization'];
+            setUser(null);
+          }
         }
+      } catch (error) {
+        console.error('Error in authentication check:', error);
+        // Don't clear token yet unless it's clearly invalid
+      } finally {
+        setLoading(false);
       }
-      setLoading(false);
     };
 
     checkTokenAndSetUser();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Check URL for newUser param on page load
@@ -148,7 +201,10 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       if (data.token) {
         localStorage.setItem('token', data.token);
         
-        // Set user directly from response instead of trying to decode the token
+        // Set axios default authorization header
+        axios.defaults.headers.common['Authorization'] = `Bearer ${data.token}`;
+        
+        // Set user directly from response
         const userData = {
           id: data.user.id,
           email: data.user.email,
@@ -161,7 +217,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
         // Check if user has preferences
         try {
           const userProfile = await authService.getUserProfile(userData.id);
-          // Consider preferences completed if any preferences exist
+          
           const hasPrefs = userProfile.preferences && 
             (userProfile.preferences.allergies?.length > 0 || 
              userProfile.preferences.preferred_cuisines?.length > 0 ||
@@ -207,6 +263,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
   const logout = () => {
     localStorage.removeItem('token');
+    delete axios.defaults.headers.common['Authorization'];
     setUser(null);
     setIsNewUser(false);
     setHasCompletedPreferences(false);

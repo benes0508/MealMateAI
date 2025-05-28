@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://api-gateway:4000/api/recipes';
+const API_URL = '/api'; // Changed from hardcoded Docker service URL
 
 export interface Ingredient {
   name: string;
@@ -19,35 +19,38 @@ export interface NutritionalInfo {
 
 export interface Recipe {
   id: string;
-  title: string;
+  name: string; // Changed from title to match usage in components
   description: string;
   imageUrl?: string;
   prepTime: number;
   cookTime: number;
   servings: number;
   difficulty: 'easy' | 'medium' | 'hard';
-  ingredients: Ingredient[];
+  ingredients: string[]; // Simplified to match actual usage
   instructions: string[];
   tags: string[];
   nutritionalInfo: NutritionalInfo;
+  dietaryInfo: {
+    vegetarian: boolean;
+    vegan: boolean;
+    glutenFree: boolean;
+    dairyFree: boolean;
+    nutFree: boolean;
+    lowCarb: boolean;
+  };
   createdAt: string;
   updatedAt: string;
 }
 
-export type RecipeFilters = {
+export interface SearchParams {
   query?: string;
-  tags?: string[];
-  difficulty?: string;
-  maxPrepTime?: number;
-  dietaryRestrictions?: string[];
-  excludeIngredients?: string[];
-  includeIngredients?: string[];
+  dietary?: string[];
   page?: number;
   limit?: number;
 }
 
 const recipeService = {
-  async getAllRecipes(filters: RecipeFilters = {}): Promise<{ recipes: Recipe[]; total: number; page: number; totalPages: number }> {
+  async getAllRecipes(filters = {}): Promise<{ recipes: Recipe[]; total: number; page: number; totalPages: number }> {
     try {
       const response = await axios.get(`${API_URL}/recipes`, { params: filters });
       return response.data;
@@ -57,10 +60,20 @@ const recipeService = {
     }
   },
 
+  async searchRecipes(params: SearchParams = {}): Promise<{ recipes: Recipe[]; total: number; page: number; total_pages: number }> {
+    try {
+      const response = await axios.get(`${API_URL}/recipes/search`, { params });
+      return response.data;
+    } catch (error) {
+      console.error('Error searching recipes:', error);
+      throw error;
+    }
+  },
+
   async getRecipeById(id: string): Promise<Recipe> {
     try {
       const response = await axios.get(`${API_URL}/recipes/${id}`);
-      return response.data.recipe;
+      return response.data;
     } catch (error) {
       console.error(`Error fetching recipe with id ${id}:`, error);
       throw error;

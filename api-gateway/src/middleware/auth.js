@@ -17,6 +17,12 @@ const authenticateToken = async (req, res, next) => {
   }
 
   try {
+    // If token is using older dummy format, reject it
+    if (token.startsWith('dummy_token_')) {
+      console.error('Deprecated token format used');
+      return res.status(401).json({ message: 'Token format deprecated, please log in again' });
+    }
+
     // Verify token
     const decoded = jwt.verify(token, JWT_SECRET);
     
@@ -69,8 +75,23 @@ const isAdmin = (req, res, next) => {
 const isSameUser = (req, res, next) => {
   const userId = req.params.userId || req.params.id;
   
-  if (!req.user || (req.user.id !== userId && req.user.role !== 'admin')) {
-    return res.status(403).json({ message: 'Access denied' });
+  // Log for debugging
+  console.log('isSameUser middleware check:', {
+    requestedUserId: userId,
+    currentUserId: req.user ? req.user.id : 'not authenticated',
+    userRole: req.user ? req.user.role : 'none'
+  });
+
+  // Convert IDs to strings for comparison to handle numeric vs string IDs
+  const requestedId = String(userId);
+  const currentUserId = req.user ? String(req.user.id) : null;
+  
+  if (!req.user || (currentUserId !== requestedId && req.user.role !== 'admin')) {
+    return res.status(403).json({ 
+      message: 'Access denied: You can only access your own data',
+      requested: requestedId,
+      current: currentUserId
+    });
   }
   next();
 };
