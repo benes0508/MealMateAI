@@ -255,21 +255,88 @@ def update_user(user_id: int, user_data: schemas.UserUpdate, db: Session = Depen
     return user
 
 @router.put("/{user_id}/preferences", response_model=schemas.UserResponse)
-def update_user_preferences(
+async def update_user_preferences(
+    request: Request,
     user_id: int,
-    preferences: schemas.UserPreferencesUpdate,
     db: Session = Depends(get_db)
 ):
-    user = UserService(db).update_user_preferences(
-        user_id,
-        allergies=preferences.allergies,
-        disliked_ingredients=preferences.disliked_ingredients,
-        preferred_cuisines=preferences.preferred_cuisines,
-        preferences=preferences.preferences
-    )
-    if user is None:
-        raise HTTPException(status_code=404, detail="User not found")
-    return user
+    """Update user preferences with better error handling"""
+    try:
+        # Log the request details
+        logger.debug(f"Preferences update endpoint called for user_id: {user_id}")
+        
+        # Read raw body to avoid middleware conflicts
+        try:
+            raw_body = await request.body()
+            body_str = raw_body.decode('utf-8')
+            logger.debug(f"Raw request body: {body_str}")
+            preferences_data = json.loads(body_str)
+            logger.debug(f"Parsed preferences data: {preferences_data}")
+        except Exception as e:
+            logger.error(f"Error reading request body: {str(e)}")
+            return JSONResponse(
+                status_code=400,
+                content={"detail": f"Could not parse request body: {str(e)}"}
+            )
+        
+        # Extract preference fields from the request
+        allergies = preferences_data.get("allergies", [])
+        disliked_ingredients = preferences_data.get("disliked_ingredients", [])
+        preferred_cuisines = preferences_data.get("preferred_cuisines", [])
+        preferences_dict = preferences_data.get("preferences", {})
+        
+        logger.debug(f"Extracted allergies: {allergies}")
+        logger.debug(f"Extracted disliked_ingredients: {disliked_ingredients}")
+        logger.debug(f"Extracted preferred_cuisines: {preferred_cuisines}")
+        logger.debug(f"Extracted preferences: {preferences_dict}")
+        
+        # Update preferences
+        try:
+            user = UserService(db).update_user_preferences(
+                user_id,
+                allergies=allergies,
+                disliked_ingredients=disliked_ingredients,
+                preferred_cuisines=preferred_cuisines,
+                preferences=preferences_dict
+            )
+            
+            if user is None:
+                logger.error(f"User not found: {user_id}")
+                return JSONResponse(
+                    status_code=404,
+                    content={"detail": "User not found"}
+                )
+            
+            logger.info(f"Preferences updated successfully for user: {user_id}")
+            return user
+            
+        except Exception as e:
+            logger.error(f"Error updating preferences: {str(e)}")
+            return JSONResponse(
+                status_code=500,
+                content={"detail": f"Error updating preferences: {str(e)}"}
+            )
+            
+    except Exception as e:
+        logger.exception(f"Preferences update error: {str(e)}")
+        return JSONResponse(
+            status_code=500,
+            content={"detail": f"Server error: {str(e)}"}
+        )
+
+# Debug endpoint for preferences update
+@router.post("/{user_id}/preferences/debug", status_code=200)
+async def debug_preferences_update(request: Request, user_id: int):
+    """Debug endpoint for preferences update"""
+    try:
+        body = await request.body()
+        body_str = body.decode('utf-8')
+        body_json = json.loads(body_str)
+        logger.info(f"Debug preferences update called for user {user_id} with body: {body_str}")
+        return {"message": "Debug preferences update received", "data": body_json, "user_id": user_id}
+    except Exception as e:
+        logger.error(f"Debug preferences update error: {str(e)}")
+        return {"error": str(e)}
 
 @router.delete("/{user_id}", status_code=status.HTTP_204_NO_CONTENT)
 def delete_user(user_id: int, db: Session = Depends(get_db)):

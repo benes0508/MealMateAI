@@ -1,11 +1,17 @@
 from sqlalchemy.orm import Session
 from sqlalchemy.exc import IntegrityError
 from typing import List, Optional, Dict, Any
+import json
+import logging
 from app.models.models import User
 from passlib.context import CryptContext
 
 # Password hashing
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+
+# Set up logging
+logger = logging.getLogger("user_repository")
+logger.setLevel(logging.DEBUG)
 
 class UserRepository:
     def __init__(self, db: Session):
@@ -47,20 +53,47 @@ class UserRepository:
             self.db.rollback()
             raise ValueError("User with this email or username already exists")
     
+    def _ensure_json_serializable(self, value: Any) -> Any:
+        """Ensure that a value is JSON serializable for MySQL JSON columns"""
+        if value is None:
+            return value
+            
+        try:
+            # Test if it can be serialized
+            json.dumps(value)
+            return value
+        except (TypeError, OverflowError) as e:
+            logger.error(f"Value is not JSON serializable: {e}")
+            # Try to convert it to a string representation
+            return str(value)
+    
     def update_user(self, user_id: int, user_data: Dict[str, Any]) -> Optional[User]:
         user = self.get_user_by_id(user_id)
         if not user:
             return None
+        
+        try:
+            # Process special fields that need JSON serialization    
+            json_fields = ["allergies", "disliked_ingredients", "preferred_cuisines", "preferences"]
             
-        for key, value in user_data.items():
-            if key == 'password':
-                user.hashed_password = pwd_context.hash(value)
-            else:
-                setattr(user, key, value)
-                
-        self.db.commit()
-        self.db.refresh(user)
-        return user
+            for key, value in user_data.items():
+                if key == 'password':
+                    user.hashed_password = pwd_context.hash(value)
+                elif key in json_fields:
+                    # Ensure the value is JSON serializable
+                    logger.debug(f"Processing JSON field {key} with value: {value}")
+                    processed_value = self._ensure_json_serializable(value)
+                    setattr(user, key, processed_value)
+                else:
+                    setattr(user, key, value)
+                    
+            self.db.commit()
+            self.db.refresh(user)
+            return user
+        except Exception as e:
+            self.db.rollback()
+            logger.exception(f"Error updating user {user_id}: {str(e)}")
+            raise e
     
     def delete_user(self, user_id: int) -> bool:
         user = self.get_user_by_id(user_id)

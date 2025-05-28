@@ -2,6 +2,11 @@ from typing import List, Optional, Dict, Any
 from sqlalchemy.orm import Session
 from app.repositories.user_repository import UserRepository
 from app.models.schemas import UserCreate, UserUpdate
+import logging
+
+# Set up logging
+logger = logging.getLogger("user_service")
+logger.setLevel(logging.DEBUG)
 
 class UserService:
     def __init__(self, db: Session):
@@ -53,17 +58,44 @@ class UserService:
                               disliked_ingredients: Optional[List[str]] = None,
                               preferred_cuisines: Optional[List[str]] = None,
                               preferences: Optional[Dict] = None) -> Optional[Dict[str, Any]]:
-        update_data = {}
-        if allergies is not None:
-            update_data['allergies'] = allergies
-        if disliked_ingredients is not None:
-            update_data['disliked_ingredients'] = disliked_ingredients
-        if preferred_cuisines is not None:
-            update_data['preferred_cuisines'] = preferred_cuisines
-        if preferences is not None:
-            update_data['preferences'] = preferences
+        try:
+            # First, verify user exists
+            user = self.repository.get_user_by_id(user_id)
+            if not user:
+                logger.error(f"User not found for preference update: {user_id}")
+                return None
+                
+            logger.debug(f"Updating preferences for user {user_id}:")
+            logger.debug(f"- allergies: {allergies}")
+            logger.debug(f"- disliked_ingredients: {disliked_ingredients}")
+            logger.debug(f"- preferred_cuisines: {preferred_cuisines}")
+            logger.debug(f"- preferences: {preferences}")
             
-        return self.repository.update_user(user_id, update_data)
+            # Build update data dictionary only with fields that are not None
+            update_data = {}
+            if allergies is not None:
+                update_data['allergies'] = allergies
+            if disliked_ingredients is not None:
+                update_data['disliked_ingredients'] = disliked_ingredients
+            if preferred_cuisines is not None:
+                update_data['preferred_cuisines'] = preferred_cuisines
+            if preferences is not None:
+                update_data['preferences'] = preferences
+                
+            logger.debug(f"Final update data: {update_data}")
+            
+            # Perform the update with better error handling
+            try:
+                updated_user = self.repository.update_user(user_id, update_data)
+                logger.info(f"Preferences updated successfully for user {user_id}")
+                return updated_user
+            except Exception as e:
+                logger.exception(f"Repository error updating preferences: {str(e)}")
+                raise Exception(f"Failed to update preferences: {str(e)}")
+                
+        except Exception as e:
+            logger.exception(f"Error in update_user_preferences: {str(e)}")
+            raise Exception(f"Error updating user preferences: {str(e)}")
     
     def delete_user(self, user_id: int) -> bool:
         return self.repository.delete_user(user_id)

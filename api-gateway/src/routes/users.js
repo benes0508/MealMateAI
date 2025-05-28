@@ -17,7 +17,8 @@ router.post('/register', async (req, res) => {
     console.log('[API-GATEWAY] Registration request received:', req.body);
     
     // Forward the request to user service manually instead of using proxy
-    const response = await axios.post(`${USER_SERVICE_URL}/register/simple`, req.body, {
+    // Updated path to include /users prefix
+    const response = await axios.post(`${USER_SERVICE_URL}/users/register/simple`, req.body, {
       headers: {
         'Content-Type': 'application/json',
       },
@@ -64,7 +65,8 @@ router.post('/login', async (req, res) => {
     }
     
     // Forward the request to user service's JSON login endpoint
-    const response = await axios.post(`${USER_SERVICE_URL}/login/json`, loginData, {
+    // Updated path to include /users prefix
+    const response = await axios.post(`${USER_SERVICE_URL}/users/login/json`, loginData, {
       headers: {
         'Content-Type': 'application/json',
       },

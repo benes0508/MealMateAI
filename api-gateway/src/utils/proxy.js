@@ -20,7 +20,7 @@ const createServiceProxy = (serviceName) => {
   switch (serviceName) {
     case 'users':
       target = USER_SERVICE_URL;
-      // Path rewrite for user service - keep the /users prefix but remove /api
+      // Add path rewrite for user service to remove the /api prefix
       pathRewrite = { '^/api/users': '/users' };
       break;
     case 'recipes':
@@ -51,35 +51,49 @@ const createServiceProxy = (serviceName) => {
       console.error(`[PROXY ERROR] Request details: ${req.method} ${req.originalUrl} -> ${target}${req.path}`);
       console.error(`[PROXY ERROR] Headers:`, req.headers);
       
-      res.status(502).json({
-        message: `Service ${serviceName} is currently unavailable`,
-        error: process.env.NODE_ENV === 'production' ? undefined : err.message
-      });
+      // Only send response if headers haven't been sent yet
+      if (!res.headersSent) {
+        res.status(502).json({
+          message: `Service ${serviceName} is currently unavailable`,
+          error: process.env.NODE_ENV === 'production' ? undefined : err.message
+        });
+      }
     },
     onProxyReq: (proxyReq, req, res) => {
-      // Log full request details
-      console.log(`[PROXY REQUEST] --------------------------------------------------------`);
-      console.log(`[PROXY REQUEST] ${req.method} ${req.originalUrl} -> ${target}${req.path}`);
-      console.log(`[PROXY REQUEST] Headers:`, JSON.stringify(req.headers));
-      
-      // Log request body for debugging if it's a POST/PUT
-      if (req.body && (req.method === 'POST' || req.method === 'PUT')) {
-        const bodyData = JSON.stringify(req.body);
-        console.log(`[PROXY REQUEST] Body: ${bodyData}`);
+      try {
+        // Log full request details
+        console.log(`[PROXY REQUEST] --------------------------------------------------------`);
+        console.log(`[PROXY REQUEST] ${req.method} ${req.originalUrl} -> ${target}${req.path}`);
+        console.log(`[PROXY REQUEST] Headers:`, JSON.stringify(req.headers));
         
-        // Need to rewrite body to the proxied request since we've already read it
-        proxyReq.setHeader('Content-Length', Buffer.byteLength(bodyData));
-        proxyReq.write(bodyData);
-        proxyReq.end();
+        // Log request body for debugging if it's a POST/PUT
+        if (req.body && (req.method === 'POST' || req.method === 'PUT')) {
+          const bodyData = JSON.stringify(req.body);
+          console.log(`[PROXY REQUEST] Body: ${bodyData}`);
+          
+          // Fix: Only attempt to write body if the request hasn't been sent yet
+          // This prevents 'Cannot set headers after they are sent to the client' errors
+          if (!proxyReq.finished && !proxyReq.socket.destroyed) {
+            // Need to rewrite body to the proxied request since we've already read it
+            proxyReq.setHeader('Content-Length', Buffer.byteLength(bodyData));
+            proxyReq.write(bodyData);
+            // Note: We're not calling proxyReq.end() here as http-proxy will handle that
+          }
+        }
+        
+        // Only set headers if the request hasn't been sent yet
+        if (!proxyReq.finished && !proxyReq.socket.destroyed) {
+          if (req.user) {
+            proxyReq.setHeader('X-User-ID', req.user.id);
+            proxyReq.setHeader('X-User-Role', req.user.role || 'user');
+          }
+        }
+        
+        // Log the full target URL
+        console.log(`[PROXY REQUEST] Full target URL: ${target}${req.path}`);
+      } catch (error) {
+        console.error(`[PROXY REQUEST ERROR] Error in onProxyReq: ${error.message}`);
       }
-      
-      if (req.user) {
-        proxyReq.setHeader('X-User-ID', req.user.id);
-        proxyReq.setHeader('X-User-Role', req.user.role || 'user');
-      }
-      
-      // Log the full target URL
-      console.log(`[PROXY REQUEST] Full target URL: ${target}${req.path}`);
     },
     onProxyRes: (proxyRes, req, res) => {
       console.log(`[PROXY RESPONSE] --------------------------------------------------------`);
