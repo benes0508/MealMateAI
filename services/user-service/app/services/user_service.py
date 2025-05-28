@@ -3,10 +3,17 @@ from sqlalchemy.orm import Session
 from app.repositories.user_repository import UserRepository
 from app.models.schemas import UserCreate, UserUpdate
 import logging
+import jwt
+from datetime import datetime, timedelta
 
 # Set up logging
 logger = logging.getLogger("user_service")
 logger.setLevel(logging.DEBUG)
+
+# JWT Configuration - moved from controller
+JWT_SECRET_KEY = "your-secret-key-for-development-only"
+JWT_ALGORITHM = "HS256"
+JWT_EXPIRATION_MINUTES = 1440  # 24 hours
 
 class UserService:
     def __init__(self, db: Session):
@@ -100,12 +107,50 @@ class UserService:
     def delete_user(self, user_id: int) -> bool:
         return self.repository.delete_user(user_id)
         
-    def authenticate_user(self, username: str, password: str):
-        user = self.repository.get_user_by_username(username)
-        if not user:
-            return False
+    def authenticate_user(self, username_or_email: str, password: str):
+        """Authenticate a user by username/email and password"""
+        # Try to find user by email first
+        user = self.repository.get_user_by_email(username_or_email)
         
-        if not self.repository.verify_password(password, user.hashed_password):
-            return False
+        # If not found by email, try by username
+        if not user:
+            user = self.repository.get_user_by_username(username_or_email)
+            
+        # If user exists, verify password
+        if not user or not self.repository.verify_password(password, user.hashed_password):
+            return None
             
         return user
+    
+    def format_user_response(self, user) -> Dict[str, Any]:
+        """Format user data for response"""
+        if not user:
+            return None
+            
+        return {
+            "id": user.id,
+            "email": user.email,
+            "name": user.full_name,
+            "role": "user",
+            "createdAt": user.created_at.isoformat() if hasattr(user, 'created_at') else None,
+            "updatedAt": user.updated_at.isoformat() if hasattr(user, 'updated_at') else None,
+        }
+    
+    def create_jwt_token(self, user_data: dict) -> str:
+        """Generate a JWT token with user data and expiration"""
+        token_data = user_data.copy()
+        
+        # Add expiration time
+        expires_delta = timedelta(minutes=JWT_EXPIRATION_MINUTES)
+        expire = datetime.utcnow() + expires_delta
+        token_data.update({"exp": expire})
+        
+        logger.debug(f"Creating JWT token with data: {token_data}")
+        
+        # Create token
+        encoded_jwt = jwt.encode(token_data, JWT_SECRET_KEY, algorithm=JWT_ALGORITHM)
+        
+        # Debug log the token
+        logger.debug(f"Generated token: {encoded_jwt[:15]}...")
+        
+        return encoded_jwt

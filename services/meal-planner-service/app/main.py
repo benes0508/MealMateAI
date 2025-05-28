@@ -3,6 +3,11 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.database import engine
 from app.models import models
 from app.controllers import meal_plan_controller
+import logging
+
+# Set up logging
+logger = logging.getLogger("meal_planner")
+logger.setLevel(logging.DEBUG)
 
 # Create database tables
 models.Base.metadata.create_all(bind=engine)
@@ -23,7 +28,8 @@ app.add_middleware(
 )
 
 # Include routers
-app.include_router(meal_plan_controller.router, prefix="/api/meal-planner", tags=["meal-plans"])
+# Use empty prefix since API gateway handles the /api/meal-plans prefix
+app.include_router(meal_plan_controller.router, tags=["meal-plans"])
 
 @app.get("/health")
 def health_check():

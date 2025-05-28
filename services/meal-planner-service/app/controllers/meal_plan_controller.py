@@ -1,13 +1,67 @@
-from fastapi import APIRouter, Depends, HTTPException, Query, Body
+from fastapi import APIRouter, Depends, HTTPException, Query, Body, Header
 from sqlalchemy.orm import Session
 from typing import List, Optional
+import logging
 
 from app.database import get_db
 from app.models import schemas
 from app.services.meal_plan_service import MealPlanService
 
+# Set up logging
+logger = logging.getLogger("meal_plan_controller")
+logger.setLevel(logging.DEBUG)
+
 router = APIRouter()
 meal_plan_service = MealPlanService()
+
+@router.get("/current", response_model=schemas.MealPlanResponse)
+async def get_current_meal_plan(
+    x_user_id: Optional[int] = Header(None, alias="X-User-ID"),
+    authorization: Optional[str] = Header(None),
+    db: Session = Depends(get_db)
+):
+    """
+    Get the current active meal plan for the authenticated user
+    """
+    try:
+        # Extract user ID from header
+        user_id = x_user_id
+        
+        # Log request details
+        logger.debug(f"Get current meal plan request received: user_id={user_id}")
+        
+        if not user_id:
+            # If no user ID in header, return an error
+            logger.error("Missing user ID in current meal plan request")
+            raise HTTPException(status_code=401, detail="Authentication required")
+        
+        # Get all meal plans for the user
+        meal_plans = await meal_plan_service.get_user_meal_plans(db, user_id)
+        
+        # Return 404 if none found
+        if not meal_plans:
+            logger.info(f"No meal plans found for user {user_id}")
+            raise HTTPException(status_code=404, detail="No meal plan found for user")
+            
+        # Sort meal plans by ID (assuming higher ID = more recent)
+        # and take the first one (most recent)
+        logger.debug(f"Found {len(meal_plans)} meal plans for user {user_id}")
+        sorted_plans = sorted(meal_plans, key=lambda x: x["id"], reverse=True)
+        most_recent_plan_id = sorted_plans[0]["id"]
+        logger.debug(f"Most recent plan ID: {most_recent_plan_id}")
+        
+        # Get the full details of the most recent meal plan
+        most_recent_plan = await meal_plan_service.get_meal_plan(db, most_recent_plan_id)
+        return most_recent_plan
+        
+    except ValueError as e:
+        logger.error(f"Value error in get_current_meal_plan: {str(e)}")
+        raise HTTPException(status_code=400, detail=str(e))
+    except HTTPException:
+        raise  # Re-raise HTTP exceptions
+    except Exception as e:
+        logger.exception(f"Error in get_current_meal_plan: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"An error occurred while retrieving the meal plan: {str(e)}")
 
 @router.post("/", response_model=schemas.MealPlanResponse)
 async def create_meal_plan(
