@@ -4,9 +4,6 @@ from sqlalchemy.orm import Session
 from typing import List, Dict, Any, Optional
 import logging
 import json
-import jwt
-from datetime import datetime, timedelta
-import os
 from app.database import get_db
 from app.models import schemas
 from app.services.user_service import UserService
@@ -20,36 +17,6 @@ logger.addHandler(handler)
 
 # Create router
 router = APIRouter()
-
-# JWT Configuration - HARDCODED to match API Gateway
-# IMPORTANT: This is only for development. In production, use environment variables.
-JWT_SECRET_KEY = "your-secret-key-for-development-only"  # MUST match API gateway's JWT_SECRET
-JWT_ALGORITHM = "HS256"
-JWT_EXPIRATION_MINUTES = 1440  # 24 hours
-
-# Log JWT configuration
-logger.info(f"Using JWT secret key: {JWT_SECRET_KEY[:5]}...")
-logger.info(f"Using JWT algorithm: {JWT_ALGORITHM}")
-
-def create_jwt_token(user_data: dict) -> str:
-    """Generate a JWT token with user data and expiration"""
-    token_data = user_data.copy()
-    
-    # Add expiration time
-    expires_delta = timedelta(minutes=JWT_EXPIRATION_MINUTES)
-    expire = datetime.utcnow() + expires_delta
-    token_data.update({"exp": expire})
-    
-    logger.debug(f"Creating JWT token with data: {token_data}")
-    logger.debug(f"Using secret key: {JWT_SECRET_KEY[:5]}...")
-    
-    # Create token
-    encoded_jwt = jwt.encode(token_data, JWT_SECRET_KEY, algorithm=JWT_ALGORITHM)
-    
-    # Debug log the token
-    logger.debug(f"Generated token: {encoded_jwt[:15]}...")
-    
-    return encoded_jwt
 
 # Updated registration endpoint that doesn't rely on request.json()
 @router.post("/register", status_code=status.HTTP_201_CREATED)
@@ -109,21 +76,15 @@ async def register_user(
         
         # Create user
         try:
-            user = UserService(db).create_user(user_data)
+            user_service = UserService(db)
+            user = user_service.create_user(user_data)
             logger.info(f"User successfully created with email: {user.email}")
             
-            # Return success response
-            user_dict = {
-                "id": user.id,
-                "email": user.email,
-                "name": user.full_name,
-                "role": "user",
-                "createdAt": user.created_at.isoformat() if hasattr(user, 'created_at') else None,
-                "updatedAt": user.updated_at.isoformat() if hasattr(user, 'updated_at') else None,
-            }
+            # Format user data using service method
+            user_dict = user_service.format_user_response(user)
             
-            # Generate proper JWT token
-            token = create_jwt_token(user_dict)
+            # Generate JWT token using service method
+            token = user_service.create_jwt_token(user_dict)
             
             return {
                 "user": user_dict,
@@ -182,21 +143,15 @@ def register_simple(user_data: Dict[str, Any] = Body(...), db: Session = Depends
         
         # Create user
         try:
-            user = UserService(db).create_user(user_create)
+            user_service = UserService(db)
+            user = user_service.create_user(user_create)
             logger.info(f"User successfully created with email: {user.email}")
             
-            # Return success response
-            user_dict = {
-                "id": user.id,
-                "email": user.email,
-                "name": user.full_name,
-                "role": "user",
-                "createdAt": user.created_at.isoformat() if hasattr(user, 'created_at') else None,
-                "updatedAt": user.updated_at.isoformat() if hasattr(user, 'updated_at') else None,
-            }
+            # Format user data using service method
+            user_dict = user_service.format_user_response(user)
             
-            # Generate proper JWT token
-            token = create_jwt_token(user_dict)
+            # Generate JWT token using service method
+            token = user_service.create_jwt_token(user_dict)
             
             return {
                 "user": user_dict,
@@ -348,7 +303,8 @@ def delete_user(user_id: int, db: Session = Depends(get_db)):
 @router.post("/login")
 def login(username: str, password: str, db: Session = Depends(get_db)):
     logger.debug(f"Login endpoint called for username: {username}")
-    user = UserService(db).authenticate_user(username, password)
+    user_service = UserService(db)
+    user = user_service.authenticate_user(username, password)
     if not user:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
@@ -364,7 +320,6 @@ def login_json(login_data: Dict[str, Any] = Body(...), db: Session = Depends(get
         # Log the raw request data for debugging
         logger.debug(f"Login JSON endpoint called")
         logger.debug(f"Login data received: {login_data}")
-        logger.debug(f"Login data type: {type(login_data)}")
         
         # Extract email/username and password from the request body
         email = login_data.get("email")
@@ -380,31 +335,18 @@ def login_json(login_data: Dict[str, Any] = Body(...), db: Session = Depends(get
                 content={"detail": "Email and password are required"}
             )
         
-        # First try to get user by email
+        # Use the service to authenticate
         user_service = UserService(db)
-        user = user_service.get_user_by_email(email)
+        user = user_service.authenticate_user(email, password)
         
-        # If not found by email, try by username
-        if not user:
-            logger.debug(f"User not found by email, trying username: {email}")
-            user = user_service.get_user_by_username(email)
-        
-        # If user found, verify the password
-        if user and user_service.repository.verify_password(password, user.hashed_password):
+        if user:
             logger.info(f"User successfully authenticated: {email}")
             
-            # Format user data for response
-            user_dict = {
-                "id": user.id,
-                "email": user.email,
-                "name": user.full_name,
-                "role": "user",  # Default role
-                "createdAt": user.created_at.isoformat() if hasattr(user, 'created_at') else None,
-                "updatedAt": user.updated_at.isoformat() if hasattr(user, 'updated_at') else None,
-            }
+            # Format user data using service method
+            user_dict = user_service.format_user_response(user)
             
-            # Generate proper JWT token
-            token = create_jwt_token(user_dict)
+            # Generate JWT token using service method
+            token = user_service.create_jwt_token(user_dict)
             
             # Return user and token
             return {
