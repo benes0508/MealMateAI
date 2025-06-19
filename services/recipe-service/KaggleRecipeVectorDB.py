@@ -1,5 +1,9 @@
+import os
+os.environ['TRANSFORMERS_NO_TF'] = '1'
+
 import pandas as pd
-from sentence_transformers import SentenceTransformer
+import torch
+from transformers import AutoTokenizer, AutoModel
 from qdrant_client import QdrantClient
 from qdrant_client.http import models as rest
 
@@ -9,7 +13,17 @@ COLLECTION_NAME = "recipes"
 VECTOR_SIZE = 384  # for all-MiniLM-L6-v2 embedding model
 
 # === LOAD EMBEDDING MODEL ===
-model = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
+tokenizer = AutoTokenizer.from_pretrained("sentence-transformers/all-MiniLM-L6-v2", use_fast=False)
+model     = AutoModel.from_pretrained("sentence-transformers/all-MiniLM-L6-v2")
+model.eval()
+
+def embed_text(text: str):
+    inputs  = tokenizer(text, return_tensors="pt", truncation=True, padding=True)
+    with torch.no_grad():
+        outputs = model(**inputs)
+    # Mean-pool the token embeddings
+    embeddings = outputs.last_hidden_state  # [1, seq_len, hidden_dim]
+    return embeddings.mean(dim=1)[0].cpu().tolist()
 
 # === CONNECT TO QDRANT ===
 client = QdrantClient(url="http://localhost:6333")
@@ -27,7 +41,7 @@ df = df.dropna(subset=["recipe_name", "directions"])  # keep only entries with t
 # === PROCESS AND UPLOAD RECIPES ===
 for i, row in df.iterrows():
     # Prepare text to embed - include relevant fields as text
-    embed_text = (
+    embed_input = (
         f"Recipe: {row['recipe_name']}\n"
         f"Cook time: {row.get('cook_time', '')}\n"
         f"Total time: {row.get('total_time', '')}\n"
@@ -39,7 +53,7 @@ for i, row in df.iterrows():
         f"Timing: {row.get('timing', '')}\n"
     )
 
-    vector = model.encode(embed_text).tolist()
+    vector = embed_text(embed_input)
 
     # Prepare payload for metadata storage
     payload = {
