@@ -21,18 +21,20 @@ import { CalendarMonth as CalendarIcon, RestaurantMenu as RecipeIcon } from '@mu
 import { useAuth } from '../context/AuthContext';
 import { getMealPlan } from '../services/mealPlannerService';
 
-// Define a local interface for meal plans that matches the component's expectations
+// Define interfaces for meal plan data
+interface Meal {
+  id: string;
+  type: string;
+  recipeId: string;
+  name: string;
+}
+
 interface MealPlan {
   id: string;
   name: string;
   startDate: string;
   endDate: string;
-  meals: {
-    id: string;
-    type: string;
-    recipeId: string;
-    name: string;
-  }[];
+  meals: Meal[];
 }
 
 const Dashboard = () => {
@@ -42,42 +44,127 @@ const Dashboard = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   
-  useEffect(() => {
-    const fetchMealPlans = async () => {
-      try {
-        setLoading(true);
-        // The getMealPlan function doesn't expect a user ID parameter
-        const response = await getMealPlan();
+  // Function to transform API response to our MealPlan format
+  const transformMealPlanData = (data: any): MealPlan[] => {
+    const plans: MealPlan[] = [];
+    
+    try {
+      // Handle the case where data is an object with recipes array
+      if (data && data.recipes && Array.isArray(data.recipes)) {
+        // Group recipes by day
+        const recipesByDay = new Map<number, { breakfast?: any, lunch?: any, dinner?: any }>();
         
-        // Transform the response to match the expected MealPlan format
-        // This is a temporary solution until backend API is fully implemented
-        const transformedData: MealPlan[] = [{
+        data.recipes.forEach((recipe: any) => {
+          const day = recipe.day;
+          if (!recipesByDay.has(day)) {
+            recipesByDay.set(day, {});
+          }
+          
+          const dayMeals = recipesByDay.get(day);
+          if (dayMeals) {
+            const mealType = recipe.meal_type.toLowerCase();
+            if (mealType === 'breakfast' || mealType === 'lunch' || mealType === 'dinner') {
+              dayMeals[mealType] = {
+                id: recipe.recipe_id || recipe.id || `recipe-${Math.random()}`,
+                name: recipe.name || recipe.title || 'Untitled Meal',
+                description: recipe.description || '',
+                ingredients: Array.isArray(recipe.ingredients) ? recipe.ingredients : []
+              };
+            }
+          }
+        });
+        
+        // Create a single meal plan object from grouped recipes
+        const allMeals: Meal[] = [];
+        
+        recipesByDay.forEach((meals, day) => {
+          const dayStr = `Day ${day}`;
+          
+          if (meals.breakfast) {
+            allMeals.push({
+              id: `${dayStr}-breakfast`,
+              type: 'breakfast',
+              recipeId: meals.breakfast.id,
+              name: meals.breakfast.name
+            });
+          }
+          
+          if (meals.lunch) {
+            allMeals.push({
+              id: `${dayStr}-lunch`,
+              type: 'lunch',
+              recipeId: meals.lunch.id,
+              name: meals.lunch.name
+            });
+          }
+          
+          if (meals.dinner) {
+            allMeals.push({
+              id: `${dayStr}-dinner`,
+              type: 'dinner',
+              recipeId: meals.dinner.id,
+              name: meals.dinner.name
+            });
+          }
+        });
+        
+        // Add the meal plan to the result
+        plans.push({
+          id: String(data.id) || '1',
+          name: data.plan_name || 'Weekly Meal Plan',
+          startDate: new Date().toISOString(),
+          endDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString(),
+          meals: allMeals
+        });
+      } else {
+        // Fallback for unexpected data format
+        plans.push({
           id: '1',
           name: 'Weekly Meal Plan',
           startDate: new Date().toISOString(),
           endDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString(),
-          meals: response.flatMap((day: { day: string, meals: { breakfast?: any, lunch?: any, dinner?: any }}) => {
-            const meals = [];
-            if (day.meals.breakfast) {
-              meals.push({
-                id: `${day.day}-breakfast`,
-                type: 'breakfast',
-                recipeId: day.meals.breakfast.id,
-                name: day.meals.breakfast.name
-              });
-            }
-            if (day.meals.lunch) {
-              meals.push({
-                id: `${day.day}-lunch`,
-                type: 'lunch',
-                recipeId: day.meals.lunch.id,
-                name: day.meals.lunch.name
-              });
-            }
-            if (day.meals.dinner) {
-              meals.push({
-                id: `${day.day}-dinner`,
-                type: 'dinner',
+          meals: []
+        });
+      }
+    } catch (e) {
+      console.error('Error transforming meal plan data:', e);
+      // Return an empty plan on error
+      plans.push({
+        id: '1',
+        name: 'Weekly Meal Plan',
+        startDate: new Date().toISOString(),
+        endDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString(),
+        meals: []
+      });
+    }
+    
+    return plans;
+  };
+  
+  useEffect(() => {
+    const fetchMealPlans = async () => {
+      try {
+        setLoading(true);
+        setError(null);
+        
+        const response = await getMealPlan();
+        console.log("Dashboard - Raw meal plan data:", response);
+        
+        // Transform the API response to our MealPlan format
+        const transformedData = transformMealPlanData(response);
+        console.log("Dashboard - Transformed meal plan data:", transformedData);
+        
+        setMealPlans(transformedData);
+      } catch (err) {
+        console.error("Failed to fetch meal plans:", err);
+        setError('Failed to load your meal plans. Please try again later.');
+      } finally {
+        setLoading(false);
+      }
+    };
+    
+    fetchMealPlans();
+  }, []);
                 recipeId: day.meals.dinner.id,
                 name: day.meals.dinner.name
               });

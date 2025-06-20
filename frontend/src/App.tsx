@@ -12,9 +12,11 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
+import TempDashboard from './pages/TempDashboard';
 import Recipes from './pages/Recipes';
 import RecipeDetail from './pages/RecipeDetail';
 import MealPlanner from './pages/MealPlanner';
+import CreateMealPlan from './pages/CreateMealPlan';
 import UserProfile from './pages/UserProfile';
 import UserSpace from './pages/UserSpace';
 import NotFound from './pages/NotFound';
@@ -43,20 +45,27 @@ function App() {
         </Route>
 
         {/* Protected routes with main layout */}
-        <Route element={<MainLayout />}>
-          <Route 
+        <Route element={<MainLayout />}>          <Route 
             path="/dashboard" 
             element={
               <ProtectedRoute>
-                <Dashboard />
+                <TempDashboard />
               </ProtectedRoute>
-            } 
+            }
           />
           <Route 
             path="/meal-planner" 
             element={
               <ProtectedRoute>
                 <MealPlanner />
+              </ProtectedRoute>
+            } 
+          />
+          <Route 
+            path="/create-meal-plan" 
+            element={
+              <ProtectedRoute>
+                <CreateMealPlan />
               </ProtectedRoute>
             } 
           />

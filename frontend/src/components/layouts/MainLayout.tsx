@@ -27,7 +27,8 @@ import {
   RestaurantMenu as RecipeIcon,
   CalendarMonth as PlannerIcon,
   AccountCircle as ProfileIcon,
-  Logout as LogoutIcon
+  Logout as LogoutIcon,
+  Dashboard as DashboardIcon
 } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
@@ -67,11 +68,13 @@ const MainLayout = () => {
   };
 
   const navItems = [
+    { title: 'Dashboard', path: '/dashboard', icon: <DashboardIcon />, requireAuth: true },
     { title: 'Recipes', path: '/recipes', icon: <RecipeIcon />, requireAuth: false },
     { title: 'Meal Planner', path: '/meal-planner', icon: <PlannerIcon />, requireAuth: true },
   ];
 
   const userMenuItems = [
+    { title: 'Dashboard', path: '/dashboard', icon: <DashboardIcon />, action: () => handleNavigation('/dashboard') },
     { title: 'Profile', path: '/profile', icon: <ProfileIcon />, action: () => handleNavigation('/profile') },
     { title: 'Logout', icon: <LogoutIcon />, action: handleLogout },
   ];

@@ -33,8 +33,7 @@ import {
   AccordionSummary,
   AccordionDetails,
   Badge,
-  Tooltip,
-  Snackbar
+  Tooltip
 } from '@mui/material';
 import { 
   Close as CloseIcon,
@@ -44,10 +43,9 @@ import {
   Info as InfoIcon,
   DateRange as DateRangeIcon,
   DragIndicator as DragIndicatorIcon,
-  SwapVert as SwapVertIcon,
-  Undo as UndoIcon
+  SwapVert as SwapVertIcon
 } from '@mui/icons-material';
-import { DragDropContext, Droppable, Draggable, DropResult, DroppableProvided } from 'react-beautiful-dnd';
+import { DragDropContext, Droppable, Draggable, DropResult, DroppableProvided, DraggableProvided } from 'react-beautiful-dnd';
 import { getMealPlan, generateMealPlan, generateMealPlanFromText, getUserMealPlans, getGroceryList, moveMeal, swapDays } from '../services/mealPlannerService';
 
 interface Meal {
@@ -115,11 +113,6 @@ const MealPlanner: React.FC = () => {
   
   // Current meal plan metadata
   const [currentMealPlanMetadata, setCurrentMealPlanMetadata] = useState<MealPlanMetadata | null>(null);
-  
-  // Drag and drop state management
-  const [movingMeal, setMovingMeal] = useState<boolean>(false);
-  const [lastMealPlanState, setLastMealPlanState] = useState<DayPlan[] | null>(null);
-  const [showUndoSnackbar, setShowUndoSnackbar] = useState<boolean>(false);
 
   const location = useLocation();
 
@@ -353,19 +346,6 @@ const MealPlanner: React.FC = () => {
     }
   };
 
-  // Function to handle undoing the last change
-  const handleUndoChange = () => {
-    if (lastMealPlanState) {
-      setMealPlan(lastMealPlanState);
-      setLastMealPlanState(null);
-    }
-    setShowUndoSnackbar(false);
-  };
-
-  const handleCloseUndoSnackbar = () => {
-    setShowUndoSnackbar(false);
-  };
-
   // Function to handle drag and drop of meals and days
   const onDragEnd = async (result: DropResult) => {
     const { source, destination, type } = result;
@@ -379,9 +359,6 @@ const MealPlanner: React.FC = () => {
     if (source.droppableId === destination.droppableId && source.index === destination.index) {
       return;
     }
-    
-    // Store the current state for undo functionality
-    setLastMealPlanState([...mealPlan]);
     
     setError(null);
     
@@ -398,21 +375,13 @@ const MealPlanner: React.FC = () => {
       
       // Call API to make the change permanent
       if (selectedMealPlanId) {
-        setMovingMeal(true);
         try {
           await swapDays(selectedMealPlanId, day1, day2);
-          setShowUndoSnackbar(true);
         } catch (err) {
           console.error('Error swapping days:', err);
           setError('Failed to update meal plan. Please try again.');
           // Revert UI change on error
-          if (lastMealPlanState) {
-            setMealPlan(lastMealPlanState);
-          } else {
-            fetchMealPlan(selectedMealPlanId);
-          }
-        } finally {
-          setMovingMeal(false);
+          fetchMealPlan(selectedMealPlanId);
         }
       }
       
@@ -467,7 +436,6 @@ const MealPlanner: React.FC = () => {
       
       // Call API to make the change permanent
       if (selectedMealPlanId && sourceMeal.recipe_id) {
-        setMovingMeal(true);
         try {
           await moveMeal(
             selectedMealPlanId, 
@@ -475,18 +443,11 @@ const MealPlanner: React.FC = () => {
             destDayId, 
             destMealType
           );
-          setShowUndoSnackbar(true);
         } catch (err) {
           console.error('Error moving meal:', err);
           setError('Failed to update meal plan. Please try again.');
           // Revert UI change on error
-          if (lastMealPlanState) {
-            setMealPlan(lastMealPlanState);
-          } else {
-            fetchMealPlan(selectedMealPlanId);
-          }
-        } finally {
-          setMovingMeal(false);
+          fetchMealPlan(selectedMealPlanId);
         }
       }
     }
@@ -682,7 +643,7 @@ const MealPlanner: React.FC = () => {
                   <Box>
                     {/* Group by category */}
                     {Object.entries(
-                      groceryList.items.reduce((acc: Record<string, GroceryItem[]>, item) => {
+                      groceryList.items.reduce((acc: any, item) => {
                         const category = item.category || 'Other';
                         if (!acc[category]) acc[category] = [];
                         acc[category].push(item);
@@ -743,22 +704,8 @@ const MealPlanner: React.FC = () => {
                               mb: 2 
                             }}>
                               <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                                <Box 
-                                  {...dragProvided.dragHandleProps} 
-                                  sx={{ 
-                                    mr: 1, 
-                                    cursor: 'grab',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    padding: '4px',
-                                    borderRadius: '4px',
-                                    '&:hover': {
-                                      backgroundColor: 'rgba(0, 0, 0, 0.04)'
-                                    }
-                                  }}
-                                  aria-label={`Drag ${dayPlan.day} to reorder`}
-                                >
-                                  <DragIndicatorIcon color="primary" />
+                                <Box {...dragProvided.dragHandleProps} sx={{ mr: 1, cursor: 'grab' }}>
+                                  <DragIndicatorIcon color="action" />
                                 </Box>
                                 <Typography variant="h5">
                                   {dayPlan.day}
@@ -782,13 +729,10 @@ const MealPlanner: React.FC = () => {
                                       {...breakfastProvided.droppableProps}
                                       sx={{ 
                                         minHeight: '200px', 
-                                        backgroundColor: snapshot.isDraggingOver ? 'rgba(25, 118, 210, 0.08)' : 'transparent',
-                                        transition: 'all 0.2s ease',
-                                        borderRadius: 1,
-                                        border: snapshot.isDraggingOver ? '2px dashed #1976d2' : '2px dashed transparent',
-                                        padding: 1
+                                        backgroundColor: snapshot.isDraggingOver ? 'action.hover' : 'transparent',
+                                        transition: 'background-color 0.2s ease',
+                                        borderRadius: 1
                                       }}
-                                      aria-label={`Drop zone for breakfast on ${dayPlan.day}`}
                                     >
                                       {dayPlan.meals.breakfast && (
                                         <Draggable 
@@ -800,11 +744,6 @@ const MealPlanner: React.FC = () => {
                                               ref={mealProvided.innerRef}
                                               {...mealProvided.draggableProps}
                                               {...mealProvided.dragHandleProps}
-                                              style={{
-                                                ...mealProvided.draggableProps.style,
-                                                cursor: 'grab'
-                                              }}
-                                              aria-label={`Drag ${dayPlan.meals.breakfast?.name} to move to another slot`}
                                             >
                                               {renderMealCard(dayPlan.meals.breakfast)}
                                             </div>
@@ -812,16 +751,7 @@ const MealPlanner: React.FC = () => {
                                         </Draggable>
                                       )}
                                       {!dayPlan.meals.breakfast && (
-                                        <Card variant="outlined" sx={{ 
-                                          height: '100%', 
-                                          minHeight: '100px', 
-                                          display: 'flex', 
-                                          alignItems: 'center', 
-                                          justifyContent: 'center',
-                                          borderStyle: 'dashed',
-                                          borderWidth: '1px',
-                                          backgroundColor: snapshot.isDraggingOver ? 'rgba(25, 118, 210, 0.04)' : 'transparent'
-                                        }}>
+                                        <Card variant="outlined" sx={{ height: '100%', minHeight: '100px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                                           <Typography color="text.secondary">Drop a meal here</Typography>
                                         </Card>
                                       )}
@@ -843,13 +773,10 @@ const MealPlanner: React.FC = () => {
                                       {...lunchProvided.droppableProps}
                                       sx={{ 
                                         minHeight: '200px', 
-                                        backgroundColor: snapshot.isDraggingOver ? 'rgba(25, 118, 210, 0.08)' : 'transparent',
-                                        transition: 'all 0.2s ease',
-                                        borderRadius: 1,
-                                        border: snapshot.isDraggingOver ? '2px dashed #1976d2' : '2px dashed transparent',
-                                        padding: 1
+                                        backgroundColor: snapshot.isDraggingOver ? 'action.hover' : 'transparent',
+                                        transition: 'background-color 0.2s ease',
+                                        borderRadius: 1
                                       }}
-                                      aria-label={`Drop zone for lunch on ${dayPlan.day}`}
                                     >
                                       {dayPlan.meals.lunch && (
                                         <Draggable 
@@ -861,11 +788,6 @@ const MealPlanner: React.FC = () => {
                                               ref={mealProvided.innerRef}
                                               {...mealProvided.draggableProps}
                                               {...mealProvided.dragHandleProps}
-                                              style={{
-                                                ...mealProvided.draggableProps.style,
-                                                cursor: 'grab'
-                                              }}
-                                              aria-label={`Drag ${dayPlan.meals.lunch?.name} to move to another slot`}
                                             >
                                               {renderMealCard(dayPlan.meals.lunch)}
                                             </div>
@@ -873,16 +795,7 @@ const MealPlanner: React.FC = () => {
                                         </Draggable>
                                       )}
                                       {!dayPlan.meals.lunch && (
-                                        <Card variant="outlined" sx={{ 
-                                          height: '100%', 
-                                          minHeight: '100px', 
-                                          display: 'flex', 
-                                          alignItems: 'center', 
-                                          justifyContent: 'center',
-                                          borderStyle: 'dashed',
-                                          borderWidth: '1px',
-                                          backgroundColor: snapshot.isDraggingOver ? 'rgba(25, 118, 210, 0.04)' : 'transparent'
-                                        }}>
+                                        <Card variant="outlined" sx={{ height: '100%', minHeight: '100px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                                           <Typography color="text.secondary">Drop a meal here</Typography>
                                         </Card>
                                       )}
@@ -904,13 +817,10 @@ const MealPlanner: React.FC = () => {
                                       {...dinnerProvided.droppableProps}
                                       sx={{ 
                                         minHeight: '200px', 
-                                        backgroundColor: snapshot.isDraggingOver ? 'rgba(25, 118, 210, 0.08)' : 'transparent',
-                                        transition: 'all 0.2s ease',
-                                        borderRadius: 1,
-                                        border: snapshot.isDraggingOver ? '2px dashed #1976d2' : '2px dashed transparent',
-                                        padding: 1
+                                        backgroundColor: snapshot.isDraggingOver ? 'action.hover' : 'transparent',
+                                        transition: 'background-color 0.2s ease',
+                                        borderRadius: 1
                                       }}
-                                      aria-label={`Drop zone for dinner on ${dayPlan.day}`}
                                     >
                                       {dayPlan.meals.dinner && (
                                         <Draggable 
@@ -922,11 +832,6 @@ const MealPlanner: React.FC = () => {
                                               ref={mealProvided.innerRef}
                                               {...mealProvided.draggableProps}
                                               {...mealProvided.dragHandleProps}
-                                              style={{
-                                                ...mealProvided.draggableProps.style,
-                                                cursor: 'grab'
-                                              }}
-                                              aria-label={`Drag ${dayPlan.meals.dinner?.name} to move to another slot`}
                                             >
                                               {renderMealCard(dayPlan.meals.dinner)}
                                             </div>
@@ -934,16 +839,7 @@ const MealPlanner: React.FC = () => {
                                         </Draggable>
                                       )}
                                       {!dayPlan.meals.dinner && (
-                                        <Card variant="outlined" sx={{ 
-                                          height: '100%', 
-                                          minHeight: '100px', 
-                                          display: 'flex', 
-                                          alignItems: 'center', 
-                                          justifyContent: 'center',
-                                          borderStyle: 'dashed',
-                                          borderWidth: '1px',
-                                          backgroundColor: snapshot.isDraggingOver ? 'rgba(25, 118, 210, 0.04)' : 'transparent'
-                                        }}>
+                                        <Card variant="outlined" sx={{ height: '100%', minHeight: '100px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                                           <Typography color="text.secondary">Drop a meal here</Typography>
                                         </Card>
                                       )}
@@ -965,25 +861,6 @@ const MealPlanner: React.FC = () => {
           </DragDropContext>
         </>
       )}
-
-      {/* Undo Snackbar */}
-      <Snackbar
-        open={showUndoSnackbar}
-        autoHideDuration={6000}
-        onClose={handleCloseUndoSnackbar}
-        message="Meal plan updated"
-        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
-        action={
-          <Button 
-            color="primary" 
-            size="small"
-            onClick={handleUndoChange}
-            startIcon={<UndoIcon />}
-          >
-            UNDO
-          </Button>
-        }
-      />
 
       <Dialog
         open={showTextPromptDialog}

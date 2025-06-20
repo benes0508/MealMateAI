@@ -62,3 +62,25 @@ class GroceryListItem(BaseModel):
 
 class GroceryList(BaseModel):
     items: List[GroceryListItem]
+
+class MoveMealRequest(BaseModel):
+    recipe_id: int
+    to_day: int
+    to_meal_type: str
+    
+    class Config:
+        orm_mode = True
+
+class SwapDaysRequest(BaseModel):
+    day1: int
+    day2: int
+    
+    class Config:
+        orm_mode = True
+
+class MealPlanModuleResponse(BaseModel):
+    success: bool
+    message: str
+    
+    class Config:
+        orm_mode = True
