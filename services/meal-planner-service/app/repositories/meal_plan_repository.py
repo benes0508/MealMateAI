@@ -92,3 +92,93 @@ class MealPlanRepository:
             "cuisine_preferences": json.loads(db_pref.cuisine_preferences) if db_pref.cuisine_preferences else [],
             "disliked_ingredients": json.loads(db_pref.disliked_ingredients) if db_pref.disliked_ingredients else []
         }
+
+    def update_meal_plan_recipe(self, db: Session, recipe_id: int, day: int, meal_type: str):
+        """Update a meal plan recipe's day and/or meal type"""
+        db_recipe = db.query(MealPlanRecipe).filter(MealPlanRecipe.id == recipe_id).first()
+        if db_recipe:
+            db_recipe.day = day
+            db_recipe.meal_type = meal_type
+            db.commit()
+            db.refresh(db_recipe)
+            return db_recipe
+        return None
+
+    def swap_meal_plan_days(self, db: Session, meal_plan_id: int, day1: int, day2: int):
+        """Swap two days in a meal plan"""
+        # Get all recipes for day1
+        day1_recipes = db.query(MealPlanRecipe).filter(
+            MealPlanRecipe.meal_plan_id == meal_plan_id,
+            MealPlanRecipe.day == day1
+        ).all()
+        
+        # Get all recipes for day2
+        day2_recipes = db.query(MealPlanRecipe).filter(
+            MealPlanRecipe.meal_plan_id == meal_plan_id,
+            MealPlanRecipe.day == day2
+        ).all()
+        
+        # Update day1 recipes to use a temporary day number
+        temp_day = 100  # Temporary day number that won't conflict
+        for recipe in day1_recipes:
+            recipe.day = temp_day
+            
+        db.commit()
+        
+        # Update day2 recipes to day1
+        for recipe in day2_recipes:
+            recipe.day = day1
+            
+        db.commit()
+        
+        # Update temp day recipes to day2
+        for recipe in day1_recipes:
+            recipe.day = day2
+            
+        db.commit()
+        return True
+
+    def move_meal(self, db: Session, meal_plan_id: int, recipe_id: int, to_day: int, to_meal_type: str):
+        """Move a meal to a different day or meal type"""
+        db_recipe = db.query(MealPlanRecipe).filter(
+            MealPlanRecipe.meal_plan_id == meal_plan_id,
+            MealPlanRecipe.id == recipe_id
+        ).first()
+        
+        if db_recipe:
+            # Check if there's already a meal at the destination
+            existing_meal = db.query(MealPlanRecipe).filter(
+                MealPlanRecipe.meal_plan_id == meal_plan_id,
+                MealPlanRecipe.day == to_day,
+                MealPlanRecipe.meal_type == to_meal_type
+            ).first()
+            
+            if existing_meal:
+                # If there's already a meal, swap them
+                temp_day = db_recipe.day
+                temp_meal_type = db_recipe.meal_type
+                
+                db_recipe.day = to_day
+                db_recipe.meal_type = to_meal_type
+                
+                existing_meal.day = temp_day
+                existing_meal.meal_type = temp_meal_type
+            else:
+                # Otherwise, just move the meal
+                db_recipe.day = to_day
+                db_recipe.meal_type = to_meal_type
+                
+            db.commit()
+            return True
+        return False
+
+    def update_meal_plan_data(self, db: Session, meal_plan_id: int, new_plan_data: str):
+        """Update the meal plan data JSON"""
+        db_meal_plan = db.query(MealPlan).filter(MealPlan.id == meal_plan_id).first()
+        if db_meal_plan:
+            db_meal_plan.plan_data = new_plan_data
+            db_meal_plan.updated_at = datetime.utcnow()
+            db.commit()
+            db.refresh(db_meal_plan)
+            return db_meal_plan
+        return None

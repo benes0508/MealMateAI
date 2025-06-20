@@ -56,13 +56,22 @@ const Home = () => {
             justifyContent="center"
           >
             {isAuthenticated ? (
-              <Button 
-                variant="contained" 
-                size="large"
-                onClick={() => navigate('/meal-planner')}
-              >
-                Start Planning Meals
-              </Button>
+              <>
+                <Button 
+                  variant="contained" 
+                  size="large"
+                  onClick={() => navigate('/dashboard')}
+                >
+                  Go to Dashboard
+                </Button>
+                <Button 
+                  variant="outlined" 
+                  size="large"
+                  onClick={() => navigate('/meal-planner')}
+                >
+                  Start Planning Meals
+                </Button>
+              </>
             ) : (
               <>
                 <Button 
