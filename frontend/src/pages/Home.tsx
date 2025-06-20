@@ -223,7 +223,7 @@ const Home = () => {
               <Button 
                 variant="contained" 
                 size="large"
-                onClick={() => navigate('/meal-planner')}
+                onClick={() => navigate('/create-meal-plan')}
               >
                 Create Your Meal Plan
               </Button>
