@@ -20,6 +20,9 @@ import CreateMealPlan from './pages/CreateMealPlan';
 import UserProfile from './pages/UserProfile';
 import UserSpace from './pages/UserSpace';
 import NotFound from './pages/NotFound';
+import Terms from './pages/Terms';
+import Privacy from './pages/Privacy';
+import Cookies from './pages/Cookies';
 import ProtectedRoute from './components/ProtectedRoute';
 import PreferenceSetup from './components/PreferenceSetup';
 
@@ -36,6 +39,9 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/recipes" element={<Recipes />} />
           <Route path="/recipes/:id" element={<RecipeDetail />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/cookies" element={<Cookies />} />
         </Route>
 
         {/* Auth routes */}
