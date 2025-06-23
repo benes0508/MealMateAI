@@ -87,8 +87,11 @@ yarn-error.log*
 
 # Dependency directories
 node_modules/
+frontend/node_modules/
+api-gateway/node_modules/
 jspm_packages/
-
+qdrant_data/
+qdrant_storage/
 # Optional npm cache directory
 .npm
 

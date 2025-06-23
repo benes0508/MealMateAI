@@ -2,6 +2,7 @@ from fastapi import APIRouter, Depends, HTTPException, Query, Body, Header
 from sqlalchemy.orm import Session
 from typing import List, Optional
 import logging
+from datetime import datetime
 
 from app.database import get_db
 from app.models import schemas
@@ -38,10 +39,20 @@ async def get_current_meal_plan(
         # Get all meal plans for the user
         meal_plans = await meal_plan_service.get_user_meal_plans(db, user_id)
         
-        # Return 404 if none found
+        # Return empty meal plan structure with 200 OK if none found
         if not meal_plans:
             logger.info(f"No meal plans found for user {user_id}")
-            raise HTTPException(status_code=404, detail="No meal plan found for user")
+            # Return an empty meal plan structure instead of 404
+            return {
+                "id": None,
+                "user_id": user_id,
+                "plan_name": "No Plan",
+                "created_at": datetime.now().isoformat(),
+                "days": 0,
+                "meals_per_day": 0,
+                "plan_explanation": "You don't have any meal plans yet. Generate your first plan to get started!",
+                "recipes": []
+            }
             
         # Sort meal plans by ID (assuming higher ID = more recent)
         # and take the first one (most recent)

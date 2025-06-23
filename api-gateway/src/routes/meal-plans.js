@@ -15,6 +15,9 @@ router.use(authenticateToken);
 // Get all user meal plans
 router.get('/user/:userId', isSameUser, mealPlannerServiceProxy);
 
+// Get the current meal plan for the authenticated user
+router.get('/current', mealPlannerServiceProxy);
+
 // Create a new meal plan
 router.post('/', mealPlannerServiceProxy);
 
