@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   Box,
@@ -15,11 +15,15 @@ import {
   ListItem,
   ListItemText,
   CircularProgress,
-  Alert
+  Alert,
+  TextField,
+  InputAdornment,
+  IconButton
 } from '@mui/material';
-import { CalendarMonth as CalendarIcon, RestaurantMenu as RecipeIcon } from '@mui/icons-material';
+import { CalendarMonth as CalendarIcon, RestaurantMenu as RecipeIcon, Search as SearchIcon, Clear as ClearIcon } from '@mui/icons-material';
 import { useAuth } from '../context/AuthContext';
 import { getMealPlan } from '../services/mealPlannerService';
+import recipeService from '../services/recipeService';
 
 // Define interfaces for meal plan data
 interface Meal {
@@ -37,12 +41,28 @@ interface MealPlan {
   meals: Meal[];
 }
 
+// Interface for recommended recipes
+interface RecommendedRecipe {
+  id: string;
+  name: string;
+  description: string;
+  tags?: string[];
+}
+
 const Dashboard = () => {
   const { user } = useAuth();
   const navigate = useNavigate();
   const [mealPlans, setMealPlans] = useState<MealPlan[]>([]);
+  const [filteredMealPlans, setFilteredMealPlans] = useState<MealPlan[]>([]);
+  const [searchTerm, setSearchTerm] = useState('');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  
+  // Recommended recipes state
+  const [recommendedRecipes, setRecommendedRecipes] = useState<RecommendedRecipe[]>([]);
+  const [filteredRecipes, setFilteredRecipes] = useState<RecommendedRecipe[]>([]);
+  const [recipeSearchValue, setRecipeSearchValue] = useState('');
+  const [recipeTagsLoading, setRecipeTagsLoading] = useState(false);
   
   // Function to transform API response to our MealPlan format
   const transformMealPlanData = (data: any): MealPlan[] => {
@@ -64,12 +84,14 @@ const Dashboard = () => {
           if (dayMeals) {
             const mealType = recipe.meal_type.toLowerCase();
             if (mealType === 'breakfast' || mealType === 'lunch' || mealType === 'dinner') {
-              dayMeals[mealType] = {
-                id: recipe.recipe_id || recipe.id || `recipe-${Math.random()}`,
-                name: recipe.name || recipe.title || 'Untitled Meal',
-                description: recipe.description || '',
-                ingredients: Array.isArray(recipe.ingredients) ? recipe.ingredients : []
-              };
+              if (mealType === 'breakfast' || mealType === 'lunch' || mealType === 'dinner') {
+                dayMeals[mealType as keyof typeof dayMeals] = {
+                  id: recipe.recipe_id || recipe.id || `recipe-${Math.random()}`,
+                  name: recipe.name || recipe.title || 'Untitled Meal',
+                  description: recipe.description || '',
+                  ingredients: Array.isArray(recipe.ingredients) ? recipe.ingredients : []
+                };
+              }
             }
           }
         });
@@ -141,6 +163,7 @@ const Dashboard = () => {
     return plans;
   };
   
+  // Fetch meal plans on component mount
   useEffect(() => {
     const fetchMealPlans = async () => {
       try {
@@ -164,26 +187,152 @@ const Dashboard = () => {
     };
     
     fetchMealPlans();
-  }, []);
-                recipeId: day.meals.dinner.id,
-                name: day.meals.dinner.name
-              });
-            }
-            return meals;
-          })
-        }];
+  }, [user]);
+  
+  // Load recommended recipes
+  useEffect(() => {
+    const loadRecommendedRecipes = () => {
+      try {
+        setRecipeTagsLoading(true);
         
-        setMealPlans(transformedData);
-      } catch (err) {
-        console.error('Failed to fetch meal plans:', err);
-        setError('Failed to load your meal plans. Please try again later.');
+        // Default recommendations - you can replace with API call or other data source
+        const mockRecommendations: RecommendedRecipe[] = [
+          {
+            id: '1',
+            name: 'Vegetarian Buddha Bowl',
+            description: 'A healthy mix of grains, vegetables, and proteins',
+            tags: ['vegetarian', 'healthy', 'bowl']
+          },
+          {
+            id: '2',
+            name: 'One-Pot Pasta',
+            description: 'Ready in 20 minutes with minimal cleanup',
+            tags: ['pasta', 'quick', 'easy']
+          },
+          {
+            id: '3',
+            name: 'Classic Chicken Soup',
+            description: 'Comfort food perfect for cold days',
+            tags: ['chicken', 'soup', 'comfort food']
+          },
+          {
+            id: '4',
+            name: 'Baked Salmon',
+            description: 'Rich in omega-3 fatty acids and protein',
+            tags: ['fish', 'salmon', 'protein']
+          },
+          {
+            id: '5',
+            name: 'Bacon & Egg Breakfast Sandwich',
+            description: 'Hearty breakfast sandwich with bacon and eggs',
+            tags: ['breakfast', 'bacon', 'eggs', 'sandwich']
+          },
+          {
+            id: '6',
+            name: 'Bacon Wrapped Chicken',
+            description: 'Juicy chicken wrapped in crispy bacon',
+            tags: ['bacon', 'chicken', 'dinner']
+          }
+        ];
+        
+        setRecommendedRecipes(mockRecommendations);
+        setFilteredRecipes(mockRecommendations);
+      } catch (error) {
+        console.error('Error loading recommended recipes:', error);
       } finally {
-        setLoading(false);
+        setRecipeTagsLoading(false);
       }
     };
     
-    fetchMealPlans();
-  }, [user]);
+    loadRecommendedRecipes();
+  }, []);
+  
+  // Filter recipes based on search input
+  // Filter recipes based on search input
+  useEffect(() => {
+    if (recipeSearchValue.trim() === '') {
+      // Show all recipes when search is empty
+      setFilteredRecipes(recommendedRecipes);
+      return;
+    }
+    
+    const searchTerm = recipeSearchValue.toLowerCase();
+    const filtered = recommendedRecipes.filter(recipe => {
+      const nameMatch = recipe.name.toLowerCase().includes(searchTerm);
+      const tagMatch = recipe.tags?.some(tag => tag.toLowerCase().includes(searchTerm)) || false;
+      return nameMatch || tagMatch;
+    });
+    
+    setFilteredRecipes(filtered);
+  }, [recipeSearchValue, recommendedRecipes]);
+  
+  // Filter meal plans based on search term
+  useEffect(() => {
+    if (searchTerm === '') {
+      setFilteredMealPlans(mealPlans);
+      return;
+    }
+    
+    const lowercasedFilter = searchTerm.toLowerCase();
+    setFilteredMealPlans(
+      mealPlans.filter(plan => 
+        plan.name.toLowerCase().includes(lowercasedFilter) ||
+        plan.meals.some(meal => meal.name.toLowerCase().includes(lowercasedFilter))
+      )
+    );
+  }, [searchTerm, mealPlans]);
+
+  useEffect(() => {
+    if (searchTerm === '') {
+      setFilteredMealPlans(mealPlans);
+    } else {
+      const lowercasedFilter = searchTerm.toLowerCase();
+      setFilteredMealPlans(
+        mealPlans.filter(plan => 
+          plan.name.toLowerCase().includes(lowercasedFilter) ||
+          plan.meals.some(meal => meal.name.toLowerCase().includes(lowercasedFilter))
+        )
+      );
+    }
+  }, [searchTerm, mealPlans]);
+
+  // Fetch recommended recipes (mocked for this example)
+  useEffect(() => {
+    const fetchRecommendedRecipes = async () => {
+      setRecipeTagsLoading(true);
+      try {
+        // Simulate API call
+        const response = await recipeService.getAllRecipes();
+        console.log("Recommended recipes data:", response);
+        
+        // Here you would filter or select recipes based on user preferences, etc.
+        setRecommendedRecipes(response);
+        setFilteredRecipes(response);
+      } catch (err) {
+        console.error("Failed to fetch recommended recipes:", err);
+      } finally {
+        setRecipeTagsLoading(false);
+      }
+    };
+    
+    fetchRecommendedRecipes();
+  }, []);
+
+  // Filter recipes based on search value
+  useEffect(() => {
+    if (recipeSearchValue === '') {
+      setFilteredRecipes(recommendedRecipes);
+    } else {
+      const lowercasedFilter = recipeSearchValue.toLowerCase();
+      setFilteredRecipes(
+        recommendedRecipes.filter(recipe => 
+          recipe.name.toLowerCase().includes(lowercasedFilter) ||
+          (recipe.description && recipe.description.toLowerCase().includes(lowercasedFilter)) ||
+          (recipe.tags && recipe.tags.some(tag => tag.toLowerCase().includes(lowercasedFilter)))
+        )
+      );
+    }
+  }, [recipeSearchValue, recommendedRecipes]);
 
   const handleCreateMealPlan = () => {
     navigate('/meal-planner');
@@ -236,13 +385,29 @@ const Dashboard = () => {
             </Button>
           </Box>
           
+          <TextField
+            fullWidth
+            variant="outlined"
+            placeholder="Search meal plans or recipes..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <SearchIcon color="action" />
+                </InputAdornment>
+              ),
+            }}
+            sx={{ mb: 2 }}
+          />
+
           {loading ? (
             <Box sx={{ display: 'flex', justifyContent: 'center', my: 4 }}>
               <CircularProgress />
             </Box>
-          ) : mealPlans.length > 0 ? (
+          ) : filteredMealPlans.length > 0 ? (
             <Grid container spacing={3}>
-              {mealPlans.map((plan) => (
+              {filteredMealPlans.map((plan) => (
                 <Grid item xs={12} sm={6} key={plan.id}>
                   <Card variant="outlined">
                     <CardContent>
@@ -320,35 +485,92 @@ const Dashboard = () => {
           </Typography>
           
           <Card variant="outlined">
-            <List>
-              <ListItem button onClick={() => navigate('/recipes/1')}>
-                <ListItemText 
-                  primary="Vegetarian Buddha Bowl" 
-                  secondary="A healthy mix of grains, vegetables, and proteins"
-                />
-              </ListItem>
-              <Divider />
-              <ListItem button onClick={() => navigate('/recipes/2')}>
-                <ListItemText 
-                  primary="One-Pot Pasta" 
-                  secondary="Ready in 20 minutes with minimal cleanup"
-                />
-              </ListItem>
-              <Divider />
-              <ListItem button onClick={() => navigate('/recipes/3')}>
-                <ListItemText 
-                  primary="Classic Chicken Soup" 
-                  secondary="Comfort food perfect for cold days"
-                />
-              </ListItem>
-              <Divider />
-              <ListItem button onClick={() => navigate('/recipes/4')}>
-                <ListItemText 
-                  primary="Baked Salmon" 
-                  secondary="Rich in omega-3 fatty acids and protein"
-                />
-              </ListItem>
-            </List>
+            <Box sx={{ p: 2, pb: 0 }}>
+              <TextField
+                fullWidth
+                variant="outlined"
+                placeholder="Search by name or tag (e.g., bacon, fish)..."
+                value={recipeSearchValue}
+                onChange={(e) => setRecipeSearchValue(e.target.value)}
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <SearchIcon color="action" />
+                    </InputAdornment>
+                  ),
+                  endAdornment: recipeSearchValue && (
+                    <InputAdornment position="end">
+                      <IconButton 
+                        onClick={() => setRecipeSearchValue('')}
+                        edge="end"
+                        size="small"
+                      >
+                        <ClearIcon />
+                      </IconButton>
+                    </InputAdornment>
+                  )
+                }}
+                size="small"
+              />
+            </Box>
+
+            {recipeTagsLoading ? (
+              <Box sx={{ display: 'flex', justifyContent: 'center', my: 4 }}>
+                <CircularProgress />
+              </Box>
+            ) : filteredRecipes.length > 0 ? (
+              <List>
+                {filteredRecipes.map((recipe, index) => (
+                  <React.Fragment key={recipe.id}>
+                    <ListItem button onClick={() => navigate(`/recipes/${recipe.id}`)}>
+                      <ListItemText 
+                        primary={recipe.name} 
+                        secondary={
+                          <>
+                            <Typography variant="body2" component="span">
+                              {recipe.description}
+                            </Typography>
+                            {recipe.tags && recipe.tags.length > 0 && (
+                              <Box sx={{ mt: 0.5, display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
+                                {recipe.tags.map(tag => (
+                                  <Chip 
+                                    key={tag}
+                                    label={tag} 
+                                    size="small"
+                                    color="primary"
+                                    variant="outlined"
+                                    onClick={(e) => {
+                                      e.stopPropagation(); // Prevent navigating to recipe details
+                                      setRecipeSearchValue(tag);
+                                    }}
+                                    sx={{ height: 20, fontSize: '0.7rem' }}
+                                  />
+                                ))}
+                              </Box>
+                            )}
+                          </>
+                        }
+                      />
+                    </ListItem>
+                    {index < filteredRecipes.length - 1 && <Divider />}
+                  </React.Fragment>
+                ))}
+              </List>
+            ) : (
+              <Box sx={{ p: 3, textAlign: 'center' }}>
+                <Typography variant="body1" gutterBottom>
+                  No recipes found matching "{recipeSearchValue}"
+                </Typography>
+                <Button 
+                  variant="outlined" 
+                  size="small"
+                  onClick={() => setRecipeSearchValue('')}
+                >
+                  Clear Search
+                </Button>
+              </Box>
+            )}
+
             <Box sx={{ p: 2 }}>
               <Button 
                 fullWidth 

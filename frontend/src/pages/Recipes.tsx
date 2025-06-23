@@ -48,6 +48,8 @@ const Recipes = () => {
   const [error, setError] = useState<string | null>(null);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
+  const [csvLoading, setCsvLoading] = useState(false);
+  
   const [searchParams, setSearchParams] = useState<SearchParams>({
     query: '',
     dietary: [],
@@ -65,6 +67,16 @@ const Recipes = () => {
     nutFree: false,
     lowCarb: false
   });
+  
+  // Tag filter state
+  const [selectedTags, setSelectedTags] = useState<string[]>([]);
+  const [availableTags, setAvailableTags] = useState<string[]>([]);
+  const [showTagFilters, setShowTagFilters] = useState(false);
+  const [tagSearchValue, setTagSearchValue] = useState('');
+  const [filteredTags, setFilteredTags] = useState<string[]>([]);
+
+  // State to track the source of current recipes
+  const [recipeSource, setRecipeSource] = useState<'database' | 'csv' | null>(null);
 
   useEffect(() => {
     const fetchRecipes = async () => {
@@ -77,30 +89,223 @@ const Recipes = () => {
           .filter(([_, value]) => value)
           .map(([key]) => key);
         
-        // Update search params with current page and filters
-        const params: SearchParams = {
-          ...searchParams,
-          page,
-          dietary: dietaryArray
-        };
-        
-        const response = await recipeService.searchRecipes(params);
-        setRecipes(response.recipes);
-        setTotalPages(response.total_pages || 1);
+        // Check if we're using CSV recipes from a previous load
+        const storedCsvRecipes = sessionStorage.getItem('allCsvRecipes');
+        const isUsingCsvData = storedCsvRecipes && !dietaryArray.length && selectedTags.length === 0;
+
+        if (isUsingCsvData) {
+          // We already have CSV data, just paginate it client-side
+          setRecipeSource('csv');
+          const allCsvRecipes = JSON.parse(storedCsvRecipes);
+          
+          // Collect all unique tags for filter UI
+          const tagSet = new Set<string>();
+          allCsvRecipes.forEach((recipe: any) => {
+            const recipeTags = recipe.cuisine_path?.split('/').filter(Boolean) || [];
+            recipeTags.forEach((tag: string) => tagSet.add(tag));
+          });
+          const sortedTags = Array.from(tagSet).sort();
+          setAvailableTags(sortedTags);
+          setFilteredTags(sortedTags);
+          
+          // Filter recipes based on search query and selected tags
+          let filteredRecipes = allCsvRecipes;
+          
+          // Apply search query filter
+          if (searchParams.query) {
+            const query = searchParams.query.toLowerCase();
+            filteredRecipes = filteredRecipes.filter((recipe: any) => 
+              recipe.recipe_name?.toLowerCase().includes(query)
+            );
+          }
+          
+          // Apply tag filter
+          if (selectedTags.length > 0) {
+            filteredRecipes = filteredRecipes.filter((recipe: any) => {
+              const recipeTags = recipe.cuisine_path?.split('/').filter(Boolean) || [];
+              return selectedTags.some(tag => recipeTags.includes(tag));
+            });
+          }
+          
+          // Store filtered recipes for pagination
+          sessionStorage.setItem('filteredCsvRecipes', JSON.stringify(filteredRecipes));
+          
+          const limit = 12;
+          const offset = (page - 1) * limit;
+          const paginatedRecipes = filteredRecipes.slice(offset, offset + limit);
+          
+          // Transform the CSV data to match Recipe type
+          const recipes = paginatedRecipes.map((csvRecipe: any) => {
+            return {
+              id: csvRecipe.Unnamed_0 || String(Math.random()),
+              name: csvRecipe.recipe_name || 'Unnamed Recipe',
+              description: csvRecipe.directions?.substring(0, 150) + '...' || '',
+              imageUrl: csvRecipe.img_src || '/placeholder-recipe.jpg',
+              prepTime: parseInt(csvRecipe.prep_time?.split(' ')[0] || '0') || 0,
+              cookTime: parseInt(csvRecipe.cook_time?.split(' ')[0] || '0') || 0,
+              servings: parseInt(csvRecipe.servings || '0') || 0,
+              difficulty: 'medium' as 'easy' | 'medium' | 'hard',
+              ingredients: csvRecipe.ingredients?.split(',') || [],
+              instructions: csvRecipe.directions?.split('\n') || [],
+              tags: csvRecipe.cuisine_path?.split('/').filter(Boolean) || [],
+              nutritionalInfo: {
+                calories: 0,
+                protein: 0,
+                carbs: 0,
+                fat: 0
+              },
+              dietaryInfo: {
+                vegetarian: false,
+                vegan: false,
+                glutenFree: false,
+                dairyFree: false,
+                nutFree: false,
+                lowCarb: false
+              },
+              createdAt: new Date().toISOString(),
+              updatedAt: new Date().toISOString()
+            };
+          });
+          
+          setRecipes(recipes);
+          setTotalPages(Math.ceil(filteredRecipes.length / limit) || 1);
+        } else {
+          // Update search params with current page, dietary filters and tags
+          const params: SearchParams = {
+            ...searchParams,
+            page,
+            dietary: dietaryArray,
+            // Future API update would use tags here
+            // tags: selectedTags
+          };
+          
+          const response = await recipeService.searchRecipes(params);
+          
+          // If we got search results, use them
+          if (response.recipes && response.recipes.length > 0) {
+            // Clear CSV cache if we're using search results
+            sessionStorage.removeItem('allCsvRecipes'); 
+            setRecipes(response.recipes);
+            setTotalPages(response.total_pages || 1);
+            setRecipeSource('database');
+            
+            // Collect tags from database results
+            const tagSet = new Set<string>();
+            response.recipes.forEach(recipe => {
+              recipe.tags.forEach(tag => tagSet.add(tag));
+            });
+            const sortedTags = Array.from(tagSet).sort();
+            setAvailableTags(sortedTags);
+            setFilteredTags(sortedTags);
+          } 
+          // If no search results and this is the initial load (no search query, dietary filters, or tag filters)
+          else if (!searchParams.query && !dietaryArray.length && selectedTags.length === 0) {
+            // Load CSV recipes automatically
+            await loadCsvRecipes(page);
+            setRecipeSource('csv');
+          }
+          // If there's a search query or tags but no results, try searching the CSV data
+          else if (searchParams.query || selectedTags.length > 0) {
+            // If we don't have CSV data already, load it first
+            if (!storedCsvRecipes) {
+              const loaded = await loadCsvRecipes();
+              if (!loaded) return; // Exit if CSV loading failed
+            }
+            
+            // Now search and filter the CSV data
+            const allCsvRecipes = JSON.parse(sessionStorage.getItem('allCsvRecipes') || '[]');
+            let filteredRecipes = allCsvRecipes;
+            
+            // Apply search query filter
+            if (searchParams.query) {
+              const query = searchParams.query.toLowerCase();
+              filteredRecipes = filteredRecipes.filter((recipe: any) => 
+                recipe.recipe_name?.toLowerCase().includes(query)
+              );
+            }
+            
+            // Apply tag filter
+            if (selectedTags.length > 0) {
+              filteredRecipes = filteredRecipes.filter((recipe: any) => {
+                const recipeTags = recipe.cuisine_path?.split('/').filter(Boolean) || [];
+                return selectedTags.some(tag => recipeTags.includes(tag));
+              });
+            }
+            
+            // Store filtered recipes for pagination
+            sessionStorage.setItem('filteredCsvRecipes', JSON.stringify(filteredRecipes));
+            
+            const limit = 12;
+            const offset = (page - 1) * limit;
+            const paginatedRecipes = filteredRecipes.slice(offset, offset + limit);
+            
+            // Transform the CSV data to match Recipe type
+            const recipes = paginatedRecipes.map((csvRecipe: any) => {
+              return {
+                id: csvRecipe.Unnamed_0 || String(Math.random()),
+                name: csvRecipe.recipe_name || 'Unnamed Recipe',
+                description: csvRecipe.directions?.substring(0, 150) + '...' || '',
+                imageUrl: csvRecipe.img_src || '/placeholder-recipe.jpg',
+                prepTime: parseInt(csvRecipe.prep_time?.split(' ')[0] || '0') || 0,
+                cookTime: parseInt(csvRecipe.cook_time?.split(' ')[0] || '0') || 0,
+                servings: parseInt(csvRecipe.servings || '0') || 0,
+                difficulty: 'medium' as 'easy' | 'medium' | 'hard',
+                ingredients: csvRecipe.ingredients?.split(',') || [],
+                instructions: csvRecipe.directions?.split('\n') || [],
+                tags: csvRecipe.cuisine_path?.split('/').filter(Boolean) || [],
+                nutritionalInfo: {
+                  calories: 0,
+                  protein: 0,
+                  carbs: 0,
+                  fat: 0
+                },
+                dietaryInfo: {
+                  vegetarian: false,
+                  vegan: false,
+                  glutenFree: false,
+                  dairyFree: false,
+                  nutFree: false,
+                  lowCarb: false
+                },
+                createdAt: new Date().toISOString(),
+                updatedAt: new Date().toISOString()
+              };
+            });
+            
+            setRecipes(recipes);
+            setTotalPages(Math.ceil(filteredRecipes.length / limit) || 1);
+            setRecipeSource('csv');
+          }
+          // Otherwise, just set empty recipes
+          else {
+            sessionStorage.removeItem('allCsvRecipes');
+            setRecipes([]);
+            setTotalPages(1);
+          }
+        }
       } catch (err) {
         console.error('Failed to fetch recipes:', err);
         setError('Failed to load recipes. Please try again.');
+        
+        // Try loading CSV recipes as fallback on error
+        if (!searchParams.query && selectedTags.length === 0) {
+          await loadCsvRecipes(page);
+        }
       } finally {
         setLoading(false);
       }
     };
 
     fetchRecipes();
-  }, [page, searchParams.query, dietaryFilters]);
+  }, [page, searchParams.query, dietaryFilters, selectedTags]);
 
-  const handleSearch = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    setPage(1); // Reset to first page on new search
+  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setSearchParams({
+      ...searchParams,
+      query: (e.currentTarget.elements.namedItem('searchQuery') as HTMLInputElement)?.value || '',
+    });
+    setPage(1);
   };
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -126,13 +331,167 @@ const Recipes = () => {
     setPage(1); // Reset to first page on filter change
   };
 
-  const handlePageChange = (event: React.ChangeEvent<unknown>, value: number) => {
+
+
+  const handleTagToggle = (tag: string) => {
+    setSelectedTags(prev => {
+      if (prev.includes(tag)) {
+        return prev.filter(t => t !== tag);
+      } else {
+        return [...prev, tag];
+      }
+    });
+    setPage(1); // Reset to first page when changing filters
+  };
+  
+  const clearTagFilters = () => {
+    setSelectedTags([]);
+    setPage(1);
+  };
+
+  const handlePageChange = (_event: React.ChangeEvent<unknown>, value: number) => {
     setPage(value);
     window.scrollTo(0, 0);
   };
   
-  const viewRecipeDetails = (recipeId: string) => {
-    navigate(`/recipes/${recipeId}`);
+  const viewRecipeDetails = (recipeId: string, recipe?: Recipe) => {
+    // If this is a CSV recipe (with a dynamically generated ID)
+    if (recipeSource === 'csv' && recipe) {
+      // Store the full recipe data in sessionStorage for the details page
+      sessionStorage.setItem('csvRecipeDetails', JSON.stringify(recipe));
+      navigate(`/recipes/csv-${recipeId}`); // Use a special prefix to indicate it's a CSV recipe
+    } else {
+      // Regular database recipe
+      navigate(`/recipes/${recipeId}`);
+    }
+  };
+
+  // Define loadCsvRecipes function at the component level to be able to reuse it
+  const loadCsvRecipes = async (currentPage = 1) => {
+    try {
+      setCsvLoading(true);
+      setError(null);
+      const response = await recipeService.getCsvRecipes();
+      
+      // Store all CSV recipes in session storage for pagination
+      if (response.recipes && response.recipes.length > 0) {
+        sessionStorage.setItem('allCsvRecipes', JSON.stringify(response.recipes));
+        
+        // Collect all unique tags for filter UI
+        const tagSet = new Set<string>();
+        response.recipes.forEach((recipe: any) => {
+          const recipeTags = recipe.cuisine_path?.split('/').filter(Boolean) || [];
+          recipeTags.forEach((tag: string) => tagSet.add(tag));
+        });
+        const sortedTags = Array.from(tagSet).sort();
+        setAvailableTags(sortedTags);
+        setFilteredTags(sortedTags);
+      }
+      
+      // Check if we need to filter by search query or tags
+      let filteredRecipes = response.recipes;
+      
+      // Apply search query filter
+      if (searchParams.query) {
+        const query = searchParams.query.toLowerCase();
+        filteredRecipes = filteredRecipes.filter((recipe: any) => 
+          recipe.recipe_name?.toLowerCase().includes(query)
+        );
+      }
+      
+      // Apply tag filter
+      if (selectedTags.length > 0) {
+        filteredRecipes = filteredRecipes.filter((recipe: any) => {
+          const recipeTags = recipe.cuisine_path?.split('/').filter(Boolean) || [];
+          return selectedTags.some(tag => recipeTags.includes(tag));
+        });
+      }
+      
+      // Store filtered recipes for pagination
+      sessionStorage.setItem('filteredCsvRecipes', JSON.stringify(filteredRecipes));
+      
+      // Calculate pagination
+      const limit = 12;
+      const offset = (currentPage - 1) * limit;
+      const paginatedRecipes = filteredRecipes.slice(offset, offset + limit);
+      
+      // Transform the CSV data to match Recipe type
+      const recipes = paginatedRecipes.map((csvRecipe: any) => {
+        return {
+          id: csvRecipe.Unnamed_0 || String(Math.random()),
+          name: csvRecipe.recipe_name || 'Unnamed Recipe',
+          description: csvRecipe.directions?.substring(0, 150) + '...' || '',
+          imageUrl: csvRecipe.img_src || '/placeholder-recipe.jpg',
+          prepTime: parseInt(csvRecipe.prep_time?.split(' ')[0] || '0') || 0,
+          cookTime: parseInt(csvRecipe.cook_time?.split(' ')[0] || '0') || 0,
+          servings: parseInt(csvRecipe.servings || '0') || 0,
+          difficulty: 'medium' as 'easy' | 'medium' | 'hard',
+          ingredients: csvRecipe.ingredients?.split(',') || [],
+          instructions: csvRecipe.directions?.split('\n') || [],
+          tags: csvRecipe.cuisine_path?.split('/').filter(Boolean) || [],
+          nutritionalInfo: {
+            calories: 0,
+            protein: 0,
+            carbs: 0,
+            fat: 0
+          },
+          dietaryInfo: {
+            vegetarian: false,
+            vegan: false,
+            glutenFree: false,
+            dairyFree: false,
+            nutFree: false,
+            lowCarb: false
+          },
+          createdAt: new Date().toISOString(),
+          updatedAt: new Date().toISOString()
+        };
+      });
+      
+      setRecipes(recipes);
+      setTotalPages(Math.ceil(filteredRecipes.length / limit) || 1);
+      setRecipeSource('csv');
+      return true;
+    } catch (err) {
+      console.error('Failed to load CSV recipes:', err);
+      setError('Failed to load CSV recipes. Please try again.');
+      return false;
+    } finally {
+      setCsvLoading(false);
+    }
+  };
+  
+  // Handler for the button click
+  const handleLoadCsvRecipes = () => {
+    loadCsvRecipes(page);
+  };
+
+  // Filter tags based on search input
+  useEffect(() => {
+    if (tagSearchValue) {
+      const filtered = availableTags.filter(tag => 
+        tag.toLowerCase().includes(tagSearchValue.toLowerCase())
+      );
+      setFilteredTags(filtered);
+    } else {
+      setFilteredTags(availableTags);
+    }
+  }, [tagSearchValue, availableTags]);
+
+  const handleTagSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const searchText = event.target.value;
+    setTagSearchValue(searchText);
+    
+    if (!searchText) {
+      // If search is cleared, show all tags
+      setFilteredTags(availableTags);
+    } else {
+      // Filter tags based on search text
+      const filtered = availableTags.filter(tag => 
+        tag.toLowerCase().includes(searchText.toLowerCase())
+      );
+      setFilteredTags(filtered);
+    }
   };
 
   return (
@@ -140,6 +499,14 @@ const Recipes = () => {
       <Box sx={{ mb: 4 }}>
         <Typography variant="h4" component="h1" gutterBottom>
           Recipes
+          {recipeSource && (
+            <Chip
+              label={`Source: ${recipeSource === 'database' ? 'Database' : 'CSV'}`}
+              color={recipeSource === 'database' ? 'primary' : 'secondary'}
+              size="small"
+              sx={{ ml: 2, verticalAlign: 'middle' }}
+            />
+          )}
         </Typography>
         <Typography variant="body1" color="text.secondary">
           Browse our collection of delicious and healthy recipes
@@ -260,6 +627,74 @@ const Recipes = () => {
                 </Grid>
               </Grid>
             </FormGroup>
+
+            {availableTags.length > 0 && (
+              <>
+                <Typography variant="h6" gutterBottom sx={{ mt: 3 }}>
+                  Recipe Tags
+                  {selectedTags.length > 0 && (
+                    <Button 
+                      size="small" 
+                      sx={{ ml: 2 }}
+                      onClick={clearTagFilters}
+                    >
+                      Clear Tags
+                    </Button>
+                  )}
+                </Typography>
+                
+                {/* Tag search field */}
+                <TextField
+                  fullWidth
+                  placeholder="Search tags or ingredients (e.g., bacon, fish, etc.)"
+                  value={tagSearchValue}
+                  onChange={handleTagSearch}
+                  sx={{ mb: 2 }}
+                  variant="outlined"
+                  size="small"
+                  InputProps={{
+                    startAdornment: (
+                      <InputAdornment position="start">
+                        <SearchIcon fontSize="small" />
+                      </InputAdornment>
+                    ),
+                    endAdornment: tagSearchValue && (
+                      <InputAdornment position="end">
+                        <IconButton 
+                          onClick={() => {
+                            setTagSearchValue('');
+                            setFilteredTags(availableTags);
+                          }} 
+                          edge="end"
+                          size="small"
+                        >
+                          <ClearIcon fontSize="small" />
+                        </IconButton>
+                      </InputAdornment>
+                    )
+                  }}
+                />
+
+                <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mt: 1, maxHeight: '200px', overflowY: 'auto' }}>
+                  {filteredTags.length > 0 ? (
+                    filteredTags.map(tag => (
+                    <Chip
+                      key={tag}
+                      label={tag}
+                      clickable
+                      color={selectedTags.includes(tag) ? 'primary' : 'default'}
+                      onClick={() => handleTagToggle(tag)}
+                      sx={{ m: 0.5 }}
+                    />
+                  ))
+                  ) : (
+                    <Typography variant="body2" color="text.secondary" sx={{ p: 1 }}>
+                      No tags matching "{tagSearchValue}"
+                    </Typography>
+                  )}
+                </Box>
+              </>
+            )}
           </Box>
         )}
       </Box>
@@ -334,7 +769,7 @@ const Recipes = () => {
                   <Divider />
                   
                   <CardActions>
-                    <Button size="small" onClick={() => viewRecipeDetails(recipe.id)}>View Recipe</Button>
+                    <Button size="small" onClick={() => viewRecipeDetails(recipe.id, recipe)}>View Recipe</Button>
                   </CardActions>
                 </Card>
               </Grid>
@@ -354,9 +789,17 @@ const Recipes = () => {
       ) : (
         <Box sx={{ textAlign: 'center', py: 8 }}>
           <Typography variant="h6">No recipes found</Typography>
-          <Typography variant="body1" color="text.secondary">
+          <Typography variant="body1" color="text.secondary" sx={{ mb: 2 }}>
             Try adjusting your search or filters to find recipes.
           </Typography>
+          <Button 
+            variant="contained" 
+            onClick={handleLoadCsvRecipes}
+            disabled={csvLoading}
+            sx={{ mt: 2 }}
+          >
+            {csvLoading ? <CircularProgress size={24} color="inherit" /> : 'Load Sample Recipes from CSV'}
+          </Button>
         </Box>
       )}
     </Container>

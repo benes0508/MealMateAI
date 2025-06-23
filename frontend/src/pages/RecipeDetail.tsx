@@ -42,8 +42,21 @@ const RecipeDetail = () => {
       try {
         setLoading(true);
         setError(null);
-        const data = await recipeService.getRecipeById(id);
-        setRecipe(data);
+        
+        // Check if this is a CSV recipe (id starts with "csv-")
+        if (id.startsWith('csv-')) {
+          // Get the recipe from sessionStorage
+          const storedRecipe = sessionStorage.getItem('csvRecipeDetails');
+          if (storedRecipe) {
+            setRecipe(JSON.parse(storedRecipe));
+          } else {
+            throw new Error('CSV recipe details not found');
+          }
+        } else {
+          // This is a database recipe, fetch from API
+          const data = await recipeService.getRecipeById(id);
+          setRecipe(data);
+        }
       } catch (err) {
         console.error('Failed to fetch recipe details:', err);
         setError('Failed to load recipe details. Please try again.');
@@ -56,8 +69,15 @@ const RecipeDetail = () => {
   }, [id]);
 
   const handleAddToMealPlan = () => {
-    // Save recipe ID to session storage for later use in meal planner
-    sessionStorage.setItem('selectedRecipeId', id || '');
+    if (id?.startsWith('csv-')) {
+      // For CSV recipes, store the entire recipe object
+      if (recipe) {
+        sessionStorage.setItem('selectedRecipeDetails', JSON.stringify(recipe));
+      }
+    } else {
+      // For database recipes, just store the ID
+      sessionStorage.setItem('selectedRecipeId', id || '');
+    }
     navigate('/meal-planner');
   };
 
@@ -252,7 +272,7 @@ const RecipeDetail = () => {
                         Calories
                       </Typography>
                       <Typography variant="body1">
-                        {recipe.calories} kcal
+                        {recipe.nutritionalInfo?.calories || 'N/A'} kcal
                       </Typography>
                     </Box>
                   </Box>
