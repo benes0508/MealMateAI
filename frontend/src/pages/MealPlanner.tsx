@@ -45,10 +45,11 @@ import {
   DateRange as DateRangeIcon,
   DragIndicator as DragIndicatorIcon,
   SwapVert as SwapVertIcon,
-  Undo as UndoIcon
+  Undo as UndoIcon,
+  Code as CodeIcon
 } from '@mui/icons-material';
 import { DragDropContext, Droppable, Draggable, DropResult, DroppableProvided } from 'react-beautiful-dnd';
-import { getMealPlan, generateMealPlan, generateMealPlanFromText, getUserMealPlans, getGroceryList, moveMeal, swapDays } from '../services/mealPlannerService';
+import { getMealPlan, generateMealPlan, generateMealPlanFromText, getUserMealPlans, getGroceryList, moveMeal, swapDays, createMockMealPlan } from '../services/mealPlannerService';
 
 interface Meal {
   id: string;
@@ -223,8 +224,8 @@ const MealPlanner: React.FC = () => {
 
   // Transform backend response data into DayPlan[] format
   const transformMealPlanData = (data: any): DayPlan[] => {
-    if (!data || !data.recipes || !Array.isArray(data.recipes)) {
-      console.error('Invalid meal plan data structure:', data);
+    if (!data || !data.recipes || !Array.isArray(data.recipes) || data.recipes.length === 0) {
+      console.log('No recipes in meal plan data or empty plan:', data);
       return [];
     }
     
@@ -277,7 +278,16 @@ const MealPlanner: React.FC = () => {
       
       console.log("Raw meal plan data:", data); // Debug log
       
-      // Save the metadata
+      // Check if we have a valid meal plan or an empty one
+      if (!data.id) {
+        // This is an empty meal plan response (user has no plans yet)
+        console.log("No meal plans found for the user. This is normal for new users.");
+        setMealPlan([]);
+        setCurrentMealPlanMetadata(null);
+        return;
+      }
+      
+      // Save the metadata for a valid meal plan
       setCurrentMealPlanMetadata({
         id: data.id,
         plan_name: data.plan_name || 'My Meal Plan',
@@ -290,9 +300,9 @@ const MealPlanner: React.FC = () => {
       const transformedData = transformMealPlanData(data);
       console.log("Transformed meal plan data:", transformedData); // Debug log
       setMealPlan(transformedData);
-    } catch (err) {
+    } catch (err: any) {
       setError('Failed to load your meal plan. Please try again.');
-      console.error(err);
+      console.error("Error fetching meal plan:", err);
     } finally {
       setLoading(false);
     }
@@ -364,6 +374,38 @@ const MealPlanner: React.FC = () => {
 
   const handleCloseUndoSnackbar = () => {
     setShowUndoSnackbar(false);
+  };
+
+  // Function to load a mock meal plan for development/testing
+  const handleLoadMockMealPlan = () => {
+    setLoading(true);
+    setError(null);
+    
+    try {
+      // Get mock data
+      const mockData = createMockMealPlan();
+      
+      // Set metadata
+      setCurrentMealPlanMetadata({
+        id: mockData.id,
+        plan_name: mockData.plan_name,
+        created_at: mockData.created_at,
+        days: mockData.days,
+        meals_per_day: mockData.meals_per_day,
+        plan_explanation: mockData.plan_explanation
+      });
+      
+      // Transform and set meal plan data
+      const transformedData = transformMealPlanData(mockData);
+      console.log("Mock meal plan loaded:", transformedData);
+      setMealPlan(transformedData);
+      
+    } catch (err) {
+      setError('Failed to load mock meal plan.');
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
   };
 
   // Function to handle drag and drop of meals and days
@@ -545,6 +587,16 @@ const MealPlanner: React.FC = () => {
           >
             Generate New Plan
           </Button>
+          <Button
+            variant="outlined"
+            color="secondary"
+            onClick={handleLoadMockMealPlan}
+            disabled={loading}
+            startIcon={<CodeIcon />}
+            title="For development/testing only"
+          >
+            Load Mock Data
+          </Button>
         </Box>
       </Box>
       
@@ -614,9 +666,49 @@ const MealPlanner: React.FC = () => {
           <CircularProgress />
         </Box>
       ) : mealPlan.length === 0 ? (
-        <Alert severity="info">
-          You don't have any meal plans yet. Generate a new plan to get started!
-        </Alert>
+        <Box sx={{ textAlign: 'center', py: 4 }}>
+          <Paper elevation={2} sx={{ p: 5, maxWidth: 600, mx: 'auto', borderRadius: 2 }}>
+            <Box sx={{ mb: 3 }}>
+              <RestaurantIcon sx={{ fontSize: 60, color: 'primary.main', mb: 2 }} />
+            </Box>
+            <Typography variant="h5" gutterBottom fontWeight="bold">
+              Welcome to Your Meal Planner!
+            </Typography>
+            <Typography variant="body1" color="text.secondary" paragraph>
+              You haven't created any meal plans yet. Generate your first personalized meal plan to get started with delicious and nutritious meals!
+            </Typography>
+            <Box sx={{ mt: 4 }}>
+              <Button 
+                variant="contained" 
+                color="primary" 
+                size="large"
+                onClick={handleGenerateNewPlan}
+                sx={{ px: 4, py: 1.5, fontWeight: 'bold' }}
+              >
+                Generate My First Meal Plan
+              </Button>
+            </Box>
+            <Box sx={{ mt: 2 }}>
+              <Button
+                variant="outlined"
+                color="primary"
+                startIcon={<RestaurantIcon />}
+                onClick={handleOpenTextPromptDialog}
+              >
+                Or create with a custom text prompt
+              </Button>
+              <Button
+                variant="outlined"
+                color="secondary"
+                onClick={handleLoadMockMealPlan}
+                sx={{ mt: 1 }}
+                startIcon={<CodeIcon />}
+              >
+                Load Mock Data (For Testing)
+              </Button>
+            </Box>
+          </Paper>
+        </Box>
       ) : (
         <>
           {/* Meal Plan Metadata */}

@@ -34,11 +34,152 @@ export const getMealPlan = async (): Promise<MealPlanResponse> => {
         Authorization: `Bearer ${token}`
       }
     });
+    
+    // The backend now returns a valid 200 response with empty or valid meal plan data
     return response.data;
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error fetching meal plan:', error);
+    
+    // Add additional debugging info
+    if (error.response) {
+      console.log('Error response status:', error.response.status);
+      console.log('Error response data:', error.response.data);
+    }
+    
     throw error;
   }
+};
+
+// Create a mock meal plan for development and testing purposes
+export const createMockMealPlan = (): MealPlanResponse => {
+  const now = new Date();
+  return {
+    id: 999,
+    user_id: 1,
+    plan_name: "Mock Meal Plan",
+    created_at: now.toISOString(),
+    days: 7,
+    meals_per_day: 3,
+    plan_explanation: "This is a mock meal plan for development and testing purposes.",
+    recipes: [
+      // Day 1
+      {
+        id: 101,
+        recipe_id: 101,
+        day: 1,
+        meal_type: "breakfast",
+        name: "Greek Yogurt with Berries",
+        description: "Creamy Greek yogurt topped with fresh berries and honey.",
+        ingredients: ["Greek yogurt", "Strawberries", "Blueberries", "Honey", "Granola"]
+      },
+      {
+        id: 102,
+        recipe_id: 102,
+        day: 1,
+        meal_type: "lunch",
+        name: "Mediterranean Salad",
+        description: "Fresh salad with cucumbers, tomatoes, olives, and feta cheese.",
+        ingredients: ["Cucumber", "Tomatoes", "Kalamata olives", "Feta cheese", "Olive oil", "Red wine vinegar"]
+      },
+      {
+        id: 103,
+        recipe_id: 103,
+        day: 1,
+        meal_type: "dinner",
+        name: "Grilled Salmon with Asparagus",
+        description: "Perfectly grilled salmon with roasted asparagus and lemon.",
+        ingredients: ["Salmon fillet", "Asparagus", "Lemon", "Olive oil", "Garlic", "Salt", "Pepper"]
+      },
+      
+      // Day 2
+      {
+        id: 201,
+        recipe_id: 201,
+        day: 2,
+        meal_type: "breakfast",
+        name: "Avocado Toast with Eggs",
+        description: "Whole grain toast with mashed avocado and poached eggs.",
+        ingredients: ["Whole grain bread", "Avocado", "Eggs", "Red pepper flakes", "Salt", "Pepper"]
+      },
+      {
+        id: 202,
+        recipe_id: 202,
+        day: 2,
+        meal_type: "lunch",
+        name: "Quinoa Bowl with Roasted Vegetables",
+        description: "Nutritious quinoa bowl with seasonal roasted vegetables.",
+        ingredients: ["Quinoa", "Bell peppers", "Zucchini", "Red onion", "Olive oil", "Lemon juice", "Feta cheese"]
+      },
+      {
+        id: 203,
+        recipe_id: 203,
+        day: 2,
+        meal_type: "dinner",
+        name: "Chicken Stir-Fry",
+        description: "Quick and healthy stir-fry with chicken and vegetables.",
+        ingredients: ["Chicken breast", "Broccoli", "Carrots", "Snow peas", "Soy sauce", "Ginger", "Garlic"]
+      },
+      
+      // Day 3
+      {
+        id: 301,
+        recipe_id: 301,
+        day: 3,
+        meal_type: "breakfast",
+        name: "Overnight Oats",
+        description: "Prepared the night before with oats, milk, and your favorite toppings.",
+        ingredients: ["Rolled oats", "Almond milk", "Chia seeds", "Maple syrup", "Cinnamon", "Berries"]
+      },
+      {
+        id: 302,
+        recipe_id: 302,
+        day: 3,
+        meal_type: "lunch",
+        name: "Turkey Wrap",
+        description: "Whole grain wrap with turkey, greens, and avocado.",
+        ingredients: ["Whole grain wrap", "Turkey breast", "Avocado", "Lettuce", "Tomato", "Mustard"]
+      },
+      {
+        id: 303,
+        recipe_id: 303,
+        day: 3,
+        meal_type: "dinner",
+        name: "Vegetarian Chili",
+        description: "Hearty vegetarian chili with beans and vegetables.",
+        ingredients: ["Black beans", "Kidney beans", "Onion", "Bell peppers", "Tomatoes", "Chili powder", "Cumin"]
+      },
+      
+      // Days 4-7 would follow the same pattern
+      // Adding just one more day for brevity
+      {
+        id: 401,
+        recipe_id: 401,
+        day: 4,
+        meal_type: "breakfast",
+        name: "Smoothie Bowl",
+        description: "Thick smoothie topped with fruits, nuts, and seeds.",
+        ingredients: ["Banana", "Berries", "Spinach", "Almond milk", "Chia seeds", "Granola", "Coconut flakes"]
+      },
+      {
+        id: 402,
+        recipe_id: 402,
+        day: 4,
+        meal_type: "lunch",
+        name: "Lentil Soup",
+        description: "Nutritious lentil soup with vegetables and herbs.",
+        ingredients: ["Lentils", "Carrots", "Celery", "Onion", "Garlic", "Vegetable broth", "Thyme"]
+      },
+      {
+        id: 403,
+        recipe_id: 403,
+        day: 4,
+        meal_type: "dinner",
+        name: "Baked Cod with Vegetables",
+        description: "Oven-baked cod with seasonal vegetables and herbs.",
+        ingredients: ["Cod fillet", "Cherry tomatoes", "Zucchini", "Lemon", "Olive oil", "Herbs", "Salt", "Pepper"]
+      }
+    ]
+  };
 };
 
 // Get all meal plans for the user
