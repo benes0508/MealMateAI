@@ -78,57 +78,6 @@ const Recipes = () => {
   // State to track the source of current recipes
   const [recipeSource, setRecipeSource] = useState<'database' | 'csv' | null>(null);
 
-  // Helper function to infer dietary info for CSV recipe
-  const inferRecipeDietaryInfo = (recipe: any) => {
-    const ingredients = recipe.ingredients?.toLowerCase() || '';
-    const recipeTags = recipe.cuisine_path?.toLowerCase() || '';
-    const description = recipe.description?.toLowerCase() || '';
-    
-    // Simple logic to infer dietary preferences
-    const isVegetarian = !(/\b(chicken|beef|pork|meat|turkey|bacon|ham|sausage)\b/i.test(ingredients));
-    
-    const isVegan = isVegetarian && !(/\b(cheese|milk|cream|egg|honey|butter|yogurt)\b/i.test(ingredients));
-    
-    const hasGluten = /\b(wheat|flour|pasta|bread|gluten)\b/i.test(ingredients);
-    const isGlutenFree = !hasGluten || /gluten[ -]free/i.test(recipeTags) || /gluten[ -]free/i.test(description);
-    
-    const isDairyFree = !(/\b(milk|cheese|cream|butter|yogurt|dairy)\b/i.test(ingredients));
-    
-    const isNutFree = !(/\b(nut|almond|walnut|peanut|cashew|pecan|hazelnut)\b/i.test(ingredients));
-    
-    const hasHighCarbs = /\b(sugar|pasta|bread|rice|potato|flour)\b/i.test(ingredients);
-    const isLowCarb = !hasHighCarbs || /low[ -]carb/i.test(recipeTags) || /keto/i.test(recipeTags) || /low[ -]carb/i.test(description);
-    
-    return {
-      vegetarian: isVegetarian,
-      vegan: isVegan,
-      glutenFree: isGlutenFree,
-      dairyFree: isDairyFree,
-      nutFree: isNutFree,
-      lowCarb: isLowCarb
-    };
-  };
-
-  // Function to filter CSV recipes based on dietary preferences
-  const filterCsvRecipesByDietary = (recipes: any[], filters: typeof dietaryFilters) => {
-    const activeFilters = Object.entries(filters).filter(([_, value]) => value);
-    
-    // If no filters are active, return all recipes
-    if (activeFilters.length === 0) {
-      return recipes;
-    }
-    
-    return recipes.filter(recipe => {
-      // For each recipe, infer its dietary info
-      const dietaryInfo = inferRecipeDietaryInfo(recipe);
-      
-      // Check if recipe matches all selected dietary filters
-      return activeFilters.every(([key, _]) => {
-        return dietaryInfo[key as keyof typeof dietaryInfo];
-      });
-    });
-  };
-
   useEffect(() => {
     const fetchRecipes = async () => {
       try {
@@ -160,7 +109,7 @@ const Recipes = () => {
           setAvailableTags(sortedTags);
           setFilteredTags(sortedTags);
           
-          // Filter recipes based on search query, selected tags and dietary preferences
+          // Filter recipes based on search query and selected tags
           let filteredRecipes = allCsvRecipes;
           
           // Apply search query filter
@@ -180,7 +129,51 @@ const Recipes = () => {
           }
           
           // Apply dietary filters to CSV data
-          filteredRecipes = filterCsvRecipesByDietary(filteredRecipes, dietaryFilters);
+          if (dietaryArray.length > 0) {
+            filteredRecipes = filteredRecipes.filter((recipe: any) => {
+              const ingredients = recipe.ingredients?.toLowerCase() || '';
+              const recipeTags = recipe.cuisine_path?.toLowerCase() || '';
+              const description = recipe.description?.toLowerCase() || '';
+              
+              // Simple logic to infer dietary preferences
+              let matches = true;
+              
+              if (dietaryFilters.vegetarian) {
+                const hasMeat = /\b(chicken|beef|pork|meat|turkey|bacon|ham|sausage)\b/i.test(ingredients);
+                if (hasMeat) matches = false;
+              }
+              
+              if (dietaryFilters.vegan && matches) {
+                const hasAnimalProducts = /\b(cheese|milk|cream|egg|honey|butter|yogurt)\b/i.test(ingredients);
+                if (hasAnimalProducts) matches = false;
+              }
+              
+              if (dietaryFilters.glutenFree && matches) {
+                const hasGluten = /\b(wheat|flour|pasta|bread|gluten)\b/i.test(ingredients);
+                // Check if explicitly marked gluten-free
+                const isGlutenFree = /gluten[ -]free/i.test(recipeTags) || /gluten[ -]free/i.test(description);
+                if (hasGluten && !isGlutenFree) matches = false;
+              }
+              
+              if (dietaryFilters.dairyFree && matches) {
+                const hasDairy = /\b(milk|cheese|cream|butter|yogurt|dairy)\b/i.test(ingredients);
+                if (hasDairy) matches = false;
+              }
+              
+              if (dietaryFilters.nutFree && matches) {
+                const hasNuts = /\b(nut|almond|walnut|peanut|cashew|pecan|hazelnut)\b/i.test(ingredients);
+                if (hasNuts) matches = false;
+              }
+              
+              if (dietaryFilters.lowCarb && matches) {
+                const hasHighCarbs = /\b(sugar|pasta|bread|rice|potato|flour)\b/i.test(ingredients);
+                const isLowCarb = /low[ -]carb/i.test(recipeTags) || /keto/i.test(recipeTags) || /low[ -]carb/i.test(description);
+                if (hasHighCarbs && !isLowCarb) matches = false;
+              }
+              
+              return matches;
+            });
+          }
           
           // Store filtered recipes for pagination
           sessionStorage.setItem('filteredCsvRecipes', JSON.stringify(filteredRecipes));
@@ -191,8 +184,6 @@ const Recipes = () => {
           
           // Transform the CSV data to match Recipe type
           const recipes = paginatedRecipes.map((csvRecipe: any) => {
-            const dietaryInfo = inferRecipeDietaryInfo(csvRecipe);
-            
             return {
               id: csvRecipe.Unnamed_0 || String(Math.random()),
               name: csvRecipe.recipe_name || 'Unnamed Recipe',
@@ -211,7 +202,14 @@ const Recipes = () => {
                 carbs: 0,
                 fat: 0
               },
-              dietaryInfo,
+              dietaryInfo: {
+                vegetarian: false,
+                vegan: false,
+                glutenFree: false,
+                dairyFree: false,
+                nutFree: false,
+                lowCarb: false
+              },
               createdAt: new Date().toISOString(),
               updatedAt: new Date().toISOString()
             };
@@ -220,45 +218,162 @@ const Recipes = () => {
           setRecipes(recipes);
           setTotalPages(Math.ceil(filteredRecipes.length / limit) || 1);
         } else {
-          // Try to get recipes from database first
-          try {
-            // Update search params with current page, dietary filters and tags
-            const params: SearchParams = {
-              ...searchParams,
-              page,
-              dietary: dietaryArray,
-              // Future API update would use tags here
-              // tags: selectedTags
-            };
+          // Update search params with current page, dietary filters and tags
+          const params: SearchParams = {
+            ...searchParams,
+            page,
+            dietary: dietaryArray,
+            // Future API update would use tags here
+            // tags: selectedTags
+          };
+          
+          const response = await recipeService.searchRecipes(params);
+          
+          // If we got search results, use them
+          if (response.recipes && response.recipes.length > 0) {
+            // Clear CSV cache if we're using search results
+            sessionStorage.removeItem('allCsvRecipes'); 
+            setRecipes(response.recipes);
+            setTotalPages(response.total_pages || 1);
+            setRecipeSource('database');
             
-            const response = await recipeService.searchRecipes(params);
-            
-            // If we got search results, use them
-            if (response.recipes && response.recipes.length > 0) {
-              // Clear CSV cache if we're using search results
-              sessionStorage.removeItem('allCsvRecipes'); 
-              setRecipes(response.recipes);
-              setTotalPages(response.total_pages || 1);
-              setRecipeSource('database');
-              
-              // Collect tags from database results
-              const tagSet = new Set<string>();
-              response.recipes.forEach(recipe => {
-                recipe.tags.forEach(tag => tagSet.add(tag));
-              });
-              const sortedTags = Array.from(tagSet).sort();
-              setAvailableTags(sortedTags);
-              setFilteredTags(sortedTags);
-            } 
-            // If database has no results, load CSV recipes as fallback
-            else {
-              // Load CSV recipes automatically with all filters applied
-              await loadCsvRecipes(page);
-            }
-          } catch (err) {
-            console.error('Failed to fetch recipes from database:', err);
-            // Fallback to CSV recipes
+            // Collect tags from database results
+            const tagSet = new Set<string>();
+            response.recipes.forEach(recipe => {
+              recipe.tags.forEach(tag => tagSet.add(tag));
+            });
+            const sortedTags = Array.from(tagSet).sort();
+            setAvailableTags(sortedTags);
+            setFilteredTags(sortedTags);
+          } 
+          // If database has no results, load CSV recipes as fallback
+          else {
+            // Load CSV recipes automatically with all filters applied
             await loadCsvRecipes(page);
+            setRecipeSource('csv');
+          }
+            // If we don't have CSV data already, load it first
+            if (!storedCsvRecipes) {
+              const loaded = await loadCsvRecipes();
+              if (!loaded) return; // Exit if CSV loading failed
+            }
+            
+            // Now search and filter the CSV data
+            const allCsvRecipes = JSON.parse(sessionStorage.getItem('allCsvRecipes') || '[]');
+            let filteredRecipes = allCsvRecipes;
+            
+            // Apply search query filter
+            if (searchParams.query) {
+              const query = searchParams.query.toLowerCase();
+              filteredRecipes = filteredRecipes.filter((recipe: any) => 
+                recipe.recipe_name?.toLowerCase().includes(query)
+              );
+            }
+            
+            // Apply tag filter
+            if (selectedTags.length > 0) {
+              filteredRecipes = filteredRecipes.filter((recipe: any) => {
+                const recipeTags = recipe.cuisine_path?.split('/').filter(Boolean) || [];
+                return selectedTags.some(tag => recipeTags.includes(tag));
+              });
+            }
+            
+            // Apply dietary filters to CSV data
+            if (dietaryArray.length > 0) {
+              filteredRecipes = filteredRecipes.filter((recipe: any) => {
+                const ingredients = recipe.ingredients?.toLowerCase() || '';
+                const recipeTags = recipe.cuisine_path?.toLowerCase() || '';
+                const description = recipe.description?.toLowerCase() || '';
+                
+                // Simple logic to infer dietary preferences
+                let matches = true;
+                
+                if (dietaryFilters.vegetarian) {
+                  const hasMeat = /\b(chicken|beef|pork|meat|turkey|bacon|ham|sausage)\b/i.test(ingredients);
+                  if (hasMeat) matches = false;
+                }
+                
+                if (dietaryFilters.vegan && matches) {
+                  const hasAnimalProducts = /\b(cheese|milk|cream|egg|honey|butter|yogurt)\b/i.test(ingredients);
+                  if (hasAnimalProducts) matches = false;
+                }
+                
+                if (dietaryFilters.glutenFree && matches) {
+                  const hasGluten = /\b(wheat|flour|pasta|bread|gluten)\b/i.test(ingredients);
+                  // Check if explicitly marked gluten-free
+                  const isGlutenFree = /gluten[ -]free/i.test(recipeTags) || /gluten[ -]free/i.test(description);
+                  if (hasGluten && !isGlutenFree) matches = false;
+                }
+                
+                if (dietaryFilters.dairyFree && matches) {
+                  const hasDairy = /\b(milk|cheese|cream|butter|yogurt|dairy)\b/i.test(ingredients);
+                  if (hasDairy) matches = false;
+                }
+                
+                if (dietaryFilters.nutFree && matches) {
+                  const hasNuts = /\b(nut|almond|walnut|peanut|cashew|pecan|hazelnut)\b/i.test(ingredients);
+                  if (hasNuts) matches = false;
+                }
+                
+                if (dietaryFilters.lowCarb && matches) {
+                  const hasHighCarbs = /\b(sugar|pasta|bread|rice|potato|flour)\b/i.test(ingredients);
+                  const isLowCarb = /low[ -]carb/i.test(recipeTags) || /keto/i.test(recipeTags) || /low[ -]carb/i.test(description);
+                  if (hasHighCarbs && !isLowCarb) matches = false;
+                }
+                
+                return matches;
+              });
+            }
+            
+            // Store filtered recipes for pagination
+            sessionStorage.setItem('filteredCsvRecipes', JSON.stringify(filteredRecipes));
+            
+            const limit = 12;
+            const offset = (page - 1) * limit;
+            const paginatedRecipes = filteredRecipes.slice(offset, offset + limit);
+            
+            // Transform the CSV data to match Recipe type
+            const recipes = paginatedRecipes.map((csvRecipe: any) => {
+              return {
+                id: csvRecipe.Unnamed_0 || String(Math.random()),
+                name: csvRecipe.recipe_name || 'Unnamed Recipe',
+                description: csvRecipe.directions?.substring(0, 150) + '...' || '',
+                imageUrl: csvRecipe.img_src || '/placeholder-recipe.jpg',
+                prepTime: parseInt(csvRecipe.prep_time?.split(' ')[0] || '0') || 0,
+                cookTime: parseInt(csvRecipe.cook_time?.split(' ')[0] || '0') || 0,
+                servings: parseInt(csvRecipe.servings || '0') || 0,
+                difficulty: 'medium' as 'easy' | 'medium' | 'hard',
+                ingredients: csvRecipe.ingredients?.split(',') || [],
+                instructions: csvRecipe.directions?.split('\n') || [],
+                tags: csvRecipe.cuisine_path?.split('/').filter(Boolean) || [],
+                nutritionalInfo: {
+                  calories: 0,
+                  protein: 0,
+                  carbs: 0,
+                  fat: 0
+                },
+                dietaryInfo: {
+                  vegetarian: false,
+                  vegan: false,
+                  glutenFree: false,
+                  dairyFree: false,
+                  nutFree: false,
+                  lowCarb: false
+                },
+                createdAt: new Date().toISOString(),
+                updatedAt: new Date().toISOString()
+              };
+            });
+            
+            setRecipes(recipes);
+            setTotalPages(Math.ceil(filteredRecipes.length / limit) || 1);
+            setRecipeSource('csv');
+          }
+          // Otherwise, just set empty recipes
+          else {
+            sessionStorage.removeItem('allCsvRecipes');
+            setRecipes([]);
+            setTotalPages(1);
           }
         }
       } catch (err) {
@@ -386,7 +501,51 @@ const Recipes = () => {
       }
       
       // Apply dietary filters to CSV data
-      filteredRecipes = filterCsvRecipesByDietary(filteredRecipes, dietaryFilters);
+      if (dietaryArray.length > 0) {
+        filteredRecipes = filteredRecipes.filter((recipe: any) => {
+          const ingredients = recipe.ingredients?.toLowerCase() || '';
+          const recipeTags = recipe.cuisine_path?.toLowerCase() || '';
+          const description = recipe.description?.toLowerCase() || '';
+          
+          // Simple logic to infer dietary preferences
+          let matches = true;
+          
+          if (dietaryFilters.vegetarian) {
+            const hasMeat = /\b(chicken|beef|pork|meat|turkey|bacon|ham|sausage)\b/i.test(ingredients);
+            if (hasMeat) matches = false;
+          }
+          
+          if (dietaryFilters.vegan && matches) {
+            const hasAnimalProducts = /\b(cheese|milk|cream|egg|honey|butter|yogurt)\b/i.test(ingredients);
+            if (hasAnimalProducts) matches = false;
+          }
+          
+          if (dietaryFilters.glutenFree && matches) {
+            const hasGluten = /\b(wheat|flour|pasta|bread|gluten)\b/i.test(ingredients);
+            // Check if explicitly marked gluten-free
+            const isGlutenFree = /gluten[ -]free/i.test(recipeTags) || /gluten[ -]free/i.test(description);
+            if (hasGluten && !isGlutenFree) matches = false;
+          }
+          
+          if (dietaryFilters.dairyFree && matches) {
+            const hasDairy = /\b(milk|cheese|cream|butter|yogurt|dairy)\b/i.test(ingredients);
+            if (hasDairy) matches = false;
+          }
+          
+          if (dietaryFilters.nutFree && matches) {
+            const hasNuts = /\b(nut|almond|walnut|peanut|cashew|pecan|hazelnut)\b/i.test(ingredients);
+            if (hasNuts) matches = false;
+          }
+          
+          if (dietaryFilters.lowCarb && matches) {
+            const hasHighCarbs = /\b(sugar|pasta|bread|rice|potato|flour)\b/i.test(ingredients);
+            const isLowCarb = /low[ -]carb/i.test(recipeTags) || /keto/i.test(recipeTags) || /low[ -]carb/i.test(description);
+            if (hasHighCarbs && !isLowCarb) matches = false;
+          }
+          
+          return matches;
+        });
+      }
       
       // Store filtered recipes for pagination
       sessionStorage.setItem('filteredCsvRecipes', JSON.stringify(filteredRecipes));
@@ -398,8 +557,23 @@ const Recipes = () => {
       
       // Transform the CSV data to match Recipe type
       const recipes = paginatedRecipes.map((csvRecipe: any) => {
-        // Get inferred dietary info for each recipe
-        const dietaryInfo = inferRecipeDietaryInfo(csvRecipe);
+        // Infer dietary info from ingredients and tags
+        const ingredients = csvRecipe.ingredients?.toLowerCase() || '';
+        const tags = csvRecipe.cuisine_path?.toLowerCase() || '';
+        const description = csvRecipe.description?.toLowerCase() || '';
+        
+        // Simple logic to infer dietary preferences
+        const isVegetarian = !(/\b(chicken|beef|pork|meat|turkey|bacon|ham|sausage)\b/i.test(ingredients));
+        const isVegan = isVegetarian && !(/\b(cheese|milk|cream|egg|honey|butter|yogurt)\b/i.test(ingredients));
+        const isGlutenFree = !(/\b(wheat|flour|pasta|bread|gluten)\b/i.test(ingredients)) || 
+                            /gluten[ -]free/i.test(tags) || 
+                            /gluten[ -]free/i.test(description);
+        const isDairyFree = !(/\b(milk|cheese|cream|butter|yogurt|dairy)\b/i.test(ingredients));
+        const isNutFree = !(/\b(nut|almond|walnut|peanut|cashew|pecan|hazelnut)\b/i.test(ingredients));
+        const isLowCarb = !(/\b(sugar|pasta|bread|rice|potato|flour)\b/i.test(ingredients)) || 
+                          /low[ -]carb/i.test(tags) || 
+                          /keto/i.test(tags) || 
+                          /low[ -]carb/i.test(description);
         
         return {
           id: csvRecipe.Unnamed_0 || String(Math.random()),
@@ -419,7 +593,14 @@ const Recipes = () => {
             carbs: 0,
             fat: 0
           },
-          dietaryInfo,
+          dietaryInfo: {
+            vegetarian: isVegetarian,
+            vegan: isVegan,
+            glutenFree: isGlutenFree,
+            dairyFree: isDairyFree,
+            nutFree: isNutFree,
+            lowCarb: isLowCarb
+          },
           createdAt: new Date().toISOString(),
           updatedAt: new Date().toISOString()
         };
