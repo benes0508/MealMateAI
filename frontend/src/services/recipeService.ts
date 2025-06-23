@@ -45,6 +45,7 @@ export interface Recipe {
 export interface SearchParams {
   query?: string;
   dietary?: string[];
+  tags?: string[];
   page?: number;
   limit?: number;
 }
@@ -56,6 +57,16 @@ const recipeService = {
       return response.data;
     } catch (error) {
       console.error('Error fetching recipes:', error);
+      throw error;
+    }
+  },
+
+  async getCsvRecipes(): Promise<{ recipes: any[]; total: number }> {
+    try {
+      const response = await axios.get(`${API_URL}/recipes/csv`);
+      return response.data;
+    } catch (error) {
+      console.error('Error fetching CSV recipes:', error);
       throw error;
     }
   },
@@ -72,6 +83,18 @@ const recipeService = {
 
   async getRecipeById(id: string): Promise<Recipe> {
     try {
+      // Check if this is a CSV recipe ID
+      if (id.startsWith('csv-')) {
+        // Get the recipe from sessionStorage
+        const storedRecipe = sessionStorage.getItem('csvRecipeDetails');
+        if (storedRecipe) {
+          return JSON.parse(storedRecipe);
+        } else {
+          throw new Error('CSV recipe details not found');
+        }
+      }
+
+      // Regular database recipe
       const response = await axios.get(`${API_URL}/recipes/${id}`);
       return response.data;
     } catch (error) {

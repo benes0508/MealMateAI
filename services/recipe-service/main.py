@@ -5,6 +5,7 @@ from fastapi import FastAPI, HTTPException, Query
 from sqlalchemy import create_engine, text
 from sqlalchemy.exc import SQLAlchemyError
 from typing import List, Optional
+import pandas as pd
 
 # App setup
 title = "Recipe Service"
@@ -17,10 +18,31 @@ db_url = os.getenv(
 )
 engine = create_engine(db_url, future=True)
 
+# Path to the CSV file
+CSV_PATH = "kaggleRecipes/recipes.csv"
+
 # Health check endpoint
 @app.get("/health")
 def health():
     return {"status": "ok"}
+
+# Get all recipes from CSV file
+@app.get("/csv")
+def get_csv_recipes():
+    try:
+        # Check if the file exists
+        if not os.path.exists(CSV_PATH):
+            raise HTTPException(status_code=404, detail=f"CSV file not found at {CSV_PATH}")
+        
+        # Read the CSV file
+        df = pd.read_csv(CSV_PATH)
+        
+        # Convert DataFrame to list of dictionaries
+        recipes = df.fillna("").to_dict(orient="records")
+        
+        return {"total": len(recipes), "recipes": recipes}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error reading CSV file: {str(e)}")
 
 # List all recipes - removing /api/recipes prefix
 @app.get("/")
@@ -52,7 +74,7 @@ def search_recipes(
         
         # Add search term if provided
         if query:
-            where_clauses.append("(name ILIKE :query OR description ILIKE :query)")
+            where_clauses.append("(name ILIKE :query)")
             params["query"] = f"%{query}%"
         
         # Add dietary filters if provided
