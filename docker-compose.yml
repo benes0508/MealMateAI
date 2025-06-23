@@ -73,7 +73,7 @@ services:
     ports:
       - "8001:8001"
     environment:
-      - DATABASE_URL=postgresql://recipe_user:recipe_password@postgres:5432/recipe_db
+      - DATABASE_URL=postgresql://meal_planner_user:meal_planner_password@postgres:5432/recipe_db
     depends_on:
       - postgres
     restart: always
@@ -110,7 +110,7 @@ services:
     ports:
       - "8002:8002"
     environment:
-      - DATABASE_URL=postgresql://meal_planner_user:meal_planner_password@postgres:5432/meal_planner_db
+      - DATABASE_URL=postgresql://meal_planner_user:meal_planner_password@postgres:5432/recipe_db
       - GOOGLE_API_KEY=${GOOGLE_API_KEY}
       - USER_SERVICE_URL=http://user-service:8000
       - RECIPE_SERVICE_URL=http://recipe-service:8001

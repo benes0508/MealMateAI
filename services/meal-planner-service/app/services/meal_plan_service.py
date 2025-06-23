@@ -22,115 +22,51 @@ class MealPlanService:
         self.gemini_service = GeminiService()
         self.embeddings_service = EmbeddingsService()
     
-    async def create_meal_plan(self, 
-                           db: Session,
-                           user_id: int,
-                           days: int = 7,
-                           meals_per_day: int = 3,
-                           include_snacks: bool = False,
-                           additional_preferences: Optional[str] = None) -> Dict[str, Any]:
+    async def create_meal_plan(self,
+                               db: Session,
+                               user_id: int,
+                               days: int = 7,
+                               meals_per_day: int = 3,
+                               include_snacks: bool = False,
+                               additional_preferences: Optional[str] = None) -> Dict[str, Any]:
         """
-        Create a new meal plan for a user using RAG and Gemini
-        
-        Args:
-            db: Database session
-            user_id: User ID
-            days: Number of days for the meal plan
-            meals_per_day: Number of meals per day
-            include_snacks: Whether to include snacks
-            additional_preferences: Additional preferences specified by the user
-            
-        Returns:
-            The created meal plan
+        Simplified meal plan creation based on prompt, user-service, recipe-service and Gemini
         """
-        try:
-            # Step 1: Fetch user preferences from cache or user-service
-            user_preferences = await self._get_user_preferences(db, user_id)
-            
-            # Step 2: Fetch recipes from recipe-service
-            all_recipes = await self.microservice_client.get_recipes()
-            if not all_recipes:
-                logger.error("Failed to fetch recipes")
-                raise ValueError("Failed to fetch recipes")
-            
-            # Step 3: Index recipes for vector search if not already done
-            await self.embeddings_service.batch_store_recipe_embeddings(db, all_recipes)
-            
-            # Step 4: Retrieve relevant recipes using RAG based on user preferences
-            limit = min(30, len(all_recipes))  # Limit the number of retrieved recipes
-            retrieved_recipes = await self.embeddings_service.find_recipes_for_preferences(
-                db, user_preferences, limit=limit
-            )
-            
-            if not retrieved_recipes:
-                logger.warning("No recipes found matching user preferences, using all recipes")
-                # If no recipes match preferences, use the first 30 recipes
-                retrieved_recipes = [
-                    {
-                        "recipe_id": recipe["id"],
-                        "recipe_name": recipe["name"],
-                        "ingredients": ", ".join([i["name"] for i in recipe.get("ingredients", [])]),
-                        "cuisine_type": recipe.get("cuisine_type", "")
-                    }
-                    for recipe in all_recipes[:30]
-                ]
-            
-            # Step 5: Generate meal plan using Gemini LLM
-            meal_plan_result = self.gemini_service.generate_meal_plan(
-                user_preferences=user_preferences,
-                retrieved_recipes=retrieved_recipes,
-                days=days,
-                meals_per_day=meals_per_day,
-                include_snacks=include_snacks,
-                additional_preferences=additional_preferences
-            )
-            
-            # Step 6: Save the meal plan to the database
-            # Create a name for the meal plan based on days
-            plan_name = f"{days}-Day Meal Plan"
-            
-            # Add additional context if available
-            if additional_preferences:
-                plan_name += f" ({additional_preferences.split()[0]}...)"
-            
-            # Create the meal plan in the database
-            db_meal_plan = self.meal_plan_repository.create_meal_plan(
-                db=db,
-                user_id=user_id,
-                plan_name=plan_name,
-                days=days,
-                meals_per_day=meals_per_day,
-                plan_data=json.dumps(meal_plan_result["meal_plan"]),
-                plan_explanation=meal_plan_result["explanation"]
-            )
-            
-            # Step 7: Add recipes to the meal plan
-            for day_plan in meal_plan_result["meal_plan"]:
-                day = day_plan["day"]
-                for meal in day_plan["meals"]:
-                    self.meal_plan_repository.add_recipe_to_meal_plan(
-                        db=db,
-                        meal_plan_id=db_meal_plan.id,
-                        recipe_id=meal["recipe_id"],
-                        day=day,
-                        meal_type=meal["meal_type"]
-                    )
-            
-            # Return the created meal plan
-            return {
-                "id": db_meal_plan.id,
-                "user_id": db_meal_plan.user_id,
-                "plan_name": db_meal_plan.plan_name,
-                "created_at": db_meal_plan.created_at,
-                "days": db_meal_plan.days,
-                "meals_per_day": db_meal_plan.meals_per_day,
-                "plan_explanation": db_meal_plan.plan_explanation,
-                "meal_plan": meal_plan_result["meal_plan"]
-            }
-            
-        except Exception as e:
-            logger.error(f"Error creating meal plan: {e}")
-            raise
+        # 1) Fetch user info
+        user = await self.microservice_client.get_user(user_id)
+        dietary_tags = user.get("dietary_tags", [])
+        allergens = user.get("allergens", [])
+
+        # 2) Fetch recipe suggestions
+        recipes = await self.microservice_client.search_recipes(additional_preferences or "", dietary_tags)
+
+        if not recipes:
+            logger.error("No recipes returned from recipe-service")
+            raise ValueError("No recipes available for the given preferences")
+
+        # 3) Build prompts for Gemini
+        system_prompt = (
+            "You are a meal-planning assistant. Respect user dietary restrictions and allergens. "
+            "If a recipe conflicts with allergies or tags, adjust it accordingly (e.g., remove cheese for kosher)."
+        )
+        user_prompt = (
+            f"User dietary tags: {', '.join(dietary_tags)}\n"
+            f"User allergens: {', '.join(allergens)}\n\n"
+            f"User request: {additional_preferences}\n\n"
+            f"Recipe candidates:\n{json.dumps(recipes, indent=2)}\n\n"
+            f"Please propose a {days}-day meal plan with {meals_per_day} meals per day"
+            + (" including snacks." if include_snacks else ".")
+        )
+
+        # 4) Call Gemini
+        plan_text = self.call_gemini(system_prompt, user_prompt)
+
+        # 5) Return plan and recipes used
+        return {
+            "user_id": user_id,
+            "plan": plan_text,
+            "recipes_used": recipes
+        }
     
     async def get_meal_plan(self, db: Session, meal_plan_id: int) -> Dict[str, Any]:
         """
@@ -490,3 +426,8 @@ class MealPlanService:
         self.meal_plan_repository.cache_user_preferences(db, user_id, preferences)
         
         return preferences
+    def call_gemini(self, system_prompt: str, user_prompt: str) -> str:
+        """
+        Proxy method to invoke GeminiService
+        """
+        return self.gemini_service.generate_content(system_prompt, user_prompt)
