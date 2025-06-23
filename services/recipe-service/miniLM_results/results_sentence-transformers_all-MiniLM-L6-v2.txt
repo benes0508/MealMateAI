@@ -1,0 +1,37 @@
+Results for model: sentence-transformers/all-MiniLM-L6-v2
+
+Prompt: Low carb, chicken breast
+  1. Famous Chicken Française (score: 0.4865)
+  2. Sticky Orange Chicken with Nectarines (score: 0.4390)
+  3. Easy Sweet and Sour Chicken (score: 0.4293)
+  4. Prosciutto-Wrapped Chicken with Figs and Goat Cheese (score: 0.4274)
+  5. Slow Cooker Chicken Tagine (score: 0.4246)
+
+Prompt: Low fat, ground beef
+  1. Moroccan Beef and Lentil Stew (score: 0.4118)
+  2. Taco Salad III (score: 0.3759)
+  3. Mexican Botana Platter (score: 0.3737)
+  4. Granny Franny's Persimmon Curry Chili (score: 0.3669)
+  5. Simple Apricot-Glazed Meatloaf (score: 0.3624)
+
+Prompt: Sandwich with no cheese, high protein
+  1. Grilled Brie and Pear Sandwich (score: 0.5142)
+  2. Awesome Turkey Sandwich (score: 0.5021)
+  3. Creamy Kiwi Sandwich (score: 0.4812)
+  4. Avocado Breakfast Sandwich (score: 0.4735)
+  5. Cobb Salad (score: 0.4654)
+
+Prompt: Fruit based amazing dessert
+  1. 100% Fruit "Cake" (score: 0.6268)
+  2. Summer Fruit Salad II (score: 0.6091)
+  3. Summer Fruit Salad with Whipped Cream (score: 0.5903)
+  4. Best Boiled Fruitcake (score: 0.5757)
+  5. English Trifle (score: 0.5757)
+
+Prompt: Fruit based healthy dessert, low sugar
+  1. 100% Fruit "Cake" (score: 0.5934)
+  2. Basic Fruit Smoothie (score: 0.5789)
+  3. Basic Fruit Smoothie (score: 0.5789)
+  4. Basic Fruit Smoothie (score: 0.5789)
+  5. Peach Banana Smoothie (score: 0.5738)
+
