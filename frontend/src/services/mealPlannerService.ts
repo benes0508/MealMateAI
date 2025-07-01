@@ -306,6 +306,13 @@ export const generateMealPlanFromText = async (inputText: string): Promise<MealP
         }
       }
     );
+    
+    console.log('=== SERVICE SUCCESS ===');
+    console.log('Raw axios response:', response);
+    console.log('response.data:', JSON.stringify(response.data, null, 2));
+    console.log('response.status:', response.status);
+    console.log('=== END SERVICE SUCCESS ===');
+    
     return response.data;
   } catch (error) {
     console.error('Error generating meal plan from text:', error);
@@ -375,6 +382,26 @@ export const swapDays = async (mealPlanId: number, day1: number, day2: number): 
 };
 
 // Create a default export with all functions
+// Delete a meal plan
+export const deleteMealPlan = async (mealPlanId: number): Promise<void> => {
+  try {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      throw new Error('No authentication token found');
+    }
+
+    await axios.delete(`${API_URL}/${mealPlanId}`, {
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      }
+    });
+  } catch (error) {
+    console.error('Error deleting meal plan:', error);
+    throw error;
+  }
+};
+
 export default {
   getMealPlan,
   getUserMealPlans,
@@ -383,5 +410,6 @@ export default {
   generateMealPlanFromText,
   getGroceryList,
   moveMeal,
-  swapDays
+  swapDays,
+  deleteMealPlan
 };

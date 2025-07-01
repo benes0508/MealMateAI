@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { 
   Container, 
   Typography, 
@@ -94,6 +94,9 @@ interface MealPlanMetadata {
 }
 
 const MealPlanner: React.FC = () => {
+  // Hooks
+  const navigate = useNavigate();
+  
   // Current meal plan and view state
   const [mealPlan, setMealPlan] = useState<DayPlan[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
@@ -308,21 +311,8 @@ const MealPlanner: React.FC = () => {
     }
   };
 
-  const handleGenerateNewPlan = async () => {
-    setLoading(true);
-    setError(null);
-    try {
-      const data = await generateMealPlan();
-      console.log("Raw generated meal plan data:", data); // Debug log
-      const transformedData = transformMealPlanData(data);
-      console.log("Transformed generated meal plan data:", transformedData); // Debug log
-      setMealPlan(transformedData);
-    } catch (err) {
-      setError('Failed to generate a new meal plan. Please try again.');
-      console.error(err);
-    } finally {
-      setLoading(false);
-    }
+  const handleGenerateNewPlan = () => {
+    navigate('/create-meal-plan');
   };
 
   const handleOpenTextPromptDialog = () => {

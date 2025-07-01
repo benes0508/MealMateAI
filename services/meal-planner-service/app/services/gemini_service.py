@@ -222,11 +222,20 @@ class GeminiService:
             response = self.model.generate_content(prompt)
             result = response.text
             
+            logger.debug(f"DEBUG: Raw query generation response: {result}")
+            
             try:
-                # Clean the response - remove any markdown formatting
+                # Clean the response - remove markdown code blocks
                 cleaned_result = result.strip()
                 if cleaned_result.startswith("```json"):
-                    cleaned_result = cleaned_result.replace("```json", "").replace("```", "").strip()
+                    cleaned_result = cleaned_result[7:]  # Remove ```json
+                if cleaned_result.startswith("```"):
+                    cleaned_result = cleaned_result[3:]   # Remove ```
+                if cleaned_result.endswith("```"):
+                    cleaned_result = cleaned_result[:-3]  # Remove trailing ```
+                cleaned_result = cleaned_result.strip()
+                
+                logger.debug(f"DEBUG: Cleaned query response for JSON parsing: {cleaned_result}")
                 
                 parsed_result = json.loads(cleaned_result)
                 queries = parsed_result.get("queries", [])
@@ -235,6 +244,12 @@ class GeminiService:
                 validated_queries = self._validate_and_clean_queries(queries)
                 
                 logger.info(f"Generated {len(queries)} raw queries, validated to {len(validated_queries)} queries")
+                
+                # If no valid queries generated, use fallback
+                if not validated_queries:
+                    logger.warning("No valid queries generated, using fallback extraction")
+                    return self._extract_fallback_queries(user_prompt)
+                
                 return validated_queries[:5]
             except json.JSONDecodeError as e:
                 logger.error(f"Failed to parse JSON from query generation response: {e}")
@@ -315,17 +330,32 @@ class GeminiService:
             response = self.model.generate_content(prompt)
             result = response.text
             
+            logger.debug(f"DEBUG: Raw Gemini response: {result}")
+            
+            # Clean the response - remove markdown code blocks
+            cleaned_result = result.strip()
+            if cleaned_result.startswith("```json"):
+                cleaned_result = cleaned_result[7:]  # Remove ```json
+            if cleaned_result.startswith("```"):
+                cleaned_result = cleaned_result[3:]   # Remove ```
+            if cleaned_result.endswith("```"):
+                cleaned_result = cleaned_result[:-3]  # Remove trailing ```
+            cleaned_result = cleaned_result.strip()
+            
+            logger.debug(f"DEBUG: Cleaned response for JSON parsing: {cleaned_result}")
+            
             try:
-                meal_plan_data = json.loads(result)
+                meal_plan_data = json.loads(cleaned_result)
                 logger.info("Successfully generated RAG meal plan")
                 return meal_plan_data
-            except json.JSONDecodeError:
-                logger.error("Failed to parse JSON from RAG meal plan generation response")
-                return self._create_fallback_meal_plan(retrieved_recipes)
+            except json.JSONDecodeError as e:
+                logger.error(f"Failed to parse JSON from RAG meal plan generation response: {e}")
+                logger.error(f"Raw response was: {result}")
+                return self._create_fallback_meal_plan(retrieved_recipes, 7, 3)
                 
         except Exception as e:
             logger.error(f"Error generating RAG meal plan: {e}")
-            return self._create_fallback_meal_plan(retrieved_recipes)
+            return self._create_fallback_meal_plan(retrieved_recipes, 7, 3)
 
     def generate_modification_queries(self, current_meal_plan: Dict[str, Any], user_feedback: str) -> List[str]:
         """Generate queries for meal plan modifications based on user feedback"""
@@ -375,7 +405,7 @@ class GeminiService:
             logger.error(f"Error modifying meal plan: {e}")
             return current_meal_plan
 
-    def _create_fallback_meal_plan(self, retrieved_recipes: List[Dict[str, Any]]) -> Dict[str, Any]:
+    def _create_fallback_meal_plan(self, retrieved_recipes: List[Dict[str, Any]], days: int = 3, meals_per_day: int = 3) -> Dict[str, Any]:
         """Create a simple fallback meal plan if AI generation fails"""
         if not retrieved_recipes:
             return {
@@ -387,9 +417,10 @@ class GeminiService:
         meal_plan = []
         recipe_index = 0
         
-        for day in range(1, 4):  # 3 days
+        for day in range(1, days + 1):
             meals = []
-            for meal_type in ["breakfast", "lunch", "dinner"]:
+            meal_types = ["breakfast", "lunch", "dinner", "snack"][:meals_per_day]
+            for meal_type in meal_types:
                 if recipe_index < len(retrieved_recipes):
                     recipe = retrieved_recipes[recipe_index]
                     meals.append({

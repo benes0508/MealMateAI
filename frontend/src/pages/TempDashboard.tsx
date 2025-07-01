@@ -22,11 +22,12 @@ import {
   ExpandMore as ExpandMoreIcon,
   ExpandLess as ExpandLessIcon,
   ShoppingCart as ShoppingCartIcon,
-  RestaurantMenu as RestaurantMenuIcon
+  RestaurantMenu as RestaurantMenuIcon,
+  Delete as DeleteIcon
 } from '@mui/icons-material';
 import { useAuth } from '../context/AuthContext';
 import { useState, useEffect } from 'react';
-import { getUserMealPlans, MealPlanResponse } from '../services/mealPlannerService';
+import { getUserMealPlans, deleteMealPlan, MealPlanResponse } from '../services/mealPlannerService';
 
 const TempDashboard = () => {
   const { user } = useAuth();
@@ -96,6 +97,25 @@ const TempDashboard = () => {
   // Toggle expanded plan
   const handleTogglePlan = (planId: number) => {
     setExpandedPlan(expandedPlan === planId ? null : planId);
+  };
+
+  // Delete meal plan
+  const handleDeleteMealPlan = async (planId: number) => {
+    if (window.confirm('Are you sure you want to delete this meal plan? This action cannot be undone.')) {
+      try {
+        setLoadingPlans(true);
+        await deleteMealPlan(planId);
+        
+        // Remove the deleted plan from the state
+        setMealPlans(prevPlans => prevPlans.filter(plan => plan.id !== planId));
+        
+        setLoadingPlans(false);
+      } catch (error) {
+        console.error('Error deleting meal plan:', error);
+        setError('Failed to delete meal plan. Please try again.');
+        setLoadingPlans(false);
+      }
+    }
   };
 
   return (
@@ -302,6 +322,15 @@ const TempDashboard = () => {
                       onClick={() => navigate(`/meal-planner?plan=${plan.id}&groceries=true`)}
                     >
                       Grocery List
+                    </Button>
+                    <Button
+                      variant="outlined"
+                      size="small"
+                      color="error"
+                      startIcon={<DeleteIcon />}
+                      onClick={() => handleDeleteMealPlan(plan.id)}
+                    >
+                      Delete
                     </Button>
                   </Box>
                 </Box>

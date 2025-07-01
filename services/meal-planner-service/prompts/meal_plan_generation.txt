@@ -21,30 +21,31 @@ IMPORTANT GUIDELINES:
 - Explain your reasoning for the meal plan choices
 
 Return your response as a JSON object with this exact structure:
-{
+
+{{
     "meal_plan": [
-        {
+        {{
             "day": 1,
             "meals": [
-                {
+                {{
                     "meal_type": "breakfast",
                     "recipe_id": 123,
                     "recipe_name": "Recipe Name"
-                },
-                {
+                }},
+                {{
                     "meal_type": "lunch", 
                     "recipe_id": 456,
                     "recipe_name": "Recipe Name"
-                },
-                {
+                }},
+                {{
                     "meal_type": "dinner",
                     "recipe_id": 789,
                     "recipe_name": "Recipe Name"
-                }
+                }}
             ]
-        }
+        }}
     ],
     "explanation": "Detailed explanation of why this meal plan was created and how it meets the user's needs"
-}
+}}
 
-Make sure to output valid JSON only.
+CRITICAL: Output ONLY the JSON object. No markdown, no explanations, no extra text.

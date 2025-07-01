@@ -15,6 +15,11 @@ logger.setLevel(logging.DEBUG)
 router = APIRouter()
 meal_plan_service = MealPlanService()
 
+@router.get("/health")
+async def health_check():
+    """Health check endpoint"""
+    return {"status": "healthy", "service": "meal-planner"}
+
 @router.get("/current", response_model=schemas.MealPlanResponse)
 async def get_current_meal_plan(
     x_user_id: Optional[int] = Header(None, alias="X-User-ID"),
@@ -44,10 +49,10 @@ async def get_current_meal_plan(
             logger.info(f"No meal plans found for user {user_id}")
             # Return an empty meal plan structure instead of 404
             return {
-                "id": None,
+                "id": 0,  # Use 0 as placeholder ID for empty state
                 "user_id": user_id,
                 "plan_name": "No Plan",
-                "created_at": datetime.now().isoformat(),
+                "created_at": datetime.now(),  # Return datetime object, not string
                 "days": 0,
                 "meals_per_day": 0,
                 "plan_explanation": "You don't have any meal plans yet. Generate your first plan to get started!",
@@ -174,7 +179,7 @@ async def delete_meal_plan(
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"An error occurred while deleting the meal plan: {str(e)}")
 
-@router.post("/text-input", response_model=schemas.MealPlanResponse)
+@router.post("/text-input", response_model=schemas.RAGMealPlanResponse)
 async def process_text_input(
     user_id: int = Query(..., description="User ID"),
     input_text: str = Body(..., embed=True, description="Natural language input text"),
@@ -187,6 +192,8 @@ async def process_text_input(
     The LLM with RAG will process the text to create a personalized meal plan.
     """
     try:
+        logger.debug(f"DEBUG: process_text_input called with user_id={user_id}, input_text='{input_text}'")
+        
         # Process the input text using the service
         meal_plan = await meal_plan_service.process_text_input(
             db=db,
@@ -194,6 +201,7 @@ async def process_text_input(
             input_text=input_text
         )
         
+        logger.debug(f"DEBUG: process_text_input result: {meal_plan}")
         return meal_plan
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))
@@ -365,17 +373,28 @@ async def finalize_rag_meal_plan(
     Finalize RAG meal plan and save to database (Step 5)
     """
     try:
-        # In a production system, you'd retrieve the final meal plan from the conversation_id
-        # and save it to the database using the existing meal plan creation logic
-        
         logger.info(f"Finalizing RAG meal plan for conversation {request.conversation_id}")
         
-        # For now, return the most recent meal plan for the user
-        # In production, you'd save the final RAG-generated plan to the database
+        # Check if this conversation_id indicates an already saved meal plan
+        if request.conversation_id.startswith("saved-"):
+            # Extract the meal plan ID from the conversation_id
+            try:
+                meal_plan_id = int(request.conversation_id.split("-")[1])
+                # Return the already saved meal plan
+                meal_plan = await meal_plan_service.get_meal_plan(db, meal_plan_id)
+                return meal_plan
+            except (ValueError, IndexError):
+                # If parsing fails, fall through to create a new one
+                pass
+        
+        # For conversations that aren't already saved, get the most recent meal plan
+        # In a production system with proper conversation persistence, 
+        # you'd retrieve the final meal plan from the conversation_id
         user_meal_plans = await meal_plan_service.get_user_meal_plans(db, request.user_id)
         if not user_meal_plans:
             raise HTTPException(status_code=404, detail="No meal plan found to finalize")
         
+        # Return the most recent meal plan (it should already be saved if using the text-input endpoint)
         return user_meal_plans[0]
         
     except HTTPException:

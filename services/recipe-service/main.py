@@ -1,7 +1,7 @@
 # services/recipe-service/main.py
 
 import os
-from fastapi import FastAPI, HTTPException, Query
+from fastapi import FastAPI, HTTPException, Query, Request
 from sqlalchemy import create_engine, text
 from sqlalchemy.exc import SQLAlchemyError
 from typing import List, Optional
@@ -59,13 +59,34 @@ def list_recipes():
 # Search recipes - removing /api/recipes prefix
 @app.get("/search")
 def search_recipes(
+    request: Request,
     query: str = "",
-    dietary: Optional[List[str]] = Query(None),
     page: int = 1,
     limit: int = 12
 ):
     try:
         offset = (page - 1) * limit
+        
+        # Parse array parameters from query string manually
+        query_params = dict(request.query_params)
+        
+        # Extract dietary filters - handle both dietary[] and dietary format
+        dietary = []
+        for key, value in query_params.items():
+            if key == 'dietary[]' or key == 'dietary':
+                if isinstance(value, list):
+                    dietary.extend(value)
+                else:
+                    dietary.append(value)
+        
+        # Extract tag filters - handle both tags[] and tags format  
+        tags = []
+        for key, value in query_params.items():
+            if key == 'tags[]' or key == 'tags':
+                if isinstance(value, list):
+                    tags.extend(value)
+                else:
+                    tags.append(value)
         
         # Construct base query
         base_sql = "SELECT * FROM recipes"
@@ -82,11 +103,24 @@ def search_recipes(
             dietary_filters = []
             for i, diet in enumerate(dietary):
                 param_name = f"dietary_{i}"
-                dietary_filters.append(f"dietary_tags ILIKE :{param_name}")
-                params[param_name] = f"%{diet}%"
+                # Handle text array column - use = ANY operator
+                dietary_filters.append(f":{param_name} = ANY(dietary_tags)")
+                params[param_name] = diet
             
             if dietary_filters:
                 where_clauses.append(f"({' OR '.join(dietary_filters)})")
+        
+        # Add tag filters if provided
+        if tags and len(tags) > 0:
+            tag_filters = []
+            for i, tag in enumerate(tags):
+                param_name = f"tag_{i}"
+                # Handle text array column - use = ANY operator
+                tag_filters.append(f":{param_name} = ANY(tags)")
+                params[param_name] = tag
+            
+            if tag_filters:
+                where_clauses.append(f"({' OR '.join(tag_filters)})")
         
         # Construct final query
         if where_clauses:

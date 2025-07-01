@@ -1,8 +1,8 @@
 // src/routes/meal-plans.js
 
 const express = require('express');
-const { authenticateToken, isSameUser } = require('../middleware/auth');
-const { createServiceProxy } = require('../utils/proxy');
+const {authenticateToken, isSameUser} = require('../middleware/auth');
+const {createServiceProxy} = require('../utils/proxy');
 
 const router = express.Router();
 
@@ -23,6 +23,14 @@ router.post('/', mealPlannerServiceProxy);
 
 // Generate a meal plan based on preferences
 router.post('/generate', mealPlannerServiceProxy);
+
+// RAG-based meal plan endpoints (must come before /:id routes)
+router.post('/rag/generate', mealPlannerServiceProxy);
+router.post('/rag/modify', mealPlannerServiceProxy);
+router.post('/rag/finalize', mealPlannerServiceProxy);
+
+// Text input meal plan generation (must come before /:id routes)
+router.post('/text-input', mealPlannerServiceProxy);
 
 // Get a specific meal plan
 router.get('/:id', mealPlannerServiceProxy);

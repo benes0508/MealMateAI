@@ -227,8 +227,7 @@ const Recipes = () => {
               ...searchParams,
               page,
               dietary: dietaryArray,
-              // Future API update would use tags here
-              // tags: selectedTags
+              tags: selectedTags
             };
             
             const response = await recipeService.searchRecipes(params);

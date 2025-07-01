@@ -26,9 +26,14 @@ class RecipeBase(BaseModel):
         orm_mode = True
 
 class MealPlanRecipeResponse(BaseModel):
+    id: Optional[int] = None  # Frontend expects this field
     recipe_id: int
     day: int
     meal_type: str
+    name: Optional[str] = None  # Frontend expects this field
+    title: Optional[str] = None  # Frontend expects this field  
+    description: Optional[str] = None  # Frontend expects this field
+    ingredients: Optional[List[str]] = None  # Frontend expects this field
     
     class Config:
         orm_mode = True
@@ -93,6 +98,15 @@ class RAGMealPlanResponse(BaseModel):
     meal_plan: Dict[str, Any]
     conversation_id: str = Field(..., description="Unique identifier for this RAG conversation")
     status: str = Field(..., description="Status: 'initial', 'modified', 'final'")
+    # Additional fields that frontend expects
+    id: int = Field(..., description="Meal plan ID")
+    days: int = Field(..., description="Number of days in the meal plan")
+    plan_name: str = Field(..., description="Name of the meal plan")
+    plan_explanation: str = Field(..., description="Explanation of the meal plan")
+    created_at: str = Field(..., description="Creation timestamp")
+    user_id: int = Field(..., description="User ID")
+    meals_per_day: int = Field(..., description="Number of meals per day")
+    recipes: List[Dict[str, Any]] = Field(..., description="List of recipes in the meal plan")
 
 class RAGFeedbackRequest(BaseModel):
     conversation_id: str = Field(..., description="Conversation ID from previous response")

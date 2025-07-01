@@ -6,7 +6,7 @@ import json
 from app.repositories.meal_plan_repository import MealPlanRepository
 from app.services.microservice_client import MicroserviceClient
 from app.services.gemini_service import GeminiService
-from app.services.embeddings_service import EmbeddingsService
+# from app.services.embeddings_service import EmbeddingsService
 from app.models.models import MealPlan, MealPlanRecipe
 
 # Set up logging
@@ -20,7 +20,7 @@ class MealPlanService:
         self.meal_plan_repository = MealPlanRepository()
         self.microservice_client = MicroserviceClient()
         self.gemini_service = GeminiService()
-        self.embeddings_service = EmbeddingsService()
+        # self.embeddings_service = EmbeddingsService()
     
     async def create_meal_plan(self, 
                            db: Session,
@@ -54,13 +54,12 @@ class MealPlanService:
                 raise ValueError("Failed to fetch recipes")
             
             # Step 3: Index recipes for vector search if not already done
-            await self.embeddings_service.batch_store_recipe_embeddings(db, all_recipes)
+            # await self.embeddings_service.batch_store_recipe_embeddings(db, all_recipes)
             
             # Step 4: Retrieve relevant recipes using RAG based on user preferences
             limit = min(30, len(all_recipes))  # Limit the number of retrieved recipes
-            retrieved_recipes = await self.embeddings_service.find_recipes_for_preferences(
-                db, user_preferences, limit=limit
-            )
+            # Use all recipes as fallback since embeddings service is disabled
+            retrieved_recipes = all_recipes[:limit]
             
             if not retrieved_recipes:
                 logger.warning("No recipes found matching user preferences, using all recipes")
@@ -156,6 +155,21 @@ class MealPlanService:
             # Parse the plan data
             plan_data = json.loads(db_meal_plan.plan_data)
             
+            # Get recipe details from recipe service for each recipe
+            recipes_with_details = []
+            for recipe in db_recipes:
+                recipe_detail = await self.microservice_client.get_recipe(recipe.recipe_id)
+                recipes_with_details.append({
+                    "id": recipe.id,
+                    "recipe_id": recipe.recipe_id,
+                    "day": recipe.day,
+                    "meal_type": recipe.meal_type,
+                    "name": recipe_detail.get("name") if recipe_detail else f"Recipe {recipe.recipe_id}",
+                    "title": recipe_detail.get("name") if recipe_detail else f"Recipe {recipe.recipe_id}",
+                    "description": recipe_detail.get("description", ""),
+                    "ingredients": [ing.get("name", str(ing)) if isinstance(ing, dict) else str(ing) for ing in recipe_detail.get("ingredients", [])] if recipe_detail else []
+                })
+
             # Return the meal plan
             return {
                 "id": db_meal_plan.id,
@@ -166,13 +180,7 @@ class MealPlanService:
                 "meals_per_day": db_meal_plan.meals_per_day,
                 "plan_explanation": db_meal_plan.plan_explanation,
                 "meal_plan": plan_data,
-                "recipes": [
-                    {
-                        "recipe_id": recipe.recipe_id,
-                        "day": recipe.day,
-                        "meal_type": recipe.meal_type
-                    } for recipe in db_recipes
-                ]
+                "recipes": recipes_with_details
             }
             
         except Exception as e:
@@ -216,7 +224,7 @@ class MealPlanService:
     
     async def process_text_input(self, db: Session, user_id: int, input_text: str) -> Dict[str, Any]:
         """
-        Process natural language text input to create a meal plan
+        Process natural language text input to create a meal plan and save it to database
         
         Args:
             db: Database session
@@ -224,9 +232,11 @@ class MealPlanService:
             input_text: Natural language text input
             
         Returns:
-            The created meal plan
+            The created and saved meal plan
         """
         try:
+            logger.debug(f"DEBUG: process_text_input service called with user_id={user_id}, input_text='{input_text}'")
+            
             # Default values
             days = 7
             meals_per_day = 3
@@ -246,24 +256,91 @@ class MealPlanService:
                         except ValueError:
                             pass
             
-            # Use the input text as additional preferences
-            additional_preferences = input_text
+            logger.debug(f"DEBUG: About to call create_rag_meal_plan with user_prompt='{input_text}'")
             
-            # Create the meal plan with RAG and Gemini
-            meal_plan = await self.create_meal_plan(
+            # Create the meal plan using RAG workflow
+            rag_response = await self.create_rag_meal_plan(
                 db=db,
                 user_id=user_id,
-                days=days,
-                meals_per_day=meals_per_day,
-                include_snacks=include_snacks,
-                additional_preferences=additional_preferences
+                user_prompt=input_text
             )
             
-            return meal_plan
+            logger.debug(f"DEBUG: create_rag_meal_plan returned: {rag_response}")
+            
+            # Extract plan name from explanation or create default
+            plan_name = "AI Generated Meal Plan"
+            if rag_response.get("explanation"):
+                if "vegetarian" in input_text.lower():
+                    plan_name = f"{days}-Day Vegetarian Meal Plan"
+                elif "vegan" in input_text.lower():
+                    plan_name = f"{days}-Day Vegan Meal Plan"
+                else:
+                    plan_name = f"{days}-Day Personalized Meal Plan"
+            
+            # Save the meal plan to the database
+            db_meal_plan = self.meal_plan_repository.create_meal_plan(
+                db=db,
+                user_id=user_id,
+                plan_name=plan_name,
+                days=days,
+                meals_per_day=meals_per_day,
+                plan_data=json.dumps(rag_response.get("meal_plan", [])),
+                plan_explanation=rag_response.get("explanation", "Your personalized meal plan created by AI.")
+            )
+            
+            # Add recipes to the meal plan
+            meal_plan_data = rag_response.get("meal_plan", [])
+            for day_plan in meal_plan_data:
+                day = day_plan.get("day", 1)
+                for meal in day_plan.get("meals", []):
+                    recipe_id = meal.get("recipe_id")
+                    if recipe_id:
+                        self.meal_plan_repository.add_recipe_to_meal_plan(
+                            db=db,
+                            meal_plan_id=db_meal_plan.id,
+                            recipe_id=recipe_id,
+                            day=day,
+                            meal_type=meal.get("meal_type", "meal")
+                        )
+            
+            # Return the saved meal plan
+            result = {
+                "id": db_meal_plan.id,  # Real database ID
+                "days": db_meal_plan.days,
+                "plan_name": db_meal_plan.plan_name,
+                "plan_explanation": db_meal_plan.plan_explanation,
+                "created_at": db_meal_plan.created_at.isoformat(),
+                "user_id": db_meal_plan.user_id,
+                "meals_per_day": db_meal_plan.meals_per_day,
+                "recipes": self._convert_to_recipes_format(meal_plan_data),
+                "meal_plan": rag_response,
+                "conversation_id": f"saved-{db_meal_plan.id}",
+                "status": "saved"
+            }
+            
+            logger.debug(f"DEBUG: Final result being returned with database ID {db_meal_plan.id}: {result}")
+            return result
             
         except Exception as e:
             logger.error(f"Error processing text input: {e}")
             raise
+    
+    def _convert_to_recipes_format(self, meal_plan_data: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+        """Convert meal plan format to recipes format expected by frontend"""
+        recipes = []
+        for day_plan in meal_plan_data:
+            day = day_plan.get("day", 1)
+            for meal in day_plan.get("meals", []):
+                recipes.append({
+                    "id": len(recipes) + 1,  # Sequential ID for frontend
+                    "recipe_id": meal.get("recipe_id"),
+                    "day": day,
+                    "meal_type": meal.get("meal_type"),
+                    "name": meal.get("recipe_name"),
+                    "title": meal.get("recipe_name"),  # Some parts of frontend expect 'title'
+                    "description": f"{meal.get('meal_type', '').title()} for day {day}"
+                })
+        return recipes
     
     async def generate_grocery_list(self, db: Session, meal_plan_id: int) -> Dict[str, Any]:
         """

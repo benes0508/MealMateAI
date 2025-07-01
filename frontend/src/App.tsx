@@ -11,7 +11,6 @@ import AuthLayout from './components/layouts/AuthLayout';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
-import Dashboard from './pages/Dashboard';
 import TempDashboard from './pages/TempDashboard';
 import Recipes from './pages/Recipes';
 import RecipeDetail from './pages/RecipeDetail';

@@ -72,6 +72,15 @@ const CreateMealPlan = () => {
       // Call the API to generate the meal plan
       const result = await generateMealPlanFromText(userPrompt);
       
+      console.log('=== MEAL PLAN SUCCESS ===');
+      console.log('Full API response:', JSON.stringify(result, null, 2));
+      console.log('result.days:', result.days);
+      console.log('result.plan_name:', result.plan_name);
+      console.log('result.plan_explanation:', result.plan_explanation);
+      console.log('typeof result:', typeof result);
+      console.log('Object.keys(result):', Object.keys(result));
+      console.log('=== END SUCCESS ===');
+      
       // Remove the typing indicator
       setConversation(prev => prev.filter(msg => msg.content !== 'Generating your meal plan...'));
       
