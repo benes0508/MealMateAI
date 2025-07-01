@@ -1,21 +1,36 @@
 import os
+print("🚀 Starting KaggleRecipeVectorDB script...")
 os.environ['TRANSFORMERS_NO_TF'] = '1'
+print("✅ Set TRANSFORMERS_NO_TF environment variable")
 
 import pandas as pd
+print("✅ Imported pandas")
 import torch
+print("✅ Imported torch")
 from transformers import AutoTokenizer, AutoModel
+print("✅ Imported transformers")
 from qdrant_client import QdrantClient
 from qdrant_client.http import models as rest
+print("✅ Imported qdrant_client")
 
 # === CONFIGURATION ===
 CSV_PATH = "kaggleRecipes/recipes.csv"
 COLLECTION_NAME = "recipes"
 VECTOR_SIZE = 384  # for all-MiniLM-L6-v2 embedding model
+print(f"📝 Configuration: CSV_PATH={CSV_PATH}, COLLECTION_NAME={COLLECTION_NAME}, VECTOR_SIZE={VECTOR_SIZE}")
 
 # === LOAD EMBEDDING MODEL ===
+print("🔄 Loading tokenizer...")
 tokenizer = AutoTokenizer.from_pretrained("sentence-transformers/all-MiniLM-L6-v2", use_fast=False)
+print("✅ Tokenizer loaded successfully")
+
+print("🔄 Loading embedding model...")
 model     = AutoModel.from_pretrained("sentence-transformers/all-MiniLM-L6-v2")
+print("✅ Embedding model loaded successfully")
+
+print("🔄 Setting model to evaluation mode...")
 model.eval()
+print("✅ Model set to evaluation mode")
 
 def embed_text(text: str):
     inputs  = tokenizer(text, return_tensors="pt", truncation=True, padding=True)

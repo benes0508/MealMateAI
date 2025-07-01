@@ -490,3 +490,84 @@ class MealPlanService:
         self.meal_plan_repository.cache_user_preferences(db, user_id, preferences)
         
         return preferences
+
+    async def create_rag_meal_plan(self, db: Session, user_id: int, user_prompt: str) -> Dict[str, Any]:
+        """Complete RAG workflow: Generate meal plan from user prompt"""
+        try:
+            # Step 2: Generate search queries
+            queries = self.gemini_service.generate_search_queries(user_prompt)
+            
+            # Step 3: Search for recipes using multiple queries
+            retrieved_recipes = await self._search_recipes_with_multiple_queries(queries)
+            
+            if not retrieved_recipes:
+                return {
+                    "meal_plan": [],
+                    "explanation": "No suitable recipes found for your request. Please try a different query.",
+                    "queries_used": queries,
+                    "recipes_found": 0
+                }
+            
+            # Step 3: Generate meal plan using retrieved recipes
+            meal_plan = self.gemini_service.generate_rag_meal_plan(user_prompt, retrieved_recipes)
+            
+            # Add metadata
+            meal_plan["queries_used"] = queries
+            meal_plan["recipes_found"] = len(retrieved_recipes)
+            meal_plan["user_prompt"] = user_prompt
+            
+            return meal_plan
+            
+        except Exception as e:
+            logger.error(f"Error in RAG meal plan creation: {e}")
+            return {
+                "meal_plan": [],
+                "explanation": f"An error occurred while generating your meal plan: {str(e)}",
+                "queries_used": [],
+                "recipes_found": 0
+            }
+
+    async def modify_rag_meal_plan(self, current_meal_plan: Dict[str, Any], user_feedback: str) -> Dict[str, Any]:
+        """Step 4: Modify existing meal plan based on user feedback"""
+        try:
+            # Generate modification queries based on feedback
+            modification_queries = self.gemini_service.generate_modification_queries(current_meal_plan, user_feedback)
+            
+            # Search for new recipes based on modification queries
+            new_recipes = await self._search_recipes_with_multiple_queries(modification_queries)
+            
+            # Generate modified meal plan
+            modified_plan = self.gemini_service.modify_meal_plan(current_meal_plan, user_feedback, new_recipes)
+            
+            # Add metadata
+            modified_plan["modification_queries"] = modification_queries
+            modified_plan["new_recipes_found"] = len(new_recipes)
+            
+            return modified_plan
+            
+        except Exception as e:
+            logger.error(f"Error modifying RAG meal plan: {e}")
+            return current_meal_plan
+
+    async def _search_recipes_with_multiple_queries(self, queries: List[str]) -> List[Dict[str, Any]]:
+        """Search recipes using multiple queries and combine results"""
+        all_recipes = []
+        seen_recipe_ids = set()
+        
+        for query in queries:
+            logger.info(f"Searching recipes with query: {query}")
+            recipes = await self.microservice_client.search_recipes(query, limit=20)
+            
+            # Add unique recipes
+            for recipe in recipes:
+                recipe_id = recipe.get("id") or recipe.get("recipe_id")
+                if recipe_id and recipe_id not in seen_recipe_ids:
+                    all_recipes.append(recipe)
+                    seen_recipe_ids.add(recipe_id)
+        
+        # Limit to 100 recipes total
+        if len(all_recipes) > 100:
+            all_recipes = all_recipes[:100]
+        
+        logger.info(f"Found {len(all_recipes)} unique recipes from {len(queries)} queries")
+        return all_recipes

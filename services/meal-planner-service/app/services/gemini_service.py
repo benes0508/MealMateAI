@@ -3,9 +3,6 @@ import json
 import logging
 from typing import Dict, List, Any, Optional
 import google.generativeai as genai
-from langchain.chains import LLMChain
-from langchain_google_genai import ChatGoogleGenerativeAI
-from langchain.prompts import PromptTemplate
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)
@@ -24,15 +21,36 @@ class GeminiService:
         genai.configure(api_key=self.api_key)
         
         # Default model
-        self.model_name = os.getenv("GOOGLE_MODEL", "gemini-1.5-pro") 
+        self.model_name = os.getenv("GOOGLE_MODEL", "gemini-2.0-flash-exp")
         
-        # Initialize the LLM
-        self.llm = ChatGoogleGenerativeAI(
-            model=self.model_name,
-            google_api_key=self.api_key,
-            temperature=0.7,
-            convert_system_message_to_human=True
-        )
+        # Initialize the model
+        self.model = genai.GenerativeModel(self.model_name)
+        
+        # Load prompt templates from files
+        self.prompts_dir = os.path.join(os.path.dirname(__file__), "..", "..", "prompts")
+        self.prompt_templates = self._load_prompt_templates()
+
+    def _load_prompt_templates(self) -> Dict[str, str]:
+        """Load all prompt templates from .txt files"""
+        templates = {}
+        template_files = {
+            "query_generation": "query_generation.txt",
+            "meal_plan_generation": "meal_plan_generation.txt", 
+            "modification_queries": "modification_queries.txt",
+            "plan_modification": "plan_modification.txt"
+        }
+        
+        for key, filename in template_files.items():
+            filepath = os.path.join(self.prompts_dir, filename)
+            try:
+                with open(filepath, 'r', encoding='utf-8') as f:
+                    templates[key] = f.read().strip()
+                logger.info(f"Loaded prompt template: {key}")
+            except FileNotFoundError:
+                logger.error(f"Prompt template file not found: {filepath}")
+                templates[key] = ""
+        
+        return templates
 
     def generate_meal_plan(self, 
                          user_preferences: Dict[str, Any],
@@ -72,27 +90,32 @@ class GeminiService:
                     "cuisine_type": recipe["cuisine_type"],
                 })
             
-            # Create the prompt template
-            prompt_template = self._create_meal_plan_prompt_template()
+            # Create simple prompt for basic meal plan generation
+            prompt = f"""
+            You are a meal planning assistant. Create a {days}-day meal plan with {meals_per_day} meals per day.
             
-            # Create the LLM chain
-            chain = LLMChain(
-                llm=self.llm,
-                prompt=prompt_template
-            )
+            Available recipes: {json.dumps(recipe_context, indent=2)}
+            Dietary restrictions: {", ".join(dietary_restrictions) if dietary_restrictions else "None"}
+            Allergies: {", ".join(allergies) if allergies else "None"}
+            Cuisine preferences: {", ".join(cuisine_preferences) if cuisine_preferences else "None"}
+            Additional preferences: {additional_preferences if additional_preferences else "None"}
             
-            # Run the chain to get the meal plan
-            result = chain.run({
-                "recipe_context": json.dumps(recipe_context, indent=2),
-                "dietary_restrictions": ", ".join(dietary_restrictions) if dietary_restrictions else "None",
-                "allergies": ", ".join(allergies) if allergies else "None",
-                "cuisine_preferences": ", ".join(cuisine_preferences) if cuisine_preferences else "None",
-                "disliked_ingredients": ", ".join(disliked_ingredients) if disliked_ingredients else "None",
-                "days": days,
-                "meals_per_day": meals_per_day,
-                "include_snacks": "yes" if include_snacks else "no",
-                "additional_preferences": additional_preferences if additional_preferences else "None",
-            })
+            Return JSON format:
+            {{
+                "meal_plan": [
+                    {{
+                        "day": 1,
+                        "meals": [
+                            {{"meal_type": "breakfast", "recipe_id": 123, "recipe_name": "Recipe Name"}}
+                        ]
+                    }}
+                ],
+                "explanation": "Brief explanation"
+            }}
+            """
+            
+            response = self.model.generate_content(prompt)
+            result = response.text
             
             # Parse the JSON response
             try:
@@ -127,19 +150,32 @@ class GeminiService:
             for recipe in recipes:
                 all_ingredients.extend(recipe.get("ingredients", []))
             
-            # Create the prompt template
-            prompt_template = self._create_grocery_list_prompt_template()
+            # Create simple prompt for grocery list generation
+            prompt = f"""
+            Create an optimized grocery list from these recipe ingredients:
+            {json.dumps(all_ingredients, indent=2)}
             
-            # Create the LLM chain
-            chain = LLMChain(
-                llm=self.llm,
-                prompt=prompt_template
-            )
+            Instructions:
+            1. Combine identical or similar ingredients
+            2. Group items by grocery store categories (produce, dairy, meat, etc.)
+            3. Standardize units where possible
+            4. Include quantities needed
             
-            # Run the chain to get the grocery list
-            result = chain.run({
-                "ingredients": json.dumps(all_ingredients, indent=2)
-            })
+            Return JSON format:
+            {{
+                "grocery_list": [
+                    {{
+                        "category": "Produce",
+                        "items": [
+                            {{"name": "Ingredient name", "amount": "Quantity needed"}}
+                        ]
+                    }}
+                ]
+            }}
+            """
+            
+            response = self.model.generate_content(prompt)
+            result = response.text
             
             # Parse the JSON response
             try:
@@ -157,146 +193,9 @@ class GeminiService:
         except Exception as e:
             logger.error(f"Error generating grocery list with Gemini: {e}")
             return {"grocery_list": self._create_fallback_grocery_list(all_ingredients)}
-    
-    def _create_meal_plan_prompt_template(self) -> PromptTemplate:
-        """Create prompt template for meal plan generation"""
-        template = """
-        You are a meal planning assistant that creates healthy and balanced meal plans based on user preferences and available recipes.
-        
-        Create a {days}-day meal plan with {meals_per_day} meals per day, optimized for the user's preferences.
-        
-        USER PREFERENCES:
-        Dietary Restrictions: {dietary_restrictions}
-        Allergies: {allergies}
-        Preferred cuisines: {cuisine_preferences}
-        Disliked ingredients: {disliked_ingredients}
-        Include snacks: {include_snacks}
-        Additional preferences: {additional_preferences}
-        
-        RETRIEVED RECIPES (these are retrieved based on relevance to user preferences):
-        {recipe_context}
-        
-        INSTRUCTIONS:
-        1. Create a meal plan for {days} days, with {meals_per_day} meals per day
-        2. Only select recipes from the RETRIEVED RECIPES list 
-        3. Consider the user's dietary restrictions, allergies, and preferences
-        4. Ensure a good variety of meal types
-        5. Aim for nutritional balance across the week
-        6. Include a brief explanation of why this meal plan was chosen
-        
-        Return your response as a JSON object with the following structure:
-        {{
-            "meal_plan": [
-                {{
-                    "day": 1,
-                    "meals": [
-                        {{
-                            "meal_type": "breakfast|lunch|dinner|snack",
-                            "recipe_id": 123,
-                            "recipe_name": "Recipe Name"
-                        }},
-                        // more meals...
-                    ]
-                }},
-                // more days...
-            ],
-            "explanation": "A brief explanation of the meal plan"
-        }}
-        
-        Make sure to output valid JSON.
-        """
-        
-        return PromptTemplate(
-            template=template,
-            input_variables=[
-                "recipe_context", 
-                "dietary_restrictions", 
-                "allergies", 
-                "cuisine_preferences", 
-                "disliked_ingredients", 
-                "days", 
-                "meals_per_day", 
-                "include_snacks", 
-                "additional_preferences"
-            ]
-        )
-    
-    def _create_grocery_list_prompt_template(self) -> PromptTemplate:
-        """Create prompt template for grocery list generation"""
-        template = """
-        You are a helpful assistant that creates optimized grocery lists from recipe ingredients.
-        
-        Based on the following ingredients from recipes, create an optimized grocery list:
-        
-        INGREDIENTS:
-        {ingredients}
-        
-        INSTRUCTIONS:
-        1. Combine identical or similar ingredients
-        2. Group items by grocery store categories (produce, dairy, meat, etc.)
-        3. Standardize units where possible
-        4. Include quantities needed
-        
-        Return the grocery list as a JSON object with the following structure:
-        {{
-            "grocery_list": [
-                {{
-                    "category": "Produce",
-                    "items": [
-                        {{
-                            "name": "Ingredient name",
-                            "amount": "Quantity needed"
-                        }},
-                        // more items...
-                    ]
-                }},
-                // more categories...
-            ]
-        }}
-        
-        Make sure to output valid JSON.
-        """
-        
-        return PromptTemplate(
-            template=template,
-            input_variables=["ingredients"]
-        )
-        
-    def _create_fallback_meal_plan(self, retrieved_recipes: List[Dict[str, Any]], days: int, meals_per_day: int) -> Dict[str, Any]:
-        """Creates a fallback meal plan if the API call fails"""
-        
-        # Simple assignment of recipes to days and meal types
-        meal_plan = []
-        recipe_index = 0
-        meal_types = ["breakfast", "lunch", "dinner"]
-        
-        for day in range(1, days + 1):
-            meals = []
-            for i in range(meals_per_day):
-                meal_type = meal_types[i % len(meal_types)]
-                recipe = retrieved_recipes[recipe_index % len(retrieved_recipes)]
-                recipe_index += 1
-                
-                meals.append({
-                    "meal_type": meal_type,
-                    "recipe_id": recipe["recipe_id"],
-                    "recipe_name": recipe["recipe_name"]
-                })
-            
-            meal_plan.append({
-                "day": day,
-                "meals": meals
-            })
-        
-        return {
-            "meal_plan": meal_plan,
-            "explanation": "This is a simple meal plan based on retrieved recipes. We weren't able to optimize it based on your preferences due to a technical issue."
-        }
-        
-    def _create_fallback_grocery_list(self, ingredients: List[Dict[str, Any]]) -> Dict[str, Any]:
+
+    def _create_fallback_grocery_list(self, ingredients: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
         """Creates a fallback grocery list if the API call fails"""
-        
-        # Simple grouping of ingredients
         items = []
         for ingredient in ingredients:
             name = ingredient.get("name", "Unknown ingredient")
@@ -311,6 +210,201 @@ class GeminiService:
             })
         
         return [{
-            "category": "All ingredients",
+            "category": "All ingredients", 
             "items": items
         }]
+
+    def generate_search_queries(self, user_prompt: str) -> List[str]:
+        """Generate search queries for the vector database using Gemini"""
+        try:
+            prompt = self.prompt_templates["query_generation"].format(user_prompt=user_prompt)
+            
+            response = self.model.generate_content(prompt)
+            result = response.text
+            
+            try:
+                # Clean the response - remove any markdown formatting
+                cleaned_result = result.strip()
+                if cleaned_result.startswith("```json"):
+                    cleaned_result = cleaned_result.replace("```json", "").replace("```", "").strip()
+                
+                parsed_result = json.loads(cleaned_result)
+                queries = parsed_result.get("queries", [])
+                
+                # Validate and clean queries - ensure single words only
+                validated_queries = self._validate_and_clean_queries(queries)
+                
+                logger.info(f"Generated {len(queries)} raw queries, validated to {len(validated_queries)} queries")
+                return validated_queries[:5]
+            except json.JSONDecodeError as e:
+                logger.error(f"Failed to parse JSON from query generation response: {e}")
+                logger.error(f"Raw response was: {result}")
+                return self._extract_fallback_queries(user_prompt)
+                
+        except Exception as e:
+            logger.error(f"Error generating search queries: {e}")
+            return self._extract_fallback_queries(user_prompt)
+
+    def _validate_and_clean_queries(self, queries: List[str]) -> List[str]:
+        """Validate queries to ensure they are single words only"""
+        validated = []
+        forbidden_words = {"recipes", "healthy", "breakfast", "lunch", "dinner", "meal", "plan", "food", "options", "dishes"}
+        
+        for query in queries:
+            # Clean the query
+            clean_query = query.strip().lower()
+            
+            # Skip empty queries
+            if not clean_query:
+                continue
+                
+            # Check if it's a single word (no spaces)
+            if " " in clean_query:
+                # Try to extract the main ingredient from multi-word queries
+                words = clean_query.split()
+                for word in words:
+                    if word not in forbidden_words and len(word) > 2:
+                        validated.append(word)
+                        break
+            else:
+                # Single word - check if it's valid
+                if clean_query not in forbidden_words and len(clean_query) > 2:
+                    validated.append(clean_query)
+        
+        # Remove duplicates while preserving order
+        seen = set()
+        final_queries = []
+        for query in validated:
+            if query not in seen:
+                seen.add(query)
+                final_queries.append(query)
+        
+        return final_queries
+
+    def _extract_fallback_queries(self, user_prompt: str) -> List[str]:
+        """Extract simple fallback queries from user prompt"""
+        # Simple keyword extraction as fallback
+        common_ingredients = ["apple", "chicken", "beef", "pasta", "rice", "vegetarian", "vegan", "italian", "mexican", "asian"]
+        prompt_lower = user_prompt.lower()
+        
+        found_queries = []
+        for ingredient in common_ingredients:
+            if ingredient in prompt_lower:
+                found_queries.append(ingredient)
+        
+        # If no common ingredients found, use generic terms
+        if not found_queries:
+            if "vegetarian" in prompt_lower or "vegan" in prompt_lower:
+                found_queries.append("vegetarian")
+            if "healthy" in prompt_lower:
+                found_queries.append("salad")
+            if not found_queries:
+                found_queries.append("chicken")  # Generic fallback
+        
+        return found_queries[:3]
+
+    def generate_rag_meal_plan(self, user_prompt: str, retrieved_recipes: List[Dict[str, Any]]) -> Dict[str, Any]:
+        """Generate meal plan using retrieved recipes and Gemini"""
+        try:
+            formatted_recipes = json.dumps(retrieved_recipes, indent=2)
+            prompt = self.prompt_templates["meal_plan_generation"].format(
+                user_prompt=user_prompt,
+                retrieved_recipes=formatted_recipes
+            )
+            
+            response = self.model.generate_content(prompt)
+            result = response.text
+            
+            try:
+                meal_plan_data = json.loads(result)
+                logger.info("Successfully generated RAG meal plan")
+                return meal_plan_data
+            except json.JSONDecodeError:
+                logger.error("Failed to parse JSON from RAG meal plan generation response")
+                return self._create_fallback_meal_plan(retrieved_recipes)
+                
+        except Exception as e:
+            logger.error(f"Error generating RAG meal plan: {e}")
+            return self._create_fallback_meal_plan(retrieved_recipes)
+
+    def generate_modification_queries(self, current_meal_plan: Dict[str, Any], user_feedback: str) -> List[str]:
+        """Generate queries for meal plan modifications based on user feedback"""
+        try:
+            prompt = self.prompt_templates["modification_queries"].format(
+                current_meal_plan=json.dumps(current_meal_plan, indent=2),
+                user_feedback=user_feedback
+            )
+            
+            response = self.model.generate_content(prompt)
+            result = response.text
+            
+            try:
+                parsed_result = json.loads(result)
+                queries = parsed_result.get("queries", [])
+                logger.info(f"Generated {len(queries)} modification queries")
+                return queries[:5]
+            except json.JSONDecodeError:
+                logger.error("Failed to parse JSON from modification queries response")
+                return [user_feedback]
+                
+        except Exception as e:
+            logger.error(f"Error generating modification queries: {e}")
+            return [user_feedback]
+
+    def modify_meal_plan(self, current_meal_plan: Dict[str, Any], user_feedback: str, new_recipes: List[Dict[str, Any]]) -> Dict[str, Any]:
+        """Modify meal plan based on user feedback and new recipes"""
+        try:
+            prompt = self.prompt_templates["plan_modification"].format(
+                current_meal_plan=json.dumps(current_meal_plan, indent=2),
+                user_feedback=user_feedback,
+                new_recipes=json.dumps(new_recipes, indent=2)
+            )
+            
+            response = self.model.generate_content(prompt)
+            result = response.text
+            
+            try:
+                modified_plan = json.loads(result)
+                logger.info("Successfully modified meal plan")
+                return modified_plan
+            except json.JSONDecodeError:
+                logger.error("Failed to parse JSON from meal plan modification response")
+                return current_meal_plan
+                
+        except Exception as e:
+            logger.error(f"Error modifying meal plan: {e}")
+            return current_meal_plan
+
+    def _create_fallback_meal_plan(self, retrieved_recipes: List[Dict[str, Any]]) -> Dict[str, Any]:
+        """Create a simple fallback meal plan if AI generation fails"""
+        if not retrieved_recipes:
+            return {
+                "meal_plan": [],
+                "explanation": "No recipes available to create a meal plan."
+            }
+        
+        # Simple 3-day plan with available recipes
+        meal_plan = []
+        recipe_index = 0
+        
+        for day in range(1, 4):  # 3 days
+            meals = []
+            for meal_type in ["breakfast", "lunch", "dinner"]:
+                if recipe_index < len(retrieved_recipes):
+                    recipe = retrieved_recipes[recipe_index]
+                    meals.append({
+                        "meal_type": meal_type,
+                        "recipe_id": recipe.get("id") or recipe.get("recipe_id"),
+                        "recipe_name": recipe.get("name") or recipe.get("recipe_name", "Unknown Recipe")
+                    })
+                    recipe_index += 1
+            
+            meal_plan.append({
+                "day": day,
+                "meals": meals
+            })
+        
+        return {
+            "meal_plan": meal_plan,
+            "explanation": "This is a basic meal plan created from available recipes. AI generation was not available."
+        }

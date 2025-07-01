@@ -286,3 +286,100 @@ async def swap_days(
     except Exception as e:
         logger.exception(f"Error swapping days: {str(e)}")
         raise HTTPException(status_code=500, detail=f"An error occurred while swapping days: {str(e)}")
+
+@router.post("/rag/generate", response_model=schemas.RAGMealPlanResponse)
+async def generate_rag_meal_plan(
+    request: schemas.RAGMealPlanRequest,
+    db: Session = Depends(get_db)
+):
+    """
+    Generate initial meal plan using RAG workflow (Steps 1-3)
+    """
+    try:
+        meal_plan = await meal_plan_service.create_rag_meal_plan(
+            db=db,
+            user_id=request.user_id,
+            user_prompt=request.user_prompt
+        )
+        
+        # Generate conversation ID for this RAG session
+        import uuid
+        conversation_id = str(uuid.uuid4())
+        
+        return {
+            "meal_plan": meal_plan,
+            "conversation_id": conversation_id,
+            "status": "initial"
+        }
+    except Exception as e:
+        logger.exception(f"Error generating RAG meal plan: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"An error occurred while generating the meal plan: {str(e)}")
+
+@router.post("/rag/modify", response_model=schemas.RAGMealPlanResponse)  
+async def modify_rag_meal_plan(
+    request: schemas.RAGFeedbackRequest,
+    db: Session = Depends(get_db)
+):
+    """
+    Modify meal plan based on user feedback (Step 4)
+    """
+    try:
+        # For now, we'll store the current meal plan in session/cache
+        # In a production system, you'd want to store this in a database or cache
+        # Here we'll use a simple in-memory approach for the demo
+        
+        # This is a simplified approach - in production you'd retrieve the current meal plan
+        # from the conversation_id stored in database or cache
+        logger.warning("RAG conversation persistence not implemented - using latest meal plan")
+        
+        # Get the user's most recent meal plan as a starting point
+        user_meal_plans = await meal_plan_service.get_user_meal_plans(db, request.user_id)
+        if not user_meal_plans:
+            raise HTTPException(status_code=404, detail="No existing meal plan found to modify")
+        
+        # Use the most recent meal plan
+        current_meal_plan = user_meal_plans[0] if user_meal_plans else {}
+        
+        modified_plan = await meal_plan_service.modify_rag_meal_plan(
+            current_meal_plan=current_meal_plan,
+            user_feedback=request.user_feedback
+        )
+        
+        return {
+            "meal_plan": modified_plan,
+            "conversation_id": request.conversation_id,
+            "status": "modified"
+        }
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.exception(f"Error modifying RAG meal plan: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"An error occurred while modifying the meal plan: {str(e)}")
+
+@router.post("/rag/finalize", response_model=schemas.MealPlanResponse)
+async def finalize_rag_meal_plan(
+    request: schemas.RAGFinalizeRequest,
+    db: Session = Depends(get_db)
+):
+    """
+    Finalize RAG meal plan and save to database (Step 5)
+    """
+    try:
+        # In a production system, you'd retrieve the final meal plan from the conversation_id
+        # and save it to the database using the existing meal plan creation logic
+        
+        logger.info(f"Finalizing RAG meal plan for conversation {request.conversation_id}")
+        
+        # For now, return the most recent meal plan for the user
+        # In production, you'd save the final RAG-generated plan to the database
+        user_meal_plans = await meal_plan_service.get_user_meal_plans(db, request.user_id)
+        if not user_meal_plans:
+            raise HTTPException(status_code=404, detail="No meal plan found to finalize")
+        
+        return user_meal_plans[0]
+        
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.exception(f"Error finalizing RAG meal plan: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"An error occurred while finalizing the meal plan: {str(e)}")

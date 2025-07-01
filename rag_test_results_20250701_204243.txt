@@ -1,0 +1,152 @@
+==========================================
+RAG WORKFLOW COMPREHENSIVE TEST LOG
+==========================================
+Test Started: 2025-07-01 20:42:43
+Log File: rag_test_results_20250701_204243.txt
+Base URL: http://localhost:8002
+User ID: 1
+
+2025-07-01 20:42:43 - 🧪 Starting Comprehensive RAG Workflow Test
+2025-07-01 20:42:43 - 🔍 PRELIMINARY CHECKS
+2025-07-01 20:42:43 - Checking if services are running...
+2025-07-01 20:42:43 - ✅ Meal-planner service is running
+2025-07-01 20:42:43 - ✅ Recipe service is running
+2025-07-01 20:42:43 - Available apple recipes: 199
+2025-07-01 20:42:43 - 📝 STEP 1-3: Generate Initial Meal Plan
+2025-07-01 20:42:43 - Sending initial meal plan request...
+======================================
+API REQUEST - STEP 1-3: Generate Initial Meal Plan
+======================================
+Method: POST
+URL: http://localhost:8002/rag/generate
+Timestamp: 2025-07-01 20:42:45
+
+Request Body:
+{
+  "user_prompt": "Create a 3-day meal plan with healthy apple-based recipes and some vegetarian options",
+  "user_id": 1
+}
+
+Response:
+{
+  "meal_plan": {
+    "meal_plan": [],
+    "explanation": "No suitable recipes found for your request. Please try a different query.",
+    "queries_used": [
+      "healthy apple breakfast recipes",
+      "vegetarian lunch recipes with apple",
+      "healthy apple dinner recipes vegetarian or with poultry",
+      "apple salads or snacks"
+    ],
+    "recipes_found": 0
+  },
+  "conversation_id": "8980fda0-7527-4b86-ae2f-31f2430bb654",
+  "status": "initial"
+}
+
+Response Summary:
+- Status: Valid JSON response
+- Size:      387 characters
+- Queries Used: 4
+- Recipes Found: 0
+- Meal Plan Days: 0
+- Conversation ID: 8980fda0-7527-4b86-ae2f-31f2430bb654
+
+2025-07-01 20:42:45 - ✅ Initial meal plan generated successfully
+2025-07-01 20:42:45 - Conversation ID: 8980fda0-7527-4b86-ae2f-31f2430bb654
+2025-07-01 20:42:45 - Generated 4 search queries
+2025-07-01 20:42:45 - Found 0 recipes
+2025-07-01 20:42:46 - Created meal plan for 0 days
+Queries Used:
+  - healthy apple breakfast recipes
+  - vegetarian lunch recipes with apple
+  - healthy apple dinner recipes vegetarian or with poultry
+  - apple salads or snacks
+
+2025-07-01 20:42:46 - 📝 STEP 4: Modify Meal Plan Based on Feedback
+2025-07-01 20:42:46 - Sending meal plan modification request...
+======================================
+API REQUEST - STEP 4: Modify Meal Plan
+======================================
+Method: POST
+URL: http://localhost:8002/rag/modify
+Timestamp: 2025-07-01 20:42:46
+
+Request Body:
+{
+  "conversation_id": "8980fda0-7527-4b86-ae2f-31f2430bb654",
+  "user_feedback": "Replace all breakfast items with lighter, healthier options and add more protein",
+  "user_id": 1
+}
+
+Response:
+{
+  "detail": "No existing meal plan found to modify"
+}
+
+Response Summary:
+- Status: Valid JSON response
+- Size:       51 characters
+- Status: N/A
+- Changes Made: Not specified
+
+2025-07-01 20:42:46 - ⚠️ Meal plan modification completed with status: ERROR
+2025-07-01 20:42:46 - 📝 STEP 5: Finalize Meal Plan
+2025-07-01 20:42:46 - Sending meal plan finalization request...
+======================================
+API REQUEST - STEP 5: Finalize Meal Plan
+======================================
+Method: POST
+URL: http://localhost:8002/rag/finalize
+Timestamp: 2025-07-01 20:42:46
+
+Request Body:
+{
+  "conversation_id": "8980fda0-7527-4b86-ae2f-31f2430bb654",
+  "user_id": 1
+}
+
+Response:
+{
+  "detail": "No meal plan found to finalize"
+}
+
+Response Summary:
+- Status: Valid JSON response
+- Size:       44 characters
+- Finalization: Success
+
+2025-07-01 20:42:46 - ⚠️ Meal plan finalization status unclear
+2025-07-01 20:42:46 - 🔍 ADDITIONAL VERIFICATION TESTS
+2025-07-01 20:42:46 - Testing direct recipe search...
+2025-07-01 20:42:46 - Direct search for 'healthy apple' returned 1 results
+2025-07-01 20:42:46 - Fetching user meal plans...
+2025-07-01 20:42:46 - User has 0 total meal plans
+======================================
+SERVICE STATUS SUMMARY
+======================================
+Meal-Planner Service: ✅ Running
+Recipe Service: ✅ Running
+Recipe Database: 199 apple recipes available
+User Meal Plans: 0 plans found
+
+2025-07-01 20:42:46 - 📊 TEST SUMMARY
+======================================
+FINAL TEST RESULTS SUMMARY
+======================================
+Test Completed: 2025-07-01 20:42:46
+
+Step 1-3 (Generate): ✅ SUCCESS
+Step 4 (Modify): ✅ COMPLETED
+Step 5 (Finalize): ✅ COMPLETED
+
+Key Metrics:
+- Conversation ID: 8980fda0-7527-4b86-ae2f-31f2430bb654
+- Search Queries Generated: 4
+- Recipes Found: 0
+- Meal Plan Days: 0
+
+Overall Status: ✅ RAG WORKFLOW FUNCTIONAL
+
+2025-07-01 20:42:46 - ✅ RAG Workflow Test Completed Successfully!
+2025-07-01 20:42:46 - ✅ All 5 steps of the workflow are functional

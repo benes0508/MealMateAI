@@ -74,7 +74,48 @@ const recipeService = {
   async searchRecipes(params: SearchParams = {}): Promise<{ recipes: Recipe[]; total: number; page: number; total_pages: number }> {
     try {
       const response = await axios.get(`${API_URL}/recipes/search`, { params });
-      return response.data;
+      
+      // Clear any cached CSV data since we have database results
+      sessionStorage.removeItem('allCsvRecipes');
+      sessionStorage.removeItem('filteredCsvRecipes');
+      
+      // Transform database recipe format to frontend Recipe interface
+      const transformedRecipes = response.data.recipes.map((dbRecipe: any) => ({
+        id: String(dbRecipe.id),
+        name: dbRecipe.name,
+        description: dbRecipe.directions || 'No description available',
+        imageUrl: dbRecipe.img_src || null,
+        prepTime: dbRecipe.prep_time && dbRecipe.prep_time !== 'nan' ? parseInt(dbRecipe.prep_time.split(' ')[0] || '0') || 0 : 0,
+        cookTime: dbRecipe.cook_time && dbRecipe.cook_time !== 'nan' ? parseInt(dbRecipe.cook_time.split(' ')[0] || '0') || 0 : 0,
+        servings: dbRecipe.servings && dbRecipe.servings !== 'nan' ? parseInt(dbRecipe.servings || '4') || 4 : 4,
+        difficulty: dbRecipe.difficulty || 'medium',
+        ingredients: dbRecipe.ingredients || [],
+        instructions: dbRecipe.directions?.split('\n') || [],
+        tags: [...(dbRecipe.tags || []), ...(dbRecipe.cuisine || []), ...(dbRecipe.meal_type || [])],
+        nutritionalInfo: {
+          calories: 0,
+          protein: 0,
+          carbs: 0,
+          fat: 0
+        },
+        dietaryInfo: {
+          vegetarian: (dbRecipe.dietary_tags || []).includes('vegetarian'),
+          vegan: (dbRecipe.dietary_tags || []).includes('vegan'),
+          glutenFree: !(dbRecipe.allergens || []).includes('gluten'),
+          dairyFree: !(dbRecipe.allergens || []).includes('dairy'),
+          nutFree: !(dbRecipe.allergens || []).includes('nuts'),
+          lowCarb: (dbRecipe.dietary_tags || []).includes('low-carb')
+        },
+        createdAt: dbRecipe.created_at,
+        updatedAt: dbRecipe.updated_at
+      }));
+
+      return {
+        recipes: transformedRecipes,
+        total: response.data.total,
+        page: response.data.page,
+        total_pages: response.data.total_pages
+      };
     } catch (error) {
       console.error('Error searching recipes:', error);
       throw error;

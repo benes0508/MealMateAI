@@ -84,3 +84,21 @@ class MealPlanModuleResponse(BaseModel):
     
     class Config:
         orm_mode = True
+
+class RAGMealPlanRequest(BaseModel):
+    user_prompt: str = Field(..., description="User's natural language description of desired meal plan")
+    user_id: int = Field(..., description="User ID")
+
+class RAGMealPlanResponse(BaseModel):
+    meal_plan: Dict[str, Any]
+    conversation_id: str = Field(..., description="Unique identifier for this RAG conversation")
+    status: str = Field(..., description="Status: 'initial', 'modified', 'final'")
+
+class RAGFeedbackRequest(BaseModel):
+    conversation_id: str = Field(..., description="Conversation ID from previous response")
+    user_feedback: str = Field(..., description="User's feedback on what to change")
+    user_id: int = Field(..., description="User ID")
+
+class RAGFinalizeRequest(BaseModel):
+    conversation_id: str = Field(..., description="Conversation ID to finalize")
+    user_id: int = Field(..., description="User ID")

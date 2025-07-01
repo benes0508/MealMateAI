@@ -15,6 +15,14 @@ CREATE TABLE recipes (
   txt_path        TEXT         NOT NULL,      -- path to plain-text recipe file
   cuisine         TEXT[]       DEFAULT '{}',  -- e.g. ['Mexican']
   tags            TEXT[]       DEFAULT '{}',  -- any extra tags
+  directions      TEXT,                       -- cooking instructions
+  img_src         TEXT,                       -- image URL
+  prep_time       TEXT,                       -- preparation time
+  cook_time       TEXT,                       -- cooking time
+  servings        TEXT,                       -- number of servings
+  rating          TEXT,                       -- recipe rating
+  nutrition       TEXT,                       -- nutrition information
+  url             TEXT,                       -- original recipe URL
   created_at      TIMESTAMPTZ  NOT NULL DEFAULT NOW(),
   updated_at      TIMESTAMPTZ  NOT NULL DEFAULT NOW()
 );

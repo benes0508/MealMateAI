@@ -1,0 +1,111 @@
+  📋 Complete Guide to Writing Effective LLM Prompts according to Claude Code
+
+  🎯 Core Principles:
+
+  1. Be Specific and Clear
+
+  ❌ Bad: "Generate some queries"
+  ✅ Good: "Generate 1-5 search queries for finding Italian pasta recipes"
+
+  2. Use Examples and Structure
+
+  ✅ Always provide concrete examples:
+  "Return JSON like this: {"queries": ["example 1", "example 2"]}"
+
+  3. Set Clear Constraints
+
+  ✅ Specify limits: "Generate between 1-5 queries maximum"
+  ✅ Define scope: "Focus on cuisine, dietary needs, meal types"
+
+  🔧 Technical Best Practices:
+
+  4. Handle Special Characters
+
+  ❌ Bad: Use raw { } in templates
+  ✅ Good: Escape braces {{ }} when using .format()
+
+  5. Request Specific Output Format
+
+  ✅ "Output ONLY the JSON object, no other text"
+  ✅ "Do not include explanations or markdown"
+
+  6. Use Clear Delimiters
+
+  ✅ Wrap examples in ```json blocks
+  ✅ Use clear section headers: "INSTRUCTIONS:", "EXAMPLE:"
+
+  🎨 Prompt Structure Template:
+
+  [ROLE DEFINITION]
+  You are a [specific role] that [specific task].
+
+  [INPUT]
+  USER REQUEST: {variable}
+
+  [TASK DESCRIPTION]
+  Your task is to [specific action] that will [specific outcome].
+
+  [GUIDELINES]
+  - Guideline 1
+  - Guideline 2
+  - Guideline 3
+
+  [OUTPUT FORMAT]
+  Return your response as [format] with this exact structure:
+
+  ```json
+  {{
+      "key": ["value1", "value2"]
+  }}
+
+  [IMPORTANT NOTES]
+  Important: [critical constraints]
+
+  ### **⚠️ Common Pitfalls to Avoid:**
+
+  #### **7. Template Formatting Issues**
+  ❌ Unescaped braces: {"key": "value"}
+  ✅ Escaped braces: {{"key": "value"}}
+
+  #### **8. Ambiguous Instructions**
+  ❌ "Generate good queries"
+  ✅ "Generate 3-5 specific search queries targeting different aspects"
+
+  #### **9. Missing Constraints**
+  ❌ No limits specified
+  ✅ "Maximum 5 queries, each 3-10 words long"
+
+  #### **10. Complex JSON Structures**
+  ❌ Nested complex objects
+  ✅ Simple, flat structures when possible
+
+  ### **🧪 Testing Your Prompts:**
+
+  #### **11. Test Edge Cases**
+  - Empty inputs
+  - Very long inputs
+  - Special characters
+  - Multiple languages
+
+  #### **12. Validate JSON Output**
+  - Always parse and validate JSON
+  - Handle parsing errors gracefully
+  - Log raw responses for debugging
+
+  ### **🚀 Advanced Techniques:**
+
+  #### **13. Multi-Step Instructions**
+  ✅ Break complex tasks into numbered steps:
+  1. Analyze the user request
+  2. Identify key aspects (cuisine, dietary, etc.)
+  3. Generate targeted queries for each aspect
+
+  #### **14. Context and Examples**
+  ✅ Provide context: "For a recipe database with 1000+ recipes"
+  ✅ Give examples: "Good query: 'Italian pasta vegetarian'"
+
+  #### **15. Error Prevention**
+  ✅ "If unsure, generate fewer but higher quality queries"
+  ✅ "Avoid overly specific queries that might return no results"
+
+  This comprehensive approach ensures reliable, predictable LLM behavior! 🎯
