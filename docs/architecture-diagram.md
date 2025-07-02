@@ -11,13 +11,13 @@ This file contains the Mermaid code for generating the MealMateAI system archite
 
 ```mermaid
 graph TD
-    %% Define styles
-    classDef client fill:#d4f1f9,stroke:#333,stroke-width:1px
-    classDef frontend fill:#ffcc99,stroke:#333,stroke-width:1px
-    classDef gateway fill:#c2e0c6,stroke:#333,stroke-width:1px
-    classDef service fill:#e0c6c2,stroke:#333,stroke-width:1px
-    classDef database fill:#c6c2e0,stroke:#333,stroke-width:1px
-    classDef external fill:#e0e0c2,stroke:#333,stroke-width:1px
+    %% Define styles with better text contrast
+    classDef client fill:#d4f1f9,stroke:#333,stroke-width:1px,color:#000
+    classDef frontend fill:#ffcc99,stroke:#333,stroke-width:1px,color:#000
+    classDef gateway fill:#c2e0c6,stroke:#333,stroke-width:1px,color:#000
+    classDef service fill:#e0c6c2,stroke:#333,stroke-width:1px,color:#000
+    classDef database fill:#c6c2e0,stroke:#333,stroke-width:1px,color:#000
+    classDef external fill:#e0e0c2,stroke:#333,stroke-width:1px,color:#000
 
     %% Client Layer
     WebBrowser[Web Browser]:::client
