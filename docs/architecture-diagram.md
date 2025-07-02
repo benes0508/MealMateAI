@@ -463,12 +463,12 @@ flowchart TD
     Gateway --> UI
     UI --> User
     
-    %% Styling
-    classDef userLayer fill:#d4f1f9,stroke:#333,stroke-width:2px
-    classDef frontendLayer fill:#ffcc99,stroke:#333,stroke-width:2px
-    classDef serviceLayer fill:#e0c6c2,stroke:#333,stroke-width:2px
-    classDef databaseLayer fill:#c6c2e0,stroke:#333,stroke-width:2px
-    classDef externalLayer fill:#e0e0c2,stroke:#333,stroke-width:2px
+    %% Styling with better text contrast
+    classDef userLayer fill:#d4f1f9,stroke:#333,stroke-width:2px,color:#000
+    classDef frontendLayer fill:#ffcc99,stroke:#333,stroke-width:2px,color:#000
+    classDef serviceLayer fill:#e0c6c2,stroke:#333,stroke-width:2px,color:#000
+    classDef databaseLayer fill:#c6c2e0,stroke:#333,stroke-width:2px,color:#000
+    classDef externalLayer fill:#e0e0c2,stroke:#333,stroke-width:2px,color:#000
     
     class User userLayer
     class UI frontendLayer
@@ -542,13 +542,13 @@ graph LR
     MealSvc -.->|Generate Meal Plans| Gemini
     NotifSvc -.->|Send Emails| SMTP
     
-    %% Styling
-    classDef client fill:#d4f1f9,stroke:#333,stroke-width:2px
-    classDef frontend fill:#ffcc99,stroke:#333,stroke-width:2px
-    classDef gateway fill:#c2e0c6,stroke:#333,stroke-width:2px
-    classDef service fill:#e0c6c2,stroke:#333,stroke-width:2px
-    classDef database fill:#c6c2e0,stroke:#333,stroke-width:2px
-    classDef external fill:#e0e0c2,stroke:#333,stroke-width:2px
+    %% Styling with better text contrast
+    classDef client fill:#d4f1f9,stroke:#333,stroke-width:2px,color:#000
+    classDef frontend fill:#ffcc99,stroke:#333,stroke-width:2px,color:#000
+    classDef gateway fill:#c2e0c6,stroke:#333,stroke-width:2px,color:#000
+    classDef service fill:#e0c6c2,stroke:#333,stroke-width:2px,color:#000
+    classDef database fill:#c6c2e0,stroke:#333,stroke-width:2px,color:#000
+    classDef external fill:#e0e0c2,stroke:#333,stroke-width:2px,color:#000
     
     class Browser,Mobile client
     class Frontend frontend
