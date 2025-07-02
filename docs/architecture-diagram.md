@@ -22,33 +22,33 @@ graph TD
     %% Client Layer
     WebBrowser[Web Browser]:::client
     MobileBrowser[Mobile Browser]:::client
-    iOSApp[iOS App<br/>(Future)]:::client
-    AndroidApp[Android App<br/>(Future)]:::client
+    iOSApp[iOS App<br/>Future]:::client
+    AndroidApp[Android App<br/>Future]:::client
 
     %% Frontend Layer
-    FrontendReact[Frontend<br/>(React)]:::frontend
+    FrontendReact[Frontend<br/>React]:::frontend
 
     %% API Gateway
-    APIGateway[API Gateway<br/>(Express.js)]:::gateway
+    APIGateway[API Gateway<br/>Express.js]:::gateway
 
     %% Microservices
-    UserService[User Service<br/>(FastAPI)]:::service
-    RecipeService[Recipe Service<br/>(FastAPI)]:::service
-    MealPlannerService[Meal Planner<br/>Service (FastAPI)]:::service
-    NotificationService[Notification<br/>Service (FastAPI)]:::service
+    UserService[User Service<br/>FastAPI]:::service
+    RecipeService[Recipe Service<br/>FastAPI]:::service
+    MealPlannerService[Meal Planner<br/>Service FastAPI]:::service
+    NotificationService[Notification<br/>Service FastAPI]:::service
 
     %% Databases
-    UserDB[(User DB<br/>(MySQL))]:::database
-    PostgresDB[(PostgreSQL<br/>Recipe & Meal Plan DBs)]:::database
-    QdrantDB[(Qdrant Vector DB<br/>Recipe Embeddings)]:::database
-    NotificationDB[(Notification DB<br/>(Future))]:::database
+    UserDB[User DB<br/>MySQL]:::database
+    PostgresDB[PostgreSQL<br/>Recipe & Meal Plan DBs]:::database
+    QdrantDB[Qdrant Vector DB<br/>Recipe Embeddings]:::database
+    NotificationDB[Notification DB<br/>Future]:::database
 
     %% External Services
-    EmailService[Email Service<br/>(SMTP)]:::external
-    RecipeAPI[Recipe APIs<br/>(Future)]:::external
-    CloudStorage[Cloud Storage<br/>(AWS S3)]:::external
-    Analytics[Analytics<br/>(Future)]:::external
-    GeminiAPI[Google Gemini API<br/>(LLM)]:::external
+    EmailService[Email Service<br/>SMTP]:::external
+    RecipeAPI[Recipe APIs<br/>Future]:::external
+    CloudStorage[Cloud Storage<br/>AWS S3]:::external
+    Analytics[Analytics<br/>Future]:::external
+    GeminiAPI[Google Gemini API<br/>LLM]:::external
 
     %% Client to Frontend connections
     WebBrowser --> FrontendReact
