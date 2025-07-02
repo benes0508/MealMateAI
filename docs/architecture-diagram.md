@@ -169,53 +169,43 @@ erDiagram
     %% User Service Database (MySQL)
     USERS {
         int id PK
-        string username UK
         string email UK
+        string username UK
         string hashed_password
         string full_name
         boolean is_active
         boolean is_admin
         datetime created_at
         datetime updated_at
-        text dietary_restrictions
-        text allergies
-        text cuisine_preferences
-        text disliked_ingredients
+        json allergies
+        json disliked_ingredients
+        json preferred_cuisines
+        json preferences
     }
     
     %% Recipe Service Database (PostgreSQL)
     RECIPES {
         int id PK
-        string name
-        text description
-        int cooking_time
-        int prep_time
-        string difficulty
-        string cuisine
-        boolean is_vegetarian
-        boolean is_vegan
-        boolean is_gluten_free
-        string image_url
-        text ingredients_text
-        text instructions
-        datetime created_at
-        datetime updated_at
-    }
-    
-    INGREDIENTS {
-        int id PK
-        string name UK
-        string category
-        string measurement_unit
-    }
-    
-    RECIPE_INGREDIENTS {
-        int id PK
-        int recipe_id FK
-        int ingredient_id FK
-        float quantity
-        string unit
-        string notes
+        text name
+        text_array ingredients
+        text_array meal_type
+        text_array dietary_tags
+        text_array allergens
+        text difficulty
+        text json_path
+        text txt_path
+        text_array cuisine
+        text_array tags
+        text directions
+        text img_src
+        text prep_time
+        text cook_time
+        text servings
+        text rating
+        text nutrition
+        text url
+        timestamptz created_at
+        timestamptz updated_at
     }
     
     %% Meal Planner Service Database (PostgreSQL)
@@ -223,11 +213,12 @@ erDiagram
         int id PK
         int user_id FK
         string plan_name
-        int days
-        int meals_per_day
-        text plan_explanation
         datetime created_at
         datetime updated_at
+        int days
+        int meals_per_day
+        text plan_data
+        text plan_explanation
     }
     
     MEAL_PLAN_RECIPES {
@@ -236,27 +227,51 @@ erDiagram
         int recipe_id FK
         int day
         string meal_type
-        datetime created_at
     }
     
-    USER_PREFERENCES {
+    USER_PREFERENCES_CACHE {
         int id PK
-        int user_id FK
+        int user_id UK
         text dietary_restrictions
         text allergies
         text cuisine_preferences
         text disliked_ingredients
-        datetime created_at
         datetime updated_at
     }
     
-    %% Future Tables
+    RECIPE_EMBEDDINGS {
+        int id PK
+        int recipe_id UK
+        text recipe_name
+        text ingredients
+        text cuisine_type
+        vector_768 embedding
+        datetime created_at
+    }
+    
+    %% Future/Planned Tables
+    NOTIFICATIONS {
+        int id PK
+        int user_id FK
+        string title
+        string message
+        string type
+        string priority
+        string related_entity_id
+        string related_entity_type
+        boolean read
+        datetime created_at
+        datetime read_at
+    }
+    
     PANTRY_ITEMS {
         int id PK
         int user_id FK
-        int ingredient_id FK
+        string ingredient_name
         float quantity
+        string unit
         datetime expiry_date
+        datetime created_at
     }
     
     SHOPPING_LISTS {
@@ -269,34 +284,22 @@ erDiagram
     SHOPPING_LIST_ITEMS {
         int id PK
         int shopping_list_id FK
-        int ingredient_id FK
+        string ingredient_name
         float quantity
         string unit
         boolean purchased
-    }
-    
-    NOTIFICATIONS {
-        int id PK
-        int user_id FK
-        string type
-        string message
-        boolean read
         datetime created_at
-        datetime scheduled_for
     }
 
     %% Relationships
-    RECIPES ||--o{ RECIPE_INGREDIENTS : contains
-    INGREDIENTS ||--o{ RECIPE_INGREDIENTS : used_in
-    INGREDIENTS ||--o{ PANTRY_ITEMS : stored_as
-    INGREDIENTS ||--o{ SHOPPING_LIST_ITEMS : needed_as
+    USERS ||--o{ MEAL_PLANS : creates
+    USERS ||--o{ USER_PREFERENCES_CACHE : has_cached_preferences
+    USERS ||--o{ NOTIFICATIONS : receives
+    USERS ||--o{ PANTRY_ITEMS : owns
     MEAL_PLANS ||--o{ MEAL_PLAN_RECIPES : includes
     MEAL_PLANS ||--o{ SHOPPING_LISTS : generates
     SHOPPING_LISTS ||--o{ SHOPPING_LIST_ITEMS : contains
-    USERS ||--o{ MEAL_PLANS : creates
-    USERS ||--o{ PANTRY_ITEMS : owns
-    USERS ||--o{ NOTIFICATIONS : receives
-    USERS ||--o{ USER_PREFERENCES : has_preferences
+    RECIPES ||--o{ RECIPE_EMBEDDINGS : has_embeddings
 ```
 
 ## Deployment Diagram
