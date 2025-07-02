@@ -39,8 +39,8 @@ graph TD
 
     %% Databases
     UserDB[(User DB<br/>(MySQL))]:::database
-    RecipeDB[(Recipe DB<br/>(Future))]:::database
-    MealPlanDB[(Meal Plan DB<br/>(Future))]:::database
+    PostgresDB[(PostgreSQL<br/>Recipe & Meal Plan DBs)]:::database
+    QdrantDB[(Qdrant Vector DB<br/>Recipe Embeddings)]:::database
     NotificationDB[(Notification DB<br/>(Future))]:::database
 
     %% External Services
@@ -48,6 +48,7 @@ graph TD
     RecipeAPI[Recipe APIs<br/>(Future)]:::external
     CloudStorage[Cloud Storage<br/>(AWS S3)]:::external
     Analytics[Analytics<br/>(Future)]:::external
+    GeminiAPI[Google Gemini API<br/>(LLM)]:::external
 
     %% Client to Frontend connections
     WebBrowser --> FrontendReact
@@ -66,8 +67,9 @@ graph TD
 
     %% Microservices to Databases
     UserService -- SQL --> UserDB
-    RecipeService -- SQL --> RecipeDB
-    MealPlannerService -- SQL --> MealPlanDB
+    RecipeService -- SQL --> PostgresDB
+    RecipeService -- Vector Search --> QdrantDB
+    MealPlannerService -- SQL --> PostgresDB
     NotificationService -- SQL --> NotificationDB
 
     %% Inter-service communication
@@ -83,6 +85,8 @@ graph TD
     UserService -- Store images --> CloudStorage
     RecipeService -- Store images --> CloudStorage
     MealPlannerService -- Usage data --> Analytics
+    MealPlannerService -- LLM Generation --> GeminiAPI
+    RecipeService -- Generate embeddings --> GeminiAPI
 
     %% Add a title
     subgraph "MealMateAI System Architecture"
@@ -101,6 +105,9 @@ sequenceDiagram
     participant MealSvc as Meal Planner Service (FastAPI)
     participant NotifSvc as Notification Service (FastAPI)
     participant UserDB as MySQL Database
+    participant PostgresDB as PostgreSQL Database
+    participant QdrantDB as Qdrant Vector Database
+    participant GeminiAPI as Google Gemini API
     participant EmailSvc as Email Service (SMTP)
     
     %% User authentication flow
@@ -122,7 +129,13 @@ sequenceDiagram
     UserDB-->>UserSvc: User preferences
     UserSvc-->>MealSvc: User preferences
     MealSvc->>RecipeSvc: GET compatible recipes
+    RecipeSvc->>QdrantDB: Vector search for recipes
+    QdrantDB-->>RecipeSvc: Matching recipes
     RecipeSvc-->>MealSvc: Recipe data
+    MealSvc->>GeminiAPI: Generate meal plan with LLM
+    GeminiAPI-->>MealSvc: AI-generated meal plan
+    MealSvc->>PostgresDB: Store meal plan
+    PostgresDB-->>MealSvc: Confirmation
     MealSvc-->>Gateway: Generated meal plan
     Gateway-->>Frontend: Meal plan data
     Frontend-->>User: Display meal plan
@@ -131,9 +144,13 @@ sequenceDiagram
     User->>Frontend: Generate shopping list
     Frontend->>Gateway: GET /api/meal-plans/shopping-list
     Gateway->>MealSvc: Forward shopping list request
-    MealSvc->>RecipeSvc: GET ingredients for meals
-    RecipeSvc-->>MealSvc: Ingredient data
-    MealSvc-->>Gateway: Consolidated shopping list
+    MealSvc->>PostgresDB: Get meal plan ingredients
+    PostgresDB-->>MealSvc: Ingredient data
+    MealSvc->>RecipeSvc: GET detailed ingredients for meals
+    RecipeSvc->>PostgresDB: Query recipe ingredients
+    PostgresDB-->>RecipeSvc: Ingredient details
+    RecipeSvc-->>MealSvc: Consolidated ingredient data
+    MealSvc-->>Gateway: Generated shopping list
     Gateway-->>Frontend: Shopping list data
     Frontend-->>User: Display shopping list
     
@@ -149,6 +166,7 @@ sequenceDiagram
 
 ```mermaid
 erDiagram
+    %% User Service Database (MySQL)
     USERS {
         int id PK
         string username UK
@@ -159,8 +177,13 @@ erDiagram
         boolean is_admin
         datetime created_at
         datetime updated_at
+        text dietary_restrictions
+        text allergies
+        text cuisine_preferences
+        text disliked_ingredients
     }
     
+    %% Recipe Service Database (PostgreSQL)
     RECIPES {
         int id PK
         string name
@@ -173,6 +196,8 @@ erDiagram
         boolean is_vegan
         boolean is_gluten_free
         string image_url
+        text ingredients_text
+        text instructions
         datetime created_at
         datetime updated_at
     }
@@ -193,23 +218,39 @@ erDiagram
         string notes
     }
     
+    %% Meal Planner Service Database (PostgreSQL)
     MEAL_PLANS {
         int id PK
         int user_id FK
-        string name
-        date start_date
-        date end_date
+        string plan_name
+        int days
+        int meals_per_day
+        text plan_explanation
         datetime created_at
+        datetime updated_at
     }
     
-    MEAL_PLAN_ITEMS {
+    MEAL_PLAN_RECIPES {
         int id PK
         int meal_plan_id FK
         int recipe_id FK
-        date scheduled_date
+        int day
         string meal_type
+        datetime created_at
     }
     
+    USER_PREFERENCES {
+        int id PK
+        int user_id FK
+        text dietary_restrictions
+        text allergies
+        text cuisine_preferences
+        text disliked_ingredients
+        datetime created_at
+        datetime updated_at
+    }
+    
+    %% Future Tables
     PANTRY_ITEMS {
         int id PK
         int user_id FK
@@ -244,17 +285,18 @@ erDiagram
         datetime scheduled_for
     }
 
-    USERS ||--o{ MEAL_PLANS : creates
-    USERS ||--o{ PANTRY_ITEMS : owns
+    %% Relationships
     RECIPES ||--o{ RECIPE_INGREDIENTS : contains
     INGREDIENTS ||--o{ RECIPE_INGREDIENTS : used_in
     INGREDIENTS ||--o{ PANTRY_ITEMS : stored_as
     INGREDIENTS ||--o{ SHOPPING_LIST_ITEMS : needed_as
-    MEAL_PLANS ||--o{ MEAL_PLAN_ITEMS : includes
+    MEAL_PLANS ||--o{ MEAL_PLAN_RECIPES : includes
     MEAL_PLANS ||--o{ SHOPPING_LISTS : generates
     SHOPPING_LISTS ||--o{ SHOPPING_LIST_ITEMS : contains
-    RECIPES ||--o{ MEAL_PLAN_ITEMS : scheduled_in
+    USERS ||--o{ MEAL_PLANS : creates
+    USERS ||--o{ PANTRY_ITEMS : owns
     USERS ||--o{ NOTIFICATIONS : receives
+    USERS ||--o{ USER_PREFERENCES : has_preferences
 ```
 
 ## Deployment Diagram
@@ -298,14 +340,14 @@ flowchart TD
         end
         
         subgraph "Database Containers"
-            MySQL[(MySQL)]
-            RecipeDB[(Recipe DB)]
-            MealDB[(Meal Plan DB)]
-            NotifDB[(Notification DB)]
+            MySQL[(MySQL Database)]
+            PostgreSQL[(PostgreSQL Database)]
+            QdrantVectorDB[(Qdrant Vector Database)]
         end
     end
     
     subgraph "External Services"
+        GeminiAPI[Google Gemini API]
         S3[AWS S3]
         SMTP[SMTP Server]
     end
@@ -317,9 +359,10 @@ flowchart TD
     Express -- HTTP --> NotifAPI
     
     UserORM -- SQL --> MySQL
-    RecipeORM -- SQL --> RecipeDB
-    MealORM -- SQL --> MealDB
-    NotifORM -- SQL --> NotifDB
+    RecipeORM -- SQL --> PostgreSQL
+    RecipeAPI -- Vector Search --> QdrantVectorDB
+    MealORM -- SQL --> PostgreSQL
+    NotifORM -- SQL --> PostgreSQL
     
     UserAPI -- HTTP --> RecipeAPI
     RecipeAPI -- HTTP --> MealAPI
@@ -327,6 +370,7 @@ flowchart TD
     MealAPI -- HTTP --> NotifAPI
     UserAPI -- HTTP --> NotifAPI
     
+    MealAPI -- LLM API --> GeminiAPI
     RecipeAPI -- Storage --> S3
     NotifAPI -- Email --> SMTP
 ```
@@ -340,3 +384,176 @@ flowchart TD
 5. Export as SVG or PNG for documentation
 
 You can also embed these diagrams directly in GitHub markdown, GitLab documentation, or other platforms that support Mermaid diagrams.
+
+## RAG Meal Planning Workflow
+
+```mermaid
+flowchart TD
+    User[User Input<br/>Natural Language Request]
+    
+    subgraph "Frontend Layer"
+        UI[React UI<br/>Meal Planning Page]
+    end
+    
+    subgraph "API Gateway"
+        Gateway[Express.js<br/>Authentication & Routing]
+    end
+    
+    subgraph "Meal Planner Service"
+        Controller[Meal Plan Controller]
+        RAGService[RAG Service]
+        EmbedService[Embeddings Service]
+        GeminiService[Gemini LLM Service]
+        DBService[Database Service]
+    end
+    
+    subgraph "Recipe Service"
+        RecipeController[Recipe Controller]
+        VectorSearch[Vector Search Service]
+    end
+    
+    subgraph "User Service"
+        UserController[User Controller]
+        UserDB[(MySQL<br/>User Preferences)]
+    end
+    
+    subgraph "External Databases"
+        PostgresDB[(PostgreSQL<br/>Recipes & Meal Plans)]
+        QdrantDB[(Qdrant<br/>Recipe Embeddings)]
+    end
+    
+    subgraph "External APIs"
+        GeminiAPI[Google Gemini API<br/>LLM Processing]
+    end
+    
+    %% User interaction flow
+    User --> UI
+    UI --> Gateway
+    Gateway --> Controller
+    
+    %% RAG Process Flow
+    Controller --> RAGService
+    RAGService --> EmbedService
+    EmbedService --> VectorSearch
+    VectorSearch --> QdrantDB
+    QdrantDB --> VectorSearch
+    VectorSearch --> RecipeController
+    RecipeController --> PostgresDB
+    PostgresDB --> RecipeController
+    RecipeController --> RAGService
+    
+    %% User preferences retrieval
+    RAGService --> UserController
+    UserController --> UserDB
+    UserDB --> UserController
+    UserController --> RAGService
+    
+    %% LLM Generation
+    RAGService --> GeminiService
+    GeminiService --> GeminiAPI
+    GeminiAPI --> GeminiService
+    GeminiService --> RAGService
+    
+    %% Store and return results
+    RAGService --> DBService
+    DBService --> PostgresDB
+    PostgresDB --> DBService
+    DBService --> Controller
+    Controller --> Gateway
+    Gateway --> UI
+    UI --> User
+    
+    %% Styling
+    classDef userLayer fill:#d4f1f9,stroke:#333,stroke-width:2px
+    classDef frontendLayer fill:#ffcc99,stroke:#333,stroke-width:2px
+    classDef serviceLayer fill:#e0c6c2,stroke:#333,stroke-width:2px
+    classDef databaseLayer fill:#c6c2e0,stroke:#333,stroke-width:2px
+    classDef externalLayer fill:#e0e0c2,stroke:#333,stroke-width:2px
+    
+    class User userLayer
+    class UI frontendLayer
+    class Gateway,Controller,RAGService,EmbedService,GeminiService,DBService,RecipeController,UserController,VectorSearch serviceLayer
+    class PostgresDB,QdrantDB,UserDB databaseLayer
+    class GeminiAPI externalLayer
+```
+
+## Microservices Communication Flow
+
+```mermaid
+graph LR
+    subgraph "Client Layer"
+        Browser[Web Browser]
+        Mobile[Mobile Browser]
+    end
+    
+    subgraph "Application Layer"
+        Frontend[React Frontend<br/>Port 80]
+    end
+    
+    subgraph "Gateway Layer"
+        APIGateway[API Gateway<br/>Express.js<br/>Port 3000]
+    end
+    
+    subgraph "Microservices Layer"
+        UserSvc[User Service<br/>FastAPI<br/>Port 8000]
+        RecipeSvc[Recipe Service<br/>FastAPI<br/>Port 8001]
+        MealSvc[Meal Planner Service<br/>FastAPI<br/>Port 8002]
+        NotifSvc[Notification Service<br/>FastAPI<br/>Port 8003]
+    end
+    
+    subgraph "Data Layer"
+        MySQL[(MySQL<br/>Port 13306<br/>User Data)]
+        PostgreSQL[(PostgreSQL<br/>Port 15432<br/>Recipes & Meal Plans)]
+        Qdrant[(Qdrant Vector DB<br/>Port 6333<br/>Recipe Embeddings)]
+    end
+    
+    subgraph "External Services"
+        Gemini[Google Gemini API<br/>LLM Processing]
+        SMTP[Email Service<br/>SMTP]
+    end
+    
+    %% Client connections
+    Browser --> Frontend
+    Mobile --> Frontend
+    
+    %% Frontend to Gateway
+    Frontend -.->|HTTPS| APIGateway
+    
+    %% Gateway to Services
+    APIGateway -.->|/api/users/*| UserSvc
+    APIGateway -.->|/api/recipes/*| RecipeSvc
+    APIGateway -.->|/api/meal-plans/*| MealSvc
+    APIGateway -.->|/api/notifications/*| NotifSvc
+    
+    %% Service to Database connections
+    UserSvc --> MySQL
+    RecipeSvc --> PostgreSQL
+    RecipeSvc --> Qdrant
+    MealSvc --> PostgreSQL
+    NotifSvc --> PostgreSQL
+    
+    %% Inter-service communication
+    MealSvc -.->|Get User Preferences| UserSvc
+    MealSvc -.->|Search Recipes| RecipeSvc
+    NotifSvc -.->|Get User Info| UserSvc
+    NotifSvc -.->|Get Meal Plans| MealSvc
+    
+    %% External API connections
+    MealSvc -.->|Generate Meal Plans| Gemini
+    NotifSvc -.->|Send Emails| SMTP
+    
+    %% Styling
+    classDef client fill:#d4f1f9,stroke:#333,stroke-width:2px
+    classDef frontend fill:#ffcc99,stroke:#333,stroke-width:2px
+    classDef gateway fill:#c2e0c6,stroke:#333,stroke-width:2px
+    classDef service fill:#e0c6c2,stroke:#333,stroke-width:2px
+    classDef database fill:#c6c2e0,stroke:#333,stroke-width:2px
+    classDef external fill:#e0e0c2,stroke:#333,stroke-width:2px
+    
+    class Browser,Mobile client
+    class Frontend frontend
+    class APIGateway gateway
+    class UserSvc,RecipeSvc,MealSvc,NotifSvc service
+    class MySQL,PostgreSQL,Qdrant database
+    class Gemini,SMTP external
+```
