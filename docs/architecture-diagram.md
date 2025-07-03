@@ -3,7 +3,7 @@
 This file contains the Mermaid code for generating the MealMateAI system architecture diagram. You can view this diagram by pasting the code into any Mermaid-compatible viewer such as:
 
 - [Mermaid Live Editor](https://mermaid.live/)
-- GitHub markdown (just paste this code in any .md file)
+- GitHub markdown
 - GitLab markdown
 - VS Code with Mermaid extension
 
