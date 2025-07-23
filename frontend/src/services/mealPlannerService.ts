@@ -320,6 +320,36 @@ export const generateMealPlanFromText = async (inputText: string): Promise<MealP
   }
 };
 
+// Edit an existing meal plan using text prompt
+export const editMealPlanWithText = async (mealPlanId: number, userFeedback: string): Promise<MealPlanResponse> => {
+  try {
+    const token = localStorage.getItem('token');
+    
+    if (!token) {
+      throw new Error('Authentication token not found. Please log in again.');
+    }
+    
+    const response = await axios.post(
+      `${API_URL}/${mealPlanId}/edit-with-text`, 
+      { user_feedback: userFeedback },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      }
+    );
+    
+    console.log('=== EDIT SUCCESS ===');
+    console.log('Edited meal plan response:', response.data);
+    console.log('=== END EDIT SUCCESS ===');
+    
+    return response.data;
+  } catch (error) {
+    console.error('Error editing meal plan with text:', error);
+    throw error;
+  }
+};
+
 // Get grocery list for a specific meal plan
 export const getGroceryList = async (mealPlanId: number) => {
   try {

@@ -182,3 +182,24 @@ class MealPlanRepository:
             db.refresh(db_meal_plan)
             return db_meal_plan
         return None
+
+    def clear_meal_plan_recipes(self, db: Session, meal_plan_id: int):
+        """Clear all recipes from a meal plan"""
+        db.query(MealPlanRecipe).filter(MealPlanRecipe.meal_plan_id == meal_plan_id).delete()
+        db.commit()
+
+    def update_meal_plan(self, db: Session, meal_plan_id: int, plan_name: str = None, plan_data: str = None, plan_explanation: str = None):
+        """Update meal plan metadata"""
+        db_meal_plan = db.query(MealPlan).filter(MealPlan.id == meal_plan_id).first()
+        if db_meal_plan:
+            if plan_name:
+                db_meal_plan.plan_name = plan_name
+            if plan_data:
+                db_meal_plan.plan_data = plan_data
+            if plan_explanation:
+                db_meal_plan.plan_explanation = plan_explanation
+            db_meal_plan.updated_at = datetime.utcnow()
+            db.commit()
+            db.refresh(db_meal_plan)
+            return db_meal_plan
+        return None

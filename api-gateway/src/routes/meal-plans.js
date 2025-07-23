@@ -32,6 +32,9 @@ router.post('/rag/finalize', mealPlannerServiceProxy);
 // Text input meal plan generation (must come before /:id routes)
 router.post('/text-input', mealPlannerServiceProxy);
 
+// Edit meal plan with text (must come before /:id routes)
+router.post('/:id/edit-with-text', mealPlannerServiceProxy);
+
 // Get a specific meal plan
 router.get('/:id', mealPlannerServiceProxy);
 

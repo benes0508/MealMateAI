@@ -648,3 +648,70 @@ class MealPlanService:
         
         logger.info(f"Found {len(all_recipes)} unique recipes from {len(queries)} queries")
         return all_recipes
+
+    async def edit_meal_plan_with_rag(self, db: Session, meal_plan_id: int, current_meal_plan: Dict[str, Any], user_feedback: str) -> Dict[str, Any]:
+        """
+        Edit an existing meal plan using RAG workflow and user feedback
+        
+        Args:
+            db: Database session
+            meal_plan_id: ID of the meal plan to edit
+            current_meal_plan: Current meal plan data
+            user_feedback: User's description of desired changes
+            
+        Returns:
+            The updated meal plan
+        """
+        try:
+            logger.info(f"Starting RAG-based edit for meal plan {meal_plan_id}")
+            
+            # Step 1: Generate modification queries based on user feedback
+            modification_queries = self.gemini_service.generate_modification_queries(current_meal_plan, user_feedback)
+            logger.info(f"Generated modification queries: {modification_queries}")
+            
+            # Step 2: Search for new recipes using modification queries
+            new_recipes = await self._search_recipes_with_multiple_queries(modification_queries)
+            logger.info(f"Found {len(new_recipes)} new recipes for modification")
+            
+            # Step 3: Generate the modified meal plan using Gemini
+            modified_meal_plan_data = self.gemini_service.modify_meal_plan(current_meal_plan, user_feedback, new_recipes)
+            
+            # Step 4: Update the meal plan in the database
+            # First, clear existing recipes for this meal plan
+            self.meal_plan_repository.clear_meal_plan_recipes(db, meal_plan_id)
+            
+            # Update meal plan metadata if needed
+            plan_name = current_meal_plan.get("plan_name", "Modified Meal Plan")
+            if "modified" not in plan_name.lower():
+                plan_name = f"Modified {plan_name}"
+            
+            # Update the meal plan record
+            updated_meal_plan = self.meal_plan_repository.update_meal_plan(
+                db=db,
+                meal_plan_id=meal_plan_id,
+                plan_name=plan_name,
+                plan_data=json.dumps(modified_meal_plan_data.get("meal_plan", [])),
+                plan_explanation=modified_meal_plan_data.get("explanation", "Modified meal plan based on your feedback.")
+            )
+            
+            # Step 5: Add new recipes to the meal plan
+            meal_plan_data = modified_meal_plan_data.get("meal_plan", [])
+            for day_plan in meal_plan_data:
+                day = day_plan.get("day", 1)
+                for meal in day_plan.get("meals", []):
+                    recipe_id = meal.get("recipe_id")
+                    if recipe_id:
+                        self.meal_plan_repository.add_recipe_to_meal_plan(
+                            db=db,
+                            meal_plan_id=meal_plan_id,
+                            recipe_id=recipe_id,
+                            day=day,
+                            meal_type=meal.get("meal_type", "meal")
+                        )
+            
+            # Step 6: Return the updated meal plan
+            return await self.get_meal_plan(db, meal_plan_id)
+            
+        except Exception as e:
+            logger.error(f"Error in edit_meal_plan_with_rag: {e}")
+            raise

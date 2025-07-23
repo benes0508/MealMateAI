@@ -49,7 +49,7 @@ import {
   Code as CodeIcon
 } from '@mui/icons-material';
 import { DragDropContext, Droppable, Draggable, DropResult, DroppableProvided } from 'react-beautiful-dnd';
-import { getMealPlan, generateMealPlan, generateMealPlanFromText, getUserMealPlans, getGroceryList, moveMeal, swapDays, createMockMealPlan } from '../services/mealPlannerService';
+import { getMealPlan, generateMealPlan, generateMealPlanFromText, editMealPlanWithText, getUserMealPlans, getGroceryList, moveMeal, swapDays, createMockMealPlan } from '../services/mealPlannerService';
 
 interface Meal {
   id: string;
@@ -339,13 +339,44 @@ const MealPlanner: React.FC = () => {
     setLoading(true); // Start loading state for the main UI
     
     try {
-      const data = await generateMealPlanFromText(textPrompt);
-      console.log("Raw text-generated meal plan data:", data);
+      let data;
+      
+      if (selectedMealPlanId) {
+        // Edit existing meal plan
+        console.log(`Editing meal plan ${selectedMealPlanId} with feedback: "${textPrompt}"`);
+        data = await editMealPlanWithText(selectedMealPlanId, textPrompt);
+        console.log("Raw edited meal plan data:", data);
+      } else {
+        // Create new meal plan
+        console.log(`Creating new meal plan with prompt: "${textPrompt}"`);
+        data = await generateMealPlanFromText(textPrompt);
+        console.log("Raw text-generated meal plan data:", data);
+      }
+      
       const transformedData = transformMealPlanData(data);
-      console.log("Transformed text-generated meal plan data:", transformedData);
+      console.log("Transformed meal plan data:", transformedData);
       setMealPlan(transformedData);
+      
+      // Update the current meal plan metadata
+      if (data) {
+        setCurrentMealPlanMetadata({
+          id: data.id,
+          name: data.plan_name,
+          explanation: data.plan_explanation,
+          createdAt: data.created_at,
+          days: data.days,
+          mealsPerDay: data.meals_per_day
+        });
+        
+        // If we were editing, update the selected meal plan ID
+        if (selectedMealPlanId && data.id !== selectedMealPlanId) {
+          setSelectedMealPlanId(data.id);
+        }
+      }
+      
     } catch (err) {
-      setError('Failed to generate a meal plan from your text prompt. Please try again.');
+      const action = selectedMealPlanId ? 'edit' : 'generate';
+      setError(`Failed to ${action} a meal plan from your text prompt. Please try again.`);
       console.error(err);
     } finally {
       setIsSubmittingPrompt(false);
@@ -567,7 +598,7 @@ const MealPlanner: React.FC = () => {
             disabled={loading}
             startIcon={<RestaurantIcon />}
           >
-            Create with Text
+            {selectedMealPlanId ? 'Edit with Text' : 'Create with Text'}
           </Button>
           <Button 
             variant="contained" 
@@ -1074,7 +1105,7 @@ const MealPlanner: React.FC = () => {
         fullWidth
       >
         <DialogTitle>
-          Generate Meal Plan from Text Prompt
+          {selectedMealPlanId ? 'Edit Meal Plan with Text' : 'Generate Meal Plan from Text Prompt'}
           <IconButton
             edge="end"
             color="inherit"
@@ -1087,10 +1118,16 @@ const MealPlanner: React.FC = () => {
         </DialogTitle>
         <DialogContent>
           <Typography variant="body2" color="text.secondary" paragraph>
-            Enter a description of your desired meal plan. Be as detailed as possible.
+            {selectedMealPlanId 
+              ? 'Describe what you want to change about your current meal plan. Be as specific as possible.'
+              : 'Enter a description of your desired meal plan. Be as detailed as possible.'
+            }
           </Typography>
           <Typography variant="body2" color="text.secondary" sx={{ mb: 2, fontStyle: 'italic' }}>
-            Example: "I need a 7-day vegetarian meal plan with high protein options. I'm allergic to nuts and prefer Mediterranean-style cooking."
+            {selectedMealPlanId 
+              ? 'Example: "Replace all breakfast items with high-protein options" or "Make day 3 and 4 vegetarian" or "Add more Mediterranean dishes"'
+              : 'Example: "I need a 7-day vegetarian meal plan with high protein options. I\'m allergic to nuts and prefer Mediterranean-style cooking."'
+            }
           </Typography>
           <TextField
             autoFocus
@@ -1102,7 +1139,7 @@ const MealPlanner: React.FC = () => {
             variant="outlined"
             value={textPrompt}
             onChange={handleTextPromptChange}
-            placeholder="I need a meal plan that..."
+            placeholder={selectedMealPlanId ? "I want to change..." : "I need a meal plan that..."}
             InputProps={{
               endAdornment: textPrompt ? (
                 <InputAdornment position="end">
@@ -1128,7 +1165,7 @@ const MealPlanner: React.FC = () => {
             color="primary" 
             disabled={isSubmittingPrompt || !textPrompt.trim()}
           >
-            {isSubmittingPrompt ? <CircularProgress size={24} /> : 'Generate Plan'}
+            {isSubmittingPrompt ? <CircularProgress size={24} /> : (selectedMealPlanId ? 'Edit Plan' : 'Generate Plan')}
           </Button>
         </DialogActions>
       </Dialog>
