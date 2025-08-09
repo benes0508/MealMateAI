@@ -136,6 +136,7 @@ services:
       - .env
     environment:
       - DATABASE_URL=postgresql://meal_planner_user:meal_planner_password@postgres:5432/meal_planner_db
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY}
       - POSTGRES_USER=meal_planner_user
       - POSTGRES_PASSWORD=meal_planner_password
       - POSTGRES_HOST=postgres
