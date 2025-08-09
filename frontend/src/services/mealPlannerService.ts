@@ -432,6 +432,125 @@ export const deleteMealPlan = async (mealPlanId: number): Promise<void> => {
   }
 };
 
+// RAG workflow functions for chat interface
+export const generateRAGMealPlan = async (userPrompt: string): Promise<any> => {
+  try {
+    const token = localStorage.getItem('token');
+    
+    // Get user ID from the token
+    let userId;
+    if (token) {
+      try {
+        const decoded = jwtDecode<{ id: string }>(token);
+        userId = decoded.id;
+      } catch (e) {
+        console.error('Failed to decode token to get userId:', e);
+      }
+    }
+    
+    if (!userId) {
+      throw new Error('User ID not found. You may need to log in again.');
+    }
+    
+    const response = await axios.post(
+      `${API_URL}/rag/generate`, 
+      { 
+        user_prompt: userPrompt,
+        user_id: parseInt(userId)
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      }
+    );
+    
+    return response.data;
+  } catch (error) {
+    console.error('Error generating RAG meal plan:', error);
+    throw error;
+  }
+};
+
+export const modifyRAGMealPlan = async (conversationId: string, userFeedback: string): Promise<any> => {
+  try {
+    const token = localStorage.getItem('token');
+    
+    // Get user ID from the token
+    let userId;
+    if (token) {
+      try {
+        const decoded = jwtDecode<{ id: string }>(token);
+        userId = decoded.id;
+      } catch (e) {
+        console.error('Failed to decode token to get userId:', e);
+      }
+    }
+    
+    if (!userId) {
+      throw new Error('User ID not found. You may need to log in again.');
+    }
+    
+    const response = await axios.post(
+      `${API_URL}/rag/modify`, 
+      { 
+        conversation_id: conversationId,
+        user_feedback: userFeedback,
+        user_id: parseInt(userId)
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      }
+    );
+    
+    return response.data;
+  } catch (error) {
+    console.error('Error modifying RAG meal plan:', error);
+    throw error;
+  }
+};
+
+export const finalizeRAGMealPlan = async (conversationId: string): Promise<MealPlanResponse> => {
+  try {
+    const token = localStorage.getItem('token');
+    
+    // Get user ID from the token
+    let userId;
+    if (token) {
+      try {
+        const decoded = jwtDecode<{ id: string }>(token);
+        userId = decoded.id;
+      } catch (e) {
+        console.error('Failed to decode token to get userId:', e);
+      }
+    }
+    
+    if (!userId) {
+      throw new Error('User ID not found. You may need to log in again.');
+    }
+    
+    const response = await axios.post(
+      `${API_URL}/rag/finalize`, 
+      { 
+        conversation_id: conversationId,
+        user_id: parseInt(userId)
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      }
+    );
+    
+    return response.data;
+  } catch (error) {
+    console.error('Error finalizing RAG meal plan:', error);
+    throw error;
+  }
+};
+
 export default {
   getMealPlan,
   getUserMealPlans,
@@ -441,5 +560,8 @@ export default {
   getGroceryList,
   moveMeal,
   swapDays,
-  deleteMealPlan
+  deleteMealPlan,
+  generateRAGMealPlan,
+  modifyRAGMealPlan,
+  finalizeRAGMealPlan
 };
