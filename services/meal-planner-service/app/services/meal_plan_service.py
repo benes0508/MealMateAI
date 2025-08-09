@@ -635,12 +635,38 @@ class MealPlanService:
             logger.info(f"Searching recipes with query: {query}")
             recipes = await self.microservice_client.search_recipes(query, limit=20)
             
+            # If no recipes found with this query, try fallback searches
+            if not recipes and query in ["vegetarian", "vegan"]:
+                logger.info(f"No recipes found for '{query}', trying vegetarian-friendly alternatives")
+                fallback_queries = ["salad", "avocado", "toast"]
+                for fallback_query in fallback_queries:
+                    fallback_recipes = await self.microservice_client.search_recipes(fallback_query, limit=10)
+                    recipes.extend(fallback_recipes)
+            elif not recipes and query in ["protein"]:
+                logger.info(f"No recipes found for '{query}', trying protein-rich alternatives")
+                fallback_queries = ["chicken", "beef", "eggs"]
+                for fallback_query in fallback_queries:
+                    fallback_recipes = await self.microservice_client.search_recipes(fallback_query, limit=10)
+                    recipes.extend(fallback_recipes)
+            
             # Add unique recipes
             for recipe in recipes:
                 recipe_id = recipe.get("id") or recipe.get("recipe_id")
                 if recipe_id and recipe_id not in seen_recipe_ids:
                     all_recipes.append(recipe)
                     seen_recipe_ids.add(recipe_id)
+        
+        # If still no recipes found, try a broad search
+        if not all_recipes:
+            logger.warning("No recipes found with any queries, trying broad search")
+            broad_queries = ["chicken", "salad", "sandwich"]
+            for broad_query in broad_queries:
+                broad_recipes = await self.microservice_client.search_recipes(broad_query, limit=10)
+                for recipe in broad_recipes:
+                    recipe_id = recipe.get("id") or recipe.get("recipe_id")
+                    if recipe_id and recipe_id not in seen_recipe_ids:
+                        all_recipes.append(recipe)
+                        seen_recipe_ids.add(recipe_id)
         
         # Limit to 100 recipes total
         if len(all_recipes) > 100:

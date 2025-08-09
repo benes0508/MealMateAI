@@ -12,6 +12,9 @@ from app.services.meal_plan_service import MealPlanService
 logger = logging.getLogger("meal_plan_controller")
 logger.setLevel(logging.DEBUG)
 
+# In-memory storage for RAG conversations (in production, use Redis or database)
+rag_conversations = {}
+
 router = APIRouter()
 meal_plan_service = MealPlanService()
 
@@ -296,7 +299,7 @@ async def generate_rag_meal_plan(
     Generate initial meal plan using RAG workflow 
     """
     try:
-        meal_plan = await meal_plan_service.create_rag_meal_plan(
+        meal_plan_data = await meal_plan_service.create_rag_meal_plan(
             db=db,
             user_id=request.user_id,
             user_prompt=request.user_prompt
@@ -306,11 +309,47 @@ async def generate_rag_meal_plan(
         import uuid
         conversation_id = str(uuid.uuid4())
         
-        return {
-            "meal_plan": meal_plan,
+        # Extract meal plan from the returned data
+        meal_plan = meal_plan_data.get("meal_plan", [])
+        
+        # Handle the case where meal_plan might be a list or dict
+        if isinstance(meal_plan, list):
+            # If it's a list, it's likely a list of recipes
+            meal_plan_dict = {
+                "recipes": meal_plan,
+                "days": 7,  # default
+                "meals_per_day": 3,  # default
+                "plan_name": "Custom Meal Plan"
+            }
+        else:
+            # If it's a dict, use it as is
+            meal_plan_dict = meal_plan
+        
+        # Build proper response format that matches the schema
+        response = {
+            "meal_plan": meal_plan_data,
             "conversation_id": conversation_id,
-            "status": "initial"
+            "status": "initial",
+            "id": 0,  # Temporary ID since this is a preview
+            "days": meal_plan_dict.get("days", 7),
+            "plan_name": meal_plan_dict.get("plan_name", "Custom Meal Plan"),
+            "plan_explanation": meal_plan_data.get("explanation", "Your personalized meal plan"),
+            "created_at": datetime.now().isoformat(),
+            "user_id": request.user_id,
+            "meals_per_day": meal_plan_dict.get("meals_per_day", 3),
+            "recipes": meal_plan_dict.get("recipes", [])
         }
+        
+        # Store the conversation for finalization
+        rag_conversations[conversation_id] = {
+            "user_id": request.user_id,
+            "user_prompt": request.user_prompt,
+            "meal_plan_data": meal_plan_data,
+            "response": response,
+            "created_at": datetime.now()
+        }
+        
+        return response
     except Exception as e:
         logger.exception(f"Error generating RAG meal plan: {str(e)}")
         raise HTTPException(status_code=500, detail=f"An error occurred while generating the meal plan: {str(e)}")
@@ -365,18 +404,31 @@ async def finalize_rag_meal_plan(
     Finalize RAG meal plan and save to database (Step 5)
     """
     try:
-        # In a production system, you'd retrieve the final meal plan from the conversation_id
-        # and save it to the database using the existing meal plan creation logic
-        
         logger.info(f"Finalizing RAG meal plan for conversation {request.conversation_id}")
         
-        # For now, return the most recent meal plan for the user
-        # In production, you'd save the final RAG-generated plan to the database
-        user_meal_plans = await meal_plan_service.get_user_meal_plans(db, request.user_id)
-        if not user_meal_plans:
-            raise HTTPException(status_code=404, detail="No meal plan found to finalize")
+        # Retrieve the conversation data
+        if request.conversation_id not in rag_conversations:
+            raise HTTPException(status_code=404, detail="Conversation not found or expired")
         
-        return user_meal_plans[0]
+        conversation_data = rag_conversations[request.conversation_id]
+        
+        # Verify user matches
+        if conversation_data["user_id"] != request.user_id:
+            raise HTTPException(status_code=403, detail="User mismatch")
+        
+        # Save the meal plan to the database using the text_input workflow
+        # since it has the proper saving logic
+        saved_meal_plan = await meal_plan_service.process_text_input(
+            db=db,
+            user_id=request.user_id,
+            input_text=conversation_data["user_prompt"]
+        )
+        
+        # Clean up the conversation
+        del rag_conversations[request.conversation_id]
+        
+        logger.info(f"Successfully saved RAG meal plan with ID {saved_meal_plan['id']}")
+        return saved_meal_plan
         
     except HTTPException:
         raise
