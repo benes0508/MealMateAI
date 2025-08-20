@@ -33,7 +33,7 @@ graph TD
 
     %% Microservices
     UserService[User Service<br/>FastAPI]:::service
-    RecipeService[Recipe Service<br/>FastAPI]:::service
+    RecipeService[Recipe Service<br/>FastAPI + AI/RAG]:::service
     MealPlannerService[Meal Planner<br/>Service FastAPI]:::service
     NotificationService[Notification<br/>Service FastAPI]:::service
 
@@ -86,7 +86,9 @@ graph TD
     RecipeService -- Store images --> CloudStorage
     MealPlannerService -- Usage data --> Analytics
     MealPlannerService -- LLM Generation --> GeminiAPI
-    RecipeService -- Generate embeddings --> GeminiAPI
+    RecipeService -- Conversation Analysis --> GeminiAPI
+    RecipeService -- Query Generation --> GeminiAPI
+    RecipeService -- Summary Generation --> GeminiAPI
 
     %% Add a title
     subgraph "MealMateAI System Architecture"
@@ -559,4 +561,207 @@ graph LR
     class UserSvc,RecipeSvc,MealSvc,NotifSvc service
     class MySQL,PostgreSQL,Qdrant database
     class Gemini,SMTP external
+```
+
+## Recipe Service RAG Architecture (Detailed)
+
+```mermaid
+graph TD
+    subgraph "Client Request"
+        UserInput[User Conversation<br/>Natural Language]
+    end
+    
+    subgraph "Recipe Service API Layer"
+        FastAPI[FastAPI Application<br/>main.py]
+        HealthCheck[Health Check<br/>/health]
+        SearchEndpoint[Direct Search<br/>/search]
+        RecommendationEndpoint[AI Recommendations<br/>/recommendations]
+        CollectionsEndpoint[Collections Info<br/>/collections]
+        RecipeDetailEndpoint[Recipe Details<br/>/recipes/{id}]
+    end
+    
+    subgraph "RAG Orchestration Layer"
+        RecommendationService[Recommendation Service<br/>RAG Orchestrator]
+        QueryAnalysis[Conversation Analysis]
+        QueryGeneration[Smart Query Generation]
+        ResultProcessing[Result Assembly & Filtering]
+    end
+    
+    subgraph "AI Services Layer"
+        QueryGenerationService[Query Generation Service<br/>Gemini LLM Integration]
+        VectorSearchService[Vector Search Service<br/>Qdrant Interface]
+        EmbeddingModel[SentenceTransformer<br/>all-mpnet-base-v2]
+    end
+    
+    subgraph "Data Processing Layer"
+        FunctionClassifier[Function-Based Classifier<br/>9 Categories]
+        SummaryGenerator[Gemini Summary Generator<br/>9,366 Summaries]
+        VectorLoader[Qdrant Loader<br/>Batch Processing]
+    end
+    
+    subgraph "Vector Database Layer"
+        QdrantDB[(Qdrant Vector DB<br/>Port 6333)]
+        
+        subgraph "8 Recipe Collections"
+            Collection1[desserts-sweets<br/>2,465 recipes]
+            Collection2[quick-light<br/>2,476 recipes]
+            Collection3[protein-mains<br/>1,379 recipes]
+            Collection4[baked-breads<br/>885 recipes]
+            Collection5[comfort-cooked<br/>718 recipes]
+            Collection6[fresh-cold<br/>950 recipes]
+            Collection7[breakfast-morning<br/>415 recipes]
+            Collection8[plant-based<br/>78 recipes]
+        end
+    end
+    
+    subgraph "Data Sources"
+        NewDataset[NewDataset13k<br/>13,501 Raw Recipes]
+        ClassificationResults[Function Classification Results<br/>Recipe Metadata]
+        RecipeSummaries[Recipe Summaries<br/>AI-Generated Content]
+    end
+    
+    subgraph "External AI APIs"
+        GeminiAPI[Google Gemini API<br/>gemini-2.5-flash]
+        HuggingFace[HuggingFace Hub<br/>Model Downloads]
+    end
+    
+    %% API Request Flow
+    UserInput --> FastAPI
+    FastAPI --> RecommendationEndpoint
+    FastAPI --> SearchEndpoint
+    FastAPI --> CollectionsEndpoint
+    FastAPI --> RecipeDetailEndpoint
+    FastAPI --> HealthCheck
+    
+    %% RAG Workflow
+    RecommendationEndpoint --> RecommendationService
+    RecommendationService --> QueryAnalysis
+    QueryAnalysis --> QueryGenerationService
+    QueryGenerationService --> GeminiAPI
+    QueryGenerationService --> QueryGeneration
+    QueryGeneration --> VectorSearchService
+    
+    %% Vector Search Flow
+    SearchEndpoint --> VectorSearchService
+    VectorSearchService --> EmbeddingModel
+    EmbeddingModel --> QdrantDB
+    QdrantDB --> Collection1
+    QdrantDB --> Collection2
+    QdrantDB --> Collection3
+    QdrantDB --> Collection4
+    QdrantDB --> Collection5
+    QdrantDB --> Collection6
+    QdrantDB --> Collection7
+    QdrantDB --> Collection8
+    
+    %% Result Processing
+    VectorSearchService --> ResultProcessing
+    ResultProcessing --> RecommendationService
+    
+    %% Collections Info
+    CollectionsEndpoint --> VectorSearchService
+    VectorSearchService --> ClassificationResults
+    
+    %% Recipe Details
+    RecipeDetailEndpoint --> VectorSearchService
+    VectorSearchService --> ClassificationResults
+    
+    %% Data Processing Pipeline
+    NewDataset --> FunctionClassifier
+    FunctionClassifier --> ClassificationResults
+    ClassificationResults --> SummaryGenerator
+    SummaryGenerator --> GeminiAPI
+    SummaryGenerator --> RecipeSummaries
+    RecipeSummaries --> VectorLoader
+    VectorLoader --> EmbeddingModel
+    EmbeddingModel --> HuggingFace
+    VectorLoader --> QdrantDB
+    
+    %% Styling
+    classDef client fill:#d4f1f9,stroke:#333,stroke-width:2px,color:#000
+    classDef api fill:#ffcc99,stroke:#333,stroke-width:2px,color:#000
+    classDef service fill:#c2e0c6,stroke:#333,stroke-width:2px,color:#000
+    classDef ai fill:#e0c6c2,stroke:#333,stroke-width:2px,color:#000
+    classDef data fill:#c6c2e0,stroke:#333,stroke-width:2px,color:#000
+    classDef external fill:#e0e0c2,stroke:#333,stroke-width:2px,color:#000
+    classDef database fill:#9370db,stroke:#333,stroke-width:2px,color:#fff
+    classDef collections fill:#dda0dd,stroke:#333,stroke-width:1px,color:#000
+    
+    class UserInput client
+    class FastAPI,HealthCheck,SearchEndpoint,RecommendationEndpoint,CollectionsEndpoint,RecipeDetailEndpoint api
+    class RecommendationService,QueryAnalysis,QueryGeneration,ResultProcessing service
+    class QueryGenerationService,VectorSearchService,EmbeddingModel ai
+    class FunctionClassifier,SummaryGenerator,VectorLoader,NewDataset,ClassificationResults,RecipeSummaries data
+    class GeminiAPI,HuggingFace external
+    class QdrantDB database
+    class Collection1,Collection2,Collection3,Collection4,Collection5,Collection6,Collection7,Collection8 collections
+```
+
+## Recipe Service Data Flow (RAG Process)
+
+```mermaid
+sequenceDiagram
+    actor User
+    participant API as Recipe Service API
+    participant RecSvc as Recommendation Service
+    participant QuerySvc as Query Generation Service
+    participant VectorSvc as Vector Search Service
+    participant Embedding as SentenceTransformer
+    participant Qdrant as Qdrant Vector DB
+    participant Gemini as Google Gemini API
+    
+    Note over User,Gemini: AI-Powered Recipe Recommendations
+    
+    User->>API: POST /recommendations
+    Note right of User: Conversation: "I want something<br/>sweet with chocolate"
+    
+    API->>RecSvc: Process recommendation request
+    
+    %% Step 1: Conversation Analysis
+    RecSvc->>QuerySvc: Analyze conversation context
+    QuerySvc->>Gemini: Extract preferences & restrictions
+    Note right of Gemini: Detected: ["sweet", "chocolate"]<br/>Context: "dessert"
+    Gemini-->>QuerySvc: Context analysis results
+    QuerySvc-->>RecSvc: Parsed preferences
+    
+    %% Step 2: Query Generation
+    RecSvc->>QuerySvc: Generate collection queries
+    QuerySvc->>Gemini: Create targeted search queries
+    Note right of Gemini: desserts-sweets: ["chocolate desserts"]<br/>baked-breads: ["chocolate pastries"]<br/>etc.
+    Gemini-->>QuerySvc: Collection-specific queries
+    QuerySvc-->>RecSvc: Generated query map
+    
+    %% Step 3: Vector Search
+    loop For each collection
+        RecSvc->>VectorSvc: Search collection with query
+        VectorSvc->>Embedding: Generate query embedding
+        Embedding-->>VectorSvc: 768-dim vector
+        VectorSvc->>Qdrant: Semantic similarity search
+        Note right of Qdrant: Cosine similarity<br/>Top-k results
+        Qdrant-->>VectorSvc: Matching recipes
+        VectorSvc-->>RecSvc: Recipe recommendations
+    end
+    
+    %% Step 4: Result Processing
+    RecSvc->>RecSvc: Combine & filter results
+    Note right of RecSvc: Deduplicate, rank by score<br/>Apply user preferences
+    
+    %% Step 5: Response Assembly
+    RecSvc-->>API: Structured recommendations
+    API-->>User: JSON response with metadata
+    Note left of User: Recommendations + analysis<br/>Processing time: ~15s
+    
+    Note over User,Gemini: Direct Semantic Search (Faster)
+    
+    User->>API: POST /search
+    Note right of User: Query: "chocolate cake"
+    
+    API->>VectorSvc: Direct search request
+    VectorSvc->>Embedding: Generate query embedding
+    Embedding-->>VectorSvc: 768-dim vector
+    VectorSvc->>Qdrant: Multi-collection search
+    Qdrant-->>VectorSvc: Top results across collections
+    VectorSvc-->>API: Recipe recommendations
+    API-->>User: Search results
+    Note left of User: Fast results<br/>Processing time: ~500ms
 ```
