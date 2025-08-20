@@ -72,6 +72,8 @@ class MoveMealRequest(BaseModel):
     recipe_id: int
     to_day: int
     to_meal_type: str
+    from_day: Optional[int] = None
+    from_meal_type: Optional[str] = None
     
     class Config:
         orm_mode = True
@@ -79,6 +81,12 @@ class MoveMealRequest(BaseModel):
 class SwapDaysRequest(BaseModel):
     day1: int
     day2: int
+    
+    class Config:
+        orm_mode = True
+
+class ReorderDaysRequest(BaseModel):
+    day_order: List[int] = Field(..., description="New order of days by their original day numbers")
     
     class Config:
         orm_mode = True

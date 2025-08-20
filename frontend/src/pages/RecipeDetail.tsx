@@ -151,12 +151,12 @@ const RecipeDetail = () => {
             </Typography>
 
             <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mb: 2 }}>
-              {recipe.dietaryInfo.vegetarian && <Chip label="Vegetarian" color="primary" size="small" />}
-              {recipe.dietaryInfo.vegan && <Chip label="Vegan" color="primary" size="small" />}
-              {recipe.dietaryInfo.glutenFree && <Chip label="Gluten-Free" color="primary" size="small" />}
-              {recipe.dietaryInfo.dairyFree && <Chip label="Dairy-Free" color="primary" size="small" />}
-              {recipe.dietaryInfo.nutFree && <Chip label="Nut-Free" color="primary" size="small" />}
-              {recipe.dietaryInfo.lowCarb && <Chip label="Low-Carb" color="primary" size="small" />}
+              {recipe.dietaryInfo?.vegetarian && <Chip label="Vegetarian" color="primary" size="small" />}
+              {recipe.dietaryInfo?.vegan && <Chip label="Vegan" color="primary" size="small" />}
+              {recipe.dietaryInfo?.glutenFree && <Chip label="Gluten-Free" color="primary" size="small" />}
+              {recipe.dietaryInfo?.dairyFree && <Chip label="Dairy-Free" color="primary" size="small" />}
+              {recipe.dietaryInfo?.nutFree && <Chip label="Nut-Free" color="primary" size="small" />}
+              {recipe.dietaryInfo?.lowCarb && <Chip label="Low-Carb" color="primary" size="small" />}
             </Box>
 
             <Typography variant="body1" paragraph>
@@ -173,14 +173,18 @@ const RecipeDetail = () => {
             </Typography>
 
             <List>
-              {recipe.ingredients.map((ingredient, index) => (
+              {recipe.ingredients && recipe.ingredients.length > 0 ? recipe.ingredients.map((ingredient, index) => (
                 <ListItem key={index} sx={{ py: 0.5 }}>
                   <ListItemIcon sx={{ minWidth: 36 }}>
                     <CheckIcon color="primary" fontSize="small" />
                   </ListItemIcon>
                   <ListItemText primary={ingredient} />
                 </ListItem>
-              ))}
+              )) : (
+                <ListItem>
+                  <ListItemText primary="No ingredients available" />
+                </ListItem>
+              )}
             </List>
 
             <Divider sx={{ my: 3 }} />
@@ -190,7 +194,7 @@ const RecipeDetail = () => {
             </Typography>
 
             <List>
-              {recipe.instructions.map((step, index) => (
+              {recipe.instructions && recipe.instructions.length > 0 ? recipe.instructions.map((step, index) => (
                 <ListItem key={index} alignItems="flex-start" sx={{ py: 1 }}>
                   <ListItemIcon sx={{ mt: 0.5 }}>
                     <Box
@@ -211,7 +215,11 @@ const RecipeDetail = () => {
                   </ListItemIcon>
                   <ListItemText primary={step} />
                 </ListItem>
-              ))}
+              )) : (
+                <ListItem>
+                  <ListItemText primary="No instructions available" />
+                </ListItem>
+              )}
             </List>
           </Paper>
         </Grid>

@@ -13,19 +13,14 @@ import {
   CardContent,
   Divider,
   IconButton,
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogActions,
 } from '@mui/material';
 import {
   Send as SendIcon,
   ThumbUp as ThumbUpIcon,
   ThumbDown as ThumbDownIcon,
   RestaurantMenu as RestaurantMenuIcon,
-  Close as CloseIcon,
 } from '@mui/icons-material';
-import { generateMealPlanFromText, MealPlanResponse } from '../services/mealPlannerService';
+import { generateRAGMealPlan, modifyRAGMealPlan, finalizeRAGMealPlan, MealPlanResponse } from '../services/mealPlannerService';
 
 const CreateMealPlan = () => {
   const navigate = useNavigate();
@@ -35,6 +30,7 @@ const CreateMealPlan = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
   const [currentPlan, setCurrentPlan] = useState<MealPlanResponse | null>(null);
+  const [conversationId, setConversationId] = useState<string | null>(null);
   const [conversation, setConversation] = useState<Array<{type: 'user' | 'system' | 'plan', content: string, planData?: any}>>([
     {
       type: 'system',
@@ -42,9 +38,9 @@ const CreateMealPlan = () => {
     }
   ]);
   
-  // State for feedback dialog
-  const [showFeedbackDialog, setShowFeedbackDialog] = useState<boolean>(false);
-  const [feedback, setFeedback] = useState<string>('');
+  // State for feedback dialog - REMOVED (no longer needed)
+  // const [showFeedbackDialog, setShowFeedbackDialog] = useState<boolean>(false);
+  // const [feedback, setFeedback] = useState<string>('');
   
   // Handle sending the prompt
   const handleSendPrompt = async () => {
@@ -66,90 +62,123 @@ const CreateMealPlan = () => {
       // Show typing indicator
       setConversation(prev => [...prev, {
         type: 'system',
-        content: 'Generating your meal plan...'
+        content: 'Creating your meal plan preview...'
       }]);
       
-      // Call the API to generate the meal plan
-      const result = await generateMealPlanFromText(userPrompt);
+      let result;
       
-      console.log('=== MEAL PLAN SUCCESS ===');
+      if (conversationId) {
+        // If we have a conversation ID, this is a modification request
+        result = await modifyRAGMealPlan(conversationId, userPrompt);
+      } else {
+        // First time generation - create new conversation
+        result = await generateRAGMealPlan(userPrompt);
+        if (result.conversation_id) {
+          setConversationId(result.conversation_id);
+        }
+      }
+      
+      console.log('=== RAG MEAL PLAN PREVIEW ===');
       console.log('Full API response:', JSON.stringify(result, null, 2));
-      console.log('result.days:', result.days);
-      console.log('result.plan_name:', result.plan_name);
-      console.log('result.plan_explanation:', result.plan_explanation);
-      console.log('typeof result:', typeof result);
-      console.log('Object.keys(result):', Object.keys(result));
-      console.log('=== END SUCCESS ===');
+      console.log('=== END PREVIEW ===');
       
       // Remove the typing indicator
-      setConversation(prev => prev.filter(msg => msg.content !== 'Generating your meal plan...'));
+      setConversation(prev => prev.filter(msg => msg.content !== 'Creating your meal plan preview...'));
       
-      // Add the result to the conversation
+      // Add the result to the conversation with preview data
       setConversation(prev => [...prev, {
         type: 'plan',
-        content: `I've created a ${result.days}-day meal plan based on your request: "${result.plan_name}".\n\n${result.plan_explanation}`,
+        content: `Here's your meal plan preview:\n\n**${result.plan_name || 'Custom Meal Plan'}**\n\n${result.plan_explanation || result.description || 'Your personalized meal plan is ready!'}\n\nIf you like this plan, click the thumbs up to save it to your meal plans. If you'd like changes, click thumbs down or describe what you'd like to adjust.`,
         planData: result
       }]);
       
-      // Store the current plan
+      // Store the current plan preview (not saved yet)
       setCurrentPlan(result);
       
     } catch (err: any) {
-      console.error('Error generating meal plan:', err);
+      console.error('Error generating meal plan preview:', err);
       
       // Remove the typing indicator
-      setConversation(prev => prev.filter(msg => msg.content !== 'Generating your meal plan...'));
+      setConversation(prev => prev.filter(msg => msg.content !== 'Creating your meal plan preview...'));
       
       // Add error message to conversation
       setConversation(prev => [...prev, {
         type: 'system',
-        content: `Sorry, I couldn't create your meal plan. ${err.message || 'Please try again with a different description.'}`
+        content: `Sorry, I couldn't create your meal plan preview. ${err.message || 'Please try again with a different description.'}`
       }]);
       
-      setError('Failed to generate the meal plan. Please try again.');
+      setError('Failed to generate the meal plan preview. Please try again.');
     } finally {
       setLoading(false);
     }
   };
   
   // Handle acceptance of the meal plan
-  const handleAcceptPlan = () => {
-    if (currentPlan) {
-      navigate(`/meal-planner?plan=${currentPlan.id}`);
+  const handleAcceptPlan = async () => {
+    if (currentPlan && conversationId) {
+      try {
+        setLoading(true);
+        
+        // Add confirmation message to conversation
+        setConversation(prev => [...prev, {
+          type: 'system',
+          content: 'Saving your meal plan...'
+        }]);
+        
+        // Finalize the meal plan (actually save it to database)
+        const finalizedPlan = await finalizeRAGMealPlan(conversationId);
+        
+        // Remove the loading message
+        setConversation(prev => prev.filter(msg => msg.content !== 'Saving your meal plan...'));
+        
+        // Add success message
+        setConversation(prev => [...prev, {
+          type: 'system',
+          content: `✅ Great! Your meal plan "${finalizedPlan.plan_name}" has been saved to your meal plans. You can view and manage it in your meal planner.`
+        }]);
+        
+        // Navigate to the meal planner to view the created plan
+        navigate(`/meal-planner?plan=${finalizedPlan.id}`);
+        
+      } catch (error: any) {
+        console.error('Error finalizing meal plan:', error);
+        
+        // Remove the loading message
+        setConversation(prev => prev.filter(msg => msg.content !== 'Saving your meal plan...'));
+        
+        // Add error message
+        setConversation(prev => [...prev, {
+          type: 'system',
+          content: `Sorry, there was an error saving your meal plan. ${error.message || 'Please try again.'}`
+        }]);
+        
+        setError('Failed to save the meal plan. Please try again.');
+      } finally {
+        setLoading(false);
+      }
     }
   };
   
   // Handle rejection of the meal plan
   const handleRejectPlan = () => {
-    setShowFeedbackDialog(true);
-  };
-  
-  // Handle feedback submission
-  const handleSubmitFeedback = () => {
-    // Add the feedback to the conversation
-    if (feedback.trim()) {
-      setConversation(prev => [...prev, {
-        type: 'user',
-        content: `I'd like to make some changes: ${feedback}`
-      }]);
-    } else {
-      setConversation(prev => [...prev, {
-        type: 'user',
-        content: "I'd like to try a different plan."
-      }]);
-    }
+    // Add rejection message directly to the conversation
+    setConversation(prev => [...prev, {
+      type: 'user',
+      content: "👎 I don't like this plan"
+    }]);
     
-    // Close the dialog and clear feedback
-    setShowFeedbackDialog(false);
-    setFeedback('');
-    setCurrentPlan(null);
-    
-    // Add system response
+    // Add system response encouraging new input
     setConversation(prev => [...prev, {
       type: 'system',
-      content: 'I understand. Please provide a new description for your meal plan, and I\'ll create a different one for you.'
+      content: "I understand this plan doesn't meet your needs. Feel free to describe what you'd like differently, and I'll create a new plan based on your preferences. For example, you could specify different cuisines, dietary requirements, or meal types you prefer."
     }]);
+    
+    // Clear the current plan and conversation state to start fresh
+    setCurrentPlan(null);
+    setConversationId(null);
   };
+  
+  // Handle feedback submission - REMOVED (no longer needed with new direct chat approach)
 
   return (
     <Container maxWidth="md" sx={{ py: 4 }}>
@@ -199,7 +228,9 @@ const CreateMealPlan = () => {
                 {message.type === 'plan' && message.planData && (
                   <Box sx={{ mt: 2 }}>
                     <Divider sx={{ my: 1 }} />
-                    <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    
+                    {/* Plan Summary */}
+                    <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
                       <Typography variant="subtitle2">
                         {message.planData.days}-Day Meal Plan: {message.planData.plan_name}
                       </Typography>
@@ -222,6 +253,65 @@ const CreateMealPlan = () => {
                         </IconButton>
                       </Box>
                     </Box>
+
+                    {/* Meal Plan Details */}
+                    {message.planData.meal_plan?.meal_plan && Array.isArray(message.planData.meal_plan.meal_plan) && message.planData.meal_plan.meal_plan.length > 0 ? (
+                      <Box sx={{ bgcolor: 'grey.50', p: 2, borderRadius: 1, maxHeight: 300, overflow: 'auto' }}>
+                        <Typography variant="subtitle2" sx={{ mb: 1, color: 'text.secondary' }}>
+                          📋 Meal Plan Details:
+                        </Typography>
+                        {message.planData.meal_plan.meal_plan.map((day: any, dayIndex: number) => (
+                          <Box key={dayIndex} sx={{ mb: 2, p: 1.5, bgcolor: 'white', borderRadius: 1, border: '1px solid #e0e0e0' }}>
+                            <Typography variant="body2" sx={{ fontWeight: 'bold', color: 'primary.main', mb: 1 }}>
+                              📅 Day {day.day}:
+                            </Typography>
+                            {day.meals && day.meals.length > 0 ? (
+                              <Box sx={{ ml: 1 }}>
+                                {day.meals.map((meal: any, mealIndex: number) => (
+                                  <Box key={mealIndex} sx={{ mb: 1, p: 1, bgcolor: 'grey.50', borderRadius: 0.5 }}>
+                                    <Typography variant="body2" sx={{ fontWeight: 'medium' }}>
+                                      🍽️ <strong>{meal.meal_type.charAt(0).toUpperCase() + meal.meal_type.slice(1)}:</strong>
+                                    </Typography>
+                                    <Typography variant="body2" sx={{ ml: 2, color: 'text.secondary' }}>
+                                      {meal.recipe_name} (Recipe #{meal.recipe_id})
+                                    </Typography>
+                                  </Box>
+                                ))}
+                              </Box>
+                            ) : (
+                              <Typography variant="body2" sx={{ ml: 2, color: 'text.secondary', fontStyle: 'italic' }}>
+                                No meals planned for this day
+                              </Typography>
+                            )}
+                          </Box>
+                        ))}
+                        
+                        {/* Summary Section */}
+                        <Box sx={{ mt: 2, p: 1.5, bgcolor: 'primary.light', borderRadius: 1, color: 'primary.contrastText' }}>
+                          <Typography variant="subtitle2" sx={{ mb: 1 }}>
+                            📊 Plan Summary:
+                          </Typography>
+                          <Typography variant="body2">
+                            • Total Days: {message.planData.days || message.planData.meal_plan.meal_plan.length}
+                          </Typography>
+                          <Typography variant="body2">
+                            • Meals per Day: {message.planData.meals_per_day || 3}
+                          </Typography>
+                          <Typography variant="body2">
+                            • Recipes Found: {message.planData.meal_plan.recipes_found || 'N/A'}
+                          </Typography>
+                          <Typography variant="body2">
+                            • Search Queries: {message.planData.meal_plan.queries_used?.join(', ') || 'N/A'}
+                          </Typography>
+                        </Box>
+                      </Box>
+                    ) : (
+                      <Box sx={{ bgcolor: 'warning.light', p: 2, borderRadius: 1 }}>
+                        <Typography variant="body2" color="warning.dark">
+                          ⚠️ No meal plan details available. This might be because no suitable recipes were found.
+                        </Typography>
+                      </Box>
+                    )}
                   </Box>
                 )}
               </CardContent>
@@ -268,47 +358,6 @@ const CreateMealPlan = () => {
           {error}
         </Alert>
       )}
-
-      {/* Feedback dialog */}
-      <Dialog open={showFeedbackDialog} onClose={() => setShowFeedbackDialog(false)}>
-        <DialogTitle>
-          What would you like to change?
-          <IconButton
-            aria-label="close"
-            onClick={() => setShowFeedbackDialog(false)}
-            sx={{
-              position: 'absolute',
-              right: 8,
-              top: 8,
-            }}
-          >
-            <CloseIcon />
-          </IconButton>
-        </DialogTitle>
-        <DialogContent>
-          <TextField
-            autoFocus
-            margin="dense"
-            id="feedback"
-            label="Your feedback"
-            fullWidth
-            variant="outlined"
-            multiline
-            rows={4}
-            placeholder="For example: 'I'd like more vegan options' or 'I need higher protein meals'"
-            value={feedback}
-            onChange={(e) => setFeedback(e.target.value)}
-          />
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={() => setShowFeedbackDialog(false)} color="primary">
-            Cancel
-          </Button>
-          <Button onClick={handleSubmitFeedback} color="primary" variant="contained">
-            Submit Feedback
-          </Button>
-        </DialogActions>
-      </Dialog>
     </Container>
   );
 };
