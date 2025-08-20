@@ -62,4 +62,7 @@ router.post('/:id/move-meal', mealPlannerServiceProxy);
 // Swap two days in a meal plan
 router.post('/:id/swap-days', mealPlannerServiceProxy);
 
+// Reorder days in a meal plan
+router.post('/:id/reorder-days', mealPlannerServiceProxy);
+
 module.exports = router;

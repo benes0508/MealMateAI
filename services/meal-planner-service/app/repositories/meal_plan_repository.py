@@ -1,5 +1,6 @@
 from sqlalchemy.orm import Session
 import json
+from typing import List
 from app.models.models import MealPlan, MealPlanRecipe, UserPreference
 from datetime import datetime
 
@@ -135,6 +136,26 @@ class MealPlanRepository:
         for recipe in day1_recipes:
             recipe.day = day2
             
+        db.commit()
+        return True
+
+    def reorder_meal_plan_days(self, db: Session, meal_plan_id: int, day_order: List[int]):
+        """Reorder days in a meal plan according to the provided order"""
+        # Get all recipes for this meal plan
+        all_recipes = db.query(MealPlanRecipe).filter(
+            MealPlanRecipe.meal_plan_id == meal_plan_id
+        ).all()
+        
+        # Create a mapping from old day numbers to new day numbers
+        day_mapping = {}
+        for new_position, old_day in enumerate(day_order, 1):
+            day_mapping[old_day] = new_position
+        
+        # Update each recipe with its new day number
+        for recipe in all_recipes:
+            if recipe.day in day_mapping:
+                recipe.day = day_mapping[recipe.day]
+        
         db.commit()
         return True
 

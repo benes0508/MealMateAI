@@ -43,7 +43,7 @@ import {
   Code as CodeIcon
 } from '@mui/icons-material';
 import { DragDropContext, Droppable, Draggable, DropResult, DroppableProvided } from 'react-beautiful-dnd';
-import { getMealPlan, generateMealPlan, getUserMealPlans, getGroceryList, moveMeal, swapDays } from '../services/mealPlannerService';
+import { getMealPlan, generateMealPlan, getUserMealPlans, getGroceryList, moveMeal, swapDays, reorderDays } from '../services/mealPlannerService';
 
 interface Meal {
   id: string;
@@ -252,8 +252,8 @@ const MealPlanner: React.FC = () => {
       };
     });
     
-    // Convert the map to an array
-    return Array.from(dayMap.values());
+    // Convert the map to an array and sort by day number to ensure correct order
+    return Array.from(dayMap.values()).sort((a, b) => a.dayNumber - b.dayNumber);
   };
 
   const fetchMealPlan = async (mealPlanId?: number) => {
@@ -340,30 +340,41 @@ const MealPlanner: React.FC = () => {
     
     // If we're moving a whole day
     if (type === 'days') {
-      const day1 = parseInt(source.droppableId.split('-')[1]);
-      const day2 = parseInt(destination.droppableId.split('-')[1]);
+      // Store the original meal plan state for rollback
+      const originalMealPlan = [...mealPlan];
       
-      // Update UI optimistically
+      // Create the new order by reordering the meal plan array
       const newMealPlan = [...mealPlan];
       const [movedDay] = newMealPlan.splice(source.index, 1);
       newMealPlan.splice(destination.index, 0, movedDay);
+      
+      // Create the day order array: capture the original day numbers in their new positions
+      // BEFORE we update the day numbers
+      const dayOrder = newMealPlan.map(dayPlan => dayPlan.dayNumber);
+      
+      // Update day numbers and titles to match new positions
+      newMealPlan.forEach((dayPlan, index) => {
+        const newDayNumber = index + 1;
+        dayPlan.dayNumber = newDayNumber;
+        dayPlan.day = `Day ${newDayNumber}`;
+      });
+      
+      // Update UI optimistically
       setMealPlan(newMealPlan);
       
       // Call API to make the change permanent
       if (selectedMealPlanId) {
         setMovingMeal(true);
         try {
-          await swapDays(selectedMealPlanId, day1, day2);
+          await reorderDays(selectedMealPlanId, dayOrder);
+          // Refresh the meal plan data from server to ensure everything is in sync
+          await fetchMealPlan(selectedMealPlanId);
           setShowUndoSnackbar(true);
         } catch (err) {
-          console.error('Error swapping days:', err);
+          console.error('Error reordering days:', err);
           setError('Failed to update meal plan. Please try again.');
           // Revert UI change on error
-          if (lastMealPlanState) {
-            setMealPlan(lastMealPlanState);
-          } else {
-            fetchMealPlan(selectedMealPlanId);
-          }
+          setMealPlan(originalMealPlan);
         } finally {
           setMovingMeal(false);
         }

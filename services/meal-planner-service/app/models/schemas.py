@@ -85,6 +85,12 @@ class SwapDaysRequest(BaseModel):
     class Config:
         orm_mode = True
 
+class ReorderDaysRequest(BaseModel):
+    day_order: List[int] = Field(..., description="New order of days by their original day numbers")
+    
+    class Config:
+        orm_mode = True
+
 class MealPlanModuleResponse(BaseModel):
     success: bool
     message: str

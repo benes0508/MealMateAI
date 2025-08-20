@@ -292,6 +292,35 @@ async def swap_days(
         logger.exception(f"Error swapping days: {str(e)}")
         raise HTTPException(status_code=500, detail=f"An error occurred while swapping days: {str(e)}")
 
+@router.post("/{meal_plan_id}/reorder-days", response_model=schemas.MealPlanModuleResponse)
+async def reorder_days(
+    meal_plan_id: int,
+    reorder_request: schemas.ReorderDaysRequest,
+    db: Session = Depends(get_db)
+):
+    """
+    Reorder days in a meal plan
+    """
+    try:
+        logger.debug(f"Reordering days in plan {meal_plan_id}: day_order={reorder_request.day_order}")
+        
+        success = await meal_plan_service.reorder_days(
+            db=db, 
+            meal_plan_id=meal_plan_id,
+            day_order=reorder_request.day_order
+        )
+        
+        if not success:
+            raise HTTPException(status_code=404, detail=f"Failed to reorder days. Meal plan not found or invalid day order.")
+        
+        return {"success": True, "message": "Days reordered successfully"}
+        
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.exception(f"Error reordering days: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"An error occurred while reordering days: {str(e)}")
+
 @router.post("/rag/generate", response_model=schemas.RAGMealPlanResponse)
 async def generate_rag_meal_plan(
     request: schemas.RAGMealPlanRequest,

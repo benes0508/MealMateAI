@@ -522,6 +522,45 @@ class MealPlanService:
             logger.error(f"Error swapping days: {e}")
             return False
     
+    async def reorder_days(self, db: Session, meal_plan_id: int, day_order: List[int]) -> bool:
+        """
+        Reorder days in a meal plan
+        
+        Args:
+            db: Database session
+            meal_plan_id: Meal plan ID
+            day_order: New order of days by their original day numbers
+            
+        Returns:
+            True if successful, False otherwise
+        """
+        try:
+            # Check if the meal plan exists
+            db_meal_plan = self.meal_plan_repository.get_meal_plan(db, meal_plan_id)
+            if not db_meal_plan:
+                logger.error(f"Meal plan {meal_plan_id} not found")
+                return False
+            
+            # Validate the day_order
+            if len(day_order) != db_meal_plan.days:
+                logger.error(f"Day order length ({len(day_order)}) doesn't match meal plan days ({db_meal_plan.days})")
+                return False
+            
+            # Check that all days are present and valid
+            expected_days = set(range(1, db_meal_plan.days + 1))
+            provided_days = set(day_order)
+            if expected_days != provided_days:
+                logger.error(f"Invalid day order: {day_order}. Expected days: {expected_days}")
+                return False
+            
+            # Reorder the days
+            result = self.meal_plan_repository.reorder_meal_plan_days(db, meal_plan_id, day_order)
+            
+            return result
+        except Exception as e:
+            logger.error(f"Error reordering days: {e}")
+            return False
+    
     async def _get_user_preferences(self, db: Session, user_id: int) -> Dict[str, Any]:
         """
         Get user preferences from cache or user-service

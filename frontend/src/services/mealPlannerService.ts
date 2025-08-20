@@ -419,6 +419,26 @@ export const swapDays = async (mealPlanId: number, day1: number, day2: number): 
   }
 };
 
+export const reorderDays = async (mealPlanId: number, dayOrder: number[]): Promise<boolean> => {
+  try {
+    const token = localStorage.getItem('token');
+    const response = await axios.post(`${API_URL}/${mealPlanId}/reorder-days`, 
+      {
+        day_order: dayOrder
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      }
+    );
+    return response.data.success;
+  } catch (error) {
+    console.error('Error reordering days:', error);
+    throw error;
+  }
+};
+
 // Create a default export with all functions
 // Delete a meal plan
 export const deleteMealPlan = async (mealPlanId: number): Promise<void> => {
@@ -568,6 +588,7 @@ export default {
   getGroceryList,
   moveMeal,
   swapDays,
+  reorderDays,
   deleteMealPlan,
   generateRAGMealPlan,
   modifyRAGMealPlan,
