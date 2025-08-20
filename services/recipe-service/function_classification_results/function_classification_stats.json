@@ -1,0 +1,26 @@
+{
+  "collection_counts": {
+    "baked-breads": 885,
+    "quick-light": 2476,
+    "protein-mains": 1379,
+    "beverages": 4135,
+    "comfort-cooked": 718,
+    "desserts-sweets": 2465,
+    "breakfast-morning": 415,
+    "plant-based": 78,
+    "fresh-cold": 950
+  },
+  "average_confidence": {
+    "baked-breads": 22.889265536723165,
+    "quick-light": 3.0,
+    "protein-mains": 9.071791153009427,
+    "beverages": 21.463119709794437,
+    "comfort-cooked": 17.337047353760447,
+    "desserts-sweets": 19.79310344827586,
+    "breakfast-morning": 10.265060240963855,
+    "plant-based": 6.769230769230769,
+    "fresh-cold": 7.116842105263158
+  },
+  "total_recipes": 13501,
+  "classification_method": "ingredient_and_method_based"
+}

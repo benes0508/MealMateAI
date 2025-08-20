@@ -1,0 +1,1454 @@
+[
+  {
+    "id": 127,
+    "name": "Applesauce Pork Chops",
+    "collection": "meat-mains",
+    "confidence": 6,
+    "features": {
+      "name": "applesauce pork chops",
+      "ingredients": "1 tablespoon butter, 1  apple - peeled, cored, and sliced, ¼ cup chopped onion, 2  (1/2-inch thick) pork chops, ½ teaspoon salt,   ground black pepper to taste, ¾ cup applesauce, 2 tablespoons brown sugar, ½ teaspoon ground mustard, ⅛ teaspoon ground cinnamon",
+      "directions": "preheat the oven to 375 degrees f (190 degrees c).\nmelt butter in a large skillet over medium heat; cook and stir apple and onion in melted butter until tender, about 5 minutes. transfer apple and onion mixture to a bowl.\nplace pork chops in the same skillet over medium heat; cook until pork chops are browned, about 5 minutes per side. place pork chops in a 9x9-inch baking dish; season with salt and black pepper.\nmix applesauce, brown sugar, mustard, and cinnamon into apple and onion mixture. spoon over pork chops.\nbake, covered, in the preheated oven until pork chops are no longer pink in the center, 30 to 45 minutes. an instant-read thermometer inserted into the center should read at least 145 degrees f (63 degrees c).",
+      "cuisine_path": "/main dishes/pork/pork chop recipes/baked/",
+      "timing": "prep time: 15 mins, cook time: 45 mins, total time: 1 hrs, servings: 2",
+      "nutrition": "total fat 18g 23%, saturated fat 8g 40%, cholesterol 78mg 26%, sodium 674mg 29%, total carbohydrate 36g 13%, dietary fiber 3g 12%, total sugars 30g, protein 24g, vitamin c 6mg 31%, calcium 47mg 4%, iron 1mg 7%, potassium 586mg 12%",
+      "combined_text": "applesauce pork chops 1 tablespoon butter, 1  apple - peeled, cored, and sliced, ¼ cup chopped onion, 2  (1/2-inch thick) pork chops, ½ teaspoon salt,   ground black pepper to taste, ¾ cup applesauce, 2 tablespoons brown s /main dishes/pork/pork chop recipes/baked/ prep time: 15 mins, cook time: 45 mins, total time: 1 hrs, servings: 2"
+    },
+    "original_data": {
+      "cuisine_path": "/Main Dishes/Pork/Pork Chop Recipes/Baked/",
+      "ingredients": "1 tablespoon butter, 1  apple - peeled, cored, and sliced, ¼ cup chopped onion, 2  (1/2-inch thick) pork chops, ½ teaspoon salt,   ground black pepper to taste, ¾ cup applesauce, 2 tablespoons brown sugar, ½ teaspoon ground mustard, ⅛ teaspoon ground cinnamon",
+      "prep_time": "15 mins",
+      "cook_time": "45 mins",
+      "servings": 2
+    }
+  },
+  {
+    "id": 138,
+    "name": "Instant Pot Meatloaf",
+    "collection": "meat-mains",
+    "confidence": 6,
+    "features": {
+      "name": "instant pot meatloaf",
+      "ingredients": "2 pounds ground beef, 1 cup dry bread crumbs, ½ cup diced onion, ½  apple - peeled, cored, and diced, 1  egg, 2 teaspoons garlic powder, ½ teaspoon salt, ½ teaspoon ground black pepper",
+      "directions": "make the meatloaf: mix beef, bread crumbs, onion, apple, egg, garlic powder, salt, and pepper in a large bowl until evenly blended.\nshape the beef mixture into a loaf and place on a large piece of aluminum foil. fold the foil up and around the edges of the meatloaf, creating a makeshift loaf pan.\npour 1/2 cup water into a multi-functional pressure cooker (such as instant pot) and place the steam rack inside with the handles up. place the meatloaf on top of the rack. close and lock the lid; seal the vent. select high pressure according to manufacturer's instructions; set timer for 25 minutes. allow 10 to 15 minutes for pressure to build.\nset an oven rack about 6 inches from the heat source and preheat the oven's broiler.\nrelease cooker pressure carefully using the quick-release method according to the manufacturer's instructions, about 5 minutes. unlock and remove the lid. transfer meatloaf, still on the rack, to a baking sheet. broil meatloaf in the oven until browned, about 5 minutes.\nmeanwhile, make the topping: combine ketchup, mustard, and brown sugar in a small bowl. brush over meatloaf and broil again until caramelized, 1 to 2 minutes.\n\n\n\n\n\n\n\n\n\n",
+      "cuisine_path": "/main dishes/meatloaf recipes/beef meatloaf recipes/",
+      "timing": "prep time: 20 mins, cook time: 40 mins, additional time: 5 mins, total time: 1 hrs 5 mins, servings: 8",
+      "nutrition": "total fat 15g 19%, saturated fat 6g 28%, cholesterol 71mg 24%, sodium 466mg 20%, total carbohydrate 19g 7%, dietary fiber 1g 5%, total sugars 8g, protein 22g, vitamin c 3mg 15%, calcium 44mg 3%, iron 3mg 16%, potassium 338mg 7%",
+      "combined_text": "instant pot meatloaf 2 pounds ground beef, 1 cup dry bread crumbs, ½ cup diced onion, ½  apple - peeled, cored, and diced, 1  egg, 2 teaspoons garlic powder, ½ teaspoon salt, ½ teaspoon ground black pepper /main dishes/meatloaf recipes/beef meatloaf recipes/ prep time: 20 mins, cook time: 40 mins, additional time: 5 mins, total time: 1 hrs 5 mins, servings: 8"
+    },
+    "original_data": {
+      "cuisine_path": "/Main Dishes/Meatloaf Recipes/Beef Meatloaf Recipes/",
+      "ingredients": "2 pounds ground beef, 1 cup dry bread crumbs, ½ cup diced onion, ½  apple - peeled, cored, and diced, 1  egg, 2 teaspoons garlic powder, ½ teaspoon salt, ½ teaspoon ground black pepper",
+      "prep_time": "20 mins",
+      "cook_time": "40 mins",
+      "servings": 8
+    }
+  },
+  {
+    "id": 148,
+    "name": "Pork Tenderloin with Apples and Onions",
+    "collection": "meat-mains",
+    "confidence": 5,
+    "features": {
+      "name": "pork tenderloin with apples and onions",
+      "ingredients": "2 (1 1/2 pound) pork tenderloins, 2 teaspoons vegetable oil, 1 teaspoon sea salt, 2 tablespoons vegetable oil, divided, or more as needed, 3 medium granny smith apples - peeled, cored, and sliced into eighths, 2 medium sweet onions, sliced vertically, 3 teaspoons chopped fresh thyme, divided, ¼ teaspoon ground black pepper, or to taste, 1 tablespoon dijon mustard, 1 cup chicken stock, 1 tablespoon butter",
+      "directions": "preheat the oven to 425 degrees f (220 degrees c).\ntrim silver skin from pork tenderloins; pat dry using paper towels. rub 2 teaspoons vegetable oil over tenderloins, then rub with sea salt.\nheat 1 tablespoon vegetable oil in a large, oven-proof skillet over medium heat until it shimmers. cook tenderloins in hot oil, rotating to brown all sides, about 10 minutes. transfer pork to a large plate.\nadd remaining 1 tablespoon vegetable oil to any drippings in the skillet. cook apples and onions in hot oil, stirring occasionally, until onions turn translucent, about 5 minutes; add more oil if the skillet gets dry. season with 1 teaspoon thyme and black pepper; stir gently to combine. remove from heat.\nuse a pastry brush to spread dijon mustard evenly over tenderloins. sprinkle with remaining 2 teaspoons thyme. nestle tenderloins into the skillet with apple mixture.\nroast, uncovered, in the preheated oven until an instant-read thermometer inserted into the center of tenderloins reads at least 145 degrees f (63 degrees c), about 15 minutes. remove the skillet from the oven and transfer pork to a large platter. cover with aluminum foil and let rest.\nmeanwhile, pour chicken stock into a saucepan and cook over medium-high heat until reduced by half, 8 to 10 minutes. pour into the skillet with apple mixture. cook over medium-high heat until boiling, about 5 minutes; stir in butter until melted.\nslice pork and serve over apple mixture.",
+      "cuisine_path": "/meat and poultry/pork/pork tenderloin recipes/",
+      "timing": "prep time: 15 mins, cook time: 45 mins, total time: 1 hrs, servings: 6",
+      "nutrition": "total fat 13g 17%, saturated fat 4g 19%, cholesterol 104mg 35%, sodium 563mg 24%, total carbohydrate 13g 5%, dietary fiber 2g 7%, total sugars 9g, protein 36g, vitamin c 7mg 34%, calcium 24mg 2%, iron 5mg 30%, potassium 704mg 15%",
+      "combined_text": "pork tenderloin with apples and onions 2 (1 1/2 pound) pork tenderloins, 2 teaspoons vegetable oil, 1 teaspoon sea salt, 2 tablespoons vegetable oil, divided, or more as needed, 3 medium granny smith apples - peeled, cored, and sliced into /meat and poultry/pork/pork tenderloin recipes/ prep time: 15 mins, cook time: 45 mins, total time: 1 hrs, servings: 6"
+    },
+    "original_data": {
+      "cuisine_path": "/Meat and Poultry/Pork/Pork Tenderloin Recipes/",
+      "ingredients": "2 (1 1/2 pound) pork tenderloins, 2 teaspoons vegetable oil, 1 teaspoon sea salt, 2 tablespoons vegetable oil, divided, or more as needed, 3 medium Granny Smith apples - peeled, cored, and sliced into eighths, 2 medium sweet onions, sliced vertically, 3 teaspoons chopped fresh thyme, divided, ¼ teaspoon ground black pepper, or to taste, 1 tablespoon Dijon mustard, 1 cup chicken stock, 1 tablespoon butter",
+      "prep_time": "15 mins",
+      "cook_time": "45 mins",
+      "servings": 6
+    }
+  },
+  {
+    "id": 213,
+    "name": "Fresh Figs and Chicken Thighs in Shallot-Balsamic Reduction",
+    "collection": "meat-mains",
+    "confidence": 7,
+    "features": {
+      "name": "fresh figs and chicken thighs in shallot-balsamic reduction",
+      "ingredients": "8  skinless, boneless chicken thighs,   salt and ground black pepper to taste, 3 tablespoons extra-virgin olive oil, 10  fresh figs, stemmed and quartered, 1 ½ cups chicken broth, ¼ cup balsamic vinegar, 1 large shallot, sliced lengthwise, 1 tablespoon minced fresh rosemary,   fresh rosemary, for garnish",
+      "directions": "pat chicken thighs dry and season both sides with salt and pepper.\nheat olive oil in a large skillet over medium-high heat until shimmering. add chicken thighs and cook, 3 to 4 minutes on each side. add figs, chicken broth, balsamic vinegar, and shallot. bring contents to a boil, cover, reduce heat, and let simmer until chicken thighs are no longer pink in the centers and an instant-read thermometer inserted into the centers reads at least 165 degrees f (74 degrees c), about 8 minutes. transfer thighs to a serving plate and keep warm.\nremove figs from the skillet using a slotted spoon and place them around the chicken on the plate.\nadd minced rosemary to the skillet contents, increase heat to medium-high, and allow contents to come to a full boil to create a the reduction. continue to boil, stirring often, until liquid reduces to approximately 1 cup, 8 to 10 minutes. drizzle balsamic reduction over chicken and figs and garnish with rosemary sprigs. serve warm.",
+      "cuisine_path": "/meat and poultry/chicken/chicken thigh recipes/",
+      "timing": "prep time: 15 mins, cook time: 30 mins, total time: 45 mins, servings: 8, yield: 8 chicken thighs",
+      "nutrition": "total fat 10g 13%, saturated fat 2g 11%, cholesterol 44mg 15%, sodium 281mg 12%, total carbohydrate 15g 5%, dietary fiber 2g 7%, total sugars 12g, protein 13g, vitamin c 2mg 10%, calcium 34mg 3%, iron 1mg 6%, potassium 286mg 6%",
+      "combined_text": "fresh figs and chicken thighs in shallot-balsamic reduction 8  skinless, boneless chicken thighs,   salt and ground black pepper to taste, 3 tablespoons extra-virgin olive oil, 10  fresh figs, stemmed and quartered, 1 ½ cups chicken broth, ¼ cup balsamic vineg /meat and poultry/chicken/chicken thigh recipes/ prep time: 15 mins, cook time: 30 mins, total time: 45 mins, servings: 8, yield: 8 chicken thighs"
+    },
+    "original_data": {
+      "cuisine_path": "/Meat and Poultry/Chicken/Chicken Thigh Recipes/",
+      "ingredients": "8  skinless, boneless chicken thighs,   salt and ground black pepper to taste, 3 tablespoons extra-virgin olive oil, 10  fresh figs, stemmed and quartered, 1 ½ cups chicken broth, ¼ cup balsamic vinegar, 1 large shallot, sliced lengthwise, 1 tablespoon minced fresh rosemary,   fresh rosemary, for garnish",
+      "prep_time": "15 mins",
+      "cook_time": "30 mins",
+      "servings": 8
+    }
+  },
+  {
+    "id": 224,
+    "name": "Chicken Tenders with Balsamic-Fig Sauce",
+    "collection": "meat-mains",
+    "confidence": 4,
+    "features": {
+      "name": "chicken tenders with balsamic-fig sauce",
+      "ingredients": "1 pound chicken tenders,   salt and ground black pepper to taste, ¼ cup all-purpose flour, 2 tablespoons olive oil, 1 tablespoon butter",
+      "directions": "season chicken with salt and pepper on both sides and lightly coat with flour, shaking off excess.\nheat olive oil and butter in a large nonstick skillet over medium heat. add chicken to the skillet and cook until tenders are golden brown, no longer pink in the centers, and juices run clear, 5 to 6 minutes, flipping halfway through. transfer to a plate and cover loosely with aluminum foil to keep warm.\nadd shallot and garlic to the same skillet and cook until softened, about 2 minutes. add red wine and balsamic and let simmer until reduced by half, 3 to 5 minutes. stir in figs, thyme, dijon mustard, honey, and salt; bring to a boil. reduce heat to low or medium-low and let simmer until thickened, about 3 minutes. remove from heat and stir in butter.\nspoon sauce over warm chicken tenders, or add chicken back into the skillet to briefly reheat, and serve immediately.",
+      "cuisine_path": "/meat and poultry/chicken/",
+      "timing": "prep time: 15 mins, cook time: 20 mins, total time: 35 mins, servings: 4, yield: 4 servings",
+      "nutrition": "total fat 15g 19%, saturated fat 4g 22%, cholesterol 80mg 27%, sodium 456mg 20%, total carbohydrate 23g 8%, dietary fiber 2g 6%, total sugars 13g, protein 27g, vitamin c 3mg 13%, calcium 46mg 4%, iron 2mg 11%, potassium 432mg 9%",
+      "combined_text": "chicken tenders with balsamic-fig sauce 1 pound chicken tenders,   salt and ground black pepper to taste, ¼ cup all-purpose flour, 2 tablespoons olive oil, 1 tablespoon butter /meat and poultry/chicken/ prep time: 15 mins, cook time: 20 mins, total time: 35 mins, servings: 4, yield: 4 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Meat and Poultry/Chicken/",
+      "ingredients": "1 pound chicken tenders,   salt and ground black pepper to taste, ¼ cup all-purpose flour, 2 tablespoons olive oil, 1 tablespoon butter",
+      "prep_time": "15 mins",
+      "cook_time": "20 mins",
+      "servings": 4
+    }
+  },
+  {
+    "id": 237,
+    "name": "Prosciutto-Wrapped Chicken with Figs and Goat Cheese",
+    "collection": "meat-mains",
+    "confidence": 4,
+    "features": {
+      "name": "prosciutto-wrapped chicken with figs and goat cheese",
+      "ingredients": "2 tablespoons olive oil, divided, 2  shallots, chopped, 1 clove garlic, minced, 1 teaspoon chopped fresh thyme, ¼ teaspoon salt, ¼ teaspoon ground black pepper, ¾ cup soft goat cheese, ½ cup shredded mozzarella cheese, ½ (8 ounce) package cream cheese, 6  figs, chopped, 1 tablespoon chopped fresh basil, 6  skinless, boneless chicken breast halves, 12  large, thin slices prosciutto",
+      "directions": "preheat oven to 350 degrees f (175 degrees c). spread 1 tablespoon olive oil on a baking sheet.\nheat 1 tablespoon olive oil in a skillet over medium heat; cook and stir shallots until translucent, about 3 minutes. stir garlic, thyme, salt, and pepper into shallots; cook and stir until fragrant, about 2 minutes. transfer shallot mixture to a bowl; stir in goat cheese, mozzarella cheese, cream cheese, figs, and basil until well combined.\npound each chicken breast on a work surface until thin. spoon about 1/4 cup goat cheese mixture onto the middle of each piece of chicken. roll chicken around the filling and wrap 2 pieces prosciutto around each chicken roll, covering the opening with 1 layer of prosciutto. place chicken rolls onto the prepared baking sheet, seam-side down.\nbake in the preheated oven for 20 minutes; turn chicken and continue baking until chicken is no longer pink in the center and prosciutto is crisp, about 20 minutes more. an instant-read thermometer inserted into the center should read at least 165 degrees f (74 degrees c). let chicken stand for 5 minutes before serving.",
+      "cuisine_path": "/meat and poultry/chicken/chicken breast/",
+      "timing": "prep time: 20 mins, cook time: 45 mins, additional time: 5 mins, total time: 1 hrs 10 mins, servings: 6, yield: 6 servings",
+      "nutrition": "total fat 24g 31%, saturated fat 11g 57%, cholesterol 114mg 38%, sodium 567mg 25%, total carbohydrate 14g 5%, dietary fiber 2g 6%, total sugars 9g, protein 34g, vitamin c 3mg 14%, calcium 179mg 14%, iron 2mg 11%, potassium 429mg 9%",
+      "combined_text": "prosciutto-wrapped chicken with figs and goat cheese 2 tablespoons olive oil, divided, 2  shallots, chopped, 1 clove garlic, minced, 1 teaspoon chopped fresh thyme, ¼ teaspoon salt, ¼ teaspoon ground black pepper, ¾ cup soft goat cheese, ½ cup shredded  /meat and poultry/chicken/chicken breast/ prep time: 20 mins, cook time: 45 mins, additional time: 5 mins, total time: 1 hrs 10 mins, servings: 6, yield: 6 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Meat and Poultry/Chicken/Chicken Breast/",
+      "ingredients": "2 tablespoons olive oil, divided, 2  shallots, chopped, 1 clove garlic, minced, 1 teaspoon chopped fresh thyme, ¼ teaspoon salt, ¼ teaspoon ground black pepper, ¾ cup soft goat cheese, ½ cup shredded mozzarella cheese, ½ (8 ounce) package cream cheese, 6  figs, chopped, 1 tablespoon chopped fresh basil, 6  skinless, boneless chicken breast halves, 12  large, thin slices prosciutto",
+      "prep_time": "20 mins",
+      "cook_time": "45 mins",
+      "servings": 6
+    }
+  },
+  {
+    "id": 244,
+    "name": "Slow Cooker Cranberry Fig Pork",
+    "collection": "meat-mains",
+    "confidence": 6,
+    "features": {
+      "name": "slow cooker cranberry fig pork",
+      "ingredients": "4 (4 ounce) pork chops, 1 cup frozen cranberries, 3  canned figs, 1/4 cup juice reserved, ½ cup apple juice, 2 tablespoons brown sugar, ¼ teaspoon salt, ¼ teaspoon ground black pepper, ¼ teaspoon dried rosemary",
+      "directions": "heat a skillet over medium-high heat. sear pork chops in the hot skillet until lightly browned, about 1 minute per side. transfer seared pork chops to the slow cooker.\ncombine cranberries, figs, reserved fig juice, apple juice, brown sugar, salt, black pepper, and rosemary in a saucepan; bring to a boil. pour cranberry mixture over pork chops.\ncook on high for 4 hours.",
+      "cuisine_path": "/main dishes/pork/pork chop recipes/",
+      "timing": "prep time: 10 mins, cook time: 4 hrs 10 mins, total time: 4 hrs 20 mins, servings: 4, yield: 4 servings",
+      "nutrition": "total fat 4g 6%, saturated fat 2g 8%, cholesterol 36mg 12%, sodium 170mg 7%, total carbohydrate 17g 6%, dietary fiber 2g 6%, total sugars 14g, protein 15g, vitamin c 4mg 22%, calcium 29mg 2%, iron 1mg 4%, potassium 301mg 6%",
+      "combined_text": "slow cooker cranberry fig pork 4 (4 ounce) pork chops, 1 cup frozen cranberries, 3  canned figs, 1/4 cup juice reserved, ½ cup apple juice, 2 tablespoons brown sugar, ¼ teaspoon salt, ¼ teaspoon ground black pepper, ¼ teaspoon drie /main dishes/pork/pork chop recipes/ prep time: 10 mins, cook time: 4 hrs 10 mins, total time: 4 hrs 20 mins, servings: 4, yield: 4 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Main Dishes/Pork/Pork Chop Recipes/",
+      "ingredients": "4 (4 ounce) pork chops, 1 cup frozen cranberries, 3  canned figs, 1/4 cup juice reserved, ½ cup apple juice, 2 tablespoons brown sugar, ¼ teaspoon salt, ¼ teaspoon ground black pepper, ¼ teaspoon dried rosemary",
+      "prep_time": "10 mins",
+      "cook_time": "4 hrs 10 mins",
+      "servings": 4
+    }
+  },
+  {
+    "id": 300,
+    "name": "Cornish Game Hens with Garlic and Rosemary",
+    "collection": "meat-mains",
+    "confidence": 3,
+    "features": {
+      "name": "cornish game hens with garlic and rosemary",
+      "ingredients": "4  cornish game hens, 3 tablespoons olive oil, divided,   salt and pepper to taste, 1  lemon, quartered, 8 sprigs fresh rosemary, divided, 24 cloves garlic, ⅓ cup white wine, ⅓ cup low-sodium chicken broth",
+      "directions": "preheat the oven to 450 degrees f (230 degrees c). rub hens with 1 tablespoon olive oil; lightly season with salt and pepper. stuff 1 lemon quarter and 1 rosemary sprig into each cavity. place hens in a large, heavy roasting pan and arrange garlic cloves around them.\nroast in the preheated oven for 25 minutes. meanwhile, whisk wine, chicken broth, and remaining 2 tablespoons olive oil together in a small bowl.\nremove hens from the oven; reduce the oven temperature to 350 degrees f (175 degrees c). pour wine mixture over the hens and continue roasting, basting with pan juices every 10 minutes, until hens are golden brown and juices run clear, about 25 more minutes. an instant-read thermometer inserted near the bone should read 165 degrees f (74 degrees c).\ntransfer hens to a platter, pouring any cavity juices into the roasting pan; discard lemons and rosemary. tent hens with aluminum foil to keep warm.\ntransfer pan juices and garlic cloves to a medium saucepan; boil until reduced to a sauce consistency, about 6 minutes.\ncut hens in half lengthwise and arrange two halves on each plate. spoon sauce and roasted garlic on top. garnish with remaining rosemary sprigs and serve.\n\n\n\n\n\n\n\n\n\n\n\nlc206\n",
+      "cuisine_path": "/meat and poultry/chicken/cornish hen recipes/",
+      "timing": "prep time: 20 mins, cook time: 1 hrs, total time: 1 hrs 20 mins, servings: 4, yield: 4 hens",
+      "nutrition": "total fat 58g 74%, saturated fat 15g 73%, cholesterol 340mg 113%, sodium 1383mg 60%, total carbohydrate 10g 4%, dietary fiber 2g 6%, total sugars 0g, protein 59g, vitamin c 28mg 142%, calcium 93mg 7%, iron 3mg 18%, potassium 929mg 20%",
+      "combined_text": "cornish game hens with garlic and rosemary 4  cornish game hens, 3 tablespoons olive oil, divided,   salt and pepper to taste, 1  lemon, quartered, 8 sprigs fresh rosemary, divided, 24 cloves garlic, ⅓ cup white wine, ⅓ cup low-sodium chicken  /meat and poultry/chicken/cornish hen recipes/ prep time: 20 mins, cook time: 1 hrs, total time: 1 hrs 20 mins, servings: 4, yield: 4 hens"
+    },
+    "original_data": {
+      "cuisine_path": "/Meat and Poultry/Chicken/Cornish Hen Recipes/",
+      "ingredients": "4  Cornish game hens, 3 tablespoons olive oil, divided,   salt and pepper to taste, 1  lemon, quartered, 8 sprigs fresh rosemary, divided, 24 cloves garlic, ⅓ cup white wine, ⅓ cup low-sodium chicken broth",
+      "prep_time": "20 mins",
+      "cook_time": "1 hrs",
+      "servings": 4
+    }
+  },
+  {
+    "id": 304,
+    "name": "Easy Lemon-Pepper Chicken Wings",
+    "collection": "meat-mains",
+    "confidence": 5,
+    "features": {
+      "name": "easy lemon-pepper chicken wings",
+      "ingredients": "2 cups oil, or as needed, 2 tablespoons extra-virgin olive oil, 1 tablespoon lemon-pepper seasoning, 12  chicken wings",
+      "directions": "heat oil in a deep-fryer or large saucepan to 375 degrees f (190 degrees c).\nstir olive oil and lemon-pepper together in a bowl.\nfry wings in hot oil until no longer pink at the bone and the juices run clear, about 8 minutes; an instant-read thermometer inserted near the bone should read 165 degrees f (74 degrees c).\ntoss hot wings with lemon-pepper mixture to coat.\n\n\n\n\n\n\n\n\n\n",
+      "cuisine_path": "/meat and poultry/chicken/wings/",
+      "timing": "prep time: 10 mins, cook time: 10 mins, total time: 20 mins, servings: 4, yield: 12 chicken wings",
+      "nutrition": "total fat 123g 158%, saturated fat 17g 85%, cholesterol 58mg 19%, sodium 409mg 18%, total carbohydrate 0g 0%, dietary fiber 0g 0%, total sugars 0g, protein 21g, calcium 12mg 1%, iron 1mg 5%, potassium 148mg 3%",
+      "combined_text": "easy lemon-pepper chicken wings 2 cups oil, or as needed, 2 tablespoons extra-virgin olive oil, 1 tablespoon lemon-pepper seasoning, 12  chicken wings /meat and poultry/chicken/wings/ prep time: 10 mins, cook time: 10 mins, total time: 20 mins, servings: 4, yield: 12 chicken wings"
+    },
+    "original_data": {
+      "cuisine_path": "/Meat and Poultry/Chicken/Wings/",
+      "ingredients": "2 cups oil, or as needed, 2 tablespoons extra-virgin olive oil, 1 tablespoon lemon-pepper seasoning, 12  chicken wings",
+      "prep_time": "10 mins",
+      "cook_time": "10 mins",
+      "servings": 4
+    }
+  },
+  {
+    "id": 305,
+    "name": "Famous Chicken Française",
+    "collection": "meat-mains",
+    "confidence": 6,
+    "features": {
+      "name": "famous chicken française",
+      "ingredients": "1 large egg, beaten, 1 ½ medium lemons, juiced, divided, 1 cup all-purpose flour, 1 pinch garlic powder, 1 pinch paprika, 6  skinless, boneless chicken breast halves, 2 tablespoons butter, 1 (14.5 ounce) can chicken broth, 6 slices  lemon, for garnish, 2 sprigs fresh parsley, for garnish",
+      "directions": "mix together egg and 1/3 of the lemon juice in a shallow dish or bowl. mix together flour, garlic powder, and paprika in another shallow dish or bowl.\ndip chicken breasts in egg mixture, then flour mixture to coat.\nheat butter in a large skillet over medium heat. add chicken breasts and cook until golden, 2 to 3 minutes per side.\nmix together broth and remaining lemon juice in a medium bowl; pour over chicken in the skillet. reduce heat to medium-low and let simmer until an instant-read thermometer inserted into the center reads at least 165 degrees f (74 degrees c), about 8 minutes.\nplace chicken on a serving platter. cover with lemon sauce and garnish with fresh lemon slices and parsley sprigs.\n\n\n\n\n\n\n\n\n\n",
+      "cuisine_path": "/meat and poultry/chicken/chicken breast/skillet chicken/",
+      "timing": "prep time: 20 mins, cook time: 15 mins, total time: 35 mins, servings: 6",
+      "nutrition": "total fat 7g 9%, saturated fat 3g 16%, cholesterol 111mg 37%, sodium 413mg 18%, total carbohydrate 21g 8%, dietary fiber 3g 10%, total sugars 1g, protein 32g, vitamin c 45mg 226%, calcium 60mg 5%, iron 3mg 16%, potassium 452mg 10%",
+      "combined_text": "famous chicken française 1 large egg, beaten, 1 ½ medium lemons, juiced, divided, 1 cup all-purpose flour, 1 pinch garlic powder, 1 pinch paprika, 6  skinless, boneless chicken breast halves, 2 tablespoons butter, 1 (14.5 oun /meat and poultry/chicken/chicken breast/skillet chicken/ prep time: 20 mins, cook time: 15 mins, total time: 35 mins, servings: 6"
+    },
+    "original_data": {
+      "cuisine_path": "/Meat and Poultry/Chicken/Chicken Breast/Skillet Chicken/",
+      "ingredients": "1 large egg, beaten, 1 ½ medium lemons, juiced, divided, 1 cup all-purpose flour, 1 pinch garlic powder, 1 pinch paprika, 6  skinless, boneless chicken breast halves, 2 tablespoons butter, 1 (14.5 ounce) can chicken broth, 6 slices  lemon, for garnish, 2 sprigs fresh parsley, for garnish",
+      "prep_time": "20 mins",
+      "cook_time": "15 mins",
+      "servings": 6
+    }
+  },
+  {
+    "id": 310,
+    "name": "Baked Fish Fillets",
+    "collection": "meat-mains",
+    "confidence": 2,
+    "features": {
+      "name": "baked fish fillets",
+      "ingredients": "1 tablespoon vegetable oil, or to taste, 2 pounds mackerel fillets, 1 teaspoon salt, ⅛ teaspoon ground black pepper, ¼ cup butter, melted, 2 tablespoons lemon juice, ⅛ teaspoon ground paprika",
+      "directions": "preheat the oven to 350 degrees f (175 degrees c). grease a baking pan with vegetable oil.\nplace mackerel fillets in the baking pan; season with salt and pepper.\nmix butter, lemon juice, and paprika together in a bowl. pour over mackerel fillets.\nbake in the preheated oven until fish flakes easily with a fork, 20 to 25 minutes.",
+      "cuisine_path": "/seafood/fish/",
+      "timing": "prep time: 10 mins, cook time: 20 mins, total time: 30 mins, servings: 6",
+      "nutrition": "total fat 31g 40%, saturated fat 10g 51%, cholesterol 109mg 36%, sodium 540mg 23%, total carbohydrate 1g 0%, total sugars 0g, protein 28g, vitamin c 3mg 14%, calcium 21mg 2%, iron 2mg 11%, potassium 484mg 10%",
+      "combined_text": "baked fish fillets 1 tablespoon vegetable oil, or to taste, 2 pounds mackerel fillets, 1 teaspoon salt, ⅛ teaspoon ground black pepper, ¼ cup butter, melted, 2 tablespoons lemon juice, ⅛ teaspoon ground paprika /seafood/fish/ prep time: 10 mins, cook time: 20 mins, total time: 30 mins, servings: 6"
+    },
+    "original_data": {
+      "cuisine_path": "/Seafood/Fish/",
+      "ingredients": "1 tablespoon vegetable oil, or to taste, 2 pounds mackerel fillets, 1 teaspoon salt, ⅛ teaspoon ground black pepper, ¼ cup butter, melted, 2 tablespoons lemon juice, ⅛ teaspoon ground paprika",
+      "prep_time": "10 mins",
+      "cook_time": "20 mins",
+      "servings": 6
+    }
+  },
+  {
+    "id": 326,
+    "name": "Quick and Easy Chicken",
+    "collection": "meat-mains",
+    "confidence": 6,
+    "features": {
+      "name": "quick and easy chicken",
+      "ingredients": "2 tablespoons olive oil, 1  onion, chopped, 4  skinless, boneless chicken breast halves, 3 tablespoons ketchup, 3 tablespoons white sugar, 2 tablespoons soy sauce, 2 tablespoons lemon juice, 1 teaspoon ground black pepper",
+      "directions": "warm oil in a large skillet over medium heat. sauté onion in oil until translucent, 3 to 4 minutes.\nadd chicken to onion in the skillet; cook until chicken is lightly browned, 1 to 2 minutes per side.\ncombine ketchup, sugar, soy sauce, lemon juice, and pepper in a bowl; mix well. pour over chicken; bring to a boil, then reduce heat.\ncover and simmer until chicken is no longer pink in the center and the juices run clear, 25 to 35 minutes. an instant-read thermometer inserted into the center should read at least 165 degrees f (74 degrees c).\n\n\n\n\n\n\n\n\n\n",
+      "cuisine_path": "/meat and poultry/chicken/chicken breast/skillet chicken/",
+      "timing": "prep time: 15 mins, cook time: 30 mins, total time: 45 mins, servings: 4",
+      "nutrition": "total fat 8g 11%, saturated fat 1g 7%, cholesterol 68mg 23%, sodium 655mg 28%, total carbohydrate 16g 6%, dietary fiber 1g 3%, total sugars 13g, protein 28g, vitamin c 9mg 44%, calcium 26mg 2%, iron 1mg 7%, potassium 418mg 9%",
+      "combined_text": "quick and easy chicken 2 tablespoons olive oil, 1  onion, chopped, 4  skinless, boneless chicken breast halves, 3 tablespoons ketchup, 3 tablespoons white sugar, 2 tablespoons soy sauce, 2 tablespoons lemon juice, 1 teaspoo /meat and poultry/chicken/chicken breast/skillet chicken/ prep time: 15 mins, cook time: 30 mins, total time: 45 mins, servings: 4"
+    },
+    "original_data": {
+      "cuisine_path": "/Meat and Poultry/Chicken/Chicken Breast/Skillet Chicken/",
+      "ingredients": "2 tablespoons olive oil, 1  onion, chopped, 4  skinless, boneless chicken breast halves, 3 tablespoons ketchup, 3 tablespoons white sugar, 2 tablespoons soy sauce, 2 tablespoons lemon juice, 1 teaspoon ground black pepper",
+      "prep_time": "15 mins",
+      "cook_time": "30 mins",
+      "servings": 4
+    }
+  },
+  {
+    "id": 327,
+    "name": "Parchment Baked Salmon",
+    "collection": "meat-mains",
+    "confidence": 2,
+    "features": {
+      "name": "parchment baked salmon",
+      "ingredients": "1 (8 ounce) salmon fillet,   salt and ground black pepper to taste, ¼ cup chopped basil leaves,   olive oil cooking spray, 1  lemon, thinly sliced",
+      "directions": "preheat the oven to 400 degrees f (200 degrees c). move an oven rack to the lowest position.\nplace salmon fillet, skin-side down, in the middle of a large piece of parchment paper; season with salt and black pepper. cut two 3-inch slits into fillet with a sharp knife. stuff chopped basil leaves into the slits. spray fillet with cooking spray and arrange lemon slices on top.\nfold the edges of parchment paper over fillet several times to seal it into an airtight packet. place sealed packet onto a baking sheet.\nbake in the preheated oven on the bottom rack until salmon flakes easily and flesh is pink and opaque with an interior of slightly darker pink color, about 25 minutes. an instant-read thermometer inserted into the thickest part of fillet should read at least 145 degrees f (65 degrees c). to serve, cut open the parchment paper and remove lemon slices before plating.",
+      "cuisine_path": "/main dishes/seafood main dishes/salmon/baked salmon recipes/",
+      "timing": "prep time: 15 mins, cook time: 25 mins, total time: 40 mins, servings: 2",
+      "nutrition": "total fat 7g 9%, saturated fat 1g 7%, cholesterol 50mg 17%, sodium 48mg 2%, total carbohydrate 6g 2%, dietary fiber 3g 10%, protein 25g, vitamin c 45mg 225%, calcium 84mg 6%, iron 1mg 7%, potassium 495mg 11%",
+      "combined_text": "parchment baked salmon 1 (8 ounce) salmon fillet,   salt and ground black pepper to taste, ¼ cup chopped basil leaves,   olive oil cooking spray, 1  lemon, thinly sliced /main dishes/seafood main dishes/salmon/baked salmon recipes/ prep time: 15 mins, cook time: 25 mins, total time: 40 mins, servings: 2"
+    },
+    "original_data": {
+      "cuisine_path": "/Main Dishes/Seafood Main Dishes/Salmon/Baked Salmon Recipes/",
+      "ingredients": "1 (8 ounce) salmon fillet,   salt and ground black pepper to taste, ¼ cup chopped basil leaves,   olive oil cooking spray, 1  lemon, thinly sliced",
+      "prep_time": "15 mins",
+      "cook_time": "25 mins",
+      "servings": 2
+    }
+  },
+  {
+    "id": 329,
+    "name": "Chicken with Lemon-Caper Sauce",
+    "collection": "meat-mains",
+    "confidence": 5,
+    "features": {
+      "name": "chicken with lemon-caper sauce",
+      "ingredients": "½ cup all-purpose flour, 1 pinch salt, 2 (6 ounce) skinless, boneless chicken breast halves, 2 tablespoons olive oil, ¼ cup dry white wine, ¼ cup lemon juice, ¼ cup cold unsalted butter, cut into pieces, 2 tablespoons capers, drained, 2  lemon wedges",
+      "directions": "mix together flour and salt in a medium dish or resealable plastic bag. coat chicken in flour mixture; shake off excess.\nheat olive oil in a skillet over medium-high heat. cook chicken in hot oil until golden brown and cooked through, 3 to 4 minutes per side. an instant-read thermometer inserted into the center should read at least 165 degrees f (74 degrees c). transfer chicken to a plate; cover and keep warm.\npour white wine into the skillet; allow to boil while scraping the cooked bits from the bottom of the pan. add lemon juice; boil until reduced by half, 2 to 3 minutes.\nsprinkle cubed butter into boiling sauce. swirl and shake the pan vigorously until butter is completely incorporated and sauce thickens. (butter must never come to rest, or sauce will separate and become oily.) remove from heat and stir in capers.\npour lemon-caper sauce over chicken; serve with lemon wedges.",
+      "cuisine_path": "/meat and poultry/chicken/chicken breast/",
+      "timing": "prep time: 10 mins, cook time: 20 mins, total time: 30 mins, servings: 2",
+      "nutrition": "total fat 39g 50%, saturated fat 17g 86%, cholesterol 160mg 53%, sodium 372mg 16%, total carbohydrate 29g 11%, dietary fiber 2g 7%, total sugars 1g, protein 43g, vitamin c 27mg 134%, calcium 47mg 4%, iron 3mg 17%, potassium 558mg 12%",
+      "combined_text": "chicken with lemon-caper sauce ½ cup all-purpose flour, 1 pinch salt, 2 (6 ounce) skinless, boneless chicken breast halves, 2 tablespoons olive oil, ¼ cup dry white wine, ¼ cup lemon juice, ¼ cup cold unsalted butter, cut into piec /meat and poultry/chicken/chicken breast/ prep time: 10 mins, cook time: 20 mins, total time: 30 mins, servings: 2"
+    },
+    "original_data": {
+      "cuisine_path": "/Meat and Poultry/Chicken/Chicken Breast/",
+      "ingredients": "½ cup all-purpose flour, 1 pinch salt, 2 (6 ounce) skinless, boneless chicken breast halves, 2 tablespoons olive oil, ¼ cup dry white wine, ¼ cup lemon juice, ¼ cup cold unsalted butter, cut into pieces, 2 tablespoons capers, drained, 2  lemon wedges",
+      "prep_time": "10 mins",
+      "cook_time": "20 mins",
+      "servings": 2
+    }
+  },
+  {
+    "id": 330,
+    "name": "Butterflied Roast Chicken with Lemon and Rosemary",
+    "collection": "meat-mains",
+    "confidence": 5,
+    "features": {
+      "name": "butterflied roast chicken with lemon and rosemary",
+      "ingredients": "1 tablespoon olive oil, or as needed, 1 (3 pound) whole chicken, backbone removed,   kosher salt and ground black pepper to taste, 1  lemon, sliced into rounds, 4 sprigs fresh rosemary, ½ cup white wine",
+      "directions": "preheat the oven to 400 degrees f (200 degrees c). line a rimmed baking pan with aluminum foil. place a rack on top of foil.\nrub olive oil on both sides of chicken and generously season with salt and black pepper. arrange lemon slices and rosemary on the rack and place chicken, skin-side up, onto the rack.\nroast in the preheated oven until no longer pink at the bone and the juices run clear, 45 to 55 minutes. an instant-read thermometer inserted into the thickest part of the thigh, near the bone should read 165 degrees f (74 degrees c).\ntransfer chicken to a serving platter and tent a piece of aluminum foil over it. discard lemon and rosemary and remove rack.\npour wine into the baking pan and gently loosen the bits of food in the pan with a wooden spoon, being careful not to tear the foil. strain pan juices into a saucepan and bring to a boil; cook until sauce is slightly reduced, about 5 minutes. spoon sauce over chicken.",
+      "cuisine_path": "/meat and poultry/chicken/whole chicken recipes/",
+      "timing": "prep time: 10 mins, cook time: 50 mins, total time: 1 hrs, servings: 6",
+      "nutrition": "total fat 12g 15%, saturated fat 3g 15%, cholesterol 114mg 38%, sodium 178mg 8%, total carbohydrate 3g 1%, dietary fiber 1g 3%, total sugars 0g, protein 37g, vitamin c 14mg 70%, calcium 34mg 3%, iron 2mg 10%, potassium 354mg 8%",
+      "combined_text": "butterflied roast chicken with lemon and rosemary 1 tablespoon olive oil, or as needed, 1 (3 pound) whole chicken, backbone removed,   kosher salt and ground black pepper to taste, 1  lemon, sliced into rounds, 4 sprigs fresh rosemary, ½ cup white wi /meat and poultry/chicken/whole chicken recipes/ prep time: 10 mins, cook time: 50 mins, total time: 1 hrs, servings: 6"
+    },
+    "original_data": {
+      "cuisine_path": "/Meat and Poultry/Chicken/Whole Chicken Recipes/",
+      "ingredients": "1 tablespoon olive oil, or as needed, 1 (3 pound) whole chicken, backbone removed,   kosher salt and ground black pepper to taste, 1  lemon, sliced into rounds, 4 sprigs fresh rosemary, ½ cup white wine",
+      "prep_time": "10 mins",
+      "cook_time": "50 mins",
+      "servings": 6
+    }
+  },
+  {
+    "id": 334,
+    "name": "Lemon-Orange Orange Roughy",
+    "collection": "meat-mains",
+    "confidence": 1,
+    "features": {
+      "name": "lemon-orange orange roughy",
+      "ingredients": "1 tablespoon olive oil, 4 (4 ounce) fillets orange roughy, 1  orange, juiced, 1  lemon, juiced, ½ teaspoon lemon pepper",
+      "directions": "heat oil in a large skillet over medium-high heat.\nplace fillets into hot oil. drizzle with orange juice and lemon juice, then sprinkle fillets with lemon pepper. cook until fish flakes easily with a fork, 2 to 3 minutes per side. an instant-read thermometer inserted into the center should read at least 145 degrees f (63 degrees c).",
+      "cuisine_path": "/seafood/fish/",
+      "timing": "prep time: 10 mins, cook time: 5 mins, total time: 15 mins, servings: 4",
+      "nutrition": "total fat 4g 6%, saturated fat 1g 3%, cholesterol 67mg 22%, sodium 139mg 6%, total carbohydrate 8g 3%, dietary fiber 2g 8%, total sugars 4g, protein 19g, vitamin c 43mg 216%, calcium 44mg 3%, iron 1mg 8%, potassium 303mg 6%",
+      "combined_text": "lemon-orange orange roughy 1 tablespoon olive oil, 4 (4 ounce) fillets orange roughy, 1  orange, juiced, 1  lemon, juiced, ½ teaspoon lemon pepper /seafood/fish/ prep time: 10 mins, cook time: 5 mins, total time: 15 mins, servings: 4"
+    },
+    "original_data": {
+      "cuisine_path": "/Seafood/Fish/",
+      "ingredients": "1 tablespoon olive oil, 4 (4 ounce) fillets orange roughy, 1  orange, juiced, 1  lemon, juiced, ½ teaspoon lemon pepper",
+      "prep_time": "10 mins",
+      "cook_time": "5 mins",
+      "servings": 4
+    }
+  },
+  {
+    "id": 338,
+    "name": "Lemon Rosemary Salmon",
+    "collection": "meat-mains",
+    "confidence": 2,
+    "features": {
+      "name": "lemon rosemary salmon",
+      "ingredients": "1  lemon, thinly sliced, 4 sprigs fresh rosemary, 2  salmon fillets, bones and skin removed,   coarse salt to taste, 1 tablespoon olive oil, or as needed",
+      "directions": "preheat the oven to 400 degrees f (200 degrees c).\narrange half the lemon slices in a single layer in a baking dish. layer with 2 sprigs rosemary, and top with salmon fillets. sprinkle salmon with salt, layer with remaining rosemary sprigs, and top with remaining lemon slices. drizzle with olive oil.\nbake 20 minutes in the preheated oven, or until fish is easily flaked with a fork.",
+      "cuisine_path": "/main dishes/seafood main dishes/salmon/baked salmon recipes/",
+      "timing": "prep time: 10 mins, cook time: 20 mins, total time: 30 mins, servings: 2",
+      "nutrition": "total fat 18g 23%, saturated fat 3g 16%, cholesterol 56mg 19%, sodium 1017mg 44%, total carbohydrate 6g 2%, dietary fiber 3g 10%, protein 21g, vitamin c 45mg 226%, calcium 51mg 4%, iron 1mg 4%, potassium 431mg 9%",
+      "combined_text": "lemon rosemary salmon 1  lemon, thinly sliced, 4 sprigs fresh rosemary, 2  salmon fillets, bones and skin removed,   coarse salt to taste, 1 tablespoon olive oil, or as needed /main dishes/seafood main dishes/salmon/baked salmon recipes/ prep time: 10 mins, cook time: 20 mins, total time: 30 mins, servings: 2"
+    },
+    "original_data": {
+      "cuisine_path": "/Main Dishes/Seafood Main Dishes/Salmon/Baked Salmon Recipes/",
+      "ingredients": "1  lemon, thinly sliced, 4 sprigs fresh rosemary, 2  salmon fillets, bones and skin removed,   coarse salt to taste, 1 tablespoon olive oil, or as needed",
+      "prep_time": "10 mins",
+      "cook_time": "20 mins",
+      "servings": 2
+    }
+  },
+  {
+    "id": 345,
+    "name": "Lemon Garlic Chicken",
+    "collection": "meat-mains",
+    "confidence": 6,
+    "features": {
+      "name": "lemon garlic chicken",
+      "ingredients": "2 tablespoons butter, 3  skinless, boneless chicken breast halves, 1 ½ teaspoons salt, 1 ½ teaspoons ground black pepper, 2 tablespoons garlic powder, divided, 1  lemon, juiced",
+      "directions": "melt butter in a skillet over medium-high heat.\nseason chicken with salt and pepper; place in melted butter. cook chicken, flipping frequently, until browned, about 5 minutes. sprinkle 1 tablespoon garlic powder over chicken; cook for 2 minutes. flip and sprinkle remaining 1 tablespoon garlic powder on the second side; cook for 2 minutes.\npour lemon juice over each side of chicken and cook until no longer pink in the center, 5 to 10 minutes more. an instant-read thermometer inserted into the center should read at least 165 degrees f (74 degrees c).\n\n\n\n\n\n\n\n\n\n",
+      "cuisine_path": "/meat and poultry/chicken/chicken breast/pan-fried chicken/",
+      "timing": "prep time: 10 mins, cook time: 15 mins, total time: 25 mins, servings: 3",
+      "nutrition": "total fat 11g 13%, saturated fat 6g 28%, cholesterol 85mg 28%, sodium 1275mg 55%, total carbohydrate 5g 2%, dietary fiber 1g 3%, total sugars 1g, protein 25g, vitamin c 1mg 6%, calcium 23mg 2%, iron 1mg 7%, potassium 271mg 6%",
+      "combined_text": "lemon garlic chicken 2 tablespoons butter, 3  skinless, boneless chicken breast halves, 1 ½ teaspoons salt, 1 ½ teaspoons ground black pepper, 2 tablespoons garlic powder, divided, 1  lemon, juiced /meat and poultry/chicken/chicken breast/pan-fried chicken/ prep time: 10 mins, cook time: 15 mins, total time: 25 mins, servings: 3"
+    },
+    "original_data": {
+      "cuisine_path": "/Meat and Poultry/Chicken/Chicken Breast/Pan-Fried Chicken/",
+      "ingredients": "2 tablespoons butter, 3  skinless, boneless chicken breast halves, 1 ½ teaspoons salt, 1 ½ teaspoons ground black pepper, 2 tablespoons garlic powder, divided, 1  lemon, juiced",
+      "prep_time": "10 mins",
+      "cook_time": "15 mins",
+      "servings": 3
+    }
+  },
+  {
+    "id": 346,
+    "name": "Slow Cooker Lemon Garlic Chicken",
+    "collection": "meat-mains",
+    "confidence": 5,
+    "features": {
+      "name": "slow cooker lemon garlic chicken",
+      "ingredients": "1 teaspoon dried oregano, ½ teaspoon salt, ¼ teaspoon ground black pepper, 2 tablespoons butter, 2 pounds skinless, boneless chicken breast halves, ¼ cup water, 3 tablespoons fresh lemon juice, 2 cloves garlic, minced, 1 teaspoon chicken bouillon granules, 1 teaspoon chopped fresh parsley",
+      "directions": "mix together oregano, salt, and pepper in a small bowl. rub spice mixture all over chicken breasts.\nmelt butter in a skillet over medium heat. cook chicken in butter until lightly browned, 3 to 5 minutes per side. place chicken in a slow cooker.\nmix water, lemon juice, garlic, and bouillon in the same skillet; bring to boil. pour over chicken in the slow cooker.\ncover and cook on low for 6 hours or high for 3 hours. add parsley to the slow cooker 15 to 30 minutes before the end of cook time.\n\n\n\n\n\n\n\n\n\n\n\nrebekah pope\n",
+      "cuisine_path": "/meat and poultry/chicken/chicken breast/",
+      "timing": "prep time: 15 mins, cook time: 3 hrs 15 mins, total time: 3 hrs 30 mins, servings: 6",
+      "nutrition": "total fat 7g 9%, saturated fat 3g 17%, cholesterol 88mg 29%, sodium 348mg 15%, total carbohydrate 1g 0%, dietary fiber 0g 1%, total sugars 0g, protein 30g, vitamin c 4mg 21%, calcium 22mg 2%, iron 1mg 6%, potassium 212mg 5%",
+      "combined_text": "slow cooker lemon garlic chicken 1 teaspoon dried oregano, ½ teaspoon salt, ¼ teaspoon ground black pepper, 2 tablespoons butter, 2 pounds skinless, boneless chicken breast halves, ¼ cup water, 3 tablespoons fresh lemon juice, 2 clov /meat and poultry/chicken/chicken breast/ prep time: 15 mins, cook time: 3 hrs 15 mins, total time: 3 hrs 30 mins, servings: 6"
+    },
+    "original_data": {
+      "cuisine_path": "/Meat and Poultry/Chicken/Chicken Breast/",
+      "ingredients": "1 teaspoon dried oregano, ½ teaspoon salt, ¼ teaspoon ground black pepper, 2 tablespoons butter, 2 pounds skinless, boneless chicken breast halves, ¼ cup water, 3 tablespoons fresh lemon juice, 2 cloves garlic, minced, 1 teaspoon chicken bouillon granules, 1 teaspoon chopped fresh parsley",
+      "prep_time": "15 mins",
+      "cook_time": "3 hrs 15 mins",
+      "servings": 6
+    }
+  },
+  {
+    "id": 349,
+    "name": "Air-Fried Crumbed Fish",
+    "collection": "meat-mains",
+    "confidence": 2,
+    "features": {
+      "name": "air-fried crumbed fish",
+      "ingredients": "1 cup dry bread crumbs, ¼ cup vegetable oil, 4  flounder fillets, 1  egg, beaten, 1  lemon, sliced",
+      "directions": "preheat an air fryer to 350 degrees f (180 degrees c).\nplace bread crumbs and oil into a shallow bowl; stir until mixture becomes loose and crumbly.\ndip fish fillets into egg; shake off any excess. dip fillets into bread crumb mixture; coat evenly and fully.\nlay coated fillets gently in the air fryer basket; cook in the preheated air fryer until fish flakes easily with a fork, about 12 minutes. garnish with lemon slices; serve.",
+      "cuisine_path": "/seafood/fish/",
+      "timing": "prep time: 10 mins, cook time: 15 mins, total time: 25 mins, servings: 4, yield: 4 fillets",
+      "nutrition": "total fat 18g 23%, saturated fat 3g 16%, cholesterol 107mg 36%, sodium 309mg 13%, total carbohydrate 23g 8%, dietary fiber 3g 9%, total sugars 2g, protein 27g, vitamin c 22mg 108%, calcium 89mg 7%, iron 2mg 11%, potassium 415mg 9%",
+      "combined_text": "air-fried crumbed fish 1 cup dry bread crumbs, ¼ cup vegetable oil, 4  flounder fillets, 1  egg, beaten, 1  lemon, sliced /seafood/fish/ prep time: 10 mins, cook time: 15 mins, total time: 25 mins, servings: 4, yield: 4 fillets"
+    },
+    "original_data": {
+      "cuisine_path": "/Seafood/Fish/",
+      "ingredients": "1 cup dry bread crumbs, ¼ cup vegetable oil, 4  flounder fillets, 1  egg, beaten, 1  lemon, sliced",
+      "prep_time": "10 mins",
+      "cook_time": "15 mins",
+      "servings": 4
+    }
+  },
+  {
+    "id": 462,
+    "name": "Roasted Pork Tenderloin with Fresh Plum Sauce",
+    "collection": "meat-mains",
+    "confidence": 5,
+    "features": {
+      "name": "roasted pork tenderloin with fresh plum sauce",
+      "ingredients": "1  pork tenderloin,   salt and ground black pepper to taste, 1 tablespoon vegetable oil, 1  red onion, sliced, 2  shallots, sliced, 3  fresh thyme sprigs, or more to taste, 2  firm plums, pitted and each cut into 4 wedges, 1 cup water, 1 tablespoon balsamic vinegar, 1 teaspoon cold butter",
+      "directions": "preheat oven to 400 degrees f (200 degrees c). generously season pork tenderloin with salt and black pepper.\nheat oil in a large, oven-proof skillet over medium-high heat. cook tenderloin until browned on all sides, 2 to 4 minutes per side. transfer tenderloin to a plate.\nsaute onion with a pinch of salt in the same skillet until just softening, 3 to 5 minutes. add shallots, reduce heat to medium, and cook and stir until shallots and onion are golden brown and caramelized, about 10 minutes.\nstir thyme into onion mixture; place tenderloin over onion mixture, and set plum quarters, skin-side down, around pork tenderloin. transfer skillet to preheated oven.\ncook until pork is slightly pink in the center, about 20 minutes. an instant-read thermometer inserted into the center should read at least 145 degrees f (63 degrees c). transfer pork and plums to a plate.\nplace skillet over medium-high heat and pour water and balsamic vinegar into onion mixture. bring mixture to a boil while scraping the browned bits of food off of the bottom of the pan with a wooden spoon. cook and stir until liquid is reduced by half, 5 to 10 minutes; remove from heat. whisk butter into mixture until melted and sauce is shiny. pour sauce over pork and plums.\n\n\n\n\n\n\n\n\n\n",
+      "cuisine_path": "/meat and poultry/pork/pork tenderloin recipes/",
+      "timing": "prep time: 10 mins, cook time: 50 mins, total time: 1 hrs, servings: 2, yield: 2 servings",
+      "nutrition": "total fat 15g 19%, saturated fat 4g 21%, cholesterol 104mg 35%, sodium 182mg 8%, total carbohydrate 23g 8%, dietary fiber 2g 9%, total sugars 12g, protein 37g, vitamin c 16mg 81%, calcium 54mg 4%, iron 3mg 14%, potassium 929mg 20%",
+      "combined_text": "roasted pork tenderloin with fresh plum sauce 1  pork tenderloin,   salt and ground black pepper to taste, 1 tablespoon vegetable oil, 1  red onion, sliced, 2  shallots, sliced, 3  fresh thyme sprigs, or more to taste, 2  firm plums, pitted and e /meat and poultry/pork/pork tenderloin recipes/ prep time: 10 mins, cook time: 50 mins, total time: 1 hrs, servings: 2, yield: 2 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Meat and Poultry/Pork/Pork Tenderloin Recipes/",
+      "ingredients": "1  pork tenderloin,   salt and ground black pepper to taste, 1 tablespoon vegetable oil, 1  red onion, sliced, 2  shallots, sliced, 3  fresh thyme sprigs, or more to taste, 2  firm plums, pitted and each cut into 4 wedges, 1 cup water, 1 tablespoon balsamic vinegar, 1 teaspoon cold butter",
+      "prep_time": "10 mins",
+      "cook_time": "50 mins",
+      "servings": 2
+    }
+  },
+  {
+    "id": 469,
+    "name": "Pork with Plum Sauce",
+    "collection": "meat-mains",
+    "confidence": 6,
+    "features": {
+      "name": "pork with plum sauce",
+      "ingredients": "2 tablespoons vegetable oil, 4  boneless pork chops,   salt and ground black pepper to taste, 1 large clove garlic, minced, ¼ cup soy sauce, 2 tablespoons red wine vinegar, 2 tablespoons brown sugar, ¼ teaspoon ground ginger, ⅛ teaspoon ground cloves, 5  fresh plums, pitted and coarsely chopped",
+      "directions": "heat vegetable oil in a skillet over medium-high heat. season pork chops with salt and pepper; cook in hot oil until browned, about 2 minutes per side. remove pork chops to a plate.\nreduce the heat to medium; cook and stir garlic in the skillet just until fragrant, 10 to 20 seconds. pour in soy sauce, red wine vinegar, brown sugar, ginger, and cloves; bring to a boil. stir the mixture until the brown sugar dissolves; add plums.\ncover the skillet, reduce the heat, and simmer the mixture until the sauce has thickened and plums are very soft, about 45 minutes.\nmash plums with a potato masher to an applesauce-like texture. place pork chops back into the pan and cook in the sauce until no longer pink in the middle, 10 to 15 minutes. a meat thermometer inserted into the middle of a chop should read 145 degrees (63 degrees c).",
+      "cuisine_path": "/main dishes/pork/pork chop recipes/boneless/",
+      "timing": "prep time: 15 mins, cook time: 1 hrs, total time: 1 hrs 15 mins, servings: 4",
+      "nutrition": "total fat 14g 18%, saturated fat 4g 18%, cholesterol 59mg 20%, sodium 938mg 41%, total carbohydrate 18g 7%, dietary fiber 1g 5%, total sugars 15g, protein 25g, vitamin c 9mg 43%, calcium 35mg 3%, iron 1mg 8%, potassium 529mg 11%",
+      "combined_text": "pork with plum sauce 2 tablespoons vegetable oil, 4  boneless pork chops,   salt and ground black pepper to taste, 1 large clove garlic, minced, ¼ cup soy sauce, 2 tablespoons red wine vinegar, 2 tablespoons brown sugar,  /main dishes/pork/pork chop recipes/boneless/ prep time: 15 mins, cook time: 1 hrs, total time: 1 hrs 15 mins, servings: 4"
+    },
+    "original_data": {
+      "cuisine_path": "/Main Dishes/Pork/Pork Chop Recipes/Boneless/",
+      "ingredients": "2 tablespoons vegetable oil, 4  boneless pork chops,   salt and ground black pepper to taste, 1 large clove garlic, minced, ¼ cup soy sauce, 2 tablespoons red wine vinegar, 2 tablespoons brown sugar, ¼ teaspoon ground ginger, ⅛ teaspoon ground cloves, 5  fresh plums, pitted and coarsely chopped",
+      "prep_time": "15 mins",
+      "cook_time": "1 hrs",
+      "servings": 4
+    }
+  },
+  {
+    "id": 486,
+    "name": "Pork Tenderloin with Balsamic Plum Reduction",
+    "collection": "meat-mains",
+    "confidence": 5,
+    "features": {
+      "name": "pork tenderloin with balsamic plum reduction",
+      "ingredients": "1  pork tenderloin,   salt and ground black pepper to taste, 1 tablespoon olive oil, 1 ½  plums, pitted and chopped, 2 tablespoons balsamic vinegar, 1 tablespoon brown sugar, 1 tablespoon honey, 2 tablespoons blueberry juice (optional)",
+      "directions": "preheat oven to 400 degrees f (200 degrees c). line a baking sheet with foil.\nseason the pork tenderloin with salt and pepper. heat olive oil in a heavy skillet over high heat until the oil shimmers; gently lay the tenderloin into the hot oil. after about 1 minute, gently loosen the meat from the bottom of the skillet, if necessary. cook until the pork is seared a golden brown color, about 3 minutes per side. transfer the pork to the lined baking sheet.\nroast the seared tenderloin in the preheated oven until a thermometer inserted into the center of the pork reads at least 145 degrees f (63 degrees c), about 15 minutes. remove the pork from the oven and allow to rest for 10 minutes before slicing into medallions.\ncook the plums, balsamic vinegar, brown sugar, honey, and blueberry juice in a small saucepan over medium-low heat, stirring often, until the plums are soft, about 10 minutes. transfer the sauce to a blender and blend until smooth. return the sauce to the saucepan and simmer until reduced and thickened to the consistency of apple butter, about 5 more minutes. spoon plum sauce over the sliced pork to serve.",
+      "cuisine_path": "/meat and poultry/pork/pork tenderloin recipes/",
+      "timing": "prep time: 15 mins, cook time: 30 mins, total time: 45 mins, servings: 4, yield: 4 servings",
+      "nutrition": "total fat 6g 8%, saturated fat 1g 7%, cholesterol 49mg 16%, sodium 42mg 2%, total carbohydrate 12g 4%, dietary fiber 0g 1%, total sugars 12g, protein 18g, vitamin c 2mg 12%, calcium 11mg 1%, iron 1mg 5%, potassium 334mg 7%",
+      "combined_text": "pork tenderloin with balsamic plum reduction 1  pork tenderloin,   salt and ground black pepper to taste, 1 tablespoon olive oil, 1 ½  plums, pitted and chopped, 2 tablespoons balsamic vinegar, 1 tablespoon brown sugar, 1 tablespoon honey, 2 tab /meat and poultry/pork/pork tenderloin recipes/ prep time: 15 mins, cook time: 30 mins, total time: 45 mins, servings: 4, yield: 4 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Meat and Poultry/Pork/Pork Tenderloin Recipes/",
+      "ingredients": "1  pork tenderloin,   salt and ground black pepper to taste, 1 tablespoon olive oil, 1 ½  plums, pitted and chopped, 2 tablespoons balsamic vinegar, 1 tablespoon brown sugar, 1 tablespoon honey, 2 tablespoons blueberry juice (Optional)",
+      "prep_time": "15 mins",
+      "cook_time": "30 mins",
+      "servings": 4
+    }
+  },
+  {
+    "id": 491,
+    "name": "Fruit-Stuffed Pork Loin",
+    "collection": "meat-mains",
+    "confidence": 4,
+    "features": {
+      "name": "fruit-stuffed pork loin",
+      "ingredients": "¾ cup chopped pitted prunes, ¾ cup chopped dried apricots, 1 tablespoon grated fresh ginger , 1 teaspoon grated orange zest, ½ teaspoon ground cumin, ½ teaspoon ground cinnamon,   salt and ground black pepper to taste, 1 (4 pound) boneless pork loin roast, butterflied , ¼ cup packed brown sugar, 2 teaspoons all-purpose flour, 2 teaspoons cider vinegar, 1 teaspoon ground cumin, 1 teaspoon mustard powder, ½ cup water, 1 teaspoon cornstarch, 1 tablespoon water",
+      "directions": "preheat oven to 325 degrees f (165 degrees c).\nmix prunes, apricots, ginger, orange zest, 1/2 teaspoon cumin, and cinnamon in a bowl; season with salt and black pepper.\nopen pork roast and spoon stuffing down the center; fold meat over stuffing and tie securely in several places with kitchen twine. set roast onto a rack in a roasting pan.\ncombine brown sugar, flour, cider vinegar, 1 teaspoon cumin, and mustard powder into a paste; spread brown sugar mixture over the roast.\nbake in the preheated oven until a meat thermometer inserted into center of stuffing reads 160 degrees f (70 degrees c), about 1 1/2 hours. transfer roast to a serving platter and tent with aluminum foil while you make gravy.\nskim fat from roasting pan and transfer defatted drippings into a small saucepan. pour 1/2 cup water into roasting pan and scrape up and dissolve any browned bits of food into water; pour into saucepan with pan juices. bring pan juices to a boil over medium heat. dissolve cornstarch in 1 tablespoon water in a small bowl and whisk cornstarch mixture into pan juices, stirring constantly until thickened, about 1 minute. strain gravy into a gravy boat. serve gravy with roast.",
+      "cuisine_path": "/meat and poultry/pork/",
+      "timing": "prep time: 20 mins, cook time: 1 hrs 40 mins, total time: 2 hrs, servings: 8, yield: 1 stuffed pork loin roast",
+      "nutrition": "total fat 20g 26%, saturated fat 7g 36%, cholesterol 110mg 37%, sodium 85mg 4%, total carbohydrate 26g 9%, dietary fiber 2g 8%, total sugars 20g, protein 38g, vitamin c 2mg 10%, calcium 53mg 4%, iron 2mg 13%, potassium 831mg 18%",
+      "combined_text": "fruit-stuffed pork loin ¾ cup chopped pitted prunes, ¾ cup chopped dried apricots, 1 tablespoon grated fresh ginger , 1 teaspoon grated orange zest, ½ teaspoon ground cumin, ½ teaspoon ground cinnamon,   salt and ground blac /meat and poultry/pork/ prep time: 20 mins, cook time: 1 hrs 40 mins, total time: 2 hrs, servings: 8, yield: 1 stuffed pork loin roast"
+    },
+    "original_data": {
+      "cuisine_path": "/Meat and Poultry/Pork/",
+      "ingredients": "¾ cup chopped pitted prunes, ¾ cup chopped dried apricots, 1 tablespoon grated fresh ginger , 1 teaspoon grated orange zest, ½ teaspoon ground cumin, ½ teaspoon ground cinnamon,   salt and ground black pepper to taste, 1 (4 pound) boneless pork loin roast, butterflied , ¼ cup packed brown sugar, 2 teaspoons all-purpose flour, 2 teaspoons cider vinegar, 1 teaspoon ground cumin, 1 teaspoon mustard powder, ½ cup water, 1 teaspoon cornstarch, 1 tablespoon water",
+      "prep_time": "20 mins",
+      "cook_time": "1 hrs 40 mins",
+      "servings": 8
+    }
+  },
+  {
+    "id": 522,
+    "name": "Salmon with Pomegranate Glaze",
+    "collection": "meat-mains",
+    "confidence": 2,
+    "features": {
+      "name": "salmon with pomegranate glaze",
+      "ingredients": "⅓ cup pomegranate juice, 1 tablespoon soy sauce, or to taste, 1 clove garlic, sliced, 4 (6 ounce) fillets salmon, 2 tablespoons olive oil, ½  pomegranate, peeled and seeds separated",
+      "directions": "whisk pomegranate juice, soy sauce, and garlic together in a shallow non-reactive bowl until marinade is well mixed. add salmon and turn to coat. cover and marinate for 15 minutes.\nheat olive oil in a skillet over medium heat; add garlic from the marinade and cook until lightly browned, 1 to 2 minutes. pour in the marinade and cook until reduced and thickened to a glaze, 4 to 5 minutes.\npreheat an outdoor grill for medium-high heat and lightly oil the grate.\ncook salmon on the preheated grill until flesh flakes easily with a fork, about 3 minutes per side. serve salmon topped with glaze and garnished with pomegranate seeds.",
+      "cuisine_path": "/main dishes/seafood main dishes/salmon/salmon fillet recipes/",
+      "timing": "prep time: 10 mins, cook time: 11 mins, additional time: 15 mins, total time: 36 mins, servings: 4, yield: 4 fillets",
+      "nutrition": "total fat 23g 29%, saturated fat 4g 21%, cholesterol 83mg 28%, sodium 307mg 13%, total carbohydrate 17g 6%, dietary fiber 0g 1%, total sugars 16g, protein 30g, vitamin c 8mg 39%, calcium 23mg 2%, iron 1mg 5%, potassium 606mg 13%",
+      "combined_text": "salmon with pomegranate glaze ⅓ cup pomegranate juice, 1 tablespoon soy sauce, or to taste, 1 clove garlic, sliced, 4 (6 ounce) fillets salmon, 2 tablespoons olive oil, ½  pomegranate, peeled and seeds separated /main dishes/seafood main dishes/salmon/salmon fillet recipes/ prep time: 10 mins, cook time: 11 mins, additional time: 15 mins, total time: 36 mins, servings: 4, yield: 4 fillets"
+    },
+    "original_data": {
+      "cuisine_path": "/Main Dishes/Seafood Main Dishes/Salmon/Salmon Fillet Recipes/",
+      "ingredients": "⅓ cup pomegranate juice, 1 tablespoon soy sauce, or to taste, 1 clove garlic, sliced, 4 (6 ounce) fillets salmon, 2 tablespoons olive oil, ½  pomegranate, peeled and seeds separated",
+      "prep_time": "10 mins",
+      "cook_time": "11 mins",
+      "servings": 4
+    }
+  },
+  {
+    "id": 526,
+    "name": "Roasted Pork Shoulder with Pomegranate Sauce",
+    "collection": "meat-mains",
+    "confidence": 5,
+    "features": {
+      "name": "roasted pork shoulder with pomegranate sauce",
+      "ingredients": "1 (3 pound) bone-in pork shoulder roast, 2 teaspoons minced garlic,   kosher salt and ground black pepper to taste, 2  pomegranates with the seeds removed, ½ cup water, 2 tablespoons balsamic vinegar, 2 tablespoons turbinado sugar, ¼ teaspoon ground cinnamon",
+      "directions": "preheat the oven to 325 degrees f (165 degrees c). season the pork roast with garlic, kosher salt, and pepper. place in a roasting pan.\nbake the roast for 1 hour in the preheated oven. while the roast is baking, combine the pomegranate seeds and water in a large saucepan. bring to a boil, then reduce the heat to low and simmer for 20 to 30 minutes, until the pomegranate seeds have broken down and released their juices. press through a strainer to get as much juice as possible. you should have about 3/4 cup of juice.\npour the juice from the pomegranate into a saucepan and bring to a boil. simmer over medium heat until reduced by half. remove from the heat and mix in the balsamic vinegar, sugar, and cinnamon.\nafter the roast has been in the oven for 45 minutes, baste it with pomegranate sauce, using a brush to apply it to the top and sides. continue to roast the pork, basting every 10 minutes, until the internal temperature has reached 180 degrees f (80 degrees c), about 30 minutes. remove from the oven, tent with foil, and allow to rest for 20 minutes before carving and serving.",
+      "cuisine_path": "/meat and poultry/pork/pork shoulder recipes/",
+      "timing": "prep time: 20 mins, cook time: 1 hrs 15 mins, additional time: 20 mins, total time: 1 hrs 55 mins, servings: 4",
+      "nutrition": "total fat 26g 33%, saturated fat 9g 47%, cholesterol 136mg 45%, sodium 200mg 9%, total carbohydrate 21g 8%, dietary fiber 1g 2%, total sugars 20g, protein 42g, vitamin c 6mg 28%, calcium 52mg 4%, iron 2mg 12%, potassium 761mg 16%",
+      "combined_text": "roasted pork shoulder with pomegranate sauce 1 (3 pound) bone-in pork shoulder roast, 2 teaspoons minced garlic,   kosher salt and ground black pepper to taste, 2  pomegranates with the seeds removed, ½ cup water, 2 tablespoons balsamic vinegar, /meat and poultry/pork/pork shoulder recipes/ prep time: 20 mins, cook time: 1 hrs 15 mins, additional time: 20 mins, total time: 1 hrs 55 mins, servings: 4"
+    },
+    "original_data": {
+      "cuisine_path": "/Meat and Poultry/Pork/Pork Shoulder Recipes/",
+      "ingredients": "1 (3 pound) bone-in pork shoulder roast, 2 teaspoons minced garlic,   kosher salt and ground black pepper to taste, 2  pomegranates with the seeds removed, ½ cup water, 2 tablespoons balsamic vinegar, 2 tablespoons turbinado sugar, ¼ teaspoon ground cinnamon",
+      "prep_time": "20 mins",
+      "cook_time": "1 hrs 15 mins",
+      "servings": 4
+    }
+  },
+  {
+    "id": 643,
+    "name": "Poblano and Ground Pork Tacos",
+    "collection": "meat-mains",
+    "confidence": 3,
+    "features": {
+      "name": "poblano and ground pork tacos",
+      "ingredients": "1  red onion, halved and thinly sliced, 1  roma tomato, seeded and finely chopped, 1  ripe kiwi, diced, 1  lime, quartered, divided, 2 tablespoons chopped cilantro, divided,   salt and ground black pepper to taste, 4 tablespoons sour cream,   olive oil, 1  poblano pepper - cored, seeded, and finely chopped, 10 ounces ground pork, 1 tablespoon mexican seasoning, 2 tablespoons chicken stock, 1 tablespoon tomato paste, 6  flour tortillas",
+      "directions": "mince a few slices of onion to get 1 tablespoon. add minced onion, tomato, kiwi, juice from 2 lime wedges, 3/4 of the cilantro, salt, and pepper to a small bowl. mix into a salsa.\njuice 1/4 of the lime into another small bowl; mix in sour cream to make the crema.\nheat olive oil in a large pan over medium-high heat. add sliced onion and poblano pepper. cook, tossing occasionally, until softened and lightly charred, 3 to 4 minutes. add pork and mexican seasoning. cook until pork is browned throughout, 4 to 5 minutes. reduce heat to medium-low. add chicken stock, tomato paste, salt, and pepper. cook and stir until everything is coated, 1 to 2 minutes.\nwrap tortillas in a damp cloth and microwave for 30 seconds. divide tortillas over plates; spread cream on top. top tortillas with pork mixture and salsa. garnish with remaining cilantro.",
+      "cuisine_path": "/main dishes/taco recipes/",
+      "timing": "prep time: 30 mins, cook time: 10 mins, total time: 40 mins, servings: 6, yield: 6 tacos",
+      "nutrition": "total fat 17g 22%, saturated fat 6g 28%, cholesterol 35mg 12%, sodium 660mg 29%, total carbohydrate 45g 16%, dietary fiber 4g 13%, total sugars 5g, protein 15g, vitamin c 25mg 125%, calcium 127mg 10%, iron 3mg 17%, potassium 394mg 8%",
+      "combined_text": "poblano and ground pork tacos 1  red onion, halved and thinly sliced, 1  roma tomato, seeded and finely chopped, 1  ripe kiwi, diced, 1  lime, quartered, divided, 2 tablespoons chopped cilantro, divided,   salt and ground black pe /main dishes/taco recipes/ prep time: 30 mins, cook time: 10 mins, total time: 40 mins, servings: 6, yield: 6 tacos"
+    },
+    "original_data": {
+      "cuisine_path": "/Main Dishes/Taco Recipes/",
+      "ingredients": "1  red onion, halved and thinly sliced, 1  Roma tomato, seeded and finely chopped, 1  ripe kiwi, diced, 1  lime, quartered, divided, 2 tablespoons chopped cilantro, divided,   salt and ground black pepper to taste, 4 tablespoons sour cream,   olive oil, 1  poblano pepper - cored, seeded, and finely chopped, 10 ounces ground pork, 1 tablespoon Mexican seasoning, 2 tablespoons chicken stock, 1 tablespoon tomato paste, 6  flour tortillas",
+      "prep_time": "30 mins",
+      "cook_time": "10 mins",
+      "servings": 6
+    }
+  },
+  {
+    "id": 648,
+    "name": "Kiwi-Lime Pork Ribs",
+    "collection": "meat-mains",
+    "confidence": 4,
+    "features": {
+      "name": "kiwi-lime pork ribs",
+      "ingredients": "2  kiwis, peeled and sliced, ½ cup white sugar, 2 tablespoons cider vinegar, 2 tablespoons lime juice, 2 tablespoons salt, 2 tablespoons chili powder, 2 tablespoons cornstarch, 1 clove garlic, minced, 1 (3 pound) package country-style pork ribs",
+      "directions": "preheat oven to 400 degrees f (200 degrees c).\nblend kiwis, sugar, vinegar, lime juice, salt, chili powder, cornstarch, and garlic in a blender until thickened into a sauce.\nplace pork ribs on a baking sheet.\ndrizzle blended kiwi sauce over ribs.\nloosely cover ribs with a sheet of aluminum foil.\ncook in preheated oven until tender, about 1 hour.",
+      "cuisine_path": "/meat and poultry/pork/pork rib recipes/country-style ribs/",
+      "timing": "prep time: 10 mins, cook time: 1 hrs, total time: 1 hrs 10 mins, servings: 6, yield: 6 servings",
+      "nutrition": "total fat 31g 39%, saturated fat 11g 56%, cholesterol 120mg 40%, sodium 2446mg 106%, total carbohydrate 25g 9%, dietary fiber 2g 6%, total sugars 19g, protein 30g, vitamin c 26mg 132%, calcium 66mg 5%, iron 2mg 13%, potassium 458mg 10%",
+      "combined_text": "kiwi-lime pork ribs 2  kiwis, peeled and sliced, ½ cup white sugar, 2 tablespoons cider vinegar, 2 tablespoons lime juice, 2 tablespoons salt, 2 tablespoons chili powder, 2 tablespoons cornstarch, 1 clove garlic, minced, /meat and poultry/pork/pork rib recipes/country-style ribs/ prep time: 10 mins, cook time: 1 hrs, total time: 1 hrs 10 mins, servings: 6, yield: 6 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Meat and Poultry/Pork/Pork Rib Recipes/Country-Style Ribs/",
+      "ingredients": "2  kiwis, peeled and sliced, ½ cup white sugar, 2 tablespoons cider vinegar, 2 tablespoons lime juice, 2 tablespoons salt, 2 tablespoons chili powder, 2 tablespoons cornstarch, 1 clove garlic, minced, 1 (3 pound) package country-style pork ribs",
+      "prep_time": "10 mins",
+      "cook_time": "1 hrs",
+      "servings": 6
+    }
+  },
+  {
+    "id": 696,
+    "name": "Mango Salsa Salmon",
+    "collection": "meat-mains",
+    "confidence": 4,
+    "features": {
+      "name": "mango salsa salmon",
+      "ingredients": "4 (6 ounce) salmon steaks, 3 tablespoons olive oil, 1 large red onion, diced, 2 cloves garlic, peeled and minced, 2  tomatoes, diced, 1 sprig fresh cilantro, chopped, 2  mangos - peeled, seeded, and diced",
+      "directions": "preheat the oven broiler. line a broiler pan with foil.\nbroil salmon steaks on the prepared pan 12 minutes, or until easily flaked with a fork.\nheat olive oil in a medium saucepan over medium heat, and saute onion until tender. stir in garlic, tomatoes, and cilantro. cook until heated through, 1 to 2 minutes, and remove from heat. mix in the mangos. serve over the salmon steaks.",
+      "cuisine_path": "/main dishes/seafood main dishes/salmon/salmon steak recipes/",
+      "timing": "prep time: 15 mins, cook time: 15 mins, total time: 30 mins, servings: 4, yield: 4 servings",
+      "nutrition": "total fat 29g 37%, saturated fat 5g 26%, cholesterol 99mg 33%, sodium 107mg 5%, total carbohydrate 24g 9%, dietary fiber 3g 12%, total sugars 19g, protein 35g, vitamin c 46mg 232%, calcium 49mg 4%, iron 1mg 6%, potassium 980mg 21%",
+      "combined_text": "mango salsa salmon 4 (6 ounce) salmon steaks, 3 tablespoons olive oil, 1 large red onion, diced, 2 cloves garlic, peeled and minced, 2  tomatoes, diced, 1 sprig fresh cilantro, chopped, 2  mangos - peeled, seeded, and d /main dishes/seafood main dishes/salmon/salmon steak recipes/ prep time: 15 mins, cook time: 15 mins, total time: 30 mins, servings: 4, yield: 4 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Main Dishes/Seafood Main Dishes/Salmon/Salmon Steak Recipes/",
+      "ingredients": "4 (6 ounce) salmon steaks, 3 tablespoons olive oil, 1 large red onion, diced, 2 cloves garlic, peeled and minced, 2  tomatoes, diced, 1 sprig fresh cilantro, chopped, 2  mangos - peeled, seeded, and diced",
+      "prep_time": "15 mins",
+      "cook_time": "15 mins",
+      "servings": 4
+    }
+  },
+  {
+    "id": 704,
+    "name": "Blackened Salmon Tacos with Chunky Mango Avocado Salsa",
+    "collection": "meat-mains",
+    "confidence": 2,
+    "features": {
+      "name": "blackened salmon tacos with chunky mango avocado salsa",
+      "ingredients": "3  ripe mangoes - peeled, pitted, and diced, 1  avocado - peeled, pitted, and diced, 1  orange bell pepper, diced, 1  jalapeno pepper, seeded and diced, 1  lime, juiced, 2 tablespoons chopped fresh cilantro, 1 pinch salt, 1 tablespoon sweet and spicy seafood rub, or to taste, ½ teaspoon chili powder, or to taste,   salt and ground black pepper to taste, 2  skin-on salmon fillets, 2 tablespoons olive oil, or as needed, divided, 6  corn tortillas, 3 large limes, cut into wedges",
+      "directions": "combine mangoes, avocado, orange bell pepper, and jalapeno in a large bowl to make salsa. add lime juice, cilantro, and salt; mix to combine. cover with plastic wrap and refrigerate.\nsprinkle seafood rub, chili powder, salt, and black pepper over 1 side of each salmon steak; rub in with your fingers until evenly distributed.\ncoat the bottom of a large skillet with olive oil and heat over medium-high heat. add salmon skin-side down and cook until skin is crisp, 4 to 5 minutes. flip salmon and carefully peel off skin. season top with seafood rub, chili powder, salt and black pepper. continue cooking until lightly browned on the second side and salmon flakes easily with a fork, 4 to 5 minutes.\nslice each salmon fillet lengthwise to create 6 pieces.\nlightly oil another skillet over medium heat. pan-fry corn tortillas, one at a time, until heated through and pliable, about 30 seconds per side.\nplace 1 piece of salmon on each tortilla. top with salsa. squeeze a wedge of lime on top.\n\n\n\n\n\n\n\n\n\n",
+      "cuisine_path": "/main dishes/taco recipes/",
+      "timing": "prep time: 40 mins, cook time: 9 mins, total time: 49 mins, servings: 6, yield: 6 tacos",
+      "nutrition": "total fat 14g 18%, saturated fat 2g 12%, cholesterol 19mg 6%, sodium 342mg 15%, total carbohydrate 36g 13%, dietary fiber 7g 26%, total sugars 13g, protein 10g, vitamin c 82mg 410%, calcium 62mg 5%, iron 1mg 7%, potassium 565mg 12%",
+      "combined_text": "blackened salmon tacos with chunky mango avocado salsa 3  ripe mangoes - peeled, pitted, and diced, 1  avocado - peeled, pitted, and diced, 1  orange bell pepper, diced, 1  jalapeno pepper, seeded and diced, 1  lime, juiced, 2 tablespoons chopped fresh ci /main dishes/taco recipes/ prep time: 40 mins, cook time: 9 mins, total time: 49 mins, servings: 6, yield: 6 tacos"
+    },
+    "original_data": {
+      "cuisine_path": "/Main Dishes/Taco Recipes/",
+      "ingredients": "3  ripe mangoes - peeled, pitted, and diced, 1  avocado - peeled, pitted, and diced, 1  orange bell pepper, diced, 1  jalapeno pepper, seeded and diced, 1  lime, juiced, 2 tablespoons chopped fresh cilantro, 1 pinch salt, 1 tablespoon sweet and spicy seafood rub, or to taste, ½ teaspoon chili powder, or to taste,   salt and ground black pepper to taste, 2  skin-on salmon fillets, 2 tablespoons olive oil, or as needed, divided, 6  corn tortillas, 3 large limes, cut into wedges",
+      "prep_time": "40 mins",
+      "cook_time": "9 mins",
+      "servings": 6
+    }
+  },
+  {
+    "id": 712,
+    "name": "Caribbean Fish With Mango Salsa",
+    "collection": "meat-mains",
+    "confidence": 1,
+    "features": {
+      "name": "caribbean fish with mango salsa",
+      "ingredients": "1 tablespoon paprika, 2 teaspoons curry powder, 2 teaspoons ground cumin, 1 ½ teaspoons ground allspice, 1 teaspoon ground ginger, 1 teaspoon ground coriander, ¾ teaspoon salt, ½ teaspoon freshly ground black pepper, ¼ teaspoon ground fennel seed (optional), ⅛ teaspoon cayenne pepper (optional)",
+      "directions": "mix together paprika, curry powder, cumin, allspice, ginger, coriander, salt, black pepper, fennel, and cayenne pepper in a bowl; set aside.\nin a bowl, lightly toss mango, pineapple, red bell pepper, black beans, red onion, and cilantro in a bowl; pour lime juice over mango mixture and toss again. cover the bowl and refrigerate until chilled, at least 30 minutes.\nwhisk together egg and milk in a bowl. in a separate shallow bowl, stir panko crumbs with coconut. stir about 1 tablespoon of the spice mix, or to taste, into the panko crumb mixture.\nheat olive oil in a skillet over medium heat. dip tilapia fillets into egg mixture, then press gently into panko crumb mixture to coat both sides of fillets. brush off any loose crumbs, then lay fillets into the hot oil. pan-fry until fish is opaque inside and golden brown outside, 3 to 5 minutes per side. serve with mango salsa.",
+      "cuisine_path": "/cuisine/latin american/caribbean/",
+      "timing": "prep time: 45 mins, cook time: 10 mins, additional time: 30 mins, total time: 1 hrs 25 mins, servings: 5",
+      "nutrition": "total fat 8g 10%, saturated fat 2g 11%, cholesterol 80mg 27%, sodium 646mg 28%, total carbohydrate 37g 13%, dietary fiber 5g 18%, total sugars 12g, protein 30g, vitamin c 51mg 253%, calcium 107mg 8%, iron 3mg 14%, potassium 822mg 17%",
+      "combined_text": "caribbean fish with mango salsa 1 tablespoon paprika, 2 teaspoons curry powder, 2 teaspoons ground cumin, 1 ½ teaspoons ground allspice, 1 teaspoon ground ginger, 1 teaspoon ground coriander, ¾ teaspoon salt, ½ teaspoon freshly grou /cuisine/latin american/caribbean/ prep time: 45 mins, cook time: 10 mins, additional time: 30 mins, total time: 1 hrs 25 mins, servings: 5"
+    },
+    "original_data": {
+      "cuisine_path": "/Cuisine/Latin American/Caribbean/",
+      "ingredients": "1 tablespoon paprika, 2 teaspoons curry powder, 2 teaspoons ground cumin, 1 ½ teaspoons ground allspice, 1 teaspoon ground ginger, 1 teaspoon ground coriander, ¾ teaspoon salt, ½ teaspoon freshly ground black pepper, ¼ teaspoon ground fennel seed (Optional), ⅛ teaspoon cayenne pepper (Optional)",
+      "prep_time": "45 mins",
+      "cook_time": "10 mins",
+      "servings": 5
+    }
+  },
+  {
+    "id": 720,
+    "name": "Bourbon-Mango Pulled Pork",
+    "collection": "meat-mains",
+    "confidence": 6,
+    "features": {
+      "name": "bourbon-mango pulled pork",
+      "ingredients": "2  mangos, 1 (4 pound) pork shoulder roast , 2 tablespoons ground black pepper, 1 teaspoon kosher salt, 1 teaspoon chipotle chile powder, ¼ cup balsamic vinegar, 2 cups water, 1 teaspoon chipotle chile powder, 2 teaspoons honey, 1 (1.5 fluid ounce) jigger bourbon whiskey, 2 (12 ounce) bottles barbeque sauce",
+      "directions": "peel the mangos and remove the pits. place the pits into a slow cooker, then roughly chop the mango and set aside. place the pork shoulder into the slow cooker, and season with the black pepper, kosher salt, and 1 teaspoon chipotle powder; pour in the balsamic vinegar and water.\ncover, and cook on low 5 to 8 hours until the meat is very tender. once done, drain the pork, discarding the cooking liquid and mango pits, and shred with two forks.\nwhile the pork is cooking, puree the chopped mango in a blender until smooth, then pour into a saucepan along with the honey, 1 teaspoon chipotle powder, and whiskey. bring to a simmer. reduce heat to medium-low, and simmer, stirring frequently until the mango has reduced and darkened slightly, about 10 minutes. stir in the barbeque sauce, and remove from the heat.\nreturn the shredded pork to the slow cooker, and stir in the mango barbeque sauce. cover, and cook on high 1 to 2 hours until the pork absorbs the barbeque sauce.\n\n\n\n\n\n\n\n\n\n",
+      "cuisine_path": "/main dishes/pork/pulled pork/",
+      "timing": "prep time: 20 mins, cook time: 6 hrs, total time: 6 hrs 20 mins, servings: 10, yield: 10 servings",
+      "nutrition": "total fat 8g 10%, saturated fat 3g 14%, cholesterol 68mg 23%, sodium 996mg 43%, total carbohydrate 35g 13%, dietary fiber 2g 5%, total sugars 26g, protein 24g, vitamin c 13mg 63%, calcium 38mg 3%, iron 2mg 8%, potassium 528mg 11%",
+      "combined_text": "bourbon-mango pulled pork 2  mangos, 1 (4 pound) pork shoulder roast , 2 tablespoons ground black pepper, 1 teaspoon kosher salt, 1 teaspoon chipotle chile powder, ¼ cup balsamic vinegar, 2 cups water, 1 teaspoon chipotle chil /main dishes/pork/pulled pork/ prep time: 20 mins, cook time: 6 hrs, total time: 6 hrs 20 mins, servings: 10, yield: 10 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Main Dishes/Pork/Pulled Pork/",
+      "ingredients": "2  mangos, 1 (4 pound) pork shoulder roast , 2 tablespoons ground black pepper, 1 teaspoon kosher salt, 1 teaspoon chipotle chile powder, ¼ cup balsamic vinegar, 2 cups water, 1 teaspoon chipotle chile powder, 2 teaspoons honey, 1 (1.5 fluid ounce) jigger bourbon whiskey, 2 (12 ounce) bottles barbeque sauce",
+      "prep_time": "20 mins",
+      "cook_time": "6 hrs",
+      "servings": 10
+    }
+  },
+  {
+    "id": 737,
+    "name": "Easy Pineapple Chicken",
+    "collection": "meat-mains",
+    "confidence": 5,
+    "features": {
+      "name": "easy pineapple chicken",
+      "ingredients": "3 tablespoons soy sauce, 3 tablespoons olive oil, divided, ½ teaspoon paprika,   salt to taste, 1 pound boneless, skinless chicken breast, cut into strips, 1  red bell pepper, cubed, 1 bunch scallions, trimmed and sliced into 1/2-inch lengths, 1 (12 ounce) can pineapple chunks, drained and juice reserved, 1 tablespoon cornstarch",
+      "directions": "combine soy sauce, 2 tablespoons olive oil, paprika, and salt in a bowl. add chicken strips and let marinate while preparing the remaining ingredients.\nheat remaining 1 tablespoon olive oil in a wok over medium-high heat. add bell pepper and stir-fry for 3 minutes. add scallions and cook for 2 more minutes. remove chicken from marinade and add to the wok; discard marinade. cook, stirring occasionally, until chicken is cooked through and no longer pink in the center, 10 to 15 minutes.\ncombine pineapple juice and cornstarch in a bowl; mix together. add pineapple chunks to the skillet and cook for 2 to 3 minutes. pour in pineapple juice mixture and bring to a boil. simmer until sauce has thickened, about 3 minutes.",
+      "cuisine_path": "/meat and poultry/chicken/chicken breast/stir-fry/",
+      "timing": "prep time: 10 mins, cook time: 20 mins, total time: 30 mins, servings: 4",
+      "nutrition": "total fat 13g 17%, saturated fat 2g 11%, cholesterol 65mg 22%, sodium 783mg 34%, total carbohydrate 22g 8%, dietary fiber 3g 11%, total sugars 15g, protein 26g, vitamin c 57mg 284%, calcium 69mg 5%, iron 2mg 13%, potassium 548mg 12%",
+      "combined_text": "easy pineapple chicken 3 tablespoons soy sauce, 3 tablespoons olive oil, divided, ½ teaspoon paprika,   salt to taste, 1 pound boneless, skinless chicken breast, cut into strips, 1  red bell pepper, cubed, 1 bunch scallions /meat and poultry/chicken/chicken breast/stir-fry/ prep time: 10 mins, cook time: 20 mins, total time: 30 mins, servings: 4"
+    },
+    "original_data": {
+      "cuisine_path": "/Meat and Poultry/Chicken/Chicken Breast/Stir-Fry/",
+      "ingredients": "3 tablespoons soy sauce, 3 tablespoons olive oil, divided, ½ teaspoon paprika,   salt to taste, 1 pound boneless, skinless chicken breast, cut into strips, 1  red bell pepper, cubed, 1 bunch scallions, trimmed and sliced into 1/2-inch lengths, 1 (12 ounce) can pineapple chunks, drained and juice reserved, 1 tablespoon cornstarch",
+      "prep_time": "10 mins",
+      "cook_time": "20 mins",
+      "servings": 4
+    }
+  },
+  {
+    "id": 742,
+    "name": "Hawaiian Meatballs",
+    "collection": "meat-mains",
+    "confidence": 5,
+    "features": {
+      "name": "hawaiian meatballs",
+      "ingredients": "1 pound ground beef, ½ teaspoon ground ginger, ¼ teaspoon garlic powder, ¼ teaspoon ground black pepper",
+      "directions": "make the meatballs: mix ground beef, ginger, garlic powder, and black pepper together in a large bowl until well combined. shape into 1 1/2-inch balls.\nsauté meatballs in a large skillet over medium-high heat until browned, about 10 minutes.\nwhile the meatballs are cooking, prepare the sauce: pour pineapple juice into a liquid measuring cup, and reserve pineapple chunks; add enough water to pineapple juice to make 1 cup. mix brown sugar and cornstarch in a small bowl.\ntransfer meatballs to a plate, reserving the pan drippings. add pineapple juice and brown sugar mixtures to the warm pan drippings. stir in vinegar and soy sauce and bring to a boil. cook until sauce thickens, 2 to 3 minutes.\nreturn meatballs to the skillet; add pineapple chunks, and green pepper. simmer until meatballs are no longer pink inside, about 10 minutes. an instant-read thermometer inserted into the center should read at least 160 degrees f (71 degrees c).",
+      "cuisine_path": "/main dishes/meatball recipes/",
+      "timing": "prep time: 20 mins, cook time: 30 mins, total time: 50 mins, servings: 4",
+      "nutrition": "total fat 17g 21%, saturated fat 7g 33%, cholesterol 68mg 23%, sodium 279mg 12%, total carbohydrate 28g 10%, dietary fiber 1g 4%, total sugars 22g, protein 19g, vitamin c 29mg 147%, calcium 33mg 3%, iron 2mg 13%, potassium 327mg 7%",
+      "combined_text": "hawaiian meatballs 1 pound ground beef, ½ teaspoon ground ginger, ¼ teaspoon garlic powder, ¼ teaspoon ground black pepper /main dishes/meatball recipes/ prep time: 20 mins, cook time: 30 mins, total time: 50 mins, servings: 4"
+    },
+    "original_data": {
+      "cuisine_path": "/Main Dishes/Meatball Recipes/",
+      "ingredients": "1 pound ground beef, ½ teaspoon ground ginger, ¼ teaspoon garlic powder, ¼ teaspoon ground black pepper",
+      "prep_time": "20 mins",
+      "cook_time": "30 mins",
+      "servings": 4
+    }
+  },
+  {
+    "id": 747,
+    "name": "Thai Pineapple Chicken Curry",
+    "collection": "meat-mains",
+    "confidence": 2,
+    "features": {
+      "name": "thai pineapple chicken curry",
+      "ingredients": "1 quart water, 2 cups uncooked jasmine rice, ¼ cup red curry paste, 2 (13.5 ounce) cans coconut milk, divided, 2  skinless, boneless chicken breast halves - cut into thin strips, 1 ½ cups sliced bamboo shoots, drained, ¼ cup white sugar, 3 tablespoons fish sauce, ½  red bell pepper, julienned, ½  green bell pepper, julienned, ½ small onion, chopped, 1 cup pineapple chunks, drained",
+      "directions": "bring water and rice to a boil in a pot. reduce heat to low, cover, and simmer for 25 minutes.\nwhisk together curry paste and 1 can coconut milk in a bowl. transfer to a wok and mix in remaining coconut milk, chicken, bamboo shoots, sugar, and fish sauce. bring to a boil and cook until chicken juices run clear, 15 minutes.\nmix bell peppers and onion into the wok. continue cooking until peppers are tender, about 10 minutes.\nremove from heat and stir in pineapple. serve over cooked rice.",
+      "cuisine_path": "/cuisine/asian/thai/",
+      "timing": "prep time: 15 mins, cook time: 35 mins, total time: 50 mins, servings: 6",
+      "nutrition": "total fat 35g 44%, saturated fat 25g 125%, cholesterol 20mg 7%, sodium 781mg 34%, total carbohydrate 78g 28%, dietary fiber 4g 13%, total sugars 16g, protein 20g, vitamin c 27mg 135%, calcium 65mg 5%, iron 7mg 39%, potassium 546mg 12%",
+      "combined_text": "thai pineapple chicken curry 1 quart water, 2 cups uncooked jasmine rice, ¼ cup red curry paste, 2 (13.5 ounce) cans coconut milk, divided, 2  skinless, boneless chicken breast halves - cut into thin strips, 1 ½ cups sliced bambo /cuisine/asian/thai/ prep time: 15 mins, cook time: 35 mins, total time: 50 mins, servings: 6"
+    },
+    "original_data": {
+      "cuisine_path": "/Cuisine/Asian/Thai/",
+      "ingredients": "1 quart water, 2 cups uncooked jasmine rice, ¼ cup red curry paste, 2 (13.5 ounce) cans coconut milk, divided, 2  skinless, boneless chicken breast halves - cut into thin strips, 1 ½ cups sliced bamboo shoots, drained, ¼ cup white sugar, 3 tablespoons fish sauce, ½  red bell pepper, julienned, ½  green bell pepper, julienned, ½ small onion, chopped, 1 cup pineapple chunks, drained",
+      "prep_time": "15 mins",
+      "cook_time": "35 mins",
+      "servings": 6
+    }
+  },
+  {
+    "id": 750,
+    "name": "Pineapple Pork Chops",
+    "collection": "meat-mains",
+    "confidence": 9,
+    "features": {
+      "name": "pineapple pork chops",
+      "ingredients": "1 tablespoon olive oil, 4  boneless pork chops, 1 (14.5 ounce) can chicken broth, 2 tablespoons soy sauce, 1 tablespoon vinegar, 2 tablespoons brown sugar, 2 tablespoons cornstarch, ½ cup pineapple juice",
+      "directions": "heat the olive oil in a skillet over medium heat, and brown the pork chops about 5 minutes on each side. remove chops from the skillet, and set aside.\nmix the chicken broth, soy sauce and vinegar into the skillet, and bring to a boil. return the pork chops to the skillet, reduce heat, and simmer 20 minutes. an instant-read thermometer inserted into the center should read 145 degrees f (63 degrees c). remove chops from the skillet, reserving broth mixture, and set aside.\nin a bowl, blend the brown sugar, cornstarch, and pineapple juice. mix into the skillet with the chicken broth mixture. bring to a boil. serve with the cooked pork chops.",
+      "cuisine_path": "/main dishes/pork/pork chop recipes/boneless/",
+      "timing": "prep time: 15 mins, cook time: 35 mins, total time: 50 mins, servings: 4, yield: 4 servings",
+      "nutrition": "total fat 10g 13%, saturated fat 3g 14%, cholesterol 39mg 13%, sodium 910mg 40%, total carbohydrate 15g 6%, dietary fiber 0g 1%, total sugars 10g, protein 15g, vitamin c 3mg 17%, calcium 22mg 2%, iron 1mg 4%, potassium 268mg 6%",
+      "combined_text": "pineapple pork chops 1 tablespoon olive oil, 4  boneless pork chops, 1 (14.5 ounce) can chicken broth, 2 tablespoons soy sauce, 1 tablespoon vinegar, 2 tablespoons brown sugar, 2 tablespoons cornstarch, ½ cup pineapple ju /main dishes/pork/pork chop recipes/boneless/ prep time: 15 mins, cook time: 35 mins, total time: 50 mins, servings: 4, yield: 4 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Main Dishes/Pork/Pork Chop Recipes/Boneless/",
+      "ingredients": "1 tablespoon olive oil, 4  boneless pork chops, 1 (14.5 ounce) can chicken broth, 2 tablespoons soy sauce, 1 tablespoon vinegar, 2 tablespoons brown sugar, 2 tablespoons cornstarch, ½ cup pineapple juice",
+      "prep_time": "15 mins",
+      "cook_time": "35 mins",
+      "servings": 4
+    }
+  },
+  {
+    "id": 759,
+    "name": "Instant Pot Tacos al Pastor",
+    "collection": "meat-mains",
+    "confidence": 3,
+    "features": {
+      "name": "instant pot tacos al pastor",
+      "ingredients": "3 pounds pork butt, cut into 2-inch cubes, 2 cups pineapple juice, ¼ cup white vinegar, 1 medium orange, juiced, 1 medium lime, juiced, 1 cup chopped onion, 4 cloves garlic, chopped, 2  chipotle peppers in adobo sauce, 1 tablespoon chili powder, 1 teaspoon cumin, 1 ½ teaspoons salt, ½ teaspoon ground black pepper, 1 (1.41 ounce) package sazon seasoning with achiote,   vegetable oil as needed, 20 ounces pineapple chunks, drained, 12 (10 inch) flour tortillas, ½ cup chopped red onion,   pico de gallo salsa, 1 medium avocado, diced (optional), ⅛ cup chopped cilantro, 1  lime, cut into wedges",
+      "directions": "place pork in a large lidded container. combine pineapple juice, vinegar, orange juice, lime juice, onion, garlic, chipotle peppers, chili powder, cumin, salt, pepper, and sazon in a blender; blend until smooth. pour sauce over the pork and make sure all chunks of meat are covered. seal the container and marinate for at least 8 hours or up to 24 hours.\nturn on a multi-functional pressure cooker (such as instant pot) and select saute function. add vegetable oil and heat until hot. add chunks of marinated pork and brown on all sides, reserving extra sauce, about 5 minutes. you may need to work in batches depending on the size of your instant pot. turn off saute mode and pour reserved sauce over the pork. close and lock the lid. select high pressure according to manufacturer's instructions; set timer for 35 minutes. allow 10 to 15 minutes for pressure to build.\nrelease pressure first using the natural-release method according to manufacturer's instructions, about 10 minutes. release remaining pressure using the manufacturer's quick release method, about 5 minutes. unlock and remove the lid.\nset an oven rack about 6 inches from the heat source and preheat the oven's broiler. line a baking sheet with aluminum foil.\nremove the pork chunks from the pot using tongs or a slotted spoon, and place them on the baking sheet. reserve the sauce in the instant pot® for now.\nuse forks to coarsely shred the pork, removing and discarding any excess fatty chunks. spread meat out evenly on the prepared baking sheet. add pineapple chunks to the baking sheet with the meat, then place the baking sheet under the broiler. broil until the tips of the meat and pineapple are beginning to get a little brown and crispy, about 5 minutes. remove from the oven.\nuse a spoon to drizzle the reserved sauce from the instant pot over the meat to moisten it and add some more of the marinade flavor.\ncreate tacos by portioning the pork and pineapple chunks on flour tortillas. add chopped red onion, pico de gallo salsa, avocado, and cilantro. garnish with lime wedges.",
+      "cuisine_path": "/main dishes/taco recipes/",
+      "timing": "prep time: 15 mins, cook time: 1 hrs, additional time: 8 hrs 15 mins, total time: 9 hrs 30 mins, servings: 12",
+      "nutrition": "total fat 14g 18%, saturated fat 4g 18%, cholesterol 43mg 14%, sodium 1339mg 58%, total carbohydrate 54g 20%, dietary fiber 5g 17%, total sugars 14g, protein 22g, vitamin c 16mg 79%, calcium 128mg 10%, iron 4mg 20%, potassium 550mg 12%",
+      "combined_text": "instant pot tacos al pastor 3 pounds pork butt, cut into 2-inch cubes, 2 cups pineapple juice, ¼ cup white vinegar, 1 medium orange, juiced, 1 medium lime, juiced, 1 cup chopped onion, 4 cloves garlic, chopped, 2  chipotle peppe /main dishes/taco recipes/ prep time: 15 mins, cook time: 1 hrs, additional time: 8 hrs 15 mins, total time: 9 hrs 30 mins, servings: 12"
+    },
+    "original_data": {
+      "cuisine_path": "/Main Dishes/Taco Recipes/",
+      "ingredients": "3 pounds pork butt, cut into 2-inch cubes, 2 cups pineapple juice, ¼ cup white vinegar, 1 medium orange, juiced, 1 medium lime, juiced, 1 cup chopped onion, 4 cloves garlic, chopped, 2  chipotle peppers in adobo sauce, 1 tablespoon chili powder, 1 teaspoon cumin, 1 ½ teaspoons salt, ½ teaspoon ground black pepper, 1 (1.41 ounce) package sazon seasoning with achiote,   vegetable oil as needed, 20 ounces pineapple chunks, drained, 12 (10 inch) flour tortillas, ½ cup chopped red onion,   pico de gallo salsa, 1 medium avocado, diced (Optional), ⅛ cup chopped cilantro, 1  lime, cut into wedges",
+      "prep_time": "15 mins",
+      "cook_time": "1 hrs",
+      "servings": 12
+    }
+  },
+  {
+    "id": 773,
+    "name": "Hawaiian Chicken Kabobs",
+    "collection": "meat-mains",
+    "confidence": 6,
+    "features": {
+      "name": "hawaiian chicken kabobs",
+      "ingredients": "3 tablespoons soy sauce, 3 tablespoons brown sugar, 2 tablespoons sherry, 1 tablespoon sesame oil, ¼ teaspoon ground ginger, ¼ teaspoon garlic powder, 8  skinless, boneless chicken breast halves - cut into 2 inch pieces, 1 (20 ounce) can pineapple chunks, drained,   skewers",
+      "directions": "in a shallow glass dish, mix the soy sauce, brown sugar, sherry, sesame oil, ginger, and garlic powder. stir the chicken pieces and pineapple into the marinade until well coated. cover, and marinate in the refrigerator at least 2 hours.\npreheat grill to medium-high heat.\nlightly oil the grill grate. thread chicken and pineapple alternately onto skewers. grill 15 to 20 minutes, turning occasionally, or until chicken juices run clear.\n\n\n\n\n\n\n\n\n\n\n\nlauralovinglife\n",
+      "cuisine_path": "/meat and poultry/chicken/chicken breast/healthy chicken/",
+      "timing": "prep time: 10 mins, cook time: 20 mins, additional time: 2 hrs, total time: 2 hrs 30 mins, servings: 8, yield: 8 servings",
+      "nutrition": "total fat 4g 5%, saturated fat 1g 5%, cholesterol 61mg 20%, sodium 413mg 18%, total carbohydrate 17g 6%, dietary fiber 1g 2%, total sugars 15g, protein 24g, vitamin c 7mg 34%, calcium 26mg 2%, iron 1mg 6%, potassium 257mg 5%",
+      "combined_text": "hawaiian chicken kabobs 3 tablespoons soy sauce, 3 tablespoons brown sugar, 2 tablespoons sherry, 1 tablespoon sesame oil, ¼ teaspoon ground ginger, ¼ teaspoon garlic powder, 8  skinless, boneless chicken breast halves - cut /meat and poultry/chicken/chicken breast/healthy chicken/ prep time: 10 mins, cook time: 20 mins, additional time: 2 hrs, total time: 2 hrs 30 mins, servings: 8, yield: 8 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Meat and Poultry/Chicken/Chicken Breast/Healthy Chicken/",
+      "ingredients": "3 tablespoons soy sauce, 3 tablespoons brown sugar, 2 tablespoons sherry, 1 tablespoon sesame oil, ¼ teaspoon ground ginger, ¼ teaspoon garlic powder, 8  skinless, boneless chicken breast halves - cut into 2 inch pieces, 1 (20 ounce) can pineapple chunks, drained,   skewers",
+      "prep_time": "10 mins",
+      "cook_time": "20 mins",
+      "servings": 8
+    }
+  },
+  {
+    "id": 776,
+    "name": "BBQ Teriyaki Pork Kabobs",
+    "collection": "meat-mains",
+    "confidence": 2,
+    "features": {
+      "name": "bbq teriyaki pork kabobs",
+      "ingredients": "3 tablespoons soy sauce, 3 tablespoons olive oil, 1 clove garlic, minced, ½ teaspoon crushed red pepper flakes,   salt and pepper to taste, 1 pound boneless pork loin, cut into 1 inch cubes, 1 (14.5 ounce) can low-sodium beef broth, 2 tablespoons cornstarch, 2 tablespoons soy sauce, 1 tablespoon brown sugar, 2 cloves garlic, minced, ¼ teaspoon ground ginger, 3  portobello mushrooms, cut into quarters, 1 large red onion, cut into 12 wedges, 12  cherry tomatoes, 12 bite-size chunks fresh pineapple",
+      "directions": "in a shallow dish, mix together 3 tablespoons soy sauce, olive oil, 1 clove minced garlic, red pepper flakes, salt, and pepper. add pork cubes, and turn to coat evenly with marinade. cover, and refrigerate for 3 hours.\nin a saucepan, combine beef broth, cornstarch, 2 tablespoons soy sauce, brown sugar, 2 cloves minced garlic, and ginger. bring to a boil, stirring constantly. reduce heat, and simmer 5 minutes.\npreheat an outdoor grill for high heat and lightly oil grate. thread pork cubes onto skewers, alternating with mushrooms, onion, tomatoes, and pineapple chunks.\ncook on grill for 15 minutes, or until meat is cooked through. turn skewers, and baste often with sauce during cooking.",
+      "cuisine_path": "/cuisine/asian/",
+      "timing": "prep time: 30 mins, cook time: 20 mins, additional time: 3 hrs, total time: 3 hrs 50 mins, servings: 6, yield: 6 servings",
+      "nutrition": "total fat 17g 22%, saturated fat 4g 22%, cholesterol 48mg 16%, sodium 867mg 38%, total carbohydrate 18g 6%, dietary fiber 2g 8%, total sugars 8g, protein 19g, vitamin c 25mg 124%, calcium 40mg 3%, iron 2mg 10%, potassium 789mg 17%",
+      "combined_text": "bbq teriyaki pork kabobs 3 tablespoons soy sauce, 3 tablespoons olive oil, 1 clove garlic, minced, ½ teaspoon crushed red pepper flakes,   salt and pepper to taste, 1 pound boneless pork loin, cut into 1 inch cubes, 1 (14.5 o /cuisine/asian/ prep time: 30 mins, cook time: 20 mins, additional time: 3 hrs, total time: 3 hrs 50 mins, servings: 6, yield: 6 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Cuisine/Asian/",
+      "ingredients": "3 tablespoons soy sauce, 3 tablespoons olive oil, 1 clove garlic, minced, ½ teaspoon crushed red pepper flakes,   salt and pepper to taste, 1 pound boneless pork loin, cut into 1 inch cubes, 1 (14.5 ounce) can low-sodium beef broth, 2 tablespoons cornstarch, 2 tablespoons soy sauce, 1 tablespoon brown sugar, 2 cloves garlic, minced, ¼ teaspoon ground ginger, 3  portobello mushrooms, cut into quarters, 1 large red onion, cut into 12 wedges, 12  cherry tomatoes, 12 bite-size chunks fresh pineapple",
+      "prep_time": "30 mins",
+      "cook_time": "20 mins",
+      "servings": 6
+    }
+  },
+  {
+    "id": 791,
+    "name": "Papaya-Stuffed Chicken and Basmati Rice",
+    "collection": "meat-mains",
+    "confidence": 5,
+    "features": {
+      "name": "papaya-stuffed chicken and basmati rice",
+      "ingredients": "4  skinless, boneless chicken breast halves, 1  papaya, peeled, seeded and sliced, 1 pinch ground cinnamon, or to taste, ⅓ cup melted margarine, 1 cup crushed buttery round crackers (such as ritz®), 1 tablespoon margarine, 1 cup basmati rice, 1 ½ cups water, 1 tablespoon margarine, 1 cup orange juice, 1 (8 ounce) can crushed pineapple in its own juice, 1 tablespoon brown sugar, ½ teaspoon ground cinnamon, 1 teaspoon ground nutmeg, 1 pinch cayenne pepper, 1 pinch salt and ground black pepper to taste",
+      "directions": "preheat an oven to 350 degrees f (175 degrees c). line a baking sheet with aluminum foil.\nlay a chicken breast flat onto your work surface. use the tip of a sharp boning or paring knife to cut a pocket in the chicken breast through a 2 inch slit in the side. repeat with the remaining chicken breasts. place the slices into the pocket of each chicken breasts, then sprinkle papaya slices with cinnamon to taste. dip the chicken breast halves one at a time into the melted margarine, then the cracker crumbs.\nheat 1 tablespoons of margarine in a skillet over medium-high heat. arrange the chicken breasts in the skillet and cook until golden brown on each side, about 10 minutes. place browned chicken breasts on the prepared baking sheet.\nbake in the preheated oven for about 20 minutes, then flip each chicken breast. continue baking until the chicken breasts are no longer pink in the center and the juices run clear, about 20 minutes more. an instant-read thermometer inserted into the center should read at least 165 degrees f (74 degrees c).\nbring the rice and water to a boil in a saucepan over high heat. reduce heat to medium-low, cover, and simmer until the rice is tender, and the liquid has been absorbed, 20 to 25 minutes.\nmeanwhile, melt the remaining 1 tablespoon of margarine in the same skillet used to brown the chicken over medium-high heat, scraping up any browned bits. stir in the orange juice, pineapple, brown sugar, 1/2 teaspoon of cinnamon, nutmeg, cayenne, salt and pepper. reduce heat to medium and simmer until reduced, about 30 minutes. reduce the heat once more to low and continue simmering until the sauce is thickened. serve the chicken breasts over the rice with the pineapple sauce spooned on top.",
+      "cuisine_path": "/meat and poultry/chicken/chicken breast/",
+      "timing": "prep time: 30 mins, cook time: 1 hrs 20 mins, total time: 1 hrs 50 mins, servings: 4, yield: 4 servings",
+      "nutrition": "total fat 40g 51%, saturated fat 8g 39%, cholesterol 65mg 22%, sodium 814mg 35%, total carbohydrate 96g 35%, dietary fiber 3g 12%, total sugars 23g, protein 32g, vitamin c 61mg 306%, calcium 107mg 8%, iron 5mg 29%, potassium 560mg 12%",
+      "combined_text": "papaya-stuffed chicken and basmati rice 4  skinless, boneless chicken breast halves, 1  papaya, peeled, seeded and sliced, 1 pinch ground cinnamon, or to taste, ⅓ cup melted margarine, 1 cup crushed buttery round crackers (such as ritz®), 1 /meat and poultry/chicken/chicken breast/ prep time: 30 mins, cook time: 1 hrs 20 mins, total time: 1 hrs 50 mins, servings: 4, yield: 4 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Meat and Poultry/Chicken/Chicken Breast/",
+      "ingredients": "4  skinless, boneless chicken breast halves, 1  papaya, peeled, seeded and sliced, 1 pinch ground cinnamon, or to taste, ⅓ cup melted margarine, 1 cup crushed buttery round crackers (such as Ritz®), 1 tablespoon margarine, 1 cup basmati rice, 1 ½ cups water, 1 tablespoon margarine, 1 cup orange juice, 1 (8 ounce) can crushed pineapple in its own juice, 1 tablespoon brown sugar, ½ teaspoon ground cinnamon, 1 teaspoon ground nutmeg, 1 pinch cayenne pepper, 1 pinch salt and ground black pepper to taste",
+      "prep_time": "30 mins",
+      "cook_time": "1 hrs 20 mins",
+      "servings": 4
+    }
+  },
+  {
+    "id": 794,
+    "name": "Baby Back Ribs with Papaya Sauce",
+    "collection": "meat-mains",
+    "confidence": 4,
+    "features": {
+      "name": "baby back ribs with papaya sauce",
+      "ingredients": "1 clove garlic, minced, 1 cup papaya - peeled, seeded and cubed, ½ cup water, ½ cup white wine, ½ cup honey, ¼ cup tomato paste, 4 pounds pork spareribs",
+      "directions": "place the garlic, papaya, water, wine, honey, and tomato paste into a food processor. pulse until until the mixture is finely chopped, about 15 seconds.\nplace the ribs into a 9x13-inch glass baking dish and pour the marinade overtop. mix the ribs around in the marinade to ensure they are evenly coated. cover with plastic wrap, and refrigerate for at least 6 hours, or overnight for best results.\npreheat an oven to 400 degrees f (200 degrees c).\nremove ribs from the marinade, and shake off excess. scrape the marinade into a small saucepan and bring to a boil over high heat. reduce heat to medium-low, and simmer for 10 minutes; set aside.\nbake the ribs in the preheated oven until the meat pulls away easily from the bone, about 1 1/2 hours. baste every 15 minutes with the reserved marinade.",
+      "cuisine_path": "/meat and poultry/pork/pork rib recipes/spare ribs/",
+      "timing": "prep time: 10 mins, cook time: 1 hrs 50 mins, additional time: 6 hrs, total time: 8 hrs, servings: 4, yield: 4 servings",
+      "nutrition": "total fat 60g 77%, saturated fat 22g 111%, cholesterol 240mg 80%, sodium 319mg 14%, total carbohydrate 43g 15%, dietary fiber 1g 5%, total sugars 39g, protein 59g, vitamin c 26mg 129%, calcium 115mg 9%, iron 5mg 25%, potassium 938mg 20%",
+      "combined_text": "baby back ribs with papaya sauce 1 clove garlic, minced, 1 cup papaya - peeled, seeded and cubed, ½ cup water, ½ cup white wine, ½ cup honey, ¼ cup tomato paste, 4 pounds pork spareribs /meat and poultry/pork/pork rib recipes/spare ribs/ prep time: 10 mins, cook time: 1 hrs 50 mins, additional time: 6 hrs, total time: 8 hrs, servings: 4, yield: 4 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Meat and Poultry/Pork/Pork Rib Recipes/Spare Ribs/",
+      "ingredients": "1 clove garlic, minced, 1 cup papaya - peeled, seeded and cubed, ½ cup water, ½ cup white wine, ½ cup honey, ¼ cup tomato paste, 4 pounds pork spareribs",
+      "prep_time": "10 mins",
+      "cook_time": "1 hrs 50 mins",
+      "servings": 4
+    }
+  },
+  {
+    "id": 820,
+    "name": "Chicken Stuffed Baked Avocados",
+    "collection": "meat-mains",
+    "confidence": 6,
+    "features": {
+      "name": "chicken stuffed baked avocados",
+      "ingredients": "4  avocados, halved and pitted, 2  cooked chicken breasts, shredded, 4 ounces cream cheese, softened, ¼ cup chopped tomatoes, ¼ teaspoon salt, ¼ teaspoon ground black pepper, 1 pinch cayenne pepper, ½ cup shredded parmesan cheese, or more to taste",
+      "directions": "preheat oven to 400 degrees f (200 degrees c).\nscoop out some of the flesh in the center of each avocado; place into mixing bowl. add chicken, cream cheese, tomatoes, salt, pepper, and cayenne pepper; mix well to combine. scoop spoonfuls of chicken mixture into the wells of each avocado; top each with generous amount of parmesan cheese. place avocado halves, face-up, in muffin cups to stabilize.\nbake avocados in preheated oven until cheese is melted, 8 to 10 minutes.\n\n\n\n\n\n\n\n\n\n",
+      "cuisine_path": "/meat and poultry/chicken/chicken breast/cheesy chicken/",
+      "timing": "prep time: 10 mins, cook time: 8 mins, total time: 18 mins, servings: 8, yield: 8 avocado halves",
+      "nutrition": "total fat 25g 32%, saturated fat 7g 37%, cholesterol 61mg 20%, sodium 233mg 10%, total carbohydrate 9g 3%, dietary fiber 7g 24%, total sugars 1g, protein 20g, vitamin c 11mg 54%, calcium 87mg 7%, iron 1mg 7%, potassium 623mg 13%",
+      "combined_text": "chicken stuffed baked avocados 4  avocados, halved and pitted, 2  cooked chicken breasts, shredded, 4 ounces cream cheese, softened, ¼ cup chopped tomatoes, ¼ teaspoon salt, ¼ teaspoon ground black pepper, 1 pinch cayenne pepper, ½ /meat and poultry/chicken/chicken breast/cheesy chicken/ prep time: 10 mins, cook time: 8 mins, total time: 18 mins, servings: 8, yield: 8 avocado halves"
+    },
+    "original_data": {
+      "cuisine_path": "/Meat and Poultry/Chicken/Chicken Breast/Cheesy Chicken/",
+      "ingredients": "4  avocados, halved and pitted, 2  cooked chicken breasts, shredded, 4 ounces cream cheese, softened, ¼ cup chopped tomatoes, ¼ teaspoon salt, ¼ teaspoon ground black pepper, 1 pinch cayenne pepper, ½ cup shredded Parmesan cheese, or more to taste",
+      "prep_time": "10 mins",
+      "cook_time": "8 mins",
+      "servings": 8
+    }
+  },
+  {
+    "id": 822,
+    "name": "Carne Asada Tacos",
+    "collection": "meat-mains",
+    "confidence": 3,
+    "features": {
+      "name": "carne asada tacos",
+      "ingredients": "1 ½ pounds boneless beef top sirloin, cut into thin bite-size slices, ½ teaspoon salt, 1 teaspoon freshly ground black pepper,   crushed red pepper to taste, 1  lime, 1 (28 ounce) can tomatillos, 2  fresh jalapeno peppers, seeded, 4 tablespoons canola oil, divided, 1 (10.5 ounce) can beef broth, 12 (6 inch) corn tortillas, ½ large onion, chopped, 2  tomatoes, chopped, 1  avocado - peeled, pitted and sliced, 1 bunch fresh cilantro, chopped, 1  lemon",
+      "directions": "place sliced meat into a shallow bowl, and season with salt, black pepper, and crushed red pepper. squeeze the lime juice over the meat, and turn until evenly coated. cover, and refrigerate for 30 minutes.\nin a blender or food processor, combine tomatillo and jalapeno. puree for 15 to 20 seconds, or until thick. heat 1 tablespoon oil in a large skillet over medium high heat. carefully pour in tomatillo mixture. cook, stirring frequently, for 5 minutes. stir in beef broth. reduce heat, and simmer for 20 to 30 minutes, or until mixture coats a spoon. transfer mixture to a serving dish.\nheat tablespoon oil in a large skillet over high heat. stir in 1/3 of the beef, and saute for 1 minute. transfer to serving dish. repeat with remaining beef. meanwhile, heat tortillas in the oven or microwave, according to package instructions.\nto serve, place two tortillas on top of each other. add desired amount of meat, spoon over some tomatillo mixture. top with onions, tomatoes, avocado and cilantro. garnish with a wedge of lemon, to be squeezed over taco before eating.",
+      "cuisine_path": "/main dishes/taco recipes/",
+      "timing": "prep time: 30 mins, cook time: 45 mins, total time: 1 hrs 15 mins, servings: 6, yield: 6 servings",
+      "nutrition": "total fat 23g 29%, saturated fat 4g 19%, cholesterol 69mg 23%, sodium 873mg 38%, total carbohydrate 40g 15%, dietary fiber 13g 46%, total sugars 5g, protein 30g, vitamin c 32mg 161%, calcium 128mg 10%, iron 5mg 29%, potassium 1128mg 24%",
+      "combined_text": "carne asada tacos 1 ½ pounds boneless beef top sirloin, cut into thin bite-size slices, ½ teaspoon salt, 1 teaspoon freshly ground black pepper,   crushed red pepper to taste, 1  lime, 1 (28 ounce) can tomatillos, 2  f /main dishes/taco recipes/ prep time: 30 mins, cook time: 45 mins, total time: 1 hrs 15 mins, servings: 6, yield: 6 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Main Dishes/Taco Recipes/",
+      "ingredients": "1 ½ pounds boneless beef top sirloin, cut into thin bite-size slices, ½ teaspoon salt, 1 teaspoon freshly ground black pepper,   crushed red pepper to taste, 1  lime, 1 (28 ounce) can tomatillos, 2  fresh jalapeno peppers, seeded, 4 tablespoons canola oil, divided, 1 (10.5 ounce) can beef broth, 12 (6 inch) corn tortillas, ½ large onion, chopped, 2  tomatoes, chopped, 1  avocado - peeled, pitted and sliced, 1 bunch fresh cilantro, chopped, 1  lemon",
+      "prep_time": "30 mins",
+      "cook_time": "45 mins",
+      "servings": 6
+    }
+  },
+  {
+    "id": 837,
+    "name": "Easy Keto Beef Tacos",
+    "collection": "meat-mains",
+    "confidence": 2,
+    "features": {
+      "name": "easy keto beef tacos",
+      "ingredients": "2 cups shredded cheddar cheese, 1 pound ground beef, ½ package taco seasoning mix, ½ teaspoon salt, ¼ teaspoon ground black pepper, 1  avocado, diced, 1 cup shredded lettuce, ½ cup shredded cheddar cheese, ½ cup tomatoes, diced",
+      "directions": "preheat oven to 350 degrees f (175 degrees c). line 2 baking sheets with parchment paper or silicone mat.\nspread cheddar cheese into four 6-inch circles, placed 2 inches apart.\nbake in the preheated oven until cheese melts and is lightly brown, 6 to 8 minutes.\ncool for 2 to 3 minutes before lifting with a spatula. place over wooden spoon handle wrapped in aluminum foil balanced over 2 cups/cans. let taco shells cool completely, about 10 minutes.\ncook beef in a skillet over medium-high heat until browned, stirring often to separate meat, about 7 minutes. season with taco seasoning, salt, and pepper; cook for 1 minute more.\ndivide beef mixture among cheese taco shells. top with avocado, lettuce, cheddar cheese, and tomatoes.\n\n\n\n\n\n\n\n\n\n",
+      "cuisine_path": "/cuisine/latin american/mexican/",
+      "timing": "prep time: 20 mins, cook time: 18 mins, additional time: 12 mins, total time: 50 mins, servings: 4, yield: 4 servings",
+      "nutrition": "total fat 53g 67%, saturated fat 26g 128%, cholesterol 157mg 52%, sodium 1197mg 52%, total carbohydrate 10g 4%, dietary fiber 4g 14%, total sugars 2g, protein 41g, vitamin c 8mg 42%, calcium 619mg 48%, iron 3mg 16%, potassium 634mg 13%",
+      "combined_text": "easy keto beef tacos 2 cups shredded cheddar cheese, 1 pound ground beef, ½ package taco seasoning mix, ½ teaspoon salt, ¼ teaspoon ground black pepper, 1  avocado, diced, 1 cup shredded lettuce, ½ cup shredded cheddar ch /cuisine/latin american/mexican/ prep time: 20 mins, cook time: 18 mins, additional time: 12 mins, total time: 50 mins, servings: 4, yield: 4 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Cuisine/Latin American/Mexican/",
+      "ingredients": "2 cups shredded Cheddar cheese, 1 pound ground beef, ½ package taco seasoning mix, ½ teaspoon salt, ¼ teaspoon ground black pepper, 1  avocado, diced, 1 cup shredded lettuce, ½ cup shredded Cheddar cheese, ½ cup tomatoes, diced",
+      "prep_time": "20 mins",
+      "cook_time": "18 mins",
+      "servings": 4
+    }
+  },
+  {
+    "id": 850,
+    "name": "Mexican Botana Platter",
+    "collection": "meat-mains",
+    "confidence": 9,
+    "features": {
+      "name": "mexican botana platter",
+      "ingredients": "2 pounds beef skirt steak, 2 pounds boneless chicken thighs, 2 teaspoons fajita seasoning, 2 ½ teaspoons garlic powder, divided, 2 cups refried beans,   salt to taste,   lemon pepper to taste, 4  avocados - peeled, pitted, and mashed, 1 cup corn oil, 24  corn tortillas, 1 medium green bell pepper, chopped, 1 medium onion, chopped, ⅓ bunch cilantro, chopped, 1 (16 ounce) package shredded american cheese, 12 ounces sour cream, 2 large tomatoes, chopped, 4  pickled jalapeno peppers, sliced (optional)",
+      "directions": "preheat oven to 350 degrees f (175 degrees c).\nrub beef and chicken with fajita seasoning and 2 teaspoons garlic powder. cut beef and chicken into 1-inch strips, and set aside.\nin a saucepan, warm refried beans over medium-low heat.\nstir salt, lemon pepper, and 1/2 teaspoon garlic powder into mashed avocados. set aside.\nheat corn oil in a deep skillet over medium-high heat. cut tortillas in half, then cut in half again to make 4 triangular pieces per tortilla. place into the skillet as many tortilla pieces as will fit without overlapping, and fry until crisp; repeat this process until all the tortilla pieces have been fried. remove crisp tortillas to paper towels. discard oil, and wipe out skillet.\nreturn skillet to medium heat, and stir in beef, chicken, bell pepper, and onion. cook, stirring occasionally, about 7 minutes; then stir in cilantro.\nlayer the tortilla pieces along the bottom of a large baking dish. spread refried beans evenly over tortilla pieces. sprinkle cheese over beans, then spread meat mixture evenly on top.\nbake in preheated oven until cheese and beans are bubbly, about 20 minutes. remove from oven, and drop sour cream and guacamole by tablespoonfuls in various places across the top. sprinkle tomatoes and jalapenos on top.",
+      "cuisine_path": "/mexican/main dishes/fajita recipes/chicken/",
+      "timing": "prep time: 40 mins, cook time: 40 mins, total time: 1 hrs 20 mins, servings: 12, yield: 12 servings",
+      "nutrition": "total fat 40g 51%, saturated fat 16g 80%, cholesterol 120mg 40%, sodium 958mg 42%, total carbohydrate 42g 15%, dietary fiber 11g 39%, total sugars 3g, protein 40g, vitamin c 23mg 116%, calcium 326mg 25%, iron 3mg 19%, potassium 1008mg 21%",
+      "combined_text": "mexican botana platter 2 pounds beef skirt steak, 2 pounds boneless chicken thighs, 2 teaspoons fajita seasoning, 2 ½ teaspoons garlic powder, divided, 2 cups refried beans,   salt to taste,   lemon pepper to taste, 4  avoc /mexican/main dishes/fajita recipes/chicken/ prep time: 40 mins, cook time: 40 mins, total time: 1 hrs 20 mins, servings: 12, yield: 12 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Mexican/Main Dishes/Fajita Recipes/Chicken/",
+      "ingredients": "2 pounds beef skirt steak, 2 pounds boneless chicken thighs, 2 teaspoons fajita seasoning, 2 ½ teaspoons garlic powder, divided, 2 cups refried beans,   salt to taste,   lemon pepper to taste, 4  avocados - peeled, pitted, and mashed, 1 cup corn oil, 24  corn tortillas, 1 medium green bell pepper, chopped, 1 medium onion, chopped, ⅓ bunch cilantro, chopped, 1 (16 ounce) package shredded American cheese, 12 ounces sour cream, 2 large tomatoes, chopped, 4  pickled jalapeno peppers, sliced (Optional)",
+      "prep_time": "40 mins",
+      "cook_time": "40 mins",
+      "servings": 12
+    }
+  },
+  {
+    "id": 856,
+    "name": "Apricot Pork Tenderloin",
+    "collection": "meat-mains",
+    "confidence": 5,
+    "features": {
+      "name": "apricot pork tenderloin",
+      "ingredients": "2 pounds pork tenderloin, ¼ cup softened butter,   salt and pepper to taste, 1 teaspoon ground thyme, 2 teaspoons garlic powder, 1 (18 ounce) jar apricot preserves, 2 tablespoons honey, or to taste, ¼ cup dry sherry",
+      "directions": "preheat an oven to 350 degrees f (175 degrees c).\nspread butter all over the pork tenderloin. season with salt, pepper, and thyme. combine garlic powder, apricot preserves, honey, and sherry in a separate bowl.\nroast the pork in the preheated oven for 30 to 40 minutes. remove the pork from the oven and brush with the apricot sauce. return the pork to the oven. continue roasting, basting occasionally with the remaining sauce, until the pork is no longer pink in the center, about 15 minutes. an instant-read thermometer inserted into the center should read 145 degrees f (63 degrees c).",
+      "cuisine_path": "/meat and poultry/pork/pork tenderloin recipes/",
+      "timing": "prep time: 10 mins, cook time: 45 mins, total time: 55 mins, servings: 6, yield: 6 servings",
+      "nutrition": "total fat 11g 15%, saturated fat 6g 31%, cholesterol 86mg 29%, sodium 200mg 9%, total carbohydrate 63g 23%, dietary fiber 0g 1%, total sugars 43g, protein 24g, vitamin c 8mg 40%, calcium 31mg 2%, iron 2mg 10%, potassium 465mg 10%",
+      "combined_text": "apricot pork tenderloin 2 pounds pork tenderloin, ¼ cup softened butter,   salt and pepper to taste, 1 teaspoon ground thyme, 2 teaspoons garlic powder, 1 (18 ounce) jar apricot preserves, 2 tablespoons honey, or to taste, ¼ /meat and poultry/pork/pork tenderloin recipes/ prep time: 10 mins, cook time: 45 mins, total time: 55 mins, servings: 6, yield: 6 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Meat and Poultry/Pork/Pork Tenderloin Recipes/",
+      "ingredients": "2 pounds pork tenderloin, ¼ cup softened butter,   salt and pepper to taste, 1 teaspoon ground thyme, 2 teaspoons garlic powder, 1 (18 ounce) jar apricot preserves, 2 tablespoons honey, or to taste, ¼ cup dry sherry",
+      "prep_time": "10 mins",
+      "cook_time": "45 mins",
+      "servings": 6
+    }
+  },
+  {
+    "id": 860,
+    "name": "Apricot-Glazed Pork Chops",
+    "collection": "meat-mains",
+    "confidence": 6,
+    "features": {
+      "name": "apricot-glazed pork chops",
+      "ingredients": "⅓ cup apricot preserves, ⅓ cup fruity white wine, such as gewurztraminer, ½ teaspoon ground ginger,   salt and pepper to taste, 2 tablespoons olive oil, 4  boneless pork chops, 1/2 inch thick ",
+      "directions": "mix the apricot preserves, wine, and ground ginger together in a small bowl; set aside.\nseason the pork chops with salt and pepper. heat the olive oil in a skillet over medium high heat. add the pork chops and cook until brown on each side, and no longer pink in the center, about 4 minutes per side. remove chops from the skillet. reduce heat to medium low. using the same skillet, pour in the apricot preserves mixture and simmer until thickened, about 4 minutes. return pork chops to the skillet, turning to coat each side in the sauce; cook 1 minute.",
+      "cuisine_path": "/main dishes/pork/pork chop recipes/boneless/",
+      "timing": "prep time: 10 mins, cook time: 10 mins, total time: 20 mins, servings: 4, yield: 4 servings",
+      "nutrition": "total fat 19g 24%, saturated fat 5g 26%, cholesterol 63mg 21%, sodium 54mg 2%, total carbohydrate 19g 7%, dietary fiber 0g 1%, total sugars 13g, protein 24g, vitamin c 3mg 13%, calcium 25mg 2%, iron 1mg 5%, potassium 426mg 9%",
+      "combined_text": "apricot-glazed pork chops ⅓ cup apricot preserves, ⅓ cup fruity white wine, such as gewurztraminer, ½ teaspoon ground ginger,   salt and pepper to taste, 2 tablespoons olive oil, 4  boneless pork chops, 1/2 inch thick  /main dishes/pork/pork chop recipes/boneless/ prep time: 10 mins, cook time: 10 mins, total time: 20 mins, servings: 4, yield: 4 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Main Dishes/Pork/Pork Chop Recipes/Boneless/",
+      "ingredients": "⅓ cup apricot preserves, ⅓ cup fruity white wine, such as Gewurztraminer, ½ teaspoon ground ginger,   salt and pepper to taste, 2 tablespoons olive oil, 4  boneless pork chops, 1/2 inch thick ",
+      "prep_time": "10 mins",
+      "cook_time": "10 mins",
+      "servings": 4
+    }
+  },
+  {
+    "id": 862,
+    "name": "Slow Cooker Chicken Tagine",
+    "collection": "meat-mains",
+    "confidence": 6,
+    "features": {
+      "name": "slow cooker chicken tagine",
+      "ingredients": "8  skinless, boneless chicken thighs, 2 large onions, thinly sliced, 4 large carrots, thinly sliced, ½ cup raisins, ½ cup dried apricots, chopped, 2 cups chicken broth, 2 tablespoons tomato paste, 2 tablespoons lemon juice, 2 tablespoons all-purpose flour, 2 teaspoons garlic salt, 2 teaspoons ground cumin, 1 ½ teaspoons ground ginger, 1 teaspoon ground cinnamon, 1 teaspoon hungarian paprika, 1 teaspoon ground black pepper, 3 cups water, 2 cups couscous , 1 tablespoon butter",
+      "directions": "layer chicken thighs, onions, carrots, raisins, and apricots in a slow cooker.\nwhisk chicken broth, tomato paste, lemon juice, flour, garlic salt, cumin, ginger, cinnamon, paprika, and pepper together in a bowl. pour over chicken and vegetables.\ncook on high 4 1/2 hours or on low for 7 1/2 hours. shred chicken slightly using 2 forks. continue cooking 30 minutes.\nbring 3 cups water to a boil in a saucepan; remove from heat and stir in couscous and butter. cover saucepan and let stand until water is absorbed completely, 5 to 10 minutes. fluff couscous with a fork. serve chicken tagine over couscous.",
+      "cuisine_path": "/meat and poultry/chicken/chicken thigh recipes/",
+      "timing": "prep time: 15 mins, cook time: 5 hrs, total time: 5 hrs 15 mins, servings: 8, yield: 8 servings",
+      "nutrition": "total fat 10g 12%, saturated fat 3g 16%, cholesterol 73mg 24%, sodium 590mg 26%, total carbohydrate 57g 21%, dietary fiber 5g 19%, total sugars 14g, protein 27g, vitamin c 8mg 41%, calcium 64mg 5%, iron 3mg 16%, potassium 622mg 13%",
+      "combined_text": "slow cooker chicken tagine 8  skinless, boneless chicken thighs, 2 large onions, thinly sliced, 4 large carrots, thinly sliced, ½ cup raisins, ½ cup dried apricots, chopped, 2 cups chicken broth, 2 tablespoons tomato paste, 2 t /meat and poultry/chicken/chicken thigh recipes/ prep time: 15 mins, cook time: 5 hrs, total time: 5 hrs 15 mins, servings: 8, yield: 8 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Meat and Poultry/Chicken/Chicken Thigh Recipes/",
+      "ingredients": "8  skinless, boneless chicken thighs, 2 large onions, thinly sliced, 4 large carrots, thinly sliced, ½ cup raisins, ½ cup dried apricots, chopped, 2 cups chicken broth, 2 tablespoons tomato paste, 2 tablespoons lemon juice, 2 tablespoons all-purpose flour, 2 teaspoons garlic salt, 2 teaspoons ground cumin, 1 ½ teaspoons ground ginger, 1 teaspoon ground cinnamon, 1 teaspoon Hungarian paprika, 1 teaspoon ground black pepper, 3 cups water, 2 cups couscous , 1 tablespoon butter",
+      "prep_time": "15 mins",
+      "cook_time": "5 hrs",
+      "servings": 8
+    }
+  },
+  {
+    "id": 867,
+    "name": "Instant Pot Chicken Tagine with Apricots and Chickpeas",
+    "collection": "meat-mains",
+    "confidence": 2,
+    "features": {
+      "name": "instant pot chicken tagine with apricots and chickpeas",
+      "ingredients": "1 tablespoon olive oil, 4  skin-on, bone-in chicken thighs, 1 large onion, sliced, 3 cloves garlic, minced, 1 teaspoon ground cinnamon, 1 teaspoon ground cumin, 1 teaspoon ground turmeric, 1 teaspoon red pepper flakes, 1 pinch saffron, 1 (15 ounce) can diced tomatoes, 1 cup chicken broth, ⅓ cup halved dried apricots,   salt and ground black pepper to taste, 1 (15 ounce) can chickpeas, rinsed and drained, 2 tablespoons chopped fresh mint",
+      "directions": "turn on a multi-functional pressure cooker (such as instant pot) and select saute function. place olive oil in the hot cooker and fry chicken thighs until browned, 2 to 3 minutes per side. remove chicken from the inner pot and set aside.\nadd onion and garlic to the pot, followed by cinnamon, cumin, turmeric, red pepper flakes, and saffron. cook and stir until onion is soft, about 5 minutes. press cancel to leave saute mode.\nplace chicken back into the pot on top of onion mixture. pour in tomatoes and chicken broth. sprinkle apricots over the top. season with salt and pepper. close and lock the lid.\nselect high pressure according to the manufacturer's instructions; set timer for 15 minutes. allow 10 to 15 minutes for pressure to build.\nrelease pressure using the natural-release method according to the manufacturer's instructions, 10 to 40 minutes. unlock and remove the lid. stir in chickpeas and mint leaves.",
+      "cuisine_path": "/cuisine/african/north african/moroccan/",
+      "timing": "prep time: 15 mins, cook time: 35 mins, additional time: 10 mins, total time: 1 hrs, servings: 6",
+      "nutrition": "total fat 11g 14%, saturated fat 3g 13%, cholesterol 48mg 16%, sodium 517mg 22%, total carbohydrate 22g 8%, dietary fiber 4g 15%, total sugars 7g, protein 17g, vitamin c 10mg 52%, calcium 67mg 5%, iron 4mg 21%, potassium 439mg 9%",
+      "combined_text": "instant pot chicken tagine with apricots and chickpeas 1 tablespoon olive oil, 4  skin-on, bone-in chicken thighs, 1 large onion, sliced, 3 cloves garlic, minced, 1 teaspoon ground cinnamon, 1 teaspoon ground cumin, 1 teaspoon ground turmeric, 1 teaspoon  /cuisine/african/north african/moroccan/ prep time: 15 mins, cook time: 35 mins, additional time: 10 mins, total time: 1 hrs, servings: 6"
+    },
+    "original_data": {
+      "cuisine_path": "/Cuisine/African/North African/Moroccan/",
+      "ingredients": "1 tablespoon olive oil, 4  skin-on, bone-in chicken thighs, 1 large onion, sliced, 3 cloves garlic, minced, 1 teaspoon ground cinnamon, 1 teaspoon ground cumin, 1 teaspoon ground turmeric, 1 teaspoon red pepper flakes, 1 pinch saffron, 1 (15 ounce) can diced tomatoes, 1 cup chicken broth, ⅓ cup halved dried apricots,   salt and ground black pepper to taste, 1 (15 ounce) can chickpeas, rinsed and drained, 2 tablespoons chopped fresh mint",
+      "prep_time": "15 mins",
+      "cook_time": "35 mins",
+      "servings": 6
+    }
+  },
+  {
+    "id": 869,
+    "name": "Moroccan Chicken Tagine",
+    "collection": "meat-mains",
+    "confidence": 1,
+    "features": {
+      "name": "moroccan chicken tagine",
+      "ingredients": "¼ cup ground cinnamon, ¼ cup ground cumin, 2 tablespoons ground turmeric, 2 tablespoons ground coriander, 2 tablespoons ground ginger, 2 tablespoons crushed dried mint, 1 tablespoon salt, 2 teaspoons ground black pepper",
+      "directions": "make the spice mix: mix cinnamon, cumin, turmeric, coriander, ginger, mint, salt, and pepper together in a bowl. measure out 1/2 cup spice mix and set remaining mix aside for another use.\nmake the tagine: bring a small pot of water to a boil. add apricots and raisins and cook until soft, about 5 minutes. drain, reserving 1/2 cup cooking water.\nplace chicken and 1/2 cup reserved spice mix into a bowl; toss until thoroughly coated.\npour enough olive oil into a large skillet or dutch oven to coat the bottom; turn heat to medium. cook chicken in the hot skillet until golden brown and it releases easily from the skillet, 3 to 4 minutes per side. add onion and garlic; cook and stir until fragrant, 2 to 3 minutes.\nadd apricots, raisins, and reserved 1/2 cup cooking water; stir in chicken broth and honey. cover, reduce the heat to low, and cook until chicken is very tender, 1 1/2 to 2 hours.\nserve chicken garnished with cilantro and almonds.",
+      "cuisine_path": "/cuisine/african/north african/moroccan/",
+      "timing": "prep time: 20 mins, cook time: 1 hrs 50 mins, total time: 2 hrs 10 mins, servings: 6",
+      "nutrition": "total fat 20g 26%, saturated fat 4g 19%, cholesterol 44mg 15%, sodium 1375mg 60%, total carbohydrate 36g 13%, dietary fiber 7g 24%, total sugars 22g, protein 15g, vitamin c 4mg 19%, calcium 148mg 11%, iron 6mg 35%, potassium 523mg 11%",
+      "combined_text": "moroccan chicken tagine ¼ cup ground cinnamon, ¼ cup ground cumin, 2 tablespoons ground turmeric, 2 tablespoons ground coriander, 2 tablespoons ground ginger, 2 tablespoons crushed dried mint, 1 tablespoon salt, 2 teaspoons  /cuisine/african/north african/moroccan/ prep time: 20 mins, cook time: 1 hrs 50 mins, total time: 2 hrs 10 mins, servings: 6"
+    },
+    "original_data": {
+      "cuisine_path": "/Cuisine/African/North African/Moroccan/",
+      "ingredients": "¼ cup ground cinnamon, ¼ cup ground cumin, 2 tablespoons ground turmeric, 2 tablespoons ground coriander, 2 tablespoons ground ginger, 2 tablespoons crushed dried mint, 1 tablespoon salt, 2 teaspoons ground black pepper",
+      "prep_time": "20 mins",
+      "cook_time": "1 hrs 50 mins",
+      "servings": 6
+    }
+  },
+  {
+    "id": 870,
+    "name": "Simple Apricot-Glazed Meatloaf",
+    "collection": "meat-mains",
+    "confidence": 6,
+    "features": {
+      "name": "simple apricot-glazed meatloaf",
+      "ingredients": "1 ½ pounds ground beef, 1 cup bread crumbs, 1 small onion, minced, 1 large egg, beaten, 2 cloves garlic, minced, 1 ½ tablespoons apricot preserves, 1 tablespoon kosher salt, 1 ½ teaspoons freshly ground black pepper",
+      "directions": "preheat the oven to 350 degrees f (175 degrees c).\nmake the meatloaf: combine ground beef, bread crumbs, onion, egg, garlic, apricot preserves, kosher salt, and pepper in a large mixing bowl; mix well until thoroughly combined. transfer to a 9x5-inch loaf pan.\nbake in the preheated oven for 45 minutes.\nmeanwhile, make the glaze: mix ketchup, apricot preserves, brown sugar, hot sauce, worcestershire sauce, and cider vinegar together in a medium bowl.\nremove meatloaf from the oven and pour glaze over top. continue cooking until no longer pink in the center, about 15 minutes longer. an instant-read thermometer inserted into the center should read at least 160 degrees f (70 degrees c).\nlet rest 5 minutes before serving.",
+      "cuisine_path": "/main dishes/meatloaf recipes/beef meatloaf recipes/",
+      "timing": "prep time: 10 mins, cook time: 1 hrs, additional time: 5 mins, total time: 1 hrs 15 mins, servings: 6, yield: 1 9x5-inch meatloaf",
+      "nutrition": "total fat 20g 25%, saturated fat 7g 37%, cholesterol 101mg 34%, sodium 1782mg 77%, total carbohydrate 55g 20%, dietary fiber 1g 5%, total sugars 34g, protein 23g, vitamin c 14mg 70%, calcium 78mg 6%, iron 4mg 21%, potassium 529mg 11%",
+      "combined_text": "simple apricot-glazed meatloaf 1 ½ pounds ground beef, 1 cup bread crumbs, 1 small onion, minced, 1 large egg, beaten, 2 cloves garlic, minced, 1 ½ tablespoons apricot preserves, 1 tablespoon kosher salt, 1 ½ teaspoons freshly grou /main dishes/meatloaf recipes/beef meatloaf recipes/ prep time: 10 mins, cook time: 1 hrs, additional time: 5 mins, total time: 1 hrs 15 mins, servings: 6, yield: 1 9x5-inch meatloaf"
+    },
+    "original_data": {
+      "cuisine_path": "/Main Dishes/Meatloaf Recipes/Beef Meatloaf Recipes/",
+      "ingredients": "1 ½ pounds ground beef, 1 cup bread crumbs, 1 small onion, minced, 1 large egg, beaten, 2 cloves garlic, minced, 1 ½ tablespoons apricot preserves, 1 tablespoon kosher salt, 1 ½ teaspoons freshly ground black pepper",
+      "prep_time": "10 mins",
+      "cook_time": "1 hrs",
+      "servings": 6
+    }
+  },
+  {
+    "id": 871,
+    "name": "Apricot Chicken Curry",
+    "collection": "meat-mains",
+    "confidence": 5,
+    "features": {
+      "name": "apricot chicken curry",
+      "ingredients": "8  chicken drumsticks,   salt and pepper to taste, 2 tablespoons olive oil, 3 cloves garlic, minced, ½ teaspoon red pepper flakes, or to taste, 4 cups apricot nectar, 1 teaspoon cornstarch, or as needed, 1 tablespoon water, 3 tablespoons madras curry powder, 1 cup dried apricots, 1 large onion, roughly chopped, 1 large green bell pepper, roughly chopped, 4  carrots, thinly sliced, 1  fresh green chile pepper, minced (optional), ½ cup chopped water chestnuts (optional)",
+      "directions": "preheat an oven to 350 degrees f (175 degrees c). season the chicken drumsticks with salt and pepper.\nheat olive oil in a large oven-safe skillet over medium heat. stir in garlic and red pepper flakes; cook and stir until garlic is softened and is fragrant, 1 to 2 minutes. place the drumsticks in the skillet, and brown the chicken on all sides, about 3 minutes on each side. transfer the skillet to the oven.\nbake the chicken drumsticks in the preheated oven until no longer pink at the bone and the juices run clear, 7 to 10 minutes.\nbring the apricot nectar to a boil in a large pot over medium-high eat, then reduce heat to medium-low. mix cornstarch and water together in a small bowl; stir cornstarch mixture and curry powder into the apricot nectar. add dried apricots. transfer the baked drumsticks into the apricot mixture.\nheat the skillet used to cook the chicken over medium heat. stir in the onion, green bell pepper, carrots, and green chile pepper; cook and stir until the onion has softened. pour the drumsticks and apricot sauce into the skillet. cover and simmer until the vegetables are tender, about 10 minutes. season with salt and pepper. stir in water chestnuts just before serving.",
+      "cuisine_path": "/meat and poultry/chicken/chicken leg recipes/",
+      "timing": "prep time: 30 mins, cook time: 40 mins, total time: 1 hrs 10 mins, servings: 4, yield: 4 servings",
+      "nutrition": "total fat 23g 30%, saturated fat 5g 26%, cholesterol 117mg 39%, sodium 168mg 7%, total carbohydrate 75g 27%, dietary fiber 9g 33%, total sugars 59g, protein 40g, vitamin c 70mg 351%, calcium 114mg 9%, iron 6mg 33%, potassium 1393mg 30%",
+      "combined_text": "apricot chicken curry 8  chicken drumsticks,   salt and pepper to taste, 2 tablespoons olive oil, 3 cloves garlic, minced, ½ teaspoon red pepper flakes, or to taste, 4 cups apricot nectar, 1 teaspoon cornstarch, or as need /meat and poultry/chicken/chicken leg recipes/ prep time: 30 mins, cook time: 40 mins, total time: 1 hrs 10 mins, servings: 4, yield: 4 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Meat and Poultry/Chicken/Chicken Leg Recipes/",
+      "ingredients": "8  chicken drumsticks,   salt and pepper to taste, 2 tablespoons olive oil, 3 cloves garlic, minced, ½ teaspoon red pepper flakes, or to taste, 4 cups apricot nectar, 1 teaspoon cornstarch, or as needed, 1 tablespoon water, 3 tablespoons Madras curry powder, 1 cup dried apricots, 1 large onion, roughly chopped, 1 large green bell pepper, roughly chopped, 4  carrots, thinly sliced, 1  fresh green chile pepper, minced (Optional), ½ cup chopped water chestnuts (Optional)",
+      "prep_time": "30 mins",
+      "cook_time": "40 mins",
+      "servings": 4
+    }
+  },
+  {
+    "id": 876,
+    "name": "Honey Apricot Pork Chops",
+    "collection": "meat-mains",
+    "confidence": 6,
+    "features": {
+      "name": "honey apricot pork chops",
+      "ingredients": "4  boneless pork chops,   kosher salt and fresh cracked pepper to taste, 1 tablespoon olive oil, 2 tablespoons honey, 4  fresh apricots, pitted and cut into wedges, 3 cloves garlic, minced, or to taste, 1 teaspoon chopped fresh parsley",
+      "directions": "pat the pork chops dry with paper towels, and sprinkle both sides with salt and black pepper. heat olive oil in a skillet over medium-high heat, and brown the chops well on both sides, about 5 minutes per side.\nstir in honey, apricots, and garlic; cover, and simmer until the pork is tender, about 8 minutes. an instant-read thermometer, inserted into the center of a chop, should read at least 145 degrees f (63 degrees c). sprinkle with parsley, and serve chops topped with the apricots and pan juices.",
+      "cuisine_path": "/main dishes/pork/pork chop recipes/pan fried/",
+      "timing": "prep time: 15 mins, cook time: 20 mins, total time: 35 mins, servings: 4, yield: 4 servings",
+      "nutrition": "total fat 8g 10%, saturated fat 2g 10%, cholesterol 36mg 12%, sodium 122mg 5%, total carbohydrate 13g 5%, dietary fiber 1g 3%, total sugars 12g, protein 15g, vitamin c 5mg 24%, calcium 21mg 2%, iron 1mg 4%, potassium 314mg 7%",
+      "combined_text": "honey apricot pork chops 4  boneless pork chops,   kosher salt and fresh cracked pepper to taste, 1 tablespoon olive oil, 2 tablespoons honey, 4  fresh apricots, pitted and cut into wedges, 3 cloves garlic, minced, or to tast /main dishes/pork/pork chop recipes/pan fried/ prep time: 15 mins, cook time: 20 mins, total time: 35 mins, servings: 4, yield: 4 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Main Dishes/Pork/Pork Chop Recipes/Pan Fried/",
+      "ingredients": "4  boneless pork chops,   Kosher salt and fresh cracked pepper to taste, 1 tablespoon olive oil, 2 tablespoons honey, 4  fresh apricots, pitted and cut into wedges, 3 cloves garlic, minced, or to taste, 1 teaspoon chopped fresh parsley",
+      "prep_time": "15 mins",
+      "cook_time": "20 mins",
+      "servings": 4
+    }
+  },
+  {
+    "id": 880,
+    "name": "Apricot Pork Chops",
+    "collection": "meat-mains",
+    "confidence": 6,
+    "features": {
+      "name": "apricot pork chops",
+      "ingredients": "6  pork chops, 1 (1 ounce) package dry onion soup mix, 10 ounces russian-style salad dressing, 1 cup apricot preserves",
+      "directions": "preheat oven to 350 degrees f (175 degrees c).\nplace the pork chops into a casserole dish. mix onion soup mix, russian dressing and apricot preserves together.\npour mixture over chops and bake for 1 hour.",
+      "cuisine_path": "/main dishes/pork/pork chop recipes/baked/",
+      "timing": "prep time: 5 mins, cook time: 1 hrs, total time: 1 hrs 5 mins, servings: 6, yield: 6 servings",
+      "nutrition": "total fat 19g 24%, saturated fat 4g 22%, cholesterol 37mg 12%, sodium 894mg 39%, total carbohydrate 52g 19%, dietary fiber 2g 5%, total sugars 33g, protein 15g, vitamin c 8mg 38%, calcium 40mg 3%, iron 1mg 7%, potassium 323mg 7%",
+      "combined_text": "apricot pork chops 6  pork chops, 1 (1 ounce) package dry onion soup mix, 10 ounces russian-style salad dressing, 1 cup apricot preserves /main dishes/pork/pork chop recipes/baked/ prep time: 5 mins, cook time: 1 hrs, total time: 1 hrs 5 mins, servings: 6, yield: 6 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Main Dishes/Pork/Pork Chop Recipes/Baked/",
+      "ingredients": "6  pork chops, 1 (1 ounce) package dry onion soup mix, 10 ounces Russian-style salad dressing, 1 cup apricot preserves",
+      "prep_time": "5 mins",
+      "cook_time": "1 hrs",
+      "servings": 6
+    }
+  },
+  {
+    "id": 886,
+    "name": "Apricot-Glazed Pork Ribs",
+    "collection": "meat-mains",
+    "confidence": 5,
+    "features": {
+      "name": "apricot-glazed pork ribs",
+      "ingredients": "3 ½ pounds baby back pork ribs, 1 (16 ounce) jar apricot preserves, ⅓ cup soy sauce, ¼ cup packed light brown sugar, 2 teaspoons garlic powder,   aluminum foil,   salt and ground black pepper to taste",
+      "directions": "place ribs in a large roasting pan. whisk together apricot preserves, soy sauce, brown sugar, and garlic powder until blended. pour apricot marinade over ribs, cover, and place in the refrigerator, 8 hours to overnight.\npreheat the oven to 325 degrees f (165 degrees c). line a baking pan with aluminum foil.\nremove ribs from the marinade and shake off excess. place ribs in the prepared baking pan and season with salt and pepper. pour marinade into a small saucepan and bring to a boil. reduce heat and simmer marinade for 5 minutes; set aside.\nbake ribs in the preheated oven, basting frequently with the cooked marinade, until ribs are tender and meat pulls away easily from the bone, about 1 hour 30 minutes. an instant-read thermometer inserted into the center should read 145 degrees f (63 degrees c).",
+      "cuisine_path": "/meat and poultry/pork/pork rib recipes/baby back ribs/",
+      "timing": "prep time: 10 mins, cook time: 1 hrs 40 mins, additional time: 8 hrs, total time: 9 hrs 50 mins, servings: 12, yield: 12 servings",
+      "nutrition": "total fat 17g 22%, saturated fat 6g 32%, cholesterol 68mg 23%, sodium 489mg 21%, total carbohydrate 29g 11%, dietary fiber 0g 1%, total sugars 21g, protein 15g, vitamin c 4mg 18%, calcium 39mg 3%, iron 1mg 7%, potassium 238mg 5%",
+      "combined_text": "apricot-glazed pork ribs 3 ½ pounds baby back pork ribs, 1 (16 ounce) jar apricot preserves, ⅓ cup soy sauce, ¼ cup packed light brown sugar, 2 teaspoons garlic powder,   aluminum foil,   salt and ground black pepper to taste /meat and poultry/pork/pork rib recipes/baby back ribs/ prep time: 10 mins, cook time: 1 hrs 40 mins, additional time: 8 hrs, total time: 9 hrs 50 mins, servings: 12, yield: 12 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Meat and Poultry/Pork/Pork Rib Recipes/Baby Back Ribs/",
+      "ingredients": "3 ½ pounds baby back pork ribs, 1 (16 ounce) jar apricot preserves, ⅓ cup soy sauce, ¼ cup packed light brown sugar, 2 teaspoons garlic powder,   aluminum foil,   salt and ground black pepper to taste",
+      "prep_time": "10 mins",
+      "cook_time": "1 hrs 40 mins",
+      "servings": 12
+    }
+  },
+  {
+    "id": 888,
+    "name": "Apricot Chicken with Balsamic Vinegar",
+    "collection": "meat-mains",
+    "confidence": 6,
+    "features": {
+      "name": "apricot chicken with balsamic vinegar",
+      "ingredients": "2 tablespoons extra-virgin olive oil, 2 pounds chicken breast tenderloins, cut into bite-size pieces,   salt and pepper to taste, 1 large onion, chopped (optional), ¼ cup balsamic vinegar, or to taste, 20  dried apricots, 1 cup chicken stock, 1 cup apricot preserves, 1 tablespoon chopped fresh thyme, 3 tablespoons chopped fresh flat-leaf parsley (optional)",
+      "directions": "heat the olive oil in a large skillet with a lid over medium-high heat. season the chicken with salt and pepper, and cook in the hot oil until golden brown around the edges, but still pink in the center, about 5 minutes. stir in the onion, and cook for about 3 minutes more. pour in the balsamic vinegar, bring it to a simmer, and allow it to reduce for a few minutes.\ncut half of the apricots in half, leaving the others whole. place the apricots into the skillet, and pour in the chicken stock. bring to a simmer, then stir in the apricot preserves and thyme. reduce the heat to medium-low, cover, and simmer until the apricots have softened, 10 to 15 minutes. sprinkle with chopped parsley to serve.",
+      "cuisine_path": "/meat and poultry/chicken/chicken breast/healthy chicken/",
+      "timing": "prep time: 25 mins, cook time: 30 mins, total time: 55 mins, servings: 8, yield: 8 servings",
+      "nutrition": "total fat 6g 8%, saturated fat 1g 7%, cholesterol 65mg 22%, sodium 164mg 7%, total carbohydrate 45g 16%, dietary fiber 2g 9%, total sugars 33g, protein 25g, vitamin c 8mg 38%, calcium 44mg 3%, iron 2mg 11%, potassium 560mg 12%",
+      "combined_text": "apricot chicken with balsamic vinegar 2 tablespoons extra-virgin olive oil, 2 pounds chicken breast tenderloins, cut into bite-size pieces,   salt and pepper to taste, 1 large onion, chopped (optional), ¼ cup balsamic vinegar, or to taste /meat and poultry/chicken/chicken breast/healthy chicken/ prep time: 25 mins, cook time: 30 mins, total time: 55 mins, servings: 8, yield: 8 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Meat and Poultry/Chicken/Chicken Breast/Healthy Chicken/",
+      "ingredients": "2 tablespoons extra-virgin olive oil, 2 pounds chicken breast tenderloins, cut into bite-size pieces,   salt and pepper to taste, 1 large onion, chopped (Optional), ¼ cup balsamic vinegar, or to taste, 20  dried apricots, 1 cup chicken stock, 1 cup apricot preserves, 1 tablespoon chopped fresh thyme, 3 tablespoons chopped fresh flat-leaf parsley (Optional)",
+      "prep_time": "25 mins",
+      "cook_time": "30 mins",
+      "servings": 8
+    }
+  },
+  {
+    "id": 892,
+    "name": "Apricot and Cranberry Stuffed Roast Pork Loin With Port Wine Pan Sauce",
+    "collection": "meat-mains",
+    "confidence": 6,
+    "features": {
+      "name": "apricot and cranberry stuffed roast pork loin with port wine pan sauce",
+      "ingredients": "3 tablespoons olive oil, 16  whole peeled garlic cloves, 2 tablespoons minced garlic cloves , 1 (8 pound) whole boneless pork loin, patted dry, at room temperature,   salt and freshly ground pepper, 3 tablespoons minced fresh rosemary (snip with scissors), divided, 16  dried apricots (or similar amount of your favorite dried fruit), ⅓ cup dried cranberries",
+      "directions": "adjust oven rack to upper-middle position and heat oven to 250 degrees. heat oil in a small skillet over medium-low heat. add whole garlic cloves and cook, stirring occasionally, until soft and golden, about 5 minutes. remove with a slotted spoon; reserve oil.\nturn pork loin fat-side down. slit lengthwise, almost but not quite all the way through, to form a long pocket, leaving a 1/2-inch border of unslit meat at each end. brush cavity with some of the reserved garlic cooking oil, and sprinkle generously with salt and pepper and 1 tb. of the rosemary. line cavity with sauteed garlic and apricots; sprinkle in cranberries. tie loin together with kitchen twine or heavy-duty string at 1 1/2-inch intervals.\nbrush with remaining oil, and sprinkle generously with salt and pepper. set roast, fat-side up, diagonally or curved (so it fits) on a large, lipped cookie sheet or jellyroll pan. warm 1/4 cup apple jelly along with the minced garlic and remaining rosemary. brush mixture onto meat.\nroast until a meat thermometer stuck into the center registers 125 to 130 degrees. (start checking at about 1 1/2 hours.) remove from oven; raise oven temperature to 400 degrees. brush loin with pan drippings, return to oven, and continue to roast until the loin is golden brown and a meat thermometer stuck into the center registers 145 degrees f (63 degrees c), about 20 minutes longer. for even more attractive coloring, broil until spotty brown, 3 to 5 minutes.\nlet roast rest 15 to 20 minutes; transfer to a carving board. stir juices around pan to loosen brown bits. pour through a strainer into a small pan, and stir in port, chicken broth and remaining 2 tbs. of jelly; bring to a simmer. mix cornstarch with a couple of tablespoons of cold water; whisk into sauce. simmer until lightly thickened. slice pork and serve with a little sauce.",
+      "cuisine_path": "/main dishes/pork/pork roast recipes/",
+      "timing": "servings: 16, yield: 16 servings",
+      "nutrition": "total fat 16g 20%, saturated fat 5g 26%, cholesterol 109mg 36%, sodium 225mg 10%, total carbohydrate 15g 6%, dietary fiber 1g 4%, total sugars 12g, protein 39g, vitamin c 2mg 11%, calcium 39mg 3%, iron 2mg 11%, potassium 710mg 15%",
+      "combined_text": "apricot and cranberry stuffed roast pork loin with port wine pan sauce 3 tablespoons olive oil, 16  whole peeled garlic cloves, 2 tablespoons minced garlic cloves , 1 (8 pound) whole boneless pork loin, patted dry, at room temperature,   salt and freshly ground pepper, 3 /main dishes/pork/pork roast recipes/ servings: 16, yield: 16 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Main Dishes/Pork/Pork Roast Recipes/",
+      "ingredients": "3 tablespoons olive oil, 16  whole peeled garlic cloves, 2 tablespoons minced garlic cloves , 1 (8 pound) whole boneless pork loin, patted dry, at room temperature,   Salt and freshly ground pepper, 3 tablespoons minced fresh rosemary (snip with scissors), divided, 16  dried apricots (or similar amount of your favorite dried fruit), ⅓ cup dried cranberries",
+      "prep_time": NaN,
+      "cook_time": NaN,
+      "servings": 16
+    }
+  },
+  {
+    "id": 896,
+    "name": "Apricot Glazed Chicken",
+    "collection": "meat-mains",
+    "confidence": 7,
+    "features": {
+      "name": "apricot glazed chicken",
+      "ingredients": "6  skinless, boneless chicken breasts, 1 (10.75 ounce) can  low-sodium chicken broth, ¾ cup apricot preserves, 1 tablespoon light soy sauce, 1 tablespoon cornstarch, 1 tablespoon water",
+      "directions": "spray a large skillet with nonstick cooking spray. brown chicken in heated skillet.\nadd chicken broth, jam and soy sauce. simmer for 20 minutes or until chicken is done (no longer pink in the center).\nremove chicken from skillet. add 1 tablespoon cornstarch and 1 tablespoon water to sauce to thicken (equal amounts more of each if you like it thicker). return chicken to skillet and turn to coat thoroughly with sauce.",
+      "cuisine_path": "/meat and poultry/chicken/chicken breast/skillet chicken/",
+      "timing": "servings: 5, yield: 4 to 6 servings",
+      "nutrition": "total fat 2g 2%, saturated fat 1g 3%, cholesterol 83mg 28%, sodium 227mg 10%, total carbohydrate 35g 13%, total sugars 31g, protein 34g, vitamin c 2mg 9%, calcium 16mg 1%, iron 1mg 6%, potassium 367mg 8%",
+      "combined_text": "apricot glazed chicken 6  skinless, boneless chicken breasts, 1 (10.75 ounce) can  low-sodium chicken broth, ¾ cup apricot preserves, 1 tablespoon light soy sauce, 1 tablespoon cornstarch, 1 tablespoon water /meat and poultry/chicken/chicken breast/skillet chicken/ servings: 5, yield: 4 to 6 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Meat and Poultry/Chicken/Chicken Breast/Skillet Chicken/",
+      "ingredients": "6  skinless, boneless chicken breasts, 1 (10.75 ounce) can  low-sodium chicken broth, ¾ cup apricot preserves, 1 tablespoon light soy sauce, 1 tablespoon cornstarch, 1 tablespoon water",
+      "prep_time": NaN,
+      "cook_time": NaN,
+      "servings": 5
+    }
+  },
+  {
+    "id": 899,
+    "name": "Fruit-Stuffed Pork Loin",
+    "collection": "meat-mains",
+    "confidence": 4,
+    "features": {
+      "name": "fruit-stuffed pork loin",
+      "ingredients": "¾ cup chopped pitted prunes, ¾ cup chopped dried apricots, 1 tablespoon grated fresh ginger , 1 teaspoon grated orange zest, ½ teaspoon ground cumin, ½ teaspoon ground cinnamon,   salt and ground black pepper to taste, 1 (4 pound) boneless pork loin roast, butterflied , ¼ cup packed brown sugar, 2 teaspoons all-purpose flour, 2 teaspoons cider vinegar, 1 teaspoon ground cumin, 1 teaspoon mustard powder, ½ cup water, 1 teaspoon cornstarch, 1 tablespoon water",
+      "directions": "preheat oven to 325 degrees f (165 degrees c).\nmix prunes, apricots, ginger, orange zest, 1/2 teaspoon cumin, and cinnamon in a bowl; season with salt and black pepper.\nopen pork roast and spoon stuffing down the center; fold meat over stuffing and tie securely in several places with kitchen twine. set roast onto a rack in a roasting pan.\ncombine brown sugar, flour, cider vinegar, 1 teaspoon cumin, and mustard powder into a paste; spread brown sugar mixture over the roast.\nbake in the preheated oven until a meat thermometer inserted into center of stuffing reads 160 degrees f (70 degrees c), about 1 1/2 hours. transfer roast to a serving platter and tent with aluminum foil while you make gravy.\nskim fat from roasting pan and transfer defatted drippings into a small saucepan. pour 1/2 cup water into roasting pan and scrape up and dissolve any browned bits of food into water; pour into saucepan with pan juices. bring pan juices to a boil over medium heat. dissolve cornstarch in 1 tablespoon water in a small bowl and whisk cornstarch mixture into pan juices, stirring constantly until thickened, about 1 minute. strain gravy into a gravy boat. serve gravy with roast.",
+      "cuisine_path": "/meat and poultry/pork/",
+      "timing": "prep time: 20 mins, cook time: 1 hrs 40 mins, total time: 2 hrs, servings: 8, yield: 1 stuffed pork loin roast",
+      "nutrition": "total fat 20g 26%, saturated fat 7g 36%, cholesterol 110mg 37%, sodium 85mg 4%, total carbohydrate 26g 9%, dietary fiber 2g 8%, total sugars 20g, protein 38g, vitamin c 2mg 10%, calcium 53mg 4%, iron 2mg 13%, potassium 831mg 18%",
+      "combined_text": "fruit-stuffed pork loin ¾ cup chopped pitted prunes, ¾ cup chopped dried apricots, 1 tablespoon grated fresh ginger , 1 teaspoon grated orange zest, ½ teaspoon ground cumin, ½ teaspoon ground cinnamon,   salt and ground blac /meat and poultry/pork/ prep time: 20 mins, cook time: 1 hrs 40 mins, total time: 2 hrs, servings: 8, yield: 1 stuffed pork loin roast"
+    },
+    "original_data": {
+      "cuisine_path": "/Meat and Poultry/Pork/",
+      "ingredients": "¾ cup chopped pitted prunes, ¾ cup chopped dried apricots, 1 tablespoon grated fresh ginger , 1 teaspoon grated orange zest, ½ teaspoon ground cumin, ½ teaspoon ground cinnamon,   salt and ground black pepper to taste, 1 (4 pound) boneless pork loin roast, butterflied , ¼ cup packed brown sugar, 2 teaspoons all-purpose flour, 2 teaspoons cider vinegar, 1 teaspoon ground cumin, 1 teaspoon mustard powder, ½ cup water, 1 teaspoon cornstarch, 1 tablespoon water",
+      "prep_time": "20 mins",
+      "cook_time": "1 hrs 40 mins",
+      "servings": 8
+    }
+  },
+  {
+    "id": 902,
+    "name": "Apricot Glazed Ham",
+    "collection": "meat-mains",
+    "confidence": 3,
+    "features": {
+      "name": "apricot glazed ham",
+      "ingredients": "1 (8 pound) fully-cooked, bone-in ham, ¼ cup whole cloves (optional), ½ cup apricot preserves, 3 tablespoons honey mustard",
+      "directions": "preheat the oven to 350 degrees f (175 degrees c).\nscore the fatty side of the ham with a sharp knife in a diamond pattern, spacing the lines about 1 inch apart. insert whole cloves at the intersections, if desired. place the ham in a shallow roasting pan and cover with aluminum foil.\nbake the ham in the preheated oven for about 90 minutes. about 10 minutes before the ham is finished, measure the apricot preserves into a small saucepan. warm over medium heat until liquid, then remove from the heat and stir in the honey mustard.\nbrush the glaze onto the ham, and return to the oven, uncovered, and bake for an additional 15 to 20 minutes, or until the glaze is nicely browned. let the ham stand for about 10 minutes before carving and serving.",
+      "cuisine_path": "/main dishes/pork/ham/whole/",
+      "timing": "prep time: 10 mins, cook time: 1 hrs 55 mins, total time: 2 hrs 5 mins, servings: 14, yield: 1 to 8 - pound ham",
+      "nutrition": "total fat 48g 62%, saturated fat 17g 86%, cholesterol 145mg 48%, sodium 3363mg 146%, total carbohydrate 10g 4%, dietary fiber 1g 3%, total sugars 6g, protein 48g, vitamin c 92mg 458%, calcium 32mg 2%, iron 2mg 12%, potassium 817mg 17%",
+      "combined_text": "apricot glazed ham 1 (8 pound) fully-cooked, bone-in ham, ¼ cup whole cloves (optional), ½ cup apricot preserves, 3 tablespoons honey mustard /main dishes/pork/ham/whole/ prep time: 10 mins, cook time: 1 hrs 55 mins, total time: 2 hrs 5 mins, servings: 14, yield: 1 to 8 - pound ham"
+    },
+    "original_data": {
+      "cuisine_path": "/Main Dishes/Pork/Ham/Whole/",
+      "ingredients": "1 (8 pound) fully-cooked, bone-in ham, ¼ cup whole cloves (Optional), ½ cup apricot preserves, 3 tablespoons honey mustard",
+      "prep_time": "10 mins",
+      "cook_time": "1 hrs 55 mins",
+      "servings": 14
+    }
+  },
+  {
+    "id": 905,
+    "name": "Southern Apricot Chicken",
+    "collection": "meat-mains",
+    "confidence": 5,
+    "features": {
+      "name": "southern apricot chicken",
+      "ingredients": "12  boneless, skinless chicken breast halves, 1 cup apricot preserves, 1 cup sour cream, 2 tablespoons dijon mustard,   salt and pepper to taste",
+      "directions": "preheat the oven to 350 degrees f (175 degrees c). arrange the chicken pieces in a single layer in the bottom of a 9x13 inch baking dish.\nbake uncovered for 25 to 30 minutes, or until no longer pink in the center, and juices run clear.\nwhile the chicken is cooking, stir together the apricot preserves, sour cream, mustard, salt and pepper in a small bowl. when the chicken is done, remove from the oven, and coat with the sauce. return to the oven for 10 to 12 minutes, or until sauce is bubbly and hot.",
+      "cuisine_path": "/meat and poultry/chicken/chicken breast/",
+      "timing": "servings: 12, yield: 12 servings",
+      "nutrition": "total fat 7g 9%, saturated fat 3g 17%, cholesterol 76mg 25%, sodium 142mg 6%, total carbohydrate 19g 7%, dietary fiber 0g 0%, total sugars 12g, protein 25g, vitamin c 3mg 13%, calcium 39mg 3%, iron 1mg 6%, potassium 251mg 5%",
+      "combined_text": "southern apricot chicken 12  boneless, skinless chicken breast halves, 1 cup apricot preserves, 1 cup sour cream, 2 tablespoons dijon mustard,   salt and pepper to taste /meat and poultry/chicken/chicken breast/ servings: 12, yield: 12 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Meat and Poultry/Chicken/Chicken Breast/",
+      "ingredients": "12  boneless, skinless chicken breast halves, 1 cup apricot preserves, 1 cup sour cream, 2 tablespoons Dijon mustard,   salt and pepper to taste",
+      "prep_time": NaN,
+      "cook_time": NaN,
+      "servings": 12
+    }
+  },
+  {
+    "id": 906,
+    "name": "Spicy Air Fryer Pork Chops with Apricot Glaze",
+    "collection": "meat-mains",
+    "confidence": 6,
+    "features": {
+      "name": "spicy air fryer pork chops with apricot glaze",
+      "ingredients": "4 cups water, 2 tablespoons kosher salt, 2 tablespoons white sugar, 4 (5 ounce) bone-in center loin pork chops, about 3/4-inch thick, 1 teaspoon chili powder, or to taste, 1 teaspoon onion powder, ½ teaspoon salt, ¼ teaspoon white pepper",
+      "directions": "combine water, salt, and sugar in a bowl and stir until the crystals are dissolved. add pork chops, cover, and refrigerate for at least 2 hours, or up to 4 hours.\nremove pork chops from the brine and shake off excess. discard the remaining brine. pat chops dry with paper towels and place on a plate or cutting board.\ncombine chili powder, onion powder, salt, and white pepper in a small bowl. distribute 1/2 of the rub mixture among the 4 chops and rub to coat the entire surface. turn the chops and repeat. allow chops to come to room temperature, about 30 minutes.\nmeanwhile, combine apricot all-fruit spread, hoisin sauce, ginger, garlic, chili-garlic sauce, and lime juice for the glaze in a medium, microwave-safe bowl.\nmicrowave mixture on high for 3 minutes, stirring halfway through. carefully remove glaze and set aside.\npreheat air fryer to 400 degrees f (200 degrees c) if recommended by manufacturer. spray each side of seasoned and rubbed chops with cooking spray.\nplace chops in the air fryer in a single layer and air-fry for 8 minutes, turning halfway through.\nbrush the tops of the chops with prepared glaze and air-fry until pork chops are no longer pink in the center, 2 to 3 minutes. an instant-read thermometer inserted into the center should read 145 degrees f (63 degrees c).\nsprinkle chops with minced parsley, and serve with remaining glaze.",
+      "cuisine_path": "/main dishes/pork/pork chop recipes/",
+      "timing": "prep time: 15 mins, cook time: 15 mins, additional time: 2 hrs 30 mins, total time: 3 hrs, servings: 4, yield: 4 servings",
+      "nutrition": "total fat 6g 7%, saturated fat 2g 9%, cholesterol 41mg 14%, sodium 3517mg 153%, total carbohydrate 40g 15%, dietary fiber 1g 4%, total sugars 27g, protein 17g, vitamin c 10mg 49%, calcium 48mg 4%, iron 1mg 6%, potassium 309mg 7%",
+      "combined_text": "spicy air fryer pork chops with apricot glaze 4 cups water, 2 tablespoons kosher salt, 2 tablespoons white sugar, 4 (5 ounce) bone-in center loin pork chops, about 3/4-inch thick, 1 teaspoon chili powder, or to taste, 1 teaspoon onion powder, ½ t /main dishes/pork/pork chop recipes/ prep time: 15 mins, cook time: 15 mins, additional time: 2 hrs 30 mins, total time: 3 hrs, servings: 4, yield: 4 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Main Dishes/Pork/Pork Chop Recipes/",
+      "ingredients": "4 cups water, 2 tablespoons kosher salt, 2 tablespoons white sugar, 4 (5 ounce) bone-in center loin pork chops, about 3/4-inch thick, 1 teaspoon chili powder, or to taste, 1 teaspoon onion powder, ½ teaspoon salt, ¼ teaspoon white pepper",
+      "prep_time": "15 mins",
+      "cook_time": "15 mins",
+      "servings": 4
+    }
+  },
+  {
+    "id": 918,
+    "name": "Grilled Pork Chops with Fresh Nectarine Salsa",
+    "collection": "meat-mains",
+    "confidence": 5,
+    "features": {
+      "name": "grilled pork chops with fresh nectarine salsa",
+      "ingredients": "2  nectarines, pitted and diced, 1  ripe tomato, seeded and diced, ¼ cup diced onion, 2 tablespoons chopped fresh cilantro, 2 tablespoons fresh lime juice, ¼ teaspoon crushed red pepper flakes, or to taste,   salt to taste, 1 teaspoon ground cumin, 1 teaspoon chili powder,   salt and ground black pepper to taste, 2 tablespoons olive oil, 8 (4 ounce) boneless pork loin chops",
+      "directions": "preheat an outdoor grill for medium-high heat. lightly oil grate, and set 4 inches from the heat.\nto make the salsa, place the nectarines, tomato, onion, cilantro, lime juice, and red pepper flakes in a bowl; toss to blend. season to taste with salt. cover, and refrigerate 30 minutes to blend flavors.\nstir the cumin, chili powder, salt, and pepper together in a small bowl. place the olive oil in a small bowl. brush the pork chops with oil, and season both sides evenly with the cumin mixture.\nplace pork loin chops on the preheated grill. cook until lightly browned and juices run clear, about 4 minutes on each side. place pork chops on serving plates, and top with a generous spoonful of salsa.",
+      "cuisine_path": "/main dishes/pork/pork chop recipes/boneless/",
+      "timing": "prep time: 25 mins, cook time: 8 mins, total time: 33 mins, servings: 4, yield: 4 servings",
+      "nutrition": "total fat 18g 23%, saturated fat 5g 24%, cholesterol 130mg 43%, sodium 92mg 4%, total carbohydrate 11g 4%, dietary fiber 2g 8%, total sugars 7g, protein 51g, vitamin c 12mg 59%, calcium 28mg 2%, iron 2mg 11%, potassium 931mg 20%",
+      "combined_text": "grilled pork chops with fresh nectarine salsa 2  nectarines, pitted and diced, 1  ripe tomato, seeded and diced, ¼ cup diced onion, 2 tablespoons chopped fresh cilantro, 2 tablespoons fresh lime juice, ¼ teaspoon crushed red pepper flakes, or to  /main dishes/pork/pork chop recipes/boneless/ prep time: 25 mins, cook time: 8 mins, total time: 33 mins, servings: 4, yield: 4 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Main Dishes/Pork/Pork Chop Recipes/Boneless/",
+      "ingredients": "2  nectarines, pitted and diced, 1  ripe tomato, seeded and diced, ¼ cup diced onion, 2 tablespoons chopped fresh cilantro, 2 tablespoons fresh lime juice, ¼ teaspoon crushed red pepper flakes, or to taste,   salt to taste, 1 teaspoon ground cumin, 1 teaspoon chili powder,   salt and ground black pepper to taste, 2 tablespoons olive oil, 8 (4 ounce) boneless pork loin chops",
+      "prep_time": "25 mins",
+      "cook_time": "8 mins",
+      "servings": 4
+    }
+  },
+  {
+    "id": 925,
+    "name": "Caribbean Chicken",
+    "collection": "meat-mains",
+    "confidence": 2,
+    "features": {
+      "name": "caribbean chicken",
+      "ingredients": "1 teaspoon paprika, 1 teaspoon onion powder, 1 teaspoon garlic powder, 1 teaspoon dried parsley, ½ teaspoon dried oregano, 1 teaspoon salt, 1 teaspoon pepper, 4  boneless, skinless chicken breast halves, ¼ cup duck sauce, ¼ cup marinara sauce, 1 teaspoon mango hot sauce, ¾ cup fresh pink grapefruit juice, divided, 1 cup italian seasoned bread crumbs, 1  ripe nectarine, pitted and sliced",
+      "directions": "preheat oven to 375 degrees f (190 degrees c). line a baking dish with parchment paper.\nin a large bowl, mix together paprika, onion powder, garlic powder, parsley, oregano, salt and pepper. toss with chicken breasts until evenly coated. in a bowl, combine duck sauce, marinara sauce, mango hot sauce and 1/4 cup grapefruit juice. coat chicken evenly with sauce mixture. place bread crumbs in a shallow dish, and dredge chicken until evenly breaded. place chicken in baking dish. place nectarine slices around the edge of baking dish.\nbake in preheated oven for 15 minutes. turn the chicken, pour 1/2 cup grapefruit juice over chicken, and continue cooking for another 15 minutes or until done.",
+      "cuisine_path": "/cuisine/latin american/caribbean/",
+      "timing": "prep time: 15 mins, cook time: 30 mins, total time: 45 mins, servings: 4, yield: 4 servings",
+      "nutrition": "total fat 4g 5%, saturated fat 1g 3%, cholesterol 68mg 23%, sodium 1240mg 54%, total carbohydrate 38g 14%, dietary fiber 2g 9%, total sugars 12g, protein 33g, vitamin c 23mg 115%, calcium 73mg 6%, iron 3mg 18%, potassium 517mg 11%",
+      "combined_text": "caribbean chicken 1 teaspoon paprika, 1 teaspoon onion powder, 1 teaspoon garlic powder, 1 teaspoon dried parsley, ½ teaspoon dried oregano, 1 teaspoon salt, 1 teaspoon pepper, 4  boneless, skinless chicken breast halv /cuisine/latin american/caribbean/ prep time: 15 mins, cook time: 30 mins, total time: 45 mins, servings: 4, yield: 4 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Cuisine/Latin American/Caribbean/",
+      "ingredients": "1 teaspoon paprika, 1 teaspoon onion powder, 1 teaspoon garlic powder, 1 teaspoon dried parsley, ½ teaspoon dried oregano, 1 teaspoon salt, 1 teaspoon pepper, 4  boneless, skinless chicken breast halves, ¼ cup duck sauce, ¼ cup marinara sauce, 1 teaspoon mango hot sauce, ¾ cup fresh pink grapefruit juice, divided, 1 cup Italian seasoned bread crumbs, 1  ripe nectarine, pitted and sliced",
+      "prep_time": "15 mins",
+      "cook_time": "30 mins",
+      "servings": 4
+    }
+  },
+  {
+    "id": 930,
+    "name": "Sticky Orange Chicken with Nectarines",
+    "collection": "meat-mains",
+    "confidence": 5,
+    "features": {
+      "name": "sticky orange chicken with nectarines",
+      "ingredients": "½ cup orange juice, ¼ cup light soy sauce, 2 tablespoons buckwheat honey, 2 tablespoons hot sauce, 2 tablespoons brown sugar, 2 teaspoons chopped fresh ginger, 2 teaspoons chopped fresh garlic, 3 tablespoons all-purpose flour,   salt and ground black pepper to taste, 1 pinch italian seasoning, 4  skinless, boneless chicken breast halves, 1 tablespoon extra-virgin olive oil, or as needed, 2  nectarines, sliced",
+      "directions": "mix orange juice, soy sauce, honey, hot sauce, brown sugar, ginger, and garlic together in a small bowl to make the sauce.\nseason flour lightly with salt, pepper, and italian seasoning. cut chicken breasts into 1/2-inch strips. dredge chicken pieces in the seasoned flour; sprinkle more salt and pepper on top.\nheat oil in a large skillet over medium heat. add chicken strips and brown on both sides, 1 to 2 minutes per side. pour in the orange sauce. reduce heat and simmer, uncovered, until sauce thickens and chicken is no longer pink in the centers, 8 to 10 minutes.\nplate the chicken and top with nectarine slices.",
+      "cuisine_path": "/meat and poultry/chicken/chicken breast/",
+      "timing": "prep time: 20 mins, cook time: 10 mins, total time: 30 mins, servings: 4, yield: 4 chicken breast halves",
+      "nutrition": "total fat 6g 8%, saturated fat 1g 6%, cholesterol 61mg 20%, sodium 808mg 35%, total carbohydrate 32g 12%, dietary fiber 2g 6%, total sugars 24g, protein 26g, vitamin c 25mg 126%, calcium 35mg 3%, iron 2mg 10%, potassium 420mg 9%",
+      "combined_text": "sticky orange chicken with nectarines ½ cup orange juice, ¼ cup light soy sauce, 2 tablespoons buckwheat honey, 2 tablespoons hot sauce, 2 tablespoons brown sugar, 2 teaspoons chopped fresh ginger, 2 teaspoons chopped fresh garlic, 3 tabl /meat and poultry/chicken/chicken breast/ prep time: 20 mins, cook time: 10 mins, total time: 30 mins, servings: 4, yield: 4 chicken breast halves"
+    },
+    "original_data": {
+      "cuisine_path": "/Meat and Poultry/Chicken/Chicken Breast/",
+      "ingredients": "½ cup orange juice, ¼ cup light soy sauce, 2 tablespoons buckwheat honey, 2 tablespoons hot sauce, 2 tablespoons brown sugar, 2 teaspoons chopped fresh ginger, 2 teaspoons chopped fresh garlic, 3 tablespoons all-purpose flour,   salt and ground black pepper to taste, 1 pinch Italian seasoning, 4  skinless, boneless chicken breast halves, 1 tablespoon extra-virgin olive oil, or as needed, 2  nectarines, sliced",
+      "prep_time": "20 mins",
+      "cook_time": "10 mins",
+      "servings": 4
+    }
+  },
+  {
+    "id": 978,
+    "name": "Instant Pot Coconut Curry Chicken",
+    "collection": "meat-mains",
+    "confidence": 4,
+    "features": {
+      "name": "instant pot coconut curry chicken",
+      "ingredients": "1 tablespoon coconut oil, 1 medium onion, chopped, 3 tablespoons curry powder, or to taste, divided, 2 cloves garlic, chopped, 1 (14.5 ounce) can diced tomatoes, drained, 1 (8 ounce) can tomato sauce, ½ cup chicken broth, 2 tablespoons white sugar, 2 pounds chicken breasts,   salt to taste,   ground black pepper to taste, 1 (14 ounce) can coconut milk",
+      "directions": "turn on a multi-functional pressure cooker (such as instant pot) and select sauté function. add coconut oil; when hot, add onion and cook for 1 minute. add 2 tablespoons curry powder and garlic. mix well and cook for 2 minutes. turn off sauté function. stir in diced tomatoes, tomato sauce, chicken broth, and sugar.\npoke holes into each chicken breast using a fork. sprinkle with salt, pepper, and remaining curry powder. add seasoned chicken to the pot. close and lock the lid. select high pressure according to manufacturer's instructions; set timer for 10 minutes. allow 10 to 15 minutes for pressure to build.\nrelease pressure using the natural-release method according to manufacturer's instructions for 10 minutes. release remaining pressure carefully using the quick-release method according to manufacturer's instructions, about 5 minutes. unlock and remove the lid.\nremove chicken; use 2 forks to shred the meat and return it to the pot. turn on sauté function; cook and stir until liquid is lightly boiling, 2 to 3 minutes.\nturn the pressure cooker to the keep warm setting. add coconut milk and stir well; cook for 10 minutes more to allow flavors to come together.\n\n\n\n\n\n\n\n\n\n",
+      "cuisine_path": "/meat and poultry/chicken/chicken breast/",
+      "timing": "prep time: 15 mins, cook time: 35 mins, additional time: 15 mins, total time: 1 hrs 5 mins, servings: 4",
+      "nutrition": "total fat 31g 39%, saturated fat 23g 116%, cholesterol 130mg 43%, sodium 766mg 33%, total carbohydrate 22g 8%, dietary fiber 5g 18%, total sugars 13g, protein 52g, vitamin c 16mg 78%, calcium 114mg 9%, iron 9mg 51%, potassium 1038mg 22%",
+      "combined_text": "instant pot coconut curry chicken 1 tablespoon coconut oil, 1 medium onion, chopped, 3 tablespoons curry powder, or to taste, divided, 2 cloves garlic, chopped, 1 (14.5 ounce) can diced tomatoes, drained, 1 (8 ounce) can tomato sauce, /meat and poultry/chicken/chicken breast/ prep time: 15 mins, cook time: 35 mins, additional time: 15 mins, total time: 1 hrs 5 mins, servings: 4"
+    },
+    "original_data": {
+      "cuisine_path": "/Meat and Poultry/Chicken/Chicken Breast/",
+      "ingredients": "1 tablespoon coconut oil, 1 medium onion, chopped, 3 tablespoons curry powder, or to taste, divided, 2 cloves garlic, chopped, 1 (14.5 ounce) can diced tomatoes, drained, 1 (8 ounce) can tomato sauce, ½ cup chicken broth, 2 tablespoons white sugar, 2 pounds chicken breasts,   salt to taste,   ground black pepper to taste, 1 (14 ounce) can coconut milk",
+      "prep_time": "15 mins",
+      "cook_time": "35 mins",
+      "servings": 4
+    }
+  }
+]

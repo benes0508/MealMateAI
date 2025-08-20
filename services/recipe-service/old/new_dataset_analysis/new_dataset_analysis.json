@@ -1,0 +1,115 @@
+{
+  "dataset_info": {
+    "total_recipes": 13501,
+    "has_images": true,
+    "image_count": 13582,
+    "columns": [
+      "Unnamed: 0",
+      "Title",
+      "Ingredients",
+      "Instructions",
+      "Image_Name",
+      "Cleaned_Ingredients"
+    ],
+    "source": "NewDataset13k"
+  },
+  "cuisine_distribution": {
+    "asian": 769,
+    "american": 257,
+    "italian": 620,
+    "indian": 284,
+    "mexican": 719,
+    "mediterranean": 357,
+    "french": 132
+  },
+  "meal_type_distribution": {
+    "dinner": 2944,
+    "side": 1233,
+    "breakfast": 734,
+    "beverage": 643,
+    "dessert": 2310,
+    "appetizer": 332,
+    "lunch": 1641,
+    "snack": 292
+  },
+  "cooking_method_distribution": {
+    "roasted": 980,
+    "fried": 418,
+    "raw": 1335,
+    "braised": 193,
+    "grilled": 682,
+    "steamed": 134
+  },
+  "ingredient_stats": {
+    "avg_ingredients_per_recipe": 10.986371379897786,
+    "common_ingredients": {
+      "teaspoon": 16035,
+      "tablespoons": 15833,
+      "chopped": 12187,
+      "cups": 11600,
+      "salt": 11023,
+      "fresh": 10447,
+      "large": 7614,
+      "tablespoon": 7535,
+      "ground": 7062,
+      "sugar": 7021,
+      "pepper": 6611,
+      "teaspoons": 6132,
+      "into": 5870,
+      "finely": 5853,
+      "olive": 5551,
+      "kosher": 5494,
+      "ounces": 5493,
+      "sliced": 5406,
+      "about": 5395,
+      "inch": 5343
+    }
+  },
+  "proposed_collections": {
+    "dinner": {
+      "count": 2944,
+      "percentage": 21.80579216354344,
+      "priority": "high"
+    },
+    "dessert": {
+      "count": 2310,
+      "percentage": 17.10984371528035,
+      "priority": "high"
+    },
+    "lunch": {
+      "count": 1641,
+      "percentage": 12.154655210725132,
+      "priority": "medium"
+    },
+    "side": {
+      "count": 1233,
+      "percentage": 9.132656840234056,
+      "priority": "medium"
+    },
+    "breakfast": {
+      "count": 734,
+      "percentage": 5.436634323383453,
+      "priority": "medium"
+    },
+    "asian-cuisine": {
+      "count": 769,
+      "percentage": 5.695874379675579,
+      "priority": "medium"
+    },
+    "mexican-cuisine": {
+      "count": 719,
+      "percentage": 5.325531442115399,
+      "priority": "medium"
+    },
+    "italian-cuisine": {
+      "count": 620,
+      "percentage": 4.592252425746241,
+      "priority": "low"
+    },
+    "raw-dishes": {
+      "count": 1335,
+      "percentage": 9.888156432856826,
+      "priority": "medium"
+    }
+  }
+}

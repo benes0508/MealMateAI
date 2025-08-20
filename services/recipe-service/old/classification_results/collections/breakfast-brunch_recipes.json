@@ -1,0 +1,354 @@
+[
+  {
+    "id": 125,
+    "name": "German Apple Pancake",
+    "collection": "breakfast-brunch",
+    "confidence": 12,
+    "features": {
+      "name": "german apple pancake",
+      "ingredients": "4  eggs, ½ cup unbleached all-purpose flour, 1 tablespoon sugar, ½ teaspoon baking powder, 1 pinch salt, 1 cup milk, 1 teaspoon vanilla extract, 2 tablespoons unsalted butter, melted, ½ teaspoon ground nutmeg, ¼ cup unsalted butter, ½ cup white sugar, divided, ½ teaspoon ground cinnamon, ½ teaspoon ground nutmeg, 1 large tart apple - peeled, cored and sliced",
+      "directions": "combine eggs, flour, 1 tablespoon sugar, baking powder, and salt in a large bowl; gradually mix in milk, stirring constantly. add vanilla, melted butter, and 1/2 teaspoon nutmeg. let batter stand for 30 minutes or overnight.\npreheat the oven to 425 degrees f (220 degrees c).\nmelt butter in a 10-inch oven-proof skillet, brushing butter up on the sides of the pan. combine 1/4 cup sugar, cinnamon, and 1/2 teaspoon nutmeg in a small bowl; sprinkle sugar mixture over the butter. line the pan with apple slices. sprinkle the remaining 1/4 cup sugar over apples. place pan over medium-high heat until the mixture bubbles, then gently pour batter mixture over apples.\nbake in the preheated oven for 15 minutes. reduce heat to 375 degrees f (190 degrees c) and bake for 10 minutes more. slide pancake onto a serving platter and cut into wedges.",
+      "cuisine_path": "/breakfast and brunch/pancake recipes/baked pancake recipes/",
+      "timing": "prep time: 15 mins, cook time: 30 mins, additional time: 30 mins, total time: 1 hrs 15 mins, servings: 4, yield: 4 servings",
+      "nutrition": "total fat 24g 31%, saturated fat 14g 68%, cholesterol 237mg 79%, sodium 182mg 8%, total carbohydrate 52g 19%, dietary fiber 2g 7%, total sugars 37g, protein 10g, vitamin c 3mg 13%, calcium 138mg 11%, iron 2mg 10%, potassium 243mg 5%",
+      "combined_text": "german apple pancake 4  eggs, ½ cup unbleached all-purpose flour, 1 tablespoon sugar, ½ teaspoon baking powder, 1 pinch salt, 1 cup milk, 1 teaspoon vanilla extract, 2 tablespoons unsalted butter, melted, ½ teaspoon groun /breakfast and brunch/pancake recipes/baked pancake recipes/ prep time: 15 mins, cook time: 30 mins, additional time: 30 mins, total time: 1 hrs 15 mins, servings: 4, yield: 4 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Breakfast and Brunch/Pancake Recipes/Baked Pancake Recipes/",
+      "ingredients": "4  eggs, ½ cup unbleached all-purpose flour, 1 tablespoon sugar, ½ teaspoon baking powder, 1 pinch salt, 1 cup milk, 1 teaspoon vanilla extract, 2 tablespoons unsalted butter, melted, ½ teaspoon ground nutmeg, ¼ cup unsalted butter, ½ cup white sugar, divided, ½ teaspoon ground cinnamon, ½ teaspoon ground nutmeg, 1 large tart apple - peeled, cored and sliced",
+      "prep_time": "15 mins",
+      "cook_time": "30 mins",
+      "servings": 4
+    }
+  },
+  {
+    "id": 131,
+    "name": "Veronica's Apple Pancakes",
+    "collection": "breakfast-brunch",
+    "confidence": 7,
+    "features": {
+      "name": "veronica's apple pancakes",
+      "ingredients": "1 cup shredded tart apple, 1 cup milk, ¼ cup butter, melted, 1 large egg, 1 ¼ cups all-purpose flour, 1 tablespoon white sugar, 1 ¼ teaspoons baking powder, ¼ teaspoon ground cinnamon",
+      "directions": "combine apple, milk, butter, and egg in a large bowl. sift together flour, sugar, baking powder, and cinnamon in a separate bowl. stir flour mixture into apple mixture until just combined.\nheat a lightly oiled griddle or frying pan over medium high heat.\ndrop batter by 1/4 cup spoonfuls onto the hot griddle and cook until bottom is lightly browned. flip and cook until browned on the other side. repeat with remaining batter.",
+      "cuisine_path": "/breakfast and brunch/pancake recipes/",
+      "timing": "prep time: 10 mins, cook time: 25 mins, total time: 35 mins, servings: 4",
+      "nutrition": "total fat 14g 18%, saturated fat 9g 43%, cholesterol 82mg 27%, sodium 238mg 10%, total carbohydrate 41g 15%, dietary fiber 2g 7%, total sugars 9g, protein 8g, vitamin c 2mg 8%, calcium 153mg 12%, iron 2mg 12%, potassium 188mg 4%",
+      "combined_text": "veronica's apple pancakes 1 cup shredded tart apple, 1 cup milk, ¼ cup butter, melted, 1 large egg, 1 ¼ cups all-purpose flour, 1 tablespoon white sugar, 1 ¼ teaspoons baking powder, ¼ teaspoon ground cinnamon /breakfast and brunch/pancake recipes/ prep time: 10 mins, cook time: 25 mins, total time: 35 mins, servings: 4"
+    },
+    "original_data": {
+      "cuisine_path": "/Breakfast and Brunch/Pancake Recipes/",
+      "ingredients": "1 cup shredded tart apple, 1 cup milk, ¼ cup butter, melted, 1 large egg, 1 ¼ cups all-purpose flour, 1 tablespoon white sugar, 1 ¼ teaspoons baking powder, ¼ teaspoon ground cinnamon",
+      "prep_time": "10 mins",
+      "cook_time": "25 mins",
+      "servings": 4
+    }
+  },
+  {
+    "id": 395,
+    "name": "Grandma's Peach French Toast",
+    "collection": "breakfast-brunch",
+    "confidence": 7,
+    "features": {
+      "name": "grandma's peach french toast",
+      "ingredients": "1 cup packed brown sugar, ½ cup butter, 2 tablespoons water, 1 (29 ounce) can sliced peaches, drained, 12 (3/4 inch thick) slices day-old french bread, 5  eggs, 1 tablespoon vanilla extract, 1 pinch ground cinnamon, or to taste",
+      "directions": "in a saucepan, stir together the brown sugar, butter and water. bring to a boil, then reduce heat to low, and simmer for 10 minutes, stirring frequently.\npour the brown sugar mixture into a 9x13 inch baking dish, and tilt the dish to cover the entire bottom. place peaches in a layer over the sugar coating, then top with slices of french bread. in a medium bowl, whisk together the eggs and vanilla. slowly pour over the bread slices to coat evenly. sprinkle cinnamon over the top. cover and refrigerate for 8 hours or overnight.\nremove the dish from the refrigerator about 30 minutes before baking to come to room temperature. preheat the oven to 350 degrees f (175 degrees c).\nbake for 25 to 30 minutes in the preheated oven, or until the bread is golden brown. spoon out portions to serve.",
+      "cuisine_path": "/breakfast and brunch/french toast recipes/",
+      "timing": "prep time: 9 hrs, cook time: 45 mins, total time: 9 hrs 45 mins, servings: 8, yield: 8 servings",
+      "nutrition": "total fat 15g 19%, saturated fat 8g 42%, cholesterol 147mg 49%, sodium 276mg 12%, total carbohydrate 51g 19%, dietary fiber 2g 7%, total sugars 38g, protein 7g, vitamin c 4mg 19%, calcium 60mg 5%, iron 2mg 10%, potassium 242mg 5%",
+      "combined_text": "grandma's peach french toast 1 cup packed brown sugar, ½ cup butter, 2 tablespoons water, 1 (29 ounce) can sliced peaches, drained, 12 (3/4 inch thick) slices day-old french bread, 5  eggs, 1 tablespoon vanilla extract, 1 pinch g /breakfast and brunch/french toast recipes/ prep time: 9 hrs, cook time: 45 mins, total time: 9 hrs 45 mins, servings: 8, yield: 8 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Breakfast and Brunch/French Toast Recipes/",
+      "ingredients": "1 cup packed brown sugar, ½ cup butter, 2 tablespoons water, 1 (29 ounce) can sliced peaches, drained, 12 (3/4 inch thick) slices day-old French bread, 5  eggs, 1 tablespoon vanilla extract, 1 pinch ground cinnamon, or to taste",
+      "prep_time": "9 hrs",
+      "cook_time": "45 mins",
+      "servings": 8
+    }
+  },
+  {
+    "id": 476,
+    "name": "Delicious Oat Bran Cereal",
+    "collection": "breakfast-brunch",
+    "confidence": 9,
+    "features": {
+      "name": "delicious oat bran cereal",
+      "ingredients": "1 cup water, ¼ teaspoon ground cinnamon, 5  dried pitted prunes, chopped, 1 teaspoon sugar substitute (such as splenda), ¼ cup oat bran",
+      "directions": "combine water, cinnamon, prunes, and sugar substitute in a saucepan over medium heat; bring to a boil; stir in the oat bran and boil for 2 minutes.",
+      "cuisine_path": "/breakfast and brunch/cereals/oatmeal recipes/",
+      "timing": "prep time: 5 mins, cook time: 5 mins, total time: 10 mins, servings: 1, yield: 1 serving",
+      "nutrition": "total fat 2g 2%, saturated fat 0g 2%, sodium 10mg 0%, total carbohydrate 42g 15%, dietary fiber 7g 25%, total sugars 18g, protein 5g, vitamin c 1mg 7%, calcium 48mg 4%, iron 2mg 13%, potassium 451mg 10%",
+      "combined_text": "delicious oat bran cereal 1 cup water, ¼ teaspoon ground cinnamon, 5  dried pitted prunes, chopped, 1 teaspoon sugar substitute (such as splenda), ¼ cup oat bran /breakfast and brunch/cereals/oatmeal recipes/ prep time: 5 mins, cook time: 5 mins, total time: 10 mins, servings: 1, yield: 1 serving"
+    },
+    "original_data": {
+      "cuisine_path": "/Breakfast and Brunch/Cereals/Oatmeal Recipes/",
+      "ingredients": "1 cup water, ¼ teaspoon ground cinnamon, 5  dried pitted prunes, chopped, 1 teaspoon sugar substitute (such as Splenda), ¼ cup oat bran",
+      "prep_time": "5 mins",
+      "cook_time": "5 mins",
+      "servings": 1
+    }
+  },
+  {
+    "id": 623,
+    "name": "Porridge",
+    "collection": "breakfast-brunch",
+    "confidence": 9,
+    "features": {
+      "name": "porridge",
+      "ingredients": "2 ½ cups water, 1 cup rolled oats, 1 tablespoon white sugar, 1 teaspoon salt, 2  bananas, sliced, 1 pinch ground cinnamon, ½ cup cold milk (optional)",
+      "directions": "combine water, oats, sugar, and salt in a saucepan. add bananas and cinnamon. bring to a boil, then reduce heat to low, and simmer until the liquid has been absorbed, stirring frequently.\npour into bowls, and top each with a splash of cold milk.",
+      "cuisine_path": "/breakfast and brunch/cereals/oatmeal recipes/",
+      "timing": "prep time: 5 mins, cook time: 10 mins, total time: 15 mins, servings: 4",
+      "nutrition": "total fat 2g 3%, saturated fat 1g 4%, cholesterol 2mg 1%, sodium 600mg 26%, total carbohydrate 32g 12%, dietary fiber 4g 13%, total sugars 12g, protein 4g, vitamin c 5mg 26%, calcium 57mg 4%, iron 1mg 6%, potassium 333mg 7%",
+      "combined_text": "porridge 2 ½ cups water, 1 cup rolled oats, 1 tablespoon white sugar, 1 teaspoon salt, 2  bananas, sliced, 1 pinch ground cinnamon, ½ cup cold milk (optional) /breakfast and brunch/cereals/oatmeal recipes/ prep time: 5 mins, cook time: 10 mins, total time: 15 mins, servings: 4"
+    },
+    "original_data": {
+      "cuisine_path": "/Breakfast and Brunch/Cereals/Oatmeal Recipes/",
+      "ingredients": "2 ½ cups water, 1 cup rolled oats, 1 tablespoon white sugar, 1 teaspoon salt, 2  bananas, sliced, 1 pinch ground cinnamon, ½ cup cold milk (Optional)",
+      "prep_time": "5 mins",
+      "cook_time": "10 mins",
+      "servings": 4
+    }
+  },
+  {
+    "id": 634,
+    "name": "Overnight Chia Oats",
+    "collection": "breakfast-brunch",
+    "confidence": 9,
+    "features": {
+      "name": "overnight chia oats",
+      "ingredients": "1 cup almond breeze vanilla almondmilk, ½ cup rolled oats, ½ medium banana, mashed, 1 tablespoon chia seeds",
+      "directions": "combine almond milk, oats, mashed banana, and chia seeds in a 1-pint jar. seal with a lid and shake well. refrigerate 8 hours to overnight.",
+      "cuisine_path": "/breakfast and brunch/cereals/oatmeal recipes/",
+      "timing": "prep time: 5 mins, additional time: 8 hrs, total time: 8 hrs 5 mins, servings: 1",
+      "nutrition": "total fat 9g 11%, saturated fat 1g 4%, sodium 155mg 7%, total carbohydrate 60g 22%, dietary fiber 10g 34%, total sugars 21g, protein 9g, vitamin c 7mg 34%, calcium 90mg 7%, iron 3mg 16%, potassium 375mg 8%",
+      "combined_text": "overnight chia oats 1 cup almond breeze vanilla almondmilk, ½ cup rolled oats, ½ medium banana, mashed, 1 tablespoon chia seeds /breakfast and brunch/cereals/oatmeal recipes/ prep time: 5 mins, additional time: 8 hrs, total time: 8 hrs 5 mins, servings: 1"
+    },
+    "original_data": {
+      "cuisine_path": "/Breakfast and Brunch/Cereals/Oatmeal Recipes/",
+      "ingredients": "1 cup Almond Breeze Vanilla almondmilk, ½ cup rolled oats, ½ medium banana, mashed, 1 tablespoon chia seeds",
+      "prep_time": "5 mins",
+      "cook_time": NaN,
+      "servings": 1
+    }
+  },
+  {
+    "id": 798,
+    "name": "Avocado Breakfast Sandwich",
+    "collection": "breakfast-brunch",
+    "confidence": 6,
+    "features": {
+      "name": "avocado breakfast sandwich",
+      "ingredients": "1 tablespoon olive oil, 2  large eggs,   salt and ground black pepper to taste, 1 tablespoon butter, softened, 2 slices italian bread, 1 ounce swiss cheese, sliced, 1 ounce cheddar cheese, sliced, ½  ripe avocado, sliced",
+      "directions": "heat olive oil in a skillet over medium heat. crack eggs into skillet; cook for 1 to 2 minutes. flip and cook egg until done, 2 to 5 minutes more. transfer eggs to a plate and season with salt and pepper.\nspread butter onto 1 side of each bread slice.\nheat a skillet over medium heat. lay bread slices in the hot skillet, butter-side down. quickly layer swiss cheese, 1 fried egg, cheddar cheese, 1 fried egg, avocado, and remaining bread slice, butter-side up. carefully flip sandwich to grill other side until golden brown, 3 to 4 minutes.\nremove sandwich from skillet and cut in half.\n\n\n\n\n\n\n\n\n\n\n\nbuckwheat queen\n",
+      "cuisine_path": "/main dishes/sandwich recipes/",
+      "timing": "prep time: 10 mins, cook time: 6 mins, total time: 16 mins, servings: 1",
+      "nutrition": "total fat 44g 56%, saturated fat 21g 103%, cholesterol 86mg 29%, sodium 546mg 24%, total carbohydrate 22g 8%, dietary fiber 1g 4%, protein 18g, calcium 463mg 36%, iron 2mg 8%, potassium 97mg 2%",
+      "combined_text": "avocado breakfast sandwich 1 tablespoon olive oil, 2  large eggs,   salt and ground black pepper to taste, 1 tablespoon butter, softened, 2 slices italian bread, 1 ounce swiss cheese, sliced, 1 ounce cheddar cheese, sliced, ½   /main dishes/sandwich recipes/ prep time: 10 mins, cook time: 6 mins, total time: 16 mins, servings: 1"
+    },
+    "original_data": {
+      "cuisine_path": "/Main Dishes/Sandwich Recipes/",
+      "ingredients": "1 tablespoon olive oil, 2  large eggs,   salt and ground black pepper to taste, 1 tablespoon butter, softened, 2 slices Italian bread, 1 ounce Swiss cheese, sliced, 1 ounce Cheddar cheese, sliced, ½  ripe avocado, sliced",
+      "prep_time": "10 mins",
+      "cook_time": "6 mins",
+      "servings": 1
+    }
+  },
+  {
+    "id": 808,
+    "name": "Paleo Baked Eggs in Avocado",
+    "collection": "breakfast-brunch",
+    "confidence": 9,
+    "features": {
+      "name": "paleo baked eggs in avocado",
+      "ingredients": "2 small eggs, 1  avocado, halved and pitted, 2 teaspoons chopped fresh chives, or to taste, 1 pinch dried parsley, or to taste, 1 pinch sea salt and ground black pepper to taste, 2 slices cooked bacon, crumbled",
+      "directions": "preheat the oven to 425 degrees f (220 degrees c).\ncrack eggs into a bowl, being careful to keep the yolks intact.\narrange avocado halves in a baking dish, resting them along the edge so avocado won't tip over. gently spoon 1 egg yolk into the avocado hole. continue spooning egg white into the hole until full. repeat with remaining egg yolk, egg white, and avocado. season each filled avocado with chives, parsley, sea salt, and pepper.\ngently place baking dish in the preheated oven and bake until eggs are cooked, about 15 minutes. sprinkle bacon over avocado.\n\n\n\n\n\n\n\n\n\n",
+      "cuisine_path": "/breakfast and brunch/eggs/",
+      "timing": "prep time: 10 mins, cook time: 15 mins, total time: 25 mins, servings: 2",
+      "nutrition": "total fat 24g 30%, saturated fat 5g 25%, cholesterol 151mg 50%, sodium 498mg 22%, total carbohydrate 9g 3%, dietary fiber 7g 25%, total sugars 1g, protein 11g, vitamin c 11mg 56%, calcium 41mg 3%, iron 4mg 21%, potassium 628mg 13%",
+      "combined_text": "paleo baked eggs in avocado 2 small eggs, 1  avocado, halved and pitted, 2 teaspoons chopped fresh chives, or to taste, 1 pinch dried parsley, or to taste, 1 pinch sea salt and ground black pepper to taste, 2 slices cooked bacon /breakfast and brunch/eggs/ prep time: 10 mins, cook time: 15 mins, total time: 25 mins, servings: 2"
+    },
+    "original_data": {
+      "cuisine_path": "/Breakfast and Brunch/Eggs/",
+      "ingredients": "2 small eggs, 1  avocado, halved and pitted, 2 teaspoons chopped fresh chives, or to taste, 1 pinch dried parsley, or to taste, 1 pinch sea salt and ground black pepper to taste, 2 slices cooked bacon, crumbled",
+      "prep_time": "10 mins",
+      "cook_time": "15 mins",
+      "servings": 2
+    }
+  },
+  {
+    "id": 829,
+    "name": "Avocado Toast (Vegan)",
+    "collection": "breakfast-brunch",
+    "confidence": 4,
+    "features": {
+      "name": "avocado toast (vegan)",
+      "ingredients": "4 slices whole-grain bread, 1  avocado, halved and pitted, 2 tablespoons chopped fresh parsley, 1 ½ teaspoons extra-virgin olive oil, ½  lemon, juiced, ½ teaspoon salt, ½ teaspoon ground black pepper, ½ teaspoon onion powder, ½ teaspoon garlic powder",
+      "directions": "toast bread in a toaster or toaster oven.\nscoop avocado into a bowl. add parsley, olive oil, lemon juice, salt, pepper, onion powder, and garlic powder; mash together using a potato masher. spread avocado mixture into each piece of toast.",
+      "cuisine_path": "/everyday cooking/vegan/breakfast and brunch/",
+      "timing": "prep time: 10 mins, total time: 10 mins, servings: 4, yield: 4 toasts",
+      "nutrition": "total fat 10g 13%, saturated fat 2g 8%, sodium 430mg 19%, total carbohydrate 17g 6%, dietary fiber 6g 20%, total sugars 2g, protein 5g, vitamin c 8mg 39%, calcium 42mg 3%, iron 1mg 7%, potassium 334mg 7%",
+      "combined_text": "avocado toast (vegan) 4 slices whole-grain bread, 1  avocado, halved and pitted, 2 tablespoons chopped fresh parsley, 1 ½ teaspoons extra-virgin olive oil, ½  lemon, juiced, ½ teaspoon salt, ½ teaspoon ground black pepper, /everyday cooking/vegan/breakfast and brunch/ prep time: 10 mins, total time: 10 mins, servings: 4, yield: 4 toasts"
+    },
+    "original_data": {
+      "cuisine_path": "/Everyday Cooking/Vegan/Breakfast and Brunch/",
+      "ingredients": "4 slices whole-grain bread, 1  avocado, halved and pitted, 2 tablespoons chopped fresh parsley, 1 ½ teaspoons extra-virgin olive oil, ½  lemon, juiced, ½ teaspoon salt, ½ teaspoon ground black pepper, ½ teaspoon onion powder, ½ teaspoon garlic powder",
+      "prep_time": "10 mins",
+      "cook_time": NaN,
+      "servings": 4
+    }
+  },
+  {
+    "id": 831,
+    "name": "Avocado Toast with Egg",
+    "collection": "breakfast-brunch",
+    "confidence": 3,
+    "features": {
+      "name": "avocado toast with egg",
+      "ingredients": "1 teaspoon butter, 2  eggs, 2 slices multigrain bread, 1  ripe avocado, pitted, peeled, 1 teaspoon lemon juice, or to taste, 1 pinch cayenne pepper,   sea salt to taste,   ground black pepper to taste",
+      "directions": "melt butter in a skillet over medium-low heat. crack eggs into the skillet side by side and cook until eggs are white on the bottom layer and firm enough to flip, 2 to 3 minutes. flip eggs, trying not to crack the yolk, and cook until egg reaches desired doneness, 2 to 5 minutes more.\nmeanwhile, toast bread slices to desired doneness, 3 to 5 minutes.\nmash avocado in a bowl; stir in lemon juice, cayenne pepper, and sea salt. spread avocado mixture onto toast. top with fried egg and season with sea salt and pepper.",
+      "cuisine_path": "/main dishes/sandwich recipes/",
+      "timing": "prep time: 5 mins, cook time: 5 mins, total time: 10 mins, servings: 2, yield: 2 servings",
+      "nutrition": "total fat 23g 29%, saturated fat 5g 26%, cholesterol 191mg 64%, sodium 361mg 16%, total carbohydrate 21g 8%, dietary fiber 9g 31%, total sugars 3g, protein 12g, vitamin c 12mg 58%, calcium 69mg 5%, iron 4mg 23%, potassium 628mg 13%",
+      "combined_text": "avocado toast with egg 1 teaspoon butter, 2  eggs, 2 slices multigrain bread, 1  ripe avocado, pitted, peeled, 1 teaspoon lemon juice, or to taste, 1 pinch cayenne pepper,   sea salt to taste,   ground black pepper to taste /main dishes/sandwich recipes/ prep time: 5 mins, cook time: 5 mins, total time: 10 mins, servings: 2, yield: 2 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Main Dishes/Sandwich Recipes/",
+      "ingredients": "1 teaspoon butter, 2  eggs, 2 slices multigrain bread, 1  ripe avocado, pitted, peeled, 1 teaspoon lemon juice, or to taste, 1 pinch cayenne pepper,   sea salt to taste,   ground black pepper to taste",
+      "prep_time": "5 mins",
+      "cook_time": "5 mins",
+      "servings": 2
+    }
+  },
+  {
+    "id": 853,
+    "name": "Black Bean Breakfast Bowl",
+    "collection": "breakfast-brunch",
+    "confidence": 9,
+    "features": {
+      "name": "black bean breakfast bowl",
+      "ingredients": "2 tablespoons olive oil, 4  eggs, beaten, 1 (15 ounce) can black beans, drained and rinsed, 1  avocado, peeled and sliced, ¼ cup salsa,   salt and ground black pepper to taste",
+      "directions": "heat olive oil in a small pan over medium heat. cook and stir eggs until eggs are set, 3 to 5 minutes.\nplace black beans in a microwave-safe bowl. heat on high in the microwave until warm, about 1 minute.\ndivide warmed black beans between two bowls.\ntop each bowl with scrambled eggs, avocado, and salsa. season with salt and black pepper.",
+      "cuisine_path": "/breakfast and brunch/eggs/scrambled/",
+      "timing": "prep time: 10 mins, cook time: 5 mins, total time: 15 mins, servings: 2, yield: 2 servings",
+      "nutrition": "total fat 39g 50%, saturated fat 7g 37%, cholesterol 372mg 124%, sodium 1158mg 50%, total carbohydrate 47g 17%, dietary fiber 22g 78%, total sugars 2g, protein 28g, vitamin c 16mg 82%, calcium 148mg 11%, iron 7mg 37%, potassium 1372mg 29%",
+      "combined_text": "black bean breakfast bowl 2 tablespoons olive oil, 4  eggs, beaten, 1 (15 ounce) can black beans, drained and rinsed, 1  avocado, peeled and sliced, ¼ cup salsa,   salt and ground black pepper to taste /breakfast and brunch/eggs/scrambled/ prep time: 10 mins, cook time: 5 mins, total time: 15 mins, servings: 2, yield: 2 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Breakfast and Brunch/Eggs/Scrambled/",
+      "ingredients": "2 tablespoons olive oil, 4  eggs, beaten, 1 (15 ounce) can black beans, drained and rinsed, 1  avocado, peeled and sliced, ¼ cup salsa,   salt and ground black pepper to taste",
+      "prep_time": "10 mins",
+      "cook_time": "5 mins",
+      "servings": 2
+    }
+  },
+  {
+    "id": 922,
+    "name": "Vegan Overnight Oats with Chia Seeds and Fruit",
+    "collection": "breakfast-brunch",
+    "confidence": 9,
+    "features": {
+      "name": "vegan overnight oats with chia seeds and fruit",
+      "ingredients": "1 ⅓ cups almond milk, 2  ripe bananas, mashed, 1 ¼ cups rolled oats, ¾ cup water, 4 tablespoons chia seeds, ½ teaspoon ground cinnamon, ¼ cup fresh blueberries, ¼ cup fresh blackberries, 1  nectarine, peeled and diced",
+      "directions": "combine almond milk, bananas, oats, water, chia seeds, and cinnamon in a jar or airtight container; stir together. cover and refrigerate, 8 hours to overnight.\nplace oat mixture in a saucepan over low heat and gently cook for about 5 minutes. divide between 2 bowls and top with blueberries, blackberries, and nectarine.",
+      "cuisine_path": "/breakfast and brunch/cereals/oatmeal recipes/",
+      "timing": "prep time: 5 mins, cook time: 5 mins, additional time: 8 hrs, total time: 8 hrs 10 mins, servings: 2, yield: 2 servings",
+      "nutrition": "total fat 12g 16%, saturated fat 1g 7%, sodium 118mg 5%, total carbohydrate 88g 32%, dietary fiber 20g 70%, total sugars 28g, protein 13g, vitamin c 23mg 114%, calcium 326mg 25%, iron 5mg 29%, potassium 950mg 20%",
+      "combined_text": "vegan overnight oats with chia seeds and fruit 1 ⅓ cups almond milk, 2  ripe bananas, mashed, 1 ¼ cups rolled oats, ¾ cup water, 4 tablespoons chia seeds, ½ teaspoon ground cinnamon, ¼ cup fresh blueberries, ¼ cup fresh blackberries, 1  nectarine, /breakfast and brunch/cereals/oatmeal recipes/ prep time: 5 mins, cook time: 5 mins, additional time: 8 hrs, total time: 8 hrs 10 mins, servings: 2, yield: 2 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Breakfast and Brunch/Cereals/Oatmeal Recipes/",
+      "ingredients": "1 ⅓ cups almond milk, 2  ripe bananas, mashed, 1 ¼ cups rolled oats, ¾ cup water, 4 tablespoons chia seeds, ½ teaspoon ground cinnamon, ¼ cup fresh blueberries, ¼ cup fresh blackberries, 1  nectarine, peeled and diced",
+      "prep_time": "5 mins",
+      "cook_time": "5 mins",
+      "servings": 2
+    }
+  },
+  {
+    "id": 982,
+    "name": "Sweet Coconut Oatmeal",
+    "collection": "breakfast-brunch",
+    "confidence": 10,
+    "features": {
+      "name": "sweet coconut oatmeal",
+      "ingredients": "1 (14 ounce) can coconut milk, 1 cup rolled oats, 2 tablespoons honey, ¼ cup coconut flakes (optional), 2 tablespoons brown sugar, or more to taste, 1 teaspoon ground cinnamon",
+      "directions": "bring coconut milk to a gentle boil in a small saucepan over medium-low heat. stir in oats and honey; lower heat and simmer until milk has mostly been absorbed, about 15 minutes.\nsprinkle coconut flakes, brown sugar, and cinnamon into oatmeal. cook until oats are creamy and flavors are combined, about 5 minutes.",
+      "cuisine_path": "/breakfast and brunch/cereals/oatmeal recipes/",
+      "timing": "prep time: 5 mins, cook time: 20 mins, total time: 25 mins, servings: 3, yield: 3 servings",
+      "nutrition": "total fat 35g 44%, saturated fat 30g 148%, sodium 25mg 1%, total carbohydrate 45g 16%, dietary fiber 6g 21%, total sugars 21g, protein 7g, vitamin c 2mg 8%, calcium 56mg 4%, iron 6mg 33%, potassium 450mg 10%",
+      "combined_text": "sweet coconut oatmeal 1 (14 ounce) can coconut milk, 1 cup rolled oats, 2 tablespoons honey, ¼ cup coconut flakes (optional), 2 tablespoons brown sugar, or more to taste, 1 teaspoon ground cinnamon /breakfast and brunch/cereals/oatmeal recipes/ prep time: 5 mins, cook time: 20 mins, total time: 25 mins, servings: 3, yield: 3 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Breakfast and Brunch/Cereals/Oatmeal Recipes/",
+      "ingredients": "1 (14 ounce) can coconut milk, 1 cup rolled oats, 2 tablespoons honey, ¼ cup coconut flakes (Optional), 2 tablespoons brown sugar, or more to taste, 1 teaspoon ground cinnamon",
+      "prep_time": "5 mins",
+      "cook_time": "20 mins",
+      "servings": 3
+    }
+  },
+  {
+    "id": 1008,
+    "name": "Baked Oatmeal",
+    "collection": "breakfast-brunch",
+    "confidence": 13,
+    "features": {
+      "name": "baked oatmeal",
+      "ingredients": "3 cups rolled oats, 1 cup brown sugar, 2 teaspoons ground cinnamon, 2 teaspoons baking powder, 1 teaspoon salt, 2  eggs, 1 cup milk, ½ cup melted butter, 2 teaspoons vanilla extract, ¾ cup dried cranberries",
+      "directions": "preheat the oven to 350 degrees f (175 degrees c).\nmix together oats, brown sugar, cinnamon, baking powder, and salt in a large bowl. beat in eggs, milk, melted butter, and vanilla extract. stir in dried cranberries. spread into a 9x13-inch baking dish.\nbake in the preheated oven until top is golden, about 40 minutes.\n\n\n\n\n\n\n\n\n\n",
+      "cuisine_path": "/breakfast and brunch/cereals/oatmeal recipes/",
+      "timing": "prep time: 10 mins, cook time: 40 mins, total time: 50 mins, servings: 8",
+      "nutrition": "total fat 15g 20%, saturated fat 8g 42%, cholesterol 79mg 26%, sodium 502mg 22%, total carbohydrate 59g 22%, dietary fiber 4g 14%, total sugars 36g, protein 7g, vitamin c 0mg 1%, calcium 140mg 11%, iron 2mg 11%, potassium 217mg 5%",
+      "combined_text": "baked oatmeal 3 cups rolled oats, 1 cup brown sugar, 2 teaspoons ground cinnamon, 2 teaspoons baking powder, 1 teaspoon salt, 2  eggs, 1 cup milk, ½ cup melted butter, 2 teaspoons vanilla extract, ¾ cup dried cranb /breakfast and brunch/cereals/oatmeal recipes/ prep time: 10 mins, cook time: 40 mins, total time: 50 mins, servings: 8"
+    },
+    "original_data": {
+      "cuisine_path": "/Breakfast and Brunch/Cereals/Oatmeal Recipes/",
+      "ingredients": "3 cups rolled oats, 1 cup brown sugar, 2 teaspoons ground cinnamon, 2 teaspoons baking powder, 1 teaspoon salt, 2  eggs, 1 cup milk, ½ cup melted butter, 2 teaspoons vanilla extract, ¾ cup dried cranberries",
+      "prep_time": "10 mins",
+      "cook_time": "40 mins",
+      "servings": 8
+    }
+  },
+  {
+    "id": 1012,
+    "name": "Overnight Blueberry French Toast",
+    "collection": "breakfast-brunch",
+    "confidence": 7,
+    "features": {
+      "name": "overnight blueberry french toast",
+      "ingredients": "12 slices day-old bread, cut into 1-inch cubes, 2 (8 ounce) packages cream cheese, cut into 1 inch cubes, 1 cup fresh blueberries, 12  eggs, beaten, 2 cups milk, 1 teaspoon vanilla extract, ⅓ cup maple syrup",
+      "directions": "prepare casserole: lightly grease a 9x13-inch baking dish. arrange 1/2 of the bread cubes in the dish and top with cream cheese cubes. sprinkle blueberries over the cream cheese, then top with remaining bread cubes.\nwhisk eggs, milk, vanilla extract, and syrup together in a large bowl until well-combined; pour over the bread cubes. cover and refrigerate overnight.\nremove casserole from the refrigerator about 30 minutes before baking. preheat the oven to 350 degrees f (175 degrees c).\nbake casserole in the preheated oven, covered, for 30 minutes. uncover, and continue baking until center is firm and surface is lightly browned, about 25 to 30 minutes.\nmeanwhile, prepare blueberry sauce: mix sugar, water, and cornstarch together in a medium saucepan; bring to a boil and cook, stirring constantly, 3 to 4 minutes. stir in blueberries, reduce heat to low, and simmer until all the blueberries burst, about 10 minutes. stir in butter.\nserve portions of casserole on plates and pour warm syrup over top.\n\n\n\n\n\n\n\n\n\n\n\nmelissa goff\n",
+      "cuisine_path": "/breakfast and brunch/french toast recipes/",
+      "timing": "prep time: 15 mins, cook time: 55 mins, additional time: 8 hrs 30 mins, total time: 9 hrs 40 mins, servings: 10, yield: 1 9x13-inch casserole",
+      "nutrition": "total fat 25g 32%, saturated fat 13g 67%, cholesterol 279mg 93%, sodium 451mg 20%, total carbohydrate 52g 19%, dietary fiber 1g 5%, total sugars 33g, protein 15g, vitamin c 3mg 15%, calcium 180mg 14%, iron 3mg 17%, potassium 282mg 6%",
+      "combined_text": "overnight blueberry french toast 12 slices day-old bread, cut into 1-inch cubes, 2 (8 ounce) packages cream cheese, cut into 1 inch cubes, 1 cup fresh blueberries, 12  eggs, beaten, 2 cups milk, 1 teaspoon vanilla extract, ⅓ cup mapl /breakfast and brunch/french toast recipes/ prep time: 15 mins, cook time: 55 mins, additional time: 8 hrs 30 mins, total time: 9 hrs 40 mins, servings: 10, yield: 1 9x13-inch casserole"
+    },
+    "original_data": {
+      "cuisine_path": "/Breakfast and Brunch/French Toast Recipes/",
+      "ingredients": "12 slices day-old bread, cut into 1-inch cubes, 2 (8 ounce) packages cream cheese, cut into 1 inch cubes, 1 cup fresh blueberries, 12  eggs, beaten, 2 cups milk, 1 teaspoon vanilla extract, ⅓ cup maple syrup",
+      "prep_time": "15 mins",
+      "cook_time": "55 mins",
+      "servings": 10
+    }
+  },
+  {
+    "id": 1018,
+    "name": "Todd's Famous Blueberry Pancakes",
+    "collection": "breakfast-brunch",
+    "confidence": 7,
+    "features": {
+      "name": "todd's famous blueberry pancakes",
+      "ingredients": "1 ¼ cups all-purpose flour, 1 tablespoon baking powder, 1 ¼ teaspoons white sugar, ½ teaspoon salt, 1 cup milk, 1  egg, ½ tablespoon butter, melted, ½ cup frozen blueberries, thawed",
+      "directions": "sift flour, baking powder, sugar, and salt together in a large bowl. combine milk and egg in a small bowl. stir egg mixture into flour mixture until just combined. stir in melted butter, then fold in blueberries. set aside for 1 hour.\nheat a lightly oiled griddle or nonstick frying pan over medium-high heat.\npour or scoop the batter onto the hot griddle, using approximately 1/4 cup for each pancake; cook until bubbles appear on the surface, then flip and cook until golden brown on both sides. serve hot.\n\n\n\n\n\n\n\n\n\n\n\ndianne\n",
+      "cuisine_path": "/breakfast and brunch/pancake recipes/",
+      "timing": "prep time: 10 mins, cook time: 15 mins, additional time: 1 hrs, total time: 1 hrs 25 mins, servings: 6, yield: 12 pancakes",
+      "nutrition": "total fat 3g 4%, saturated fat 1g 7%, cholesterol 37mg 12%, sodium 397mg 17%, total carbohydrate 25g 9%, dietary fiber 1g 4%, total sugars 4g, protein 5g, vitamin c 0mg 2%, calcium 150mg 12%, iron 2mg 9%, potassium 108mg 2%",
+      "combined_text": "todd's famous blueberry pancakes 1 ¼ cups all-purpose flour, 1 tablespoon baking powder, 1 ¼ teaspoons white sugar, ½ teaspoon salt, 1 cup milk, 1  egg, ½ tablespoon butter, melted, ½ cup frozen blueberries, thawed /breakfast and brunch/pancake recipes/ prep time: 10 mins, cook time: 15 mins, additional time: 1 hrs, total time: 1 hrs 25 mins, servings: 6, yield: 12 pancakes"
+    },
+    "original_data": {
+      "cuisine_path": "/Breakfast and Brunch/Pancake Recipes/",
+      "ingredients": "1 ¼ cups all-purpose flour, 1 tablespoon baking powder, 1 ¼ teaspoons white sugar, ½ teaspoon salt, 1 cup milk, 1  egg, ½ tablespoon butter, melted, ½ cup frozen blueberries, thawed",
+      "prep_time": "10 mins",
+      "cook_time": "15 mins",
+      "servings": 6
+    }
+  }
+]

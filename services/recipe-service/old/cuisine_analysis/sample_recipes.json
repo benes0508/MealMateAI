@@ -1,0 +1,306 @@
+[
+  {
+    "collection": "baking-desserts",
+    "recipe": {
+      "name": "Apple-Cranberry Crostada",
+      "categories": [
+        "desserts"
+      ],
+      "original_path": "/Desserts/Fruit Desserts/Apple Dessert Recipes/"
+    }
+  },
+  {
+    "collection": "baking-desserts",
+    "recipe": {
+      "name": "Apple Pie by Grandma Ople",
+      "categories": [
+        "desserts"
+      ],
+      "original_path": "/Desserts/Pies/Apple Pie Recipes/"
+    }
+  },
+  {
+    "collection": "baking-desserts",
+    "recipe": {
+      "name": "Apple Crisp",
+      "categories": [
+        "desserts"
+      ],
+      "original_path": "/Desserts/Crisps and Crumbles Recipes/Apple Crisps and Crumbles Recipes/"
+    }
+  },
+  {
+    "collection": "uncategorized",
+    "recipe": {
+      "name": "Sarah's Homemade Applesauce",
+      "categories": [
+        "side dish"
+      ],
+      "original_path": "/Side Dish/Applesauce Recipes/"
+    }
+  },
+  {
+    "collection": "uncategorized",
+    "recipe": {
+      "name": "Easy Apple Cider",
+      "categories": [
+        "drinks recipes"
+      ],
+      "original_path": "/Drinks Recipes/Cider Recipes/"
+    }
+  },
+  {
+    "collection": "uncategorized",
+    "recipe": {
+      "name": "Southern Fried Apples",
+      "categories": [
+        "side dish"
+      ],
+      "original_path": "/Side Dish/"
+    }
+  },
+  {
+    "collection": "soups-stews",
+    "recipe": {
+      "name": "Mulligatawny Soup",
+      "categories": [
+        "soups",
+        "chicken"
+      ],
+      "original_path": "/Soups, Stews and Chili Recipes/Soup Recipes/Chicken Soup Recipes/"
+    }
+  },
+  {
+    "collection": "soups-stews",
+    "recipe": {
+      "name": "Mulligatawny Soup",
+      "categories": [
+        "soups",
+        "chicken"
+      ],
+      "original_path": "/Soups, Stews and Chili Recipes/Soup Recipes/Chicken Soup Recipes/"
+    }
+  },
+  {
+    "collection": "soups-stews",
+    "recipe": {
+      "name": "Mulligatawny Soup",
+      "categories": [
+        "soups",
+        "chicken"
+      ],
+      "original_path": "/Soups, Stews and Chili Recipes/Soup Recipes/Chicken Soup Recipes/"
+    }
+  },
+  {
+    "collection": "american-comfort",
+    "recipe": {
+      "name": "Awesome Sausage, Apple and Cranberry Stuffing",
+      "categories": [
+        "american"
+      ],
+      "original_path": "/Side Dish/Stuffing and Dressing Recipes/Sausage Stuffing and Dressing Recipes/"
+    }
+  },
+  {
+    "collection": "american-comfort",
+    "recipe": {
+      "name": "Awesome Sausage, Apple and Cranberry Stuffing",
+      "categories": [
+        "american"
+      ],
+      "original_path": "/Side Dish/Stuffing and Dressing Recipes/Sausage Stuffing and Dressing Recipes/"
+    }
+  },
+  {
+    "collection": "american-comfort",
+    "recipe": {
+      "name": "Awesome Sausage, Apple and Cranberry Stuffing",
+      "categories": [
+        "american"
+      ],
+      "original_path": "/Side Dish/Stuffing and Dressing Recipes/Sausage Stuffing and Dressing Recipes/"
+    }
+  },
+  {
+    "collection": "healthy-light",
+    "recipe": {
+      "name": "Waldorf Salad",
+      "categories": [
+        "salads"
+      ],
+      "original_path": "/Salad/Waldorf Salad Recipes/"
+    }
+  },
+  {
+    "collection": "healthy-light",
+    "recipe": {
+      "name": "Waldorf Salad",
+      "categories": [
+        "salads"
+      ],
+      "original_path": "/Salad/Waldorf Salad Recipes/"
+    }
+  },
+  {
+    "collection": "healthy-light",
+    "recipe": {
+      "name": "Waldorf Salad",
+      "categories": [
+        "salads"
+      ],
+      "original_path": "/Salad/Waldorf Salad Recipes/"
+    }
+  },
+  {
+    "collection": "meat-mains",
+    "recipe": {
+      "name": "Applesauce Pork Chops",
+      "categories": [
+        "pork"
+      ],
+      "original_path": "/Main Dishes/Pork/Pork Chop Recipes/Baked/"
+    }
+  },
+  {
+    "collection": "meat-mains",
+    "recipe": {
+      "name": "Instant Pot Meatloaf",
+      "categories": [
+        "beef"
+      ],
+      "original_path": "/Main Dishes/Meatloaf Recipes/Beef Meatloaf Recipes/"
+    }
+  },
+  {
+    "collection": "meat-mains",
+    "recipe": {
+      "name": "Pork Tenderloin with Apples and Onions",
+      "categories": [
+        "chicken",
+        "pork"
+      ],
+      "original_path": "/Meat and Poultry/Pork/Pork Tenderloin Recipes/"
+    }
+  },
+  {
+    "collection": "breakfast-brunch",
+    "recipe": {
+      "name": "Simple Summer Smoothie",
+      "categories": [
+        "breakfast"
+      ],
+      "original_path": "/Breakfast and Brunch/Drinks/"
+    }
+  },
+  {
+    "collection": "breakfast-brunch",
+    "recipe": {
+      "name": "Fig Smoothie",
+      "categories": [
+        "breakfast"
+      ],
+      "original_path": "/Breakfast and Brunch/Drinks/"
+    }
+  },
+  {
+    "collection": "breakfast-brunch",
+    "recipe": {
+      "name": "Banana Peach Bread",
+      "categories": [
+        "breakfast"
+      ],
+      "original_path": "/Breakfast and Brunch/Breakfast Bread Recipes/"
+    }
+  },
+  {
+    "collection": "italian-mediterranean",
+    "recipe": {
+      "name": "Clafoutis aux Cerises (Classic Clafouti)",
+      "categories": [
+        "french"
+      ],
+      "original_path": "/Cuisine/European/French/"
+    }
+  },
+  {
+    "collection": "italian-mediterranean",
+    "recipe": {
+      "name": "Risotto with Fresh Figs and Prosciutto",
+      "categories": [
+        "italian"
+      ],
+      "original_path": "/Main Dishes/Rice/Risotto Recipes/"
+    }
+  },
+  {
+    "collection": "italian-mediterranean",
+    "recipe": {
+      "name": "Fresh Fig and Prosciutto Pasta Sauce",
+      "categories": [
+        "italian"
+      ],
+      "original_path": "/Sauces and Condiments/Sauces/Pasta Sauces/Creamy/"
+    }
+  },
+  {
+    "collection": "asian-pacific",
+    "recipe": {
+      "name": "Cherry Chicken",
+      "categories": [
+        "asian"
+      ],
+      "original_path": "/Cuisine/Asian/"
+    }
+  },
+  {
+    "collection": "asian-pacific",
+    "recipe": {
+      "name": "Khoresht Fesenjaan (Chicken with Pomegranate Sauce)",
+      "categories": [
+        "asian"
+      ],
+      "original_path": "/Cuisine/Asian/"
+    }
+  },
+  {
+    "collection": "asian-pacific",
+    "recipe": {
+      "name": "Char Siu (Chinese Barbeque Pork)",
+      "categories": [
+        "asian"
+      ],
+      "original_path": "/Cuisine/Asian/Chinese/"
+    }
+  },
+  {
+    "collection": "appetizers-snacks",
+    "recipe": {
+      "name": "Elegant Fig Appetizers with Goat Cheese and Almonds",
+      "categories": [
+        "appetizers"
+      ],
+      "original_path": "/Appetizers and Snacks/Fruit/"
+    }
+  },
+  {
+    "collection": "appetizers-snacks",
+    "recipe": {
+      "name": "Figs and Toasted Almonds Brie",
+      "categories": [
+        "appetizers"
+      ],
+      "original_path": "/Appetizers and Snacks/Cheese/Baked Brie Recipes/"
+    }
+  },
+  {
+    "collection": "appetizers-snacks",
+    "recipe": {
+      "name": "Fig and Prosciutto Appetizer Bites",
+      "categories": [
+        "appetizers"
+      ],
+      "original_path": "/Appetizers and Snacks/Wraps and Rolls/"
+    }
+  }
+]

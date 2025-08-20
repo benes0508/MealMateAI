@@ -1,0 +1,40 @@
+{
+  "italian-mediterranean": [
+    "italian",
+    "mediterranean",
+    "french"
+  ],
+  "asian-pacific": [
+    "asian",
+    "indian"
+  ],
+  "american-comfort": [
+    "american",
+    "mexican"
+  ],
+  "healthy-light": [
+    "healthy",
+    "salads",
+    "seafood"
+  ],
+  "baking-desserts": [
+    "desserts"
+  ],
+  "breakfast-brunch": [
+    "breakfast"
+  ],
+  "soups-stews": [
+    "soups"
+  ],
+  "appetizers-snacks": [
+    "appetizers"
+  ],
+  "meat-mains": [
+    "chicken",
+    "beef",
+    "pork"
+  ],
+  "uncategorized": [
+    "uncategorized"
+  ]
+}

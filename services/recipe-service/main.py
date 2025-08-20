@@ -1,175 +1,637 @@
-# services/recipe-service/main.py
+"""
+MealMateAI Recipe Service - Main FastAPI Application
+
+This is the main entry point for the Recipe Service, a sophisticated AI-powered 
+microservice that provides semantic recipe search and AI-driven meal recommendations.
+
+ARCHITECTURE OVERVIEW:
+=====================
+This service implements a modern RAG (Retrieval-Augmented Generation) architecture:
+
+1. **Vector Search Layer**: Uses Qdrant vector database with 9,366 recipe embeddings
+   - 8 specialized collections (desserts-sweets, protein-mains, etc.)
+   - 768-dimensional embeddings from SentenceTransformer all-mpnet-base-v2
+   - Cosine similarity search for semantic matching
+
+2. **AI Integration Layer**: Google Gemini LLM for intelligent processing
+   - Conversation analysis for user preference extraction
+   - Smart query generation for each recipe collection
+   - Context-aware recommendation generation
+
+3. **API Layer**: RESTful FastAPI endpoints
+   - /search - Direct semantic search across collections
+   - /recommendations - AI-powered meal suggestions with conversation analysis
+   - /collections - Collection management and information
+   - /recipes/{id} - Detailed recipe information
+
+KEY FEATURES:
+=============
+- **Semantic Recipe Search**: Natural language queries like "chocolate cake" or "healthy dinner"
+- **AI Conversation Analysis**: Understands user preferences from chat history
+- **Multi-Collection Search**: Searches across 8 specialized recipe categories
+- **Real-time Processing**: Sub-second search with quality similarity scores
+- **Rich Metadata**: Recipe summaries, ingredients, instructions, confidence scores
+
+TECHNICAL STACK:
+================
+- FastAPI: Modern Python web framework with automatic OpenAPI documentation
+- Qdrant: Specialized vector database for AI applications
+- SentenceTransformers: State-of-the-art text embedding models
+- Google Gemini: Large Language Model for natural language processing
+- Pydantic: Data validation and serialization
+- Async/Await: Non-blocking I/O for high performance
+
+USAGE:
+======
+Run locally: python main.py
+Run with Docker: docker-compose up recipe-service
+API Documentation: http://localhost:8001/docs
+
+DEPENDENCIES:
+=============
+- Vector Database: Qdrant running on port 6333
+- LLM Service: Google Gemini API with valid API key
+- Python 3.9+ with requirements from requirements.txt
+
+AUTHORS: MealMateAI Development Team
+VERSION: 2.0.0 (AI-Powered with Vector Search)
+"""
 
 import os
-from fastapi import FastAPI, HTTPException, Query, Request
-from sqlalchemy import create_engine, text
-from sqlalchemy.exc import SQLAlchemyError
-from typing import List, Optional
-import pandas as pd
+import sys
+from fastapi import FastAPI, HTTPException, Depends, Request
+from fastapi.middleware.cors import CORSMiddleware
+from contextlib import asynccontextmanager
+import uvicorn
 
-# App setup
-title = "Recipe Service"
-app = FastAPI(title=title, version="0.1.0")
+# Add current directory to Python path for imports
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
-# Database URL from env
-db_url = os.getenv(
-    "DATABASE_URL",
-    "postgresql://recipe_user:recipe_password@postgres:5432/recipe_db"
+# Setup centralized logging system
+from logging_config import setup_logging, log_system_info
+logger = setup_logging("recipe-service-api", level="INFO")
+
+# Import Pydantic models for request/response validation
+from models import (
+    RecommendationRequest, RecommendationResponse,
+    SearchRequest, SearchResponse, CollectionSearchRequest,
+    CollectionsResponse, CollectionInfo, RecipeDetail, ErrorResponse
 )
-engine = create_engine(db_url, future=True)
 
-# Path to the CSV file
-CSV_PATH = "kaggleRecipes/recipes.csv"
+# Import main service orchestrator
+from services.recommendation_service import RecommendationService
 
-# Health check endpoint
-@app.get("/health")
-def health():
-    return {"status": "ok"}
+# Global service instance - shared across all API requests
+# This prevents reinitialization on every request and maintains AI model state
+recommendation_service = None
 
-# Get all recipes from CSV file
-@app.get("/csv")
-def get_csv_recipes():
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    """
+    FastAPI Lifespan Manager - Handles service startup and shutdown
+    
+    This function manages the complete lifecycle of the Recipe Service:
+    1. Initializes the AI/ML components (vector database, LLM connections)
+    2. Loads recipe embeddings and classification data
+    3. Establishes connections to external services (Qdrant, Google Gemini)
+    4. Provides graceful shutdown handling
+    
+    INITIALIZATION PROCESS:
+    =======================
+    1. RecommendationService orchestrator creation
+    2. VectorSearchService initialization (connects to Qdrant)
+    3. QueryGenerationService setup (connects to Google Gemini)
+    4. Recipe classification data loading
+    5. SentenceTransformer model loading (768-dim embeddings)
+    
+    FAILURE HANDLING:
+    =================
+    - 30-second timeout prevents hanging on initialization
+    - Falls back to "basic mode" if AI components fail
+    - Service remains available for health checks and basic operations
+    - All failures are logged with detailed error information
+    
+    PERFORMANCE NOTES:
+    ==================
+    - First startup takes 30-60 seconds (model downloads)
+    - Subsequent startups are faster due to model caching
+    - Model weights cached in Docker volumes for production
+    """
+    global recommendation_service
+    
+    # === STARTUP PHASE ===
+    logger.info("🚀 Starting MealMateAI Recipe Service with Vector Search...")
+    print("🚀 Starting MealMateAI Recipe Service with Vector Search...")
+    
+    # Log system information for debugging
+    log_system_info(logger)
+    
     try:
-        # Check if the file exists
-        if not os.path.exists(CSV_PATH):
-            raise HTTPException(status_code=404, detail=f"CSV file not found at {CSV_PATH}")
+        import asyncio
         
-        # Read the CSV file
-        df = pd.read_csv(CSV_PATH)
+        # Create the main service orchestrator
+        recommendation_service = RecommendationService()
         
-        # Convert DataFrame to list of dictionaries
-        recipes = df.fillna("").to_dict(orient="records")
+        # Initialize with timeout to prevent Docker hanging
+        logger.info("⏳ Initializing AI components (Vector DB + LLM) with 30 second timeout...")
+        success = await asyncio.wait_for(
+            recommendation_service.initialize(), 
+            timeout=30.0
+        )
         
-        return {"total": len(recipes), "recipes": recipes}
+        if success:
+            # Full AI functionality available
+            logger.info("✅ Recipe Service initialized successfully")
+            logger.info("🔍 Vector search with 8 collections ready")
+            logger.info("🤖 Gemini query generation enabled")
+            print("✅ Recipe Service initialized successfully")
+            print("🔍 Vector search with 8 collections ready") 
+            print("🤖 Gemini query generation enabled")
+        else:
+            # Partial functionality - basic endpoints only
+            logger.warning("⚠️  Recipe Service initialized with limited functionality")
+            print("⚠️  Recipe Service initialized with limited functionality")
+            
+    except asyncio.TimeoutError:
+        # Timeout during initialization - common on first run due to model downloads
+        logger.error("⏰ Service initialization timed out (30s)")
+        logger.warning("🔧 Service will run in basic mode (health checks only)")
+        print("⏰ Service initialization timed out (30s)")
+        print("🔧 Service will run in basic mode (health checks only)")
+        recommendation_service = RecommendationService()  # Create basic instance
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Error reading CSV file: {str(e)}")
+        # Any other initialization error
+        logger.error(f"❌ Failed to initialize Recipe Service: {e}")
+        logger.warning("🔧 Service will run in basic mode (health checks only)")
+        print(f"❌ Failed to initialize Recipe Service: {e}")
+        print("🔧 Service will run in basic mode (health checks only)")
+        recommendation_service = RecommendationService()  # Create basic instance
+    
+    yield
+    
+    # === SHUTDOWN PHASE ===
+    logger.info("🛑 Shutting down Recipe Service...")
+    print("🛑 Shutting down Recipe Service...")
+    # Note: Cleanup of AI models and connections happens automatically
+    # when the service process terminates
 
-# List all recipes - removing /api/recipes prefix
-@app.get("/")
-def list_recipes():
-    try:
-        with engine.connect() as conn:
-            result = conn.execute(text("SELECT * FROM recipes ORDER BY id"))
-            # ._mapping gives a dict-like view of the row
-            recipes = [dict(row._mapping) for row in result]
-        return recipes
-    except SQLAlchemyError as e:
-        raise HTTPException(status_code=500, detail=str(e))
+# === FASTAPI APPLICATION SETUP ===
 
-# Search recipes - removing /api/recipes prefix
-@app.get("/search")
-def search_recipes(
-    request: Request,
-    query: str = "",
-    page: int = 1,
-    limit: int = 12
-):
-    try:
-        offset = (page - 1) * limit
+# Create FastAPI application with comprehensive configuration
+app = FastAPI(
+    title="MealMateAI Recipe Service",
+    description="""
+    AI-Powered Recipe Recommendation Service
+    
+    This service provides intelligent recipe search and meal recommendations using:
+    - Vector-based semantic search across 9,366 recipes
+    - 8 specialized recipe collections (desserts, proteins, etc.)
+    - Google Gemini LLM for conversation analysis
+    - Real-time recommendation generation with RAG architecture
+    
+    Key Endpoints:
+    - /search: Direct semantic recipe search
+    - /recommendations: AI-powered meal suggestions
+    - /collections: Browse recipe categories
+    """,
+    version="2.0.0",
+    lifespan=lifespan,
+    # Automatic OpenAPI documentation available at /docs
+    docs_url="/docs",
+    redoc_url="/redoc"
+)
+
+# === MIDDLEWARE CONFIGURATION ===
+
+# CORS (Cross-Origin Resource Sharing) - allows frontend access
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # TODO: Configure specific origins for production security
+    allow_credentials=True,
+    allow_methods=["*"],   # Allow all HTTP methods
+    allow_headers=["*"],   # Allow all headers
+)
+
+# === DEPENDENCY INJECTION ===
+
+async def get_recommendation_service():
+    """
+    Dependency injection for RecommendationService
+    
+    This ensures that:
+    1. Service is properly initialized before handling requests
+    2. Same service instance is shared across requests (maintains AI model state)
+    3. Proper error handling if service fails to initialize
+    
+    Returns:
+        RecommendationService: Initialized service instance
         
-        # Parse array parameters from query string manually
-        query_params = dict(request.query_params)
-        
-        # Extract dietary filters - handle both dietary[] and dietary format
-        dietary = []
-        for key, value in query_params.items():
-            if key == 'dietary[]' or key == 'dietary':
-                if isinstance(value, list):
-                    dietary.extend(value)
-                else:
-                    dietary.append(value)
-        
-        # Extract tag filters - handle both tags[] and tags format  
-        tags = []
-        for key, value in query_params.items():
-            if key == 'tags[]' or key == 'tags':
-                if isinstance(value, list):
-                    tags.extend(value)
-                else:
-                    tags.append(value)
-        
-        # Construct base query
-        base_sql = "SELECT * FROM recipes"
-        where_clauses = []
-        params = {}
-        
-        # Add search term if provided
-        if query:
-            where_clauses.append("(name ILIKE :query)")
-            params["query"] = f"%{query}%"
-        
-        # Add dietary filters if provided
-        if dietary and len(dietary) > 0:
-            dietary_filters = []
-            for i, diet in enumerate(dietary):
-                param_name = f"dietary_{i}"
-                # Handle text array column - use = ANY operator
-                dietary_filters.append(f":{param_name} = ANY(dietary_tags)")
-                params[param_name] = diet
-            
-            if dietary_filters:
-                where_clauses.append(f"({' OR '.join(dietary_filters)})")
-        
-        # Add tag filters if provided
-        if tags and len(tags) > 0:
-            tag_filters = []
-            for i, tag in enumerate(tags):
-                param_name = f"tag_{i}"
-                # Handle text array column - use = ANY operator
-                tag_filters.append(f":{param_name} = ANY(tags)")
-                params[param_name] = tag
-            
-            if tag_filters:
-                where_clauses.append(f"({' OR '.join(tag_filters)})")
-        
-        # Construct final query
-        if where_clauses:
-            base_sql += " WHERE " + " AND ".join(where_clauses)
-        
-        # Add pagination
-        base_sql += " ORDER BY id LIMIT :limit OFFSET :offset"
-        params["limit"] = limit
-        params["offset"] = offset
-        
-        # Execute query
-        with engine.connect() as conn:
-            # Get paginated results
-            result = conn.execute(text(base_sql), params)
-            recipes = [dict(row._mapping) for row in result]
-            
-            # Count total results for pagination
-            count_sql = "SELECT COUNT(*) FROM recipes"
-            if where_clauses:
-                count_sql += " WHERE " + " AND ".join(where_clauses)
-            
-            # Remove pagination params for count query
-            count_params = {k: v for k, v in params.items() if k not in ["limit", "offset"]}
-            count_result = conn.execute(text(count_sql), count_params)
-            total = count_result.scalar()
-            
-        # Calculate total pages
-        total_pages = (total + limit - 1) // limit
-        
-        return {
-            "recipes": recipes,
-            "page": page,
-            "limit": limit,
-            "total": total,
-            "total_pages": total_pages
+    Raises:
+        HTTPException: 503 Service Unavailable if service not initialized
+    """
+    if recommendation_service is None:
+        logger.error("Service not initialized when requested")
+        raise HTTPException(
+            status_code=503, 
+            detail="Service not initialized - AI components may be loading"
+        )
+    return recommendation_service
+
+# ===========================
+# API ENDPOINTS DOCUMENTATION
+# ===========================
+
+@app.get("/health")
+async def health_check(service: RecommendationService = Depends(get_recommendation_service)):
+    """
+    Health Check Endpoint
+    
+    PURPOSE:
+    ========
+    Provides comprehensive system health status including:
+    - Service availability and version
+    - AI component status (Vector DB, LLM)
+    - Performance metrics
+    - System resource information
+    
+    USAGE:
+    ======
+    GET /health
+    
+    RESPONSE:
+    =========
+    {
+        "status": "ok" | "degraded" | "down",
+        "service": "recipe-service",
+        "version": "2.0.0",
+        "details": {
+            "recommendation_service": "healthy",
+            "vector_search_service": "healthy" | "unhealthy",
+            "query_generation_service": "healthy" | "unavailable",
+            "timestamp": "2025-08-20T20:16:09.354378"
         }
-    except SQLAlchemyError as e:
-        raise HTTPException(status_code=500, detail=str(e))
-
-# Get one recipe by ID - removing /api/recipes prefix
-@app.get("/{recipe_id}")
-def get_recipe(recipe_id: int):
+    }
+    """
     try:
-        with engine.connect() as conn:
-            stmt = text("SELECT * FROM recipes WHERE id = :id")
-            result = conn.execute(stmt, {"id": recipe_id})
-            row = result.fetchone()
-        if row is None:
-            raise HTTPException(status_code=404, detail="Recipe not found")
-        return dict(row._mapping)
-    except SQLAlchemyError as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        health_status = await service.health_check()
+        logger.debug("Health check completed successfully")
+        return {
+            "status": "ok",
+            "service": "recipe-service",
+            "version": "2.0.0",
+            "details": health_status
+        }
+    except Exception as e:
+        logger.error(f"Health check failed: {e}")
+        return {
+            "status": "degraded",
+            "service": "recipe-service", 
+            "version": "2.0.0",
+            "error": str(e)
+        }
+
+@app.post("/recommendations", response_model=RecommendationResponse)
+async def get_recommendations(
+    request: RecommendationRequest,
+    service: RecommendationService = Depends(get_recommendation_service)
+):
+    """
+    AI-Powered Recipe Recommendations (RAG Architecture)
+    
+    PURPOSE:
+    ========
+    This is the flagship endpoint that provides intelligent meal recommendations
+    using advanced RAG (Retrieval-Augmented Generation) architecture.
+    
+    PROCESS FLOW:
+    =============
+    1. **Conversation Analysis**: Uses Google Gemini LLM to analyze chat history
+       - Extracts user preferences (sweet, spicy, healthy, etc.)
+       - Identifies dietary restrictions (vegan, gluten-free, etc.)
+       - Determines meal context (breakfast, lunch, dinner, snack)
+    
+    2. **Smart Query Generation**: AI generates targeted queries for each collection
+       - desserts-sweets: "chocolate desserts", "sweet treats"
+       - protein-mains: "grilled chicken", "seafood dishes"  
+       - quick-light: "quick healthy meals", "light lunch"
+       - etc. (8 collections total)
+    
+    3. **Vector Search**: Performs semantic search across all relevant collections
+       - 768-dimensional embeddings with cosine similarity
+       - Finds recipes matching user intent, not just keywords
+       - Returns top matches with similarity scores
+    
+    4. **Result Assembly**: Combines and ranks results from all collections
+       - Applies user preference filtering
+       - Removes duplicates and low-quality matches
+       - Returns structured recommendations with metadata
+    
+    REQUEST FORMAT:
+    ===============
+    {
+        "conversation_history": [
+            {"role": "user", "content": "I want something sweet for dessert"},
+            {"role": "assistant", "content": "What type of dessert?"},
+            {"role": "user", "content": "Something with chocolate"}
+        ],
+        "max_results": 5,
+        "user_preferences": {  // Optional
+            "dietary_restrictions": ["vegetarian"],
+            "allergies": ["nuts"],
+            "cuisine_preferences": ["italian", "mexican"]
+        }
+    }
+    
+    RESPONSE FORMAT:
+    ================
+    {
+        "recommendations": [
+            {
+                "recipe_id": "8225",
+                "title": "Chocolate Cake",
+                "collection": "desserts-sweets",
+                "similarity_score": 0.677,
+                "summary": "A classic moist chocolate cake...",
+                "ingredients_preview": ["chocolate", "butter", "sugar"],
+                "confidence": 17.0,
+                "metadata": {...}
+            }
+        ],
+        "query_analysis": {
+            "detected_preferences": ["sweet", "chocolate"],
+            "detected_restrictions": [],
+            "meal_context": "dessert",
+            "generated_queries": {...},
+            "processing_time_ms": 14908
+        },
+        "total_results": 3,
+        "status": "success"
+    }
+    
+    PERFORMANCE:
+    ============
+    - Processing time: 10-20 seconds (includes LLM analysis)
+    - Quality: High-relevance matches with 0.6+ similarity scores
+    - Scalability: Handles complex multi-turn conversations
+    """
+    try:
+        logger.info(f"Recommendations request: {len(request.conversation_history)} messages, max_results={request.max_results}")
+        result = await service.get_recommendations(request)
+        logger.info(f"Recommendations returned: {result.total_results} results")
+        return result
+    except Exception as e:
+        logger.error(f"Error generating recommendations: {e}")
+        raise HTTPException(status_code=500, detail=f"Error generating recommendations: {str(e)}")
+
+@app.post("/search", response_model=SearchResponse)
+async def direct_search(
+    request: SearchRequest,
+    service: RecommendationService = Depends(get_recommendation_service)
+):
+    """
+    Direct Semantic Search (Fast Vector Search)
+    
+    PURPOSE:
+    ========
+    Performs direct semantic search without AI conversation analysis.
+    Ideal for:
+    - Quick recipe lookups
+    - Testing vector search quality
+    - Simple search interfaces
+    - API integrations requiring fast response times
+    
+    TECHNICAL DETAILS:
+    ==================
+    1. **Query Processing**: Converts natural language to 768-dimensional vector
+    2. **Vector Search**: Searches across specified collections (or all if none specified)
+    3. **Similarity Matching**: Uses cosine similarity to find closest recipes
+    4. **Result Ranking**: Returns results sorted by similarity score
+    
+    REQUEST FORMAT:
+    ===============
+    {
+        "query": "chocolate cake",
+        "max_results": 10,
+        "collections": ["desserts-sweets", "baked-breads"]  // Optional
+    }
+    
+    RESPONSE FORMAT:
+    ================
+    {
+        "results": [
+            {
+                "recipe_id": "8225",
+                "title": "Chocolate Cake", 
+                "collection": "desserts-sweets",
+                "similarity_score": 0.677,
+                "summary": "A classic moist chocolate cake...",
+                "ingredients_preview": ["chocolate", "butter"],
+                "instructions_preview": "Preheat oven to 350°F...",
+                "confidence": 17.0
+            }
+        ],
+        "query": "chocolate cake",
+        "collections_searched": ["desserts-sweets", "baked-breads"],
+        "total_results": 3,
+        "processing_time_ms": 641
+    }
+    
+    PERFORMANCE:
+    ============
+    - Processing time: 100-800ms (depending on collection size)
+    - Quality: 0.5+ similarity scores for good matches
+    - Scalability: Sub-second response for most queries
+    """
+    try:
+        import time
+        start_time = time.time()
+        
+        logger.info(f"Direct search request: '{request.query}', collections={request.collections}, max_results={request.max_results}")
+        
+        recommendations = await service.direct_search(
+            query=request.query,
+            collections=request.collections,
+            max_results=request.max_results
+        )
+        
+        processing_time = int((time.time() - start_time) * 1000)
+        collections_searched = request.collections if request.collections else list(recommendation_service.vector_service.classified_recipes.keys()) if recommendation_service.vector_service.classified_recipes else []
+        
+        logger.info(f"Direct search completed: {len(recommendations)} results in {processing_time}ms")
+        
+        return SearchResponse(
+            results=recommendations,
+            query=request.query,
+            collections_searched=collections_searched,
+            total_results=len(recommendations),
+            processing_time_ms=processing_time
+        )
+        
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error performing search: {str(e)}")
+
+@app.post("/collections/{collection_name}/search", response_model=SearchResponse)
+async def search_collection(
+    collection_name: str,
+    request: CollectionSearchRequest,
+    service: RecommendationService = Depends(get_recommendation_service)
+):
+    """
+    Search within a specific recipe collection
+    """
+    try:
+        import time
+        start_time = time.time()
+        
+        recommendations = await service.search_collection(
+            collection_name=collection_name,
+            query=request.query,
+            max_results=request.max_results
+        )
+        
+        processing_time = int((time.time() - start_time) * 1000)
+        
+        return SearchResponse(
+            results=recommendations,
+            query=request.query,
+            collections_searched=[collection_name],
+            total_results=len(recommendations),
+            processing_time_ms=processing_time
+        )
+        
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error searching collection {collection_name}: {str(e)}")
+
+@app.get("/collections", response_model=CollectionsResponse)
+async def get_collections(
+    service: RecommendationService = Depends(get_recommendation_service)
+):
+    """
+    Get information about all available recipe collections
+    """
+    try:
+        collections_info = await service.get_collections_info()
+        
+        total_recipes = sum(info.recipe_count for info in collections_info)
+        
+        return CollectionsResponse(
+            collections=collections_info,
+            total_collections=len(collections_info),
+            total_recipes=total_recipes
+        )
+        
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error getting collections: {str(e)}")
+
+@app.get("/collections/{collection_name}/info", response_model=CollectionInfo)
+async def get_collection_info(
+    collection_name: str,
+    service: RecommendationService = Depends(get_recommendation_service)
+):
+    """
+    Get detailed information about a specific collection
+    """
+    try:
+        collection_info = await service.get_collection_info(collection_name)
+        
+        if not collection_info:
+            raise HTTPException(status_code=404, detail=f"Collection {collection_name} not found")
+        
+        return collection_info
+        
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error getting collection info: {str(e)}")
+
+@app.get("/recipes/{recipe_id}", response_model=RecipeDetail)
+async def get_recipe_details(
+    recipe_id: str,
+    service: RecommendationService = Depends(get_recommendation_service)
+):
+    """
+    Get detailed information about a specific recipe
+    """
+    try:
+        recipe_details = await service.get_recipe_details(recipe_id)
+        
+        if not recipe_details:
+            raise HTTPException(status_code=404, detail=f"Recipe {recipe_id} not found")
+        
+        return recipe_details
+        
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error getting recipe details: {str(e)}")
+
+# === LEGACY ENDPOINTS (for backward compatibility) ===
+
+@app.get("/")
+async def list_recipes_legacy():
+    """
+    Legacy endpoint - redirects to collections info
+    """
+    return {
+        "message": "This endpoint has been upgraded. Use /collections for collection info or /recommendations for AI-powered suggestions",
+        "new_endpoints": {
+            "collections": "/collections",
+            "recommendations": "/recommendations",
+            "search": "/search"
+        },
+        "status": "deprecated"
+    }
+
+@app.get("/search")
+async def search_recipes_legacy():
+    """
+    Legacy endpoint - provides migration info
+    """
+    return {
+        "message": "This endpoint has been upgraded. Use POST /search for semantic search",
+        "example": {
+            "url": "/search",
+            "method": "POST",
+            "body": {
+                "query": "chocolate cake recipes",
+                "max_results": 10,
+                "collections": ["desserts-sweets", "baked-breads"]
+            }
+        },
+        "status": "deprecated"
+    }
+
+# Removed problematic catch-all route /{recipe_id} that was intercepting /collections and other routes
+# Legacy recipe access is now only available through /recipes/{recipe_id}
+
+# === ERROR HANDLERS ===
+
+@app.exception_handler(404)
+async def not_found_handler(request: Request, exc: HTTPException):
+    return ErrorResponse(
+        error="Resource not found",
+        error_code="NOT_FOUND",
+        details={"path": str(request.url.path)},
+        status="error"
+    ).model_dump()
+
+@app.exception_handler(500)
+async def internal_error_handler(request: Request, exc: HTTPException):
+    return ErrorResponse(
+        error="Internal server error",
+        error_code="INTERNAL_ERROR", 
+        details={"path": str(request.url.path)},
+        status="error"
+    ).model_dump()
+
+# === STARTUP ===
+
+if __name__ == "__main__":
+    # For development
+    uvicorn.run(
+        "main:app",
+        host="0.0.0.0",
+        port=8001,
+        reload=True,
+        log_level="info"
+    )

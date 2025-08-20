@@ -1,0 +1,2356 @@
+[
+  {
+    "id": 6,
+    "name": "Easy Apple Cider",
+    "collection": "drinks-beverages",
+    "confidence": 8,
+    "features": {
+      "name": "easy apple cider",
+      "ingredients": "1 (64 fluid ounce) bottle apple cider, 3  cinnamon sticks, 1 teaspoon whole allspice, 1 teaspoon whole cloves, ⅓ cup brown sugar",
+      "directions": "combine apple cider and cinnamon sticks in a slow cooker.\nplace allspice and cloves onto the center of an 8-inch square piece of cheesecloth. gather edges of the cheesecloth together and tie to secure; place in the slow cooker. stir in brown sugar. cook on high until it comes to a boil. reduce heat to low and keep warm.",
+      "cuisine_path": "/drinks recipes/cider recipes/",
+      "timing": "prep time: 10 mins, cook time: 1 hrs, total time: 1 hrs 10 mins, servings: 8",
+      "nutrition": "total fat 0g 0%, sodium 31mg 1%, total carbohydrate 43g 16%, dietary fiber 1g 3%, total sugars 38g, protein 0g, vitamin c 0mg 1%, calcium 23mg 2%, iron 0mg 1%, potassium 20mg 0%",
+      "combined_text": "easy apple cider 1 (64 fluid ounce) bottle apple cider, 3  cinnamon sticks, 1 teaspoon whole allspice, 1 teaspoon whole cloves, ⅓ cup brown sugar /drinks recipes/cider recipes/ prep time: 10 mins, cook time: 1 hrs, total time: 1 hrs 10 mins, servings: 8"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Cider Recipes/",
+      "ingredients": "1 (64 fluid ounce) bottle apple cider, 3  cinnamon sticks, 1 teaspoon whole allspice, 1 teaspoon whole cloves, ⅓ cup brown sugar",
+      "prep_time": "10 mins",
+      "cook_time": "1 hrs",
+      "servings": 8
+    }
+  },
+  {
+    "id": 15,
+    "name": "Homemade Apple Cider",
+    "collection": "drinks-beverages",
+    "confidence": 8,
+    "features": {
+      "name": "homemade apple cider",
+      "ingredients": "10 large apples, quartered,   water, to cover, ¾ cup white sugar, 1 tablespoon ground cinnamon, 1 tablespoon ground allspice",
+      "directions": "place apples in a large stockpot; cover with water by at least 2 inches. stir in sugar, cinnamon, and allspice. bring to a boil over medium-high heat. boil, uncovered, for 1 hour. reduce heat; cover and simmer for 2 hours.\nstrain apple mixture through a fine-mesh sieve; discard solids. drain cider again through a cheesecloth-lined sieve.\nrefrigerate cider until cold, about 4 hours.\n\n\n\n\n\n\n\n\n\n\n\n ladonna langwell \n",
+      "cuisine_path": "/drinks recipes/juice recipes/",
+      "timing": "prep time: 15 mins, cook time: 3 hrs, additional time: 4 hrs, total time: 7 hrs 15 mins, servings: 16, yield: 1 gallon",
+      "nutrition": "total fat 0g 0%, sodium 1mg 0%, total carbohydrate 22g 8%, dietary fiber 2g 9%, total sugars 18g, protein 0g, vitamin c 4mg 21%, calcium 12mg 1%, iron 0mg 1%, potassium 98mg 2%",
+      "combined_text": "homemade apple cider 10 large apples, quartered,   water, to cover, ¾ cup white sugar, 1 tablespoon ground cinnamon, 1 tablespoon ground allspice /drinks recipes/juice recipes/ prep time: 15 mins, cook time: 3 hrs, additional time: 4 hrs, total time: 7 hrs 15 mins, servings: 16, yield: 1 gallon"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Juice Recipes/",
+      "ingredients": "10 large apples, quartered,   water, to cover, ¾ cup white sugar, 1 tablespoon ground cinnamon, 1 tablespoon ground allspice",
+      "prep_time": "15 mins",
+      "cook_time": "3 hrs",
+      "servings": 16
+    }
+  },
+  {
+    "id": 37,
+    "name": "Easy Apple Cider",
+    "collection": "drinks-beverages",
+    "confidence": 8,
+    "features": {
+      "name": "easy apple cider",
+      "ingredients": "1 (64 fluid ounce) bottle apple cider, 3  cinnamon sticks, 1 teaspoon whole allspice, 1 teaspoon whole cloves, ⅓ cup brown sugar",
+      "directions": "combine apple cider and cinnamon sticks in a slow cooker.\nplace allspice and cloves onto the center of an 8-inch square piece of cheesecloth. gather edges of the cheesecloth together and tie to secure; place in the slow cooker. stir in brown sugar. cook on high until it comes to a boil. reduce heat to low and keep warm.",
+      "cuisine_path": "/drinks recipes/cider recipes/",
+      "timing": "prep time: 10 mins, cook time: 1 hrs, total time: 1 hrs 10 mins, servings: 8",
+      "nutrition": "total fat 0g 0%, sodium 31mg 1%, total carbohydrate 43g 16%, dietary fiber 1g 3%, total sugars 38g, protein 0g, vitamin c 0mg 1%, calcium 23mg 2%, iron 0mg 1%, potassium 20mg 0%",
+      "combined_text": "easy apple cider 1 (64 fluid ounce) bottle apple cider, 3  cinnamon sticks, 1 teaspoon whole allspice, 1 teaspoon whole cloves, ⅓ cup brown sugar /drinks recipes/cider recipes/ prep time: 10 mins, cook time: 1 hrs, total time: 1 hrs 10 mins, servings: 8"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Cider Recipes/",
+      "ingredients": "1 (64 fluid ounce) bottle apple cider, 3  cinnamon sticks, 1 teaspoon whole allspice, 1 teaspoon whole cloves, ⅓ cup brown sugar",
+      "prep_time": "10 mins",
+      "cook_time": "1 hrs",
+      "servings": 8
+    }
+  },
+  {
+    "id": 46,
+    "name": "Homemade Apple Cider",
+    "collection": "drinks-beverages",
+    "confidence": 8,
+    "features": {
+      "name": "homemade apple cider",
+      "ingredients": "10 large apples, quartered,   water, to cover, ¾ cup white sugar, 1 tablespoon ground cinnamon, 1 tablespoon ground allspice",
+      "directions": "place apples in a large stockpot; cover with water by at least 2 inches. stir in sugar, cinnamon, and allspice. bring to a boil over medium-high heat. boil, uncovered, for 1 hour. reduce heat; cover and simmer for 2 hours.\nstrain apple mixture through a fine-mesh sieve; discard solids. drain cider again through a cheesecloth-lined sieve.\nrefrigerate cider until cold, about 4 hours.\n\n\n\n\n\n\n\n\n\n\n\n ladonna langwell \n",
+      "cuisine_path": "/drinks recipes/juice recipes/",
+      "timing": "prep time: 15 mins, cook time: 3 hrs, additional time: 4 hrs, total time: 7 hrs 15 mins, servings: 16, yield: 1 gallon",
+      "nutrition": "total fat 0g 0%, sodium 1mg 0%, total carbohydrate 22g 8%, dietary fiber 2g 9%, total sugars 18g, protein 0g, vitamin c 4mg 21%, calcium 12mg 1%, iron 0mg 1%, potassium 98mg 2%",
+      "combined_text": "homemade apple cider 10 large apples, quartered,   water, to cover, ¾ cup white sugar, 1 tablespoon ground cinnamon, 1 tablespoon ground allspice /drinks recipes/juice recipes/ prep time: 15 mins, cook time: 3 hrs, additional time: 4 hrs, total time: 7 hrs 15 mins, servings: 16, yield: 1 gallon"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Juice Recipes/",
+      "ingredients": "10 large apples, quartered,   water, to cover, ¾ cup white sugar, 1 tablespoon ground cinnamon, 1 tablespoon ground allspice",
+      "prep_time": "15 mins",
+      "cook_time": "3 hrs",
+      "servings": 16
+    }
+  },
+  {
+    "id": 68,
+    "name": "Easy Apple Cider",
+    "collection": "drinks-beverages",
+    "confidence": 8,
+    "features": {
+      "name": "easy apple cider",
+      "ingredients": "1 (64 fluid ounce) bottle apple cider, 3  cinnamon sticks, 1 teaspoon whole allspice, 1 teaspoon whole cloves, ⅓ cup brown sugar",
+      "directions": "combine apple cider and cinnamon sticks in a slow cooker.\nplace allspice and cloves onto the center of an 8-inch square piece of cheesecloth. gather edges of the cheesecloth together and tie to secure; place in the slow cooker. stir in brown sugar. cook on high until it comes to a boil. reduce heat to low and keep warm.",
+      "cuisine_path": "/drinks recipes/cider recipes/",
+      "timing": "prep time: 10 mins, cook time: 1 hrs, total time: 1 hrs 10 mins, servings: 8",
+      "nutrition": "total fat 0g 0%, sodium 31mg 1%, total carbohydrate 43g 16%, dietary fiber 1g 3%, total sugars 38g, protein 0g, vitamin c 0mg 1%, calcium 23mg 2%, iron 0mg 1%, potassium 20mg 0%",
+      "combined_text": "easy apple cider 1 (64 fluid ounce) bottle apple cider, 3  cinnamon sticks, 1 teaspoon whole allspice, 1 teaspoon whole cloves, ⅓ cup brown sugar /drinks recipes/cider recipes/ prep time: 10 mins, cook time: 1 hrs, total time: 1 hrs 10 mins, servings: 8"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Cider Recipes/",
+      "ingredients": "1 (64 fluid ounce) bottle apple cider, 3  cinnamon sticks, 1 teaspoon whole allspice, 1 teaspoon whole cloves, ⅓ cup brown sugar",
+      "prep_time": "10 mins",
+      "cook_time": "1 hrs",
+      "servings": 8
+    }
+  },
+  {
+    "id": 77,
+    "name": "Homemade Apple Cider",
+    "collection": "drinks-beverages",
+    "confidence": 8,
+    "features": {
+      "name": "homemade apple cider",
+      "ingredients": "10 large apples, quartered,   water, to cover, ¾ cup white sugar, 1 tablespoon ground cinnamon, 1 tablespoon ground allspice",
+      "directions": "place apples in a large stockpot; cover with water by at least 2 inches. stir in sugar, cinnamon, and allspice. bring to a boil over medium-high heat. boil, uncovered, for 1 hour. reduce heat; cover and simmer for 2 hours.\nstrain apple mixture through a fine-mesh sieve; discard solids. drain cider again through a cheesecloth-lined sieve.\nrefrigerate cider until cold, about 4 hours.\n\n\n\n\n\n\n\n\n\n\n\n ladonna langwell \n",
+      "cuisine_path": "/drinks recipes/juice recipes/",
+      "timing": "prep time: 15 mins, cook time: 3 hrs, additional time: 4 hrs, total time: 7 hrs 15 mins, servings: 16, yield: 1 gallon",
+      "nutrition": "total fat 0g 0%, sodium 1mg 0%, total carbohydrate 22g 8%, dietary fiber 2g 9%, total sugars 18g, protein 0g, vitamin c 4mg 21%, calcium 12mg 1%, iron 0mg 1%, potassium 98mg 2%",
+      "combined_text": "homemade apple cider 10 large apples, quartered,   water, to cover, ¾ cup white sugar, 1 tablespoon ground cinnamon, 1 tablespoon ground allspice /drinks recipes/juice recipes/ prep time: 15 mins, cook time: 3 hrs, additional time: 4 hrs, total time: 7 hrs 15 mins, servings: 16, yield: 1 gallon"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Juice Recipes/",
+      "ingredients": "10 large apples, quartered,   water, to cover, ¾ cup white sugar, 1 tablespoon ground cinnamon, 1 tablespoon ground allspice",
+      "prep_time": "15 mins",
+      "cook_time": "3 hrs",
+      "servings": 16
+    }
+  },
+  {
+    "id": 99,
+    "name": "Easy Apple Cider",
+    "collection": "drinks-beverages",
+    "confidence": 8,
+    "features": {
+      "name": "easy apple cider",
+      "ingredients": "1 (64 fluid ounce) bottle apple cider, 3  cinnamon sticks, 1 teaspoon whole allspice, 1 teaspoon whole cloves, ⅓ cup brown sugar",
+      "directions": "combine apple cider and cinnamon sticks in a slow cooker.\nplace allspice and cloves onto the center of an 8-inch square piece of cheesecloth. gather edges of the cheesecloth together and tie to secure; place in the slow cooker. stir in brown sugar. cook on high until it comes to a boil. reduce heat to low and keep warm.",
+      "cuisine_path": "/drinks recipes/cider recipes/",
+      "timing": "prep time: 10 mins, cook time: 1 hrs, total time: 1 hrs 10 mins, servings: 8",
+      "nutrition": "total fat 0g 0%, sodium 31mg 1%, total carbohydrate 43g 16%, dietary fiber 1g 3%, total sugars 38g, protein 0g, vitamin c 0mg 1%, calcium 23mg 2%, iron 0mg 1%, potassium 20mg 0%",
+      "combined_text": "easy apple cider 1 (64 fluid ounce) bottle apple cider, 3  cinnamon sticks, 1 teaspoon whole allspice, 1 teaspoon whole cloves, ⅓ cup brown sugar /drinks recipes/cider recipes/ prep time: 10 mins, cook time: 1 hrs, total time: 1 hrs 10 mins, servings: 8"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Cider Recipes/",
+      "ingredients": "1 (64 fluid ounce) bottle apple cider, 3  cinnamon sticks, 1 teaspoon whole allspice, 1 teaspoon whole cloves, ⅓ cup brown sugar",
+      "prep_time": "10 mins",
+      "cook_time": "1 hrs",
+      "servings": 8
+    }
+  },
+  {
+    "id": 108,
+    "name": "Homemade Apple Cider",
+    "collection": "drinks-beverages",
+    "confidence": 8,
+    "features": {
+      "name": "homemade apple cider",
+      "ingredients": "10 large apples, quartered,   water, to cover, ¾ cup white sugar, 1 tablespoon ground cinnamon, 1 tablespoon ground allspice",
+      "directions": "place apples in a large stockpot; cover with water by at least 2 inches. stir in sugar, cinnamon, and allspice. bring to a boil over medium-high heat. boil, uncovered, for 1 hour. reduce heat; cover and simmer for 2 hours.\nstrain apple mixture through a fine-mesh sieve; discard solids. drain cider again through a cheesecloth-lined sieve.\nrefrigerate cider until cold, about 4 hours.\n\n\n\n\n\n\n\n\n\n\n\n ladonna langwell \n",
+      "cuisine_path": "/drinks recipes/juice recipes/",
+      "timing": "prep time: 15 mins, cook time: 3 hrs, additional time: 4 hrs, total time: 7 hrs 15 mins, servings: 16, yield: 1 gallon",
+      "nutrition": "total fat 0g 0%, sodium 1mg 0%, total carbohydrate 22g 8%, dietary fiber 2g 9%, total sugars 18g, protein 0g, vitamin c 4mg 21%, calcium 12mg 1%, iron 0mg 1%, potassium 98mg 2%",
+      "combined_text": "homemade apple cider 10 large apples, quartered,   water, to cover, ¾ cup white sugar, 1 tablespoon ground cinnamon, 1 tablespoon ground allspice /drinks recipes/juice recipes/ prep time: 15 mins, cook time: 3 hrs, additional time: 4 hrs, total time: 7 hrs 15 mins, servings: 16, yield: 1 gallon"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Juice Recipes/",
+      "ingredients": "10 large apples, quartered,   water, to cover, ¾ cup white sugar, 1 tablespoon ground cinnamon, 1 tablespoon ground allspice",
+      "prep_time": "15 mins",
+      "cook_time": "3 hrs",
+      "servings": 16
+    }
+  },
+  {
+    "id": 154,
+    "name": "Old Fashioned Cocktail",
+    "collection": "drinks-beverages",
+    "confidence": 8,
+    "features": {
+      "name": "old fashioned cocktail",
+      "ingredients": "1  sugar cube, 1 teaspoon water, 1 dash bitters, 2 fluid ounces whiskey (rye or bourbon), 1  lemon twist, ½ cup ice cubes, or as needed, 1  orange slice, for garnish, 1  maraschino cherry, for garnish",
+      "directions": "muddle sugar cube, water, and bitters in an old fashioned glass for 1 minute. pour in whiskey; stir for 1 minute.\nsqueeze lemon twist over the glass and drop it in. add ice cubes. garnish with orange slice and maraschino cherry; serve with a swizzle stick.\n\n\n\n\n\n\n\n\n\n",
+      "cuisine_path": "/drinks recipes/cocktail recipes/whiskey drinks recipes/",
+      "timing": "prep time: 5 mins, total time: 5 mins, servings: 1",
+      "nutrition": "sodium 7mg 0%, total carbohydrate 7g 3%, dietary fiber 0g 0%, total sugars 4g, calcium 8mg 1%, potassium 12mg 0%",
+      "combined_text": "old fashioned cocktail 1  sugar cube, 1 teaspoon water, 1 dash bitters, 2 fluid ounces whiskey (rye or bourbon), 1  lemon twist, ½ cup ice cubes, or as needed, 1  orange slice, for garnish, 1  maraschino cherry, for garnish /drinks recipes/cocktail recipes/whiskey drinks recipes/ prep time: 5 mins, total time: 5 mins, servings: 1"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Cocktail Recipes/Whiskey Drinks Recipes/",
+      "ingredients": "1  sugar cube, 1 teaspoon water, 1 dash bitters, 2 fluid ounces whiskey (rye or bourbon), 1  lemon twist, ½ cup ice cubes, or as needed, 1  orange slice, for garnish, 1  maraschino cherry, for garnish",
+      "prep_time": "5 mins",
+      "cook_time": NaN,
+      "servings": 1
+    }
+  },
+  {
+    "id": 164,
+    "name": "Door County Cherry Bounce",
+    "collection": "drinks-beverages",
+    "confidence": 8,
+    "features": {
+      "name": "door county cherry bounce",
+      "ingredients": "2 cups pitted tart cherries (such as door county cherries), ⅓ cup white sugar, or to taste, 1 cup vodka, or as needed",
+      "directions": "put cherries in a clean, 1-quart glass jar; add sugar. fill the rest of the jar with vodka. place lid on jar and shake.\nstore jar in a cool, dark area for 1 to 4 months, shaking jar occasionally.",
+      "cuisine_path": "/drinks recipes/liqueur recipes/",
+      "timing": "prep time: 10 mins, additional time: 19 days 17 hrs 2 mins, total time: 19 days 17 hrs 12 mins, servings: 10, yield: 1 quart",
+      "nutrition": "total fat 0g 0%, saturated fat 0g 1%, sodium 0mg 0%, total carbohydrate 12g 4%, dietary fiber 1g 3%, total sugars 11g, protein 0g, vitamin c 2mg 10%, calcium 4mg 0%, iron 0mg 1%, potassium 65mg 1%",
+      "combined_text": "door county cherry bounce 2 cups pitted tart cherries (such as door county cherries), ⅓ cup white sugar, or to taste, 1 cup vodka, or as needed /drinks recipes/liqueur recipes/ prep time: 10 mins, additional time: 19 days 17 hrs 2 mins, total time: 19 days 17 hrs 12 mins, servings: 10, yield: 1 quart"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Liqueur Recipes/",
+      "ingredients": "2 cups pitted tart cherries (such as Door County cherries), ⅓ cup white sugar, or to taste, 1 cup vodka, or as needed",
+      "prep_time": "10 mins",
+      "cook_time": NaN,
+      "servings": 10
+    }
+  },
+  {
+    "id": 166,
+    "name": "Simple Summer Smoothie",
+    "collection": "drinks-beverages",
+    "confidence": 9,
+    "features": {
+      "name": "simple summer smoothie",
+      "ingredients": "1  banana, 1 cup frozen strawberries, 1 cup frozen blueberries, 1 cup frozen cherries, 4  ice cubes, ½ cup orange juice, ¾ cup vanilla yogurt, ½ teaspoon honey (optional)",
+      "directions": "place the banana, strawberries, blueberries, cherries, and ice cubes into a blender. pour in the orange juice, vanilla yogurt, and honey. puree until smooth.",
+      "cuisine_path": "/breakfast and brunch/drinks/",
+      "timing": "prep time: 10 mins, total time: 10 mins, servings: 4, yield: 4 cups",
+      "nutrition": "total fat 1g 2%, saturated fat 1g 3%, cholesterol 2mg 1%, sodium 34mg 1%, total carbohydrate 31g 11%, dietary fiber 4g 13%, total sugars 23g, protein 4g, vitamin c 43mg 214%, calcium 101mg 8%, iron 1mg 5%, potassium 420mg 9%",
+      "combined_text": "simple summer smoothie 1  banana, 1 cup frozen strawberries, 1 cup frozen blueberries, 1 cup frozen cherries, 4  ice cubes, ½ cup orange juice, ¾ cup vanilla yogurt, ½ teaspoon honey (optional) /breakfast and brunch/drinks/ prep time: 10 mins, total time: 10 mins, servings: 4, yield: 4 cups"
+    },
+    "original_data": {
+      "cuisine_path": "/Breakfast and Brunch/Drinks/",
+      "ingredients": "1  banana, 1 cup frozen strawberries, 1 cup frozen blueberries, 1 cup frozen cherries, 4  ice cubes, ½ cup orange juice, ¾ cup vanilla yogurt, ½ teaspoon honey (Optional)",
+      "prep_time": "10 mins",
+      "cook_time": NaN,
+      "servings": 4
+    }
+  },
+  {
+    "id": 168,
+    "name": "Homemade Old Fashioned Mix",
+    "collection": "drinks-beverages",
+    "confidence": 8,
+    "features": {
+      "name": "homemade old fashioned mix",
+      "ingredients": "3 cups water, 3 cups white sugar, 3  clementine oranges, quartered, 5  maraschino cherries, or more to taste, 1  cinnamon stick, 2 tablespoons bitters, or to taste",
+      "directions": "bring water and sugar to a boil in a saucepan; remove from heat. stir oranges, cherries, and cinnamon stick into sugar mixture. cover saucepan and steep for 1 hour.\nremove fruit and cinnamon stick from mixture using a slotted spoon; stir in bitters.",
+      "cuisine_path": "/drinks recipes/cocktail recipes/",
+      "timing": "prep time: 10 mins, additional time: 1 hrs, total time: 1 hrs 10 mins, servings: 48, yield: 48 servings",
+      "nutrition": "sodium 1mg 0%, total carbohydrate 16g 6%, dietary fiber 0g 0%, total sugars 13g, vitamin c 1mg 7%, calcium 3mg 0%, potassium 12mg 0%",
+      "combined_text": "homemade old fashioned mix 3 cups water, 3 cups white sugar, 3  clementine oranges, quartered, 5  maraschino cherries, or more to taste, 1  cinnamon stick, 2 tablespoons bitters, or to taste /drinks recipes/cocktail recipes/ prep time: 10 mins, additional time: 1 hrs, total time: 1 hrs 10 mins, servings: 48, yield: 48 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Cocktail Recipes/",
+      "ingredients": "3 cups water, 3 cups white sugar, 3  clementine oranges, quartered, 5  maraschino cherries, or more to taste, 1  cinnamon stick, 2 tablespoons bitters, or to taste",
+      "prep_time": "10 mins",
+      "cook_time": NaN,
+      "servings": 48
+    }
+  },
+  {
+    "id": 170,
+    "name": "Monte Carlo Cocktail",
+    "collection": "drinks-beverages",
+    "confidence": 8,
+    "features": {
+      "name": "monte carlo cocktail",
+      "ingredients": "  ice, 2 fluid ounces rye whiskey, ¾ fluid ounce benedictine liqueur, 2 dashes aromatic bitters (such as peychaud's®, 1  maraschino cherry",
+      "directions": "fill a cocktail shaker with ice. pour in whiskey and benedictine. shake in bitters. cover and shake well. strain into a chilled glass. garnish with maraschino cherry.",
+      "cuisine_path": "/drinks recipes/cocktail recipes/whiskey drinks recipes/",
+      "timing": "prep time: 5 mins, total time: 5 mins, servings: 1, yield: 1 cocktail",
+      "nutrition": "sodium 8mg 0%, total carbohydrate 7g 3%, dietary fiber 0g 0%, calcium 8mg 1%, potassium 13mg 0%",
+      "combined_text": "monte carlo cocktail   ice, 2 fluid ounces rye whiskey, ¾ fluid ounce benedictine liqueur, 2 dashes aromatic bitters (such as peychaud's®, 1  maraschino cherry /drinks recipes/cocktail recipes/whiskey drinks recipes/ prep time: 5 mins, total time: 5 mins, servings: 1, yield: 1 cocktail"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Cocktail Recipes/Whiskey Drinks Recipes/",
+      "ingredients": "  ice, 2 fluid ounces rye whiskey, ¾ fluid ounce Benedictine liqueur, 2 dashes aromatic bitters (such as Peychaud's®, 1  maraschino cherry",
+      "prep_time": "5 mins",
+      "cook_time": NaN,
+      "servings": 1
+    }
+  },
+  {
+    "id": 208,
+    "name": "Fig Smoothie",
+    "collection": "drinks-beverages",
+    "confidence": 9,
+    "features": {
+      "name": "fig smoothie",
+      "ingredients": "2  frozen bananas, peeled and chopped, 6  fresh figs, halved, ¾ cup milk, ¾ cup orange juice",
+      "directions": "place the bananas, figs, milk, and orange juice into a blender. cover, and puree until smooth. pour into glasses to serve.",
+      "cuisine_path": "/breakfast and brunch/drinks/",
+      "timing": "prep time: 5 mins, total time: 5 mins, servings: 2, yield: 2 servings",
+      "nutrition": "total fat 3g 4%, saturated fat 1g 7%, cholesterol 7mg 2%, sodium 42mg 2%, total carbohydrate 78g 28%, dietary fiber 9g 31%, total sugars 58g, protein 6g, vitamin c 61mg 304%, calcium 190mg 15%, iron 1mg 7%, potassium 1191mg 25%",
+      "combined_text": "fig smoothie 2  frozen bananas, peeled and chopped, 6  fresh figs, halved, ¾ cup milk, ¾ cup orange juice /breakfast and brunch/drinks/ prep time: 5 mins, total time: 5 mins, servings: 2, yield: 2 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Breakfast and Brunch/Drinks/",
+      "ingredients": "2  frozen bananas, peeled and chopped, 6  fresh figs, halved, ¾ cup milk, ¾ cup orange juice",
+      "prep_time": "5 mins",
+      "cook_time": NaN,
+      "servings": 2
+    }
+  },
+  {
+    "id": 231,
+    "name": "Summer Sweet Smoothies",
+    "collection": "drinks-beverages",
+    "confidence": 8,
+    "features": {
+      "name": "summer sweet smoothies",
+      "ingredients": "2 cups cranberry juice, 2 cups strawberries, 1 cup blueberries, 1 cup watermelon chunks, 1  banana, 2  fresh figs",
+      "directions": "process the cranberry juice, strawberries, blueberries, watermelon, banana, and figs in a blender until smooth and creamy. enjoy immediately or keep cool in refrigerator.",
+      "cuisine_path": "/drinks recipes/smoothie recipes/strawberry/",
+      "timing": "prep time: 5 mins, total time: 5 mins, servings: 4, yield: 4 servings",
+      "nutrition": "total fat 1g 1%, saturated fat 0g 1%, sodium 5mg 0%, total carbohydrate 42g 15%, dietary fiber 4g 14%, total sugars 32g, protein 2g, vitamin c 106mg 528%, calcium 30mg 2%, iron 1mg 4%, potassium 362mg 8%",
+      "combined_text": "summer sweet smoothies 2 cups cranberry juice, 2 cups strawberries, 1 cup blueberries, 1 cup watermelon chunks, 1  banana, 2  fresh figs /drinks recipes/smoothie recipes/strawberry/ prep time: 5 mins, total time: 5 mins, servings: 4, yield: 4 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Smoothie Recipes/Strawberry/",
+      "ingredients": "2 cups cranberry juice, 2 cups strawberries, 1 cup blueberries, 1 cup watermelon chunks, 1  banana, 2  fresh figs",
+      "prep_time": "5 mins",
+      "cook_time": NaN,
+      "servings": 4
+    }
+  },
+  {
+    "id": 246,
+    "name": "Simple Cantaloupe Smoothie",
+    "collection": "drinks-beverages",
+    "confidence": 9,
+    "features": {
+      "name": "simple cantaloupe smoothie",
+      "ingredients": "1 cup vanilla yogurt (such as dannon® light and fit®), ½ cup orange juice, ½ cup sliced cantaloupe, 4  ice cubes, crushed, or as needed",
+      "directions": "blend yogurt, orange juice, cantaloupe, and ice cubes in a blender until smooth, about 30 seconds.",
+      "cuisine_path": "/drinks recipes/smoothie recipes/orange/",
+      "timing": "prep time: 10 mins, total time: 10 mins, servings: 1, yield: 1 smoothie",
+      "nutrition": "total fat 4g 4%, saturated fat 2g 10%, cholesterol 12mg 4%, sodium 178mg 8%, total carbohydrate 53g 19%, dietary fiber 1g 3%, total sugars 50g, protein 14g, vitamin c 93mg 467%, calcium 442mg 34%, iron 1mg 3%, potassium 999mg 21%",
+      "combined_text": "simple cantaloupe smoothie 1 cup vanilla yogurt (such as dannon® light and fit®), ½ cup orange juice, ½ cup sliced cantaloupe, 4  ice cubes, crushed, or as needed /drinks recipes/smoothie recipes/orange/ prep time: 10 mins, total time: 10 mins, servings: 1, yield: 1 smoothie"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Smoothie Recipes/Orange/",
+      "ingredients": "1 cup vanilla yogurt (such as Dannon® Light and Fit®), ½ cup orange juice, ½ cup sliced cantaloupe, 4  ice cubes, crushed, or as needed",
+      "prep_time": "10 mins",
+      "cook_time": NaN,
+      "servings": 1
+    }
+  },
+  {
+    "id": 247,
+    "name": "Watermelon Lemonade",
+    "collection": "drinks-beverages",
+    "confidence": 8,
+    "features": {
+      "name": "watermelon lemonade",
+      "ingredients": "½ cup white sugar, ½ cup water, 4 cups cubed watermelon, 3 cups cold water, ½ cup fresh lemon juice, 6 cups ice cubes",
+      "directions": "place the watermelon into a blender. cover, and puree until smooth. strain through a fine mesh sieve.\nbring sugar and 1/2 cup water to a boil in a saucepan over medium-high heat until sugar dissolves, about 5 minutes. remove from heat. stir in 3 cups of cold water and the lemon juice. divide the ice into 12 glasses, and scoop 2 to 3 tablespoons of watermelon puree over the ice, then top with the lemonade. gently stir before serving.",
+      "cuisine_path": "/drinks recipes/lemonade recipes/",
+      "timing": "prep time: 10 mins, cook time: 5 mins, total time: 15 mins, servings: 12, yield: 6 cups",
+      "nutrition": "total fat 0g 0%, sodium 3mg 0%, total carbohydrate 13g 5%, dietary fiber 0g 1%, total sugars 12g, protein 0g, vitamin c 9mg 44%, calcium 6mg 0%, iron 0mg 1%, potassium 70mg 1%",
+      "combined_text": "watermelon lemonade ½ cup white sugar, ½ cup water, 4 cups cubed watermelon, 3 cups cold water, ½ cup fresh lemon juice, 6 cups ice cubes /drinks recipes/lemonade recipes/ prep time: 10 mins, cook time: 5 mins, total time: 15 mins, servings: 12, yield: 6 cups"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Lemonade Recipes/",
+      "ingredients": "½ cup white sugar, ½ cup water, 4 cups cubed watermelon, 3 cups cold water, ½ cup fresh lemon juice, 6 cups ice cubes",
+      "prep_time": "10 mins",
+      "cook_time": "5 mins",
+      "servings": 12
+    }
+  },
+  {
+    "id": 250,
+    "name": "Melon Smoothie",
+    "collection": "drinks-beverages",
+    "confidence": 8,
+    "features": {
+      "name": "melon smoothie",
+      "ingredients": "¼  cantaloupe - peeled, seeded and cubed, ¼  honeydew melon - peeled, seeded and cubed, 1  lime, juiced, 2 tablespoons sugar",
+      "directions": "in a blender, combine cantaloupe, honeydew, lime juice and sugar. blend until smooth. pour into glasses and serve.",
+      "cuisine_path": "/drinks recipes/smoothie recipes/",
+      "timing": "prep time: 5 mins, total time: 5 mins, servings: 4, yield: 4 servings",
+      "nutrition": "total fat 0g 0%, saturated fat 0g 1%, sodium 20mg 1%, total carbohydrate 18g 7%, dietary fiber 1g 5%, total sugars 16g, protein 1g, vitamin c 32mg 160%, calcium 14mg 1%, iron 0mg 2%, potassium 292mg 6%",
+      "combined_text": "melon smoothie ¼  cantaloupe - peeled, seeded and cubed, ¼  honeydew melon - peeled, seeded and cubed, 1  lime, juiced, 2 tablespoons sugar /drinks recipes/smoothie recipes/ prep time: 5 mins, total time: 5 mins, servings: 4, yield: 4 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Smoothie Recipes/",
+      "ingredients": "¼  cantaloupe - peeled, seeded and cubed, ¼  honeydew melon - peeled, seeded and cubed, 1  lime, juiced, 2 tablespoons sugar",
+      "prep_time": "5 mins",
+      "cook_time": NaN,
+      "servings": 4
+    }
+  },
+  {
+    "id": 251,
+    "name": "Watermelon Milkshake",
+    "collection": "drinks-beverages",
+    "confidence": 8,
+    "features": {
+      "name": "watermelon milkshake",
+      "ingredients": "1 ½ cups diced watermelon, 2 ¼ cups milk, 2 teaspoons white sugar",
+      "directions": "process the watermelon and milk together in a blender until smooth. add the sugar and blend another 10 seconds to incorporate. serve immediately.",
+      "cuisine_path": "/drinks recipes/smoothie recipes/",
+      "timing": "prep time: 10 mins, total time: 10 mins, servings: 4, yield: 4 servings",
+      "nutrition": "total fat 3g 4%, saturated fat 2g 9%, cholesterol 11mg 4%, sodium 57mg 2%, total carbohydrate 13g 5%, dietary fiber 0g 1%, total sugars 12g, protein 5g, vitamin c 5mg 25%, calcium 165mg 13%, iron 0mg 1%, potassium 271mg 6%",
+      "combined_text": "watermelon milkshake 1 ½ cups diced watermelon, 2 ¼ cups milk, 2 teaspoons white sugar /drinks recipes/smoothie recipes/ prep time: 10 mins, total time: 10 mins, servings: 4, yield: 4 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Smoothie Recipes/",
+      "ingredients": "1 ½ cups diced watermelon, 2 ¼ cups milk, 2 teaspoons white sugar",
+      "prep_time": "10 mins",
+      "cook_time": NaN,
+      "servings": 4
+    }
+  },
+  {
+    "id": 262,
+    "name": "Jewel's Watermelon Margaritas",
+    "collection": "drinks-beverages",
+    "confidence": 9,
+    "features": {
+      "name": "jewel's watermelon margaritas",
+      "ingredients": "½ cup white sugar, ½ cup water, 3 strips orange zest, 2 cups cubed seeded watermelon, ¾ cup white tequila, ¼ cup lime juice, 1 pinch salt or sugar for rimming glasses, 1  lime, cut into wedges, 2 cups crushed ice, or as needed",
+      "directions": "bring 1/2 cup sugar, water, and orange zest in a small saucepan to boil, stirring constantly. simmer until sugar is dissolved, about 3 minutes. remove simple syrup from heat and allow to cool completely.\nplace watermelon in a blender or food processor. pulse until pureed.\nstir watermelon puree into a large pitcher with simple syrup, tequila, and lime juice.\nplace a small amount of salt or sugar into a saucer. rub edge of margarita glasses with a lime wedge to moisten. lightly dip the rim of the glass into the saucer to rim the glass; tap off excess salt or sugar.\nfill rimmed glasses with crushed ice; pour margarita mixture into glasses and garnish with lime wedges to serve.\n\n\n\n\n\n\n\n\n\n\n\nfrance c\n",
+      "cuisine_path": "/drinks recipes/cocktail recipes/tequila drinks recipes/",
+      "timing": "prep time: 10 mins, cook time: 5 mins, additional time: 30 mins, total time: 45 mins, servings: 4, yield: 4 servings",
+      "nutrition": "total fat 0g 0%, sodium 42mg 2%, total carbohydrate 38g 14%, dietary fiber 2g 9%, total sugars 30g, protein 1g, vitamin c 36mg 180%, calcium 38mg 3%, iron 0mg 2%, potassium 154mg 3%",
+      "combined_text": "jewel's watermelon margaritas ½ cup white sugar, ½ cup water, 3 strips orange zest, 2 cups cubed seeded watermelon, ¾ cup white tequila, ¼ cup lime juice, 1 pinch salt or sugar for rimming glasses, 1  lime, cut into wedges, 2 cups /drinks recipes/cocktail recipes/tequila drinks recipes/ prep time: 10 mins, cook time: 5 mins, additional time: 30 mins, total time: 45 mins, servings: 4, yield: 4 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Cocktail Recipes/Tequila Drinks Recipes/",
+      "ingredients": "½ cup white sugar, ½ cup water, 3 strips orange zest, 2 cups cubed seeded watermelon, ¾ cup white tequila, ¼ cup lime juice, 1 pinch salt or sugar for rimming glasses, 1  lime, cut into wedges, 2 cups crushed ice, or as needed",
+      "prep_time": "10 mins",
+      "cook_time": "5 mins",
+      "servings": 4
+    }
+  },
+  {
+    "id": 265,
+    "name": "Polynesian Watermelon Drink ('Otai)",
+    "collection": "drinks-beverages",
+    "confidence": 8,
+    "features": {
+      "name": "polynesian watermelon drink ('otai)",
+      "ingredients": "1  seedless watermelon, halved and sliced, 3 cups water, 1 (15.25 ounce) can crushed pineapple, 1 (12 fluid ounce) can evaporated milk, ½ cup shredded coconut, 2 tablespoons white sugar, or to taste, ½  lime, juiced",
+      "directions": "grate watermelon with a fork from the rind into a large bowl, leaving no large chunks. stir water, pineapple, evaporated milk, and coconut into the grated watermelon. add sugar; stir until dissolved. squeeze lime juice into the watermelon mixture.",
+      "cuisine_path": "/drinks recipes/punch recipes/non-alcoholic punch recipes/",
+      "timing": "prep time: 15 mins, total time: 15 mins, servings: 12, yield: 12 servings",
+      "nutrition": "total fat 4g 5%, saturated fat 2g 12%, cholesterol 9mg 3%, sodium 48mg 2%, total carbohydrate 41g 15%, dietary fiber 2g 8%, total sugars 35g, protein 5g, vitamin c 35mg 176%, calcium 117mg 9%, iron 1mg 6%, potassium 574mg 12%",
+      "combined_text": "polynesian watermelon drink ('otai) 1  seedless watermelon, halved and sliced, 3 cups water, 1 (15.25 ounce) can crushed pineapple, 1 (12 fluid ounce) can evaporated milk, ½ cup shredded coconut, 2 tablespoons white sugar, or to taste,  /drinks recipes/punch recipes/non-alcoholic punch recipes/ prep time: 15 mins, total time: 15 mins, servings: 12, yield: 12 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Punch Recipes/Non-Alcoholic Punch Recipes/",
+      "ingredients": "1  seedless watermelon, halved and sliced, 3 cups water, 1 (15.25 ounce) can crushed pineapple, 1 (12 fluid ounce) can evaporated milk, ½ cup shredded coconut, 2 tablespoons white sugar, or to taste, ½  lime, juiced",
+      "prep_time": "15 mins",
+      "cook_time": NaN,
+      "servings": 12
+    }
+  },
+  {
+    "id": 268,
+    "name": "Watermelon Lime Agua Fresca",
+    "collection": "drinks-beverages",
+    "confidence": 8,
+    "features": {
+      "name": "watermelon lime agua fresca",
+      "ingredients": "8 cups water, divided, 5 cups peeled, cubed, and seeded watermelon, ½ cup white sugar, or more to taste, ⅓ cup lime juice, or more to taste",
+      "directions": "combine 1 cup water, watermelon, and sugar in a blender; process until smooth. pour into a large pitcher; stir in lime juice and remaining 7 cups water. taste; adjust sugar or lime juice. refrigerate until chilled, about 1 hour.",
+      "cuisine_path": "/drinks recipes/juice recipes/",
+      "timing": "prep time: 15 mins, additional time: 1 hrs, total time: 1 hrs 15 mins, servings: 10, yield: 2 1/2 quarts",
+      "nutrition": "total fat 0g 0%, sodium 7mg 0%, total carbohydrate 16g 6%, dietary fiber 0g 1%, total sugars 15g, protein 1g, vitamin c 9mg 43%, calcium 12mg 1%, iron 0mg 1%, potassium 97mg 2%",
+      "combined_text": "watermelon lime agua fresca 8 cups water, divided, 5 cups peeled, cubed, and seeded watermelon, ½ cup white sugar, or more to taste, ⅓ cup lime juice, or more to taste /drinks recipes/juice recipes/ prep time: 15 mins, additional time: 1 hrs, total time: 1 hrs 15 mins, servings: 10, yield: 2 1/2 quarts"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Juice Recipes/",
+      "ingredients": "8 cups water, divided, 5 cups peeled, cubed, and seeded watermelon, ½ cup white sugar, or more to taste, ⅓ cup lime juice, or more to taste",
+      "prep_time": "15 mins",
+      "cook_time": NaN,
+      "servings": 10
+    }
+  },
+  {
+    "id": 271,
+    "name": "Watermelon and Cucumber Juice with a Spritz of Lime",
+    "collection": "drinks-beverages",
+    "confidence": 7,
+    "features": {
+      "name": "watermelon and cucumber juice with a spritz of lime",
+      "ingredients": "½ (4 pound) watermelon, seeded and cubed, 4  cucumbers, trimmed and cut into chunks, 2  limes, juiced",
+      "directions": "run watermelon and cucumber pieces through a juicer following the manufacturer's instructions, and place the juice into a pitcher. stir in lime juice, and serve.\n\n\n\n\n\n\n\n\n\n\n\nmelissa goff\n",
+      "cuisine_path": "/drinks recipes/juice recipes/",
+      "timing": "prep time: 10 mins, total time: 10 mins, servings: 4",
+      "nutrition": "total fat 1g 1%, saturated fat 0g 1%, sodium 9mg 0%, total carbohydrate 31g 11%, dietary fiber 3g 12%, total sugars 19g, protein 3g, vitamin c 36mg 180%, calcium 72mg 6%, iron 2mg 8%, potassium 702mg 15%",
+      "combined_text": "watermelon and cucumber juice with a spritz of lime ½ (4 pound) watermelon, seeded and cubed, 4  cucumbers, trimmed and cut into chunks, 2  limes, juiced /drinks recipes/juice recipes/ prep time: 10 mins, total time: 10 mins, servings: 4"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Juice Recipes/",
+      "ingredients": "½ (4 pound) watermelon, seeded and cubed, 4  cucumbers, trimmed and cut into chunks, 2  limes, juiced",
+      "prep_time": "10 mins",
+      "cook_time": NaN,
+      "servings": 4
+    }
+  },
+  {
+    "id": 272,
+    "name": "Heavenly Honeydew Juice",
+    "collection": "drinks-beverages",
+    "confidence": 11,
+    "features": {
+      "name": "heavenly honeydew juice",
+      "ingredients": "1 (5 pound) honeydew melon, quartered and seeded, 2 cups ice cubes, 1 cup water, 3 tablespoons white sugar",
+      "directions": "scrape flesh from honeydew melon quarters into a blender; add ice cubes, water, and sugar. blend until smooth and sugar has dissolved. serve immediately.",
+      "cuisine_path": "/cuisine/latin american/mexican/",
+      "timing": "prep time: 10 mins, total time: 10 mins, servings: 6",
+      "nutrition": "total fat 1g 1%, saturated fat 0g 1%, sodium 69mg 3%, total carbohydrate 40g 15%, dietary fiber 3g 11%, total sugars 37g, protein 2g, vitamin c 68mg 338%, calcium 24mg 2%, iron 1mg 3%, potassium 856mg 18%",
+      "combined_text": "heavenly honeydew juice 1 (5 pound) honeydew melon, quartered and seeded, 2 cups ice cubes, 1 cup water, 3 tablespoons white sugar /cuisine/latin american/mexican/ prep time: 10 mins, total time: 10 mins, servings: 6"
+    },
+    "original_data": {
+      "cuisine_path": "/Cuisine/Latin American/Mexican/",
+      "ingredients": "1 (5 pound) honeydew melon, quartered and seeded, 2 cups ice cubes, 1 cup water, 3 tablespoons white sugar",
+      "prep_time": "10 mins",
+      "cook_time": NaN,
+      "servings": 6
+    }
+  },
+  {
+    "id": 276,
+    "name": "Watermelon Margaritas",
+    "collection": "drinks-beverages",
+    "confidence": 8,
+    "features": {
+      "name": "watermelon margaritas",
+      "ingredients": "2 cups cubed seeded watermelon, 2 cups crushed ice, ⅓ cup tequila, ¼ cup white sugar, ¼ cup lime juice, 1 tablespoon vodka, 1 tablespoon orange liqueur ",
+      "directions": "combine watermelon, ice, tequila, sugar, lime juice, vodka, and orange liqueur in a blender; blend well. pour margaritas into glasses.",
+      "cuisine_path": "/drinks recipes/cocktail recipes/tequila drinks recipes/",
+      "timing": "prep time: 10 mins, total time: 10 mins, servings: 4, yield: 4 margaritas",
+      "nutrition": "total fat 0g 0%, sodium 2mg 0%, total carbohydrate 21g 8%, dietary fiber 0g 1%, total sugars 19g, protein 1g, vitamin c 11mg 54%, calcium 8mg 1%, iron 0mg 1%, potassium 104mg 2%",
+      "combined_text": "watermelon margaritas 2 cups cubed seeded watermelon, 2 cups crushed ice, ⅓ cup tequila, ¼ cup white sugar, ¼ cup lime juice, 1 tablespoon vodka, 1 tablespoon orange liqueur  /drinks recipes/cocktail recipes/tequila drinks recipes/ prep time: 10 mins, total time: 10 mins, servings: 4, yield: 4 margaritas"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Cocktail Recipes/Tequila Drinks Recipes/",
+      "ingredients": "2 cups cubed seeded watermelon, 2 cups crushed ice, ⅓ cup tequila, ¼ cup white sugar, ¼ cup lime juice, 1 tablespoon vodka, 1 tablespoon orange liqueur ",
+      "prep_time": "10 mins",
+      "cook_time": NaN,
+      "servings": 4
+    }
+  },
+  {
+    "id": 277,
+    "name": "Watermelon Cooler Slushy",
+    "collection": "drinks-beverages",
+    "confidence": 8,
+    "features": {
+      "name": "watermelon cooler slushy",
+      "ingredients": "4 cups cubed seedless watermelon, 10  ice cubes, ⅓ cup fresh lime juice, ¼ cup white sugar, ⅛ teaspoon salt",
+      "directions": "place watermelon and ice into a blender. pour in lime juice, sugar, and salt. blend until smooth.",
+      "cuisine_path": "/drinks recipes/slushie recipes/",
+      "timing": "prep time: 10 mins, total time: 10 mins, servings: 5, yield: 5 cups",
+      "nutrition": "total fat 0g 0%, sodium 61mg 3%, total carbohydrate 21g 7%, dietary fiber 1g 2%, total sugars 18g, protein 1g, vitamin c 15mg 74%, calcium 12mg 1%, iron 0mg 2%, potassium 156mg 3%",
+      "combined_text": "watermelon cooler slushy 4 cups cubed seedless watermelon, 10  ice cubes, ⅓ cup fresh lime juice, ¼ cup white sugar, ⅛ teaspoon salt /drinks recipes/slushie recipes/ prep time: 10 mins, total time: 10 mins, servings: 5, yield: 5 cups"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Slushie Recipes/",
+      "ingredients": "4 cups cubed seedless watermelon, 10  ice cubes, ⅓ cup fresh lime juice, ¼ cup white sugar, ⅛ teaspoon salt",
+      "prep_time": "10 mins",
+      "cook_time": NaN,
+      "servings": 5
+    }
+  },
+  {
+    "id": 278,
+    "name": "Quick Cantaloupe Juice",
+    "collection": "drinks-beverages",
+    "confidence": 8,
+    "features": {
+      "name": "quick cantaloupe juice",
+      "ingredients": "½  cantaloupe - peeled, seeded, and cubed, ¾ cup milk, 1 tablespoon white sugar",
+      "directions": "place cantaloupe in a blender and top with milk and sugar. cover and blend until smooth.",
+      "cuisine_path": "/drinks recipes/smoothie recipes/",
+      "timing": "prep time: 10 mins, total time: 10 mins, servings: 2",
+      "nutrition": "total fat 2g 3%, saturated fat 1g 6%, cholesterol 7mg 2%, sodium 60mg 3%, total carbohydrate 22g 8%, dietary fiber 1g 4%, total sugars 21g, protein 4g, vitamin c 51mg 254%, calcium 120mg 9%, iron 0mg 2%, potassium 506mg 11%",
+      "combined_text": "quick cantaloupe juice ½  cantaloupe - peeled, seeded, and cubed, ¾ cup milk, 1 tablespoon white sugar /drinks recipes/smoothie recipes/ prep time: 10 mins, total time: 10 mins, servings: 2"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Smoothie Recipes/",
+      "ingredients": "½  cantaloupe - peeled, seeded, and cubed, ¾ cup milk, 1 tablespoon white sugar",
+      "prep_time": "10 mins",
+      "cook_time": NaN,
+      "servings": 2
+    }
+  },
+  {
+    "id": 281,
+    "name": "Watermelon-Cucumber Agua Fresca",
+    "collection": "drinks-beverages",
+    "confidence": 8,
+    "features": {
+      "name": "watermelon-cucumber agua fresca",
+      "ingredients": "4 cups cubed seeded watermelon, 2 ½ cups water, divided, 1 cup peeled, chopped cucumber, ¼ cup freshly squeezed lime juice, 1 tablespoon white sugar, 1 teaspoon chili-lime seasoning (such as tajin®), 1 wedge fresh lime,   ice as needed, 4 slices watermelon, 4 slices  lime",
+      "directions": "place watermelon and 1 1/2 cups water in a blender, and process at high speed until combined, about 1 minute. add cucumber, lime juice, and sugar; blend until smooth. pour mixture through a fine mesh strainer and using a spatula, press to remove the pulp. don't skip this step, it's important.\npour the strained mixture into a large pitcher, add remaining 1 cup water, and stir well. refrigerate for at least 1 hour or longer.\nsprinkle some tajin® (chili lime seasoning) onto a small plate. run the lime wedge around the top of the glass, invert the glass, and dip the rim into the seasoning.\nfill the glass with ice, pour in the agua fresca, garnish with watermelon slices or wedges, and lime slices.",
+      "cuisine_path": "/drinks recipes/mocktail recipes/",
+      "timing": "prep time: 15 mins, additional time: 1 hrs, total time: 1 hrs 15 mins, servings: 4, yield: 4 agua frescas",
+      "nutrition": "total fat 1g 1%, saturated fat 0g 1%, sodium 110mg 5%, total carbohydrate 40g 14%, dietary fiber 2g 8%, total sugars 31g, protein 3g, vitamin c 44mg 219%, calcium 46mg 4%, iron 1mg 7%, potassium 568mg 12%",
+      "combined_text": "watermelon-cucumber agua fresca 4 cups cubed seeded watermelon, 2 ½ cups water, divided, 1 cup peeled, chopped cucumber, ¼ cup freshly squeezed lime juice, 1 tablespoon white sugar, 1 teaspoon chili-lime seasoning (such as tajin®),  /drinks recipes/mocktail recipes/ prep time: 15 mins, additional time: 1 hrs, total time: 1 hrs 15 mins, servings: 4, yield: 4 agua frescas"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Mocktail Recipes/",
+      "ingredients": "4 cups cubed seeded watermelon, 2 ½ cups water, divided, 1 cup peeled, chopped cucumber, ¼ cup freshly squeezed lime juice, 1 tablespoon white sugar, 1 teaspoon chili-lime seasoning (such as Tajin®), 1 wedge fresh lime,   ice as needed, 4 slices watermelon, 4 slices  lime",
+      "prep_time": "15 mins",
+      "cook_time": NaN,
+      "servings": 4
+    }
+  },
+  {
+    "id": 282,
+    "name": "Watermelon and Strawberry Lemonade",
+    "collection": "drinks-beverages",
+    "confidence": 8,
+    "features": {
+      "name": "watermelon and strawberry lemonade",
+      "ingredients": "8 cups cubed seeded watermelon, 1 cup fresh strawberries, halved, ½ cup fresh lemon juice, 1 cup white sugar, 2 cups water",
+      "directions": "combine watermelon, strawberries, lemon juice, sugar, and water in a blender. blend until smooth.",
+      "cuisine_path": "/drinks recipes/lemonade recipes/",
+      "timing": "prep time: 15 mins, total time: 15 mins, servings: 8, yield: 2 quarts",
+      "nutrition": "total fat 0g 0%, sodium 4mg 0%, total carbohydrate 39g 14%, dietary fiber 1g 4%, total sugars 36g, protein 1g, vitamin c 31mg 154%, calcium 17mg 1%, iron 1mg 3%, potassium 220mg 5%",
+      "combined_text": "watermelon and strawberry lemonade 8 cups cubed seeded watermelon, 1 cup fresh strawberries, halved, ½ cup fresh lemon juice, 1 cup white sugar, 2 cups water /drinks recipes/lemonade recipes/ prep time: 15 mins, total time: 15 mins, servings: 8, yield: 2 quarts"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Lemonade Recipes/",
+      "ingredients": "8 cups cubed seeded watermelon, 1 cup fresh strawberries, halved, ½ cup fresh lemon juice, 1 cup white sugar, 2 cups water",
+      "prep_time": "15 mins",
+      "cook_time": NaN,
+      "servings": 8
+    }
+  },
+  {
+    "id": 293,
+    "name": "Watermelon Juice",
+    "collection": "drinks-beverages",
+    "confidence": 8,
+    "features": {
+      "name": "watermelon juice",
+      "ingredients": "2 cups diced seedless watermelon, 2 cups water, 1 tablespoon white sugar, or more to taste",
+      "directions": "blend watermelon, water, and sugar in a blender until smooth.",
+      "cuisine_path": "/drinks recipes/juice recipes/",
+      "timing": "prep time: 5 mins, total time: 5 mins, servings: 4, yield: 4 cups",
+      "nutrition": "total fat 0g 0%, sodium 4mg 0%, total carbohydrate 9g 3%, dietary fiber 0g 1%, total sugars 8g, protein 1g, vitamin c 6mg 31%, calcium 9mg 1%, iron 0mg 1%, potassium 86mg 2%",
+      "combined_text": "watermelon juice 2 cups diced seedless watermelon, 2 cups water, 1 tablespoon white sugar, or more to taste /drinks recipes/juice recipes/ prep time: 5 mins, total time: 5 mins, servings: 4, yield: 4 cups"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Juice Recipes/",
+      "ingredients": "2 cups diced seedless watermelon, 2 cups water, 1 tablespoon white sugar, or more to taste",
+      "prep_time": "5 mins",
+      "cook_time": NaN,
+      "servings": 4
+    }
+  },
+  {
+    "id": 294,
+    "name": "Watermelon Gin and Tonic",
+    "collection": "drinks-beverages",
+    "confidence": 7,
+    "features": {
+      "name": "watermelon gin and tonic",
+      "ingredients": "¼  lime, juiced, ¼ cup chopped seedless watermelon, ½ cup ice, or as needed, 2 tablespoons gin, or to taste, 2 cups tonic water",
+      "directions": "squeeze lime into cocktail glass and drop lime wedge into the juice; add watermelon and enough ice to fill glass to top. pour gin and tonic water over the watermelon and ice; stir.",
+      "cuisine_path": "/drinks recipes/cocktail recipes/gin drinks recipes/",
+      "timing": "prep time: 5 mins, total time: 5 mins, servings: 1, yield: 1 cocktail",
+      "nutrition": "total fat 0g 0%, sodium 58mg 3%, total carbohydrate 45g 16%, dietary fiber 0g 1%, total sugars 44g, protein 0g, vitamin c 6mg 30%, calcium 9mg 1%, iron 0mg 1%, potassium 54mg 1%",
+      "combined_text": "watermelon gin and tonic ¼  lime, juiced, ¼ cup chopped seedless watermelon, ½ cup ice, or as needed, 2 tablespoons gin, or to taste, 2 cups tonic water /drinks recipes/cocktail recipes/gin drinks recipes/ prep time: 5 mins, total time: 5 mins, servings: 1, yield: 1 cocktail"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Cocktail Recipes/Gin Drinks Recipes/",
+      "ingredients": "¼  lime, juiced, ¼ cup chopped seedless watermelon, ½ cup ice, or as needed, 2 tablespoons gin, or to taste, 2 cups tonic water",
+      "prep_time": "5 mins",
+      "cook_time": NaN,
+      "servings": 1
+    }
+  },
+  {
+    "id": 295,
+    "name": "Easy Watermelon Martini",
+    "collection": "drinks-beverages",
+    "confidence": 6,
+    "features": {
+      "name": "easy watermelon martini",
+      "ingredients": "1 slice watermelon, rind removed, ½ cup ice cubes, or as needed, 1 (1.5 fluid ounce) jigger vodka",
+      "directions": "place watermelon in a cocktail shaker and crush with a muddler; add ice cubes and vodka. cover shaker and shake well. strain cocktail into a martini glass.",
+      "cuisine_path": "/drinks recipes/cocktail recipes/vodka drinks recipes/",
+      "timing": "prep time: 10 mins, total time: 10 mins, servings: 1, yield: 1 martini",
+      "nutrition": "total fat 0g 1%, sodium 3mg 0%, total carbohydrate 22g 8%, dietary fiber 1g 4%, total sugars 18g, protein 2g, vitamin c 23mg 116%, calcium 20mg 2%, iron 1mg 4%, potassium 321mg 7%",
+      "combined_text": "easy watermelon martini 1 slice watermelon, rind removed, ½ cup ice cubes, or as needed, 1 (1.5 fluid ounce) jigger vodka /drinks recipes/cocktail recipes/vodka drinks recipes/ prep time: 10 mins, total time: 10 mins, servings: 1, yield: 1 martini"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Cocktail Recipes/Vodka Drinks Recipes/",
+      "ingredients": "1 slice watermelon, rind removed, ½ cup ice cubes, or as needed, 1 (1.5 fluid ounce) jigger vodka",
+      "prep_time": "10 mins",
+      "cook_time": NaN,
+      "servings": 1
+    }
+  },
+  {
+    "id": 296,
+    "name": "Lemon Drop Shots",
+    "collection": "drinks-beverages",
+    "confidence": 8,
+    "features": {
+      "name": "lemon drop shots",
+      "ingredients": "¾ fluid ounce vodka (such as absolut®), ¾ fluid ounce lemon juice, 2 ½ teaspoons white sugar, divided, or more to taste, 1  lemon, cut into wedges",
+      "directions": "combine vodka and lemon juice in a shot glass. sprinkle 1/2 teaspoon sugar on top.\nplace remaining 2 teaspoons sugar on a small plate; dip lemon wedges in sugar. suck on a sugared lemon after drinking the shot.\n\n\n\n\n\n\n\n\n\n",
+      "cuisine_path": "/drinks recipes/shot recipes/",
+      "timing": "prep time: 10 mins, total time: 10 mins, servings: 1, yield: 1 serving",
+      "nutrition": "total fat 0g 0%, sodium 4mg 0%, total carbohydrate 24g 9%, dietary fiber 5g 19%, total sugars 11g, protein 1g, vitamin c 94mg 469%, calcium 68mg 5%, iron 1mg 4%, potassium 185mg 4%",
+      "combined_text": "lemon drop shots ¾ fluid ounce vodka (such as absolut®), ¾ fluid ounce lemon juice, 2 ½ teaspoons white sugar, divided, or more to taste, 1  lemon, cut into wedges /drinks recipes/shot recipes/ prep time: 10 mins, total time: 10 mins, servings: 1, yield: 1 serving"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Shot Recipes/",
+      "ingredients": "¾ fluid ounce vodka (such as Absolut®), ¾ fluid ounce lemon juice, 2 ½ teaspoons white sugar, divided, or more to taste, 1  lemon, cut into wedges",
+      "prep_time": "10 mins",
+      "cook_time": NaN,
+      "servings": 1
+    }
+  },
+  {
+    "id": 299,
+    "name": "Tom Collins Cocktail",
+    "collection": "drinks-beverages",
+    "confidence": 8,
+    "features": {
+      "name": "tom collins cocktail",
+      "ingredients": "2 ½ cups ice, divided, 2 fluid ounces gin, ¾ fluid ounce lemon juice, ½ fluid ounce simple syrup, 2 fluid ounces club soda, 1  lemon wedge",
+      "directions": "fill a collins glass with 1 1/2 cups ice; set aside in the freezer.\ncombine gin, lemon juice, and simple syrup in a cocktail shaker. add 1 cup ice, cover, and shake until chilled.\nstrain into the chilled collins glass. top with club soda and garnish with lemon wedge.\n\n\n\n\n\n\n\n\n\n\n\nlutzflcat\n",
+      "cuisine_path": "/drinks recipes/cocktail recipes/gin drinks recipes/",
+      "timing": "prep time: 5 mins, total time: 5 mins, servings: 1",
+      "nutrition": "sodium 4mg 0%, total carbohydrate 13g 5%, dietary fiber 1g 3%, total sugars 1g, protein 0g, vitamin c 21mg 105%, calcium 12mg 1%, iron 0mg 1%, potassium 49mg 1%",
+      "combined_text": "tom collins cocktail 2 ½ cups ice, divided, 2 fluid ounces gin, ¾ fluid ounce lemon juice, ½ fluid ounce simple syrup, 2 fluid ounces club soda, 1  lemon wedge /drinks recipes/cocktail recipes/gin drinks recipes/ prep time: 5 mins, total time: 5 mins, servings: 1"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Cocktail Recipes/Gin Drinks Recipes/",
+      "ingredients": "2 ½ cups ice, divided, 2 fluid ounces gin, ¾ fluid ounce lemon juice, ½ fluid ounce simple syrup, 2 fluid ounces club soda, 1  lemon wedge",
+      "prep_time": "5 mins",
+      "cook_time": NaN,
+      "servings": 1
+    }
+  },
+  {
+    "id": 303,
+    "name": "Old-Fashioned Lemonade",
+    "collection": "drinks-beverages",
+    "confidence": 8,
+    "features": {
+      "name": "old-fashioned lemonade",
+      "ingredients": "6  lemons, 1 cup white sugar, 6 cups water, or more as needed",
+      "directions": "juice lemons; you should have 1 cup juice.\ncombine juice, sugar, and water in a 1/2-gallon pitcher. stir until sugar dissolves. taste and add more water if desired.\nchill and serve over ice.\n\n\n\n\n\n\n\n\n\n\n\ndotdash meredith food studios\n",
+      "cuisine_path": "/drinks recipes/lemonade recipes/",
+      "timing": "prep time: 10 mins, total time: 10 mins, servings: 6",
+      "nutrition": "total fat 0g 0%, sodium 3mg 0%, total carbohydrate 45g 16%, dietary fiber 5g 18%, total sugars 33g, protein 1g, vitamin c 83mg 416%, calcium 66mg 5%, iron 1mg 4%, potassium 157mg 3%",
+      "combined_text": "old-fashioned lemonade 6  lemons, 1 cup white sugar, 6 cups water, or more as needed /drinks recipes/lemonade recipes/ prep time: 10 mins, total time: 10 mins, servings: 6"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Lemonade Recipes/",
+      "ingredients": "6  lemons, 1 cup white sugar, 6 cups water, or more as needed",
+      "prep_time": "10 mins",
+      "cook_time": NaN,
+      "servings": 6
+    }
+  },
+  {
+    "id": 312,
+    "name": "Orange Crush! Fresh Squeezed Orange and Vodka Cocktail",
+    "collection": "drinks-beverages",
+    "confidence": 8,
+    "features": {
+      "name": "orange crush! fresh squeezed orange and vodka cocktail",
+      "ingredients": "2 cups ice cubes, or as needed, 2 fluid ounces orange-flavored vodka, 1 fluid ounce triple sec liqueur, 2  valencia oranges, juiced, 1 splash lemon-lime soda (such as sprite®), 1 slice orange ",
+      "directions": "fill a pint glass with ice cubes. pour in orange-flavored vodka, triple sec, and orange juice, then top with lemon-lime soda. mix well and garnish with orange slice.\n\n\n\n\n\n\n\n\n\n",
+      "cuisine_path": "/drinks recipes/cocktail recipes/vodka drinks recipes/",
+      "timing": "prep time: 10 mins, total time: 10 mins, servings: 1, yield: 1 cocktail",
+      "nutrition": "total fat 0g 1%, saturated fat 0g 1%, sodium 7mg 0%, total carbohydrate 35g 13%, dietary fiber 1g 3%, total sugars 27g, protein 1g, vitamin c 90mg 451%, calcium 24mg 2%, iron 0mg 2%, potassium 361mg 8%",
+      "combined_text": "orange crush! fresh squeezed orange and vodka cocktail 2 cups ice cubes, or as needed, 2 fluid ounces orange-flavored vodka, 1 fluid ounce triple sec liqueur, 2  valencia oranges, juiced, 1 splash lemon-lime soda (such as sprite®), 1 slice orange  /drinks recipes/cocktail recipes/vodka drinks recipes/ prep time: 10 mins, total time: 10 mins, servings: 1, yield: 1 cocktail"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Cocktail Recipes/Vodka Drinks Recipes/",
+      "ingredients": "2 cups ice cubes, or as needed, 2 fluid ounces orange-flavored vodka, 1 fluid ounce triple sec liqueur, 2  Valencia oranges, juiced, 1 splash lemon-lime soda (such as Sprite®), 1 slice orange ",
+      "prep_time": "10 mins",
+      "cook_time": NaN,
+      "servings": 1
+    }
+  },
+  {
+    "id": 315,
+    "name": "Warm Lemon, Honey, and Ginger Soother",
+    "collection": "drinks-beverages",
+    "confidence": 6,
+    "features": {
+      "name": "warm lemon, honey, and ginger soother",
+      "ingredients": "¼ cup honey, or to taste, 1  lemon, juiced, 1 tablespoon finely grated ginger root, ¼ teaspoon ground cinnamon, 3 ½ cups boiling water",
+      "directions": "place honey, lemon juice, ginger, and cinnamon in a teapot or 4-cup glass measuring beaker with spout. pour boiling water over mixture; stir until honey is dissolved.\ncover the teapot and let steep for 5 minutes. the ginger should sink to the bottom but may be strained while pouring into a mug.",
+      "cuisine_path": "/drinks recipes/tea/hot/",
+      "timing": "prep time: 5 mins, additional time: 5 mins, total time: 10 mins, servings: 4, yield: 4 cups",
+      "nutrition": "total fat 0g 0%, sodium 8mg 0%, total carbohydrate 21g 8%, dietary fiber 2g 5%, total sugars 17g, protein 0g, vitamin c 22mg 109%, calcium 26mg 2%, iron 0mg 2%, potassium 60mg 1%",
+      "combined_text": "warm lemon, honey, and ginger soother ¼ cup honey, or to taste, 1  lemon, juiced, 1 tablespoon finely grated ginger root, ¼ teaspoon ground cinnamon, 3 ½ cups boiling water /drinks recipes/tea/hot/ prep time: 5 mins, additional time: 5 mins, total time: 10 mins, servings: 4, yield: 4 cups"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Tea/Hot/",
+      "ingredients": "¼ cup honey, or to taste, 1  lemon, juiced, 1 tablespoon finely grated ginger root, ¼ teaspoon ground cinnamon, 3 ½ cups boiling water",
+      "prep_time": "5 mins",
+      "cook_time": NaN,
+      "servings": 4
+    }
+  },
+  {
+    "id": 320,
+    "name": "Fresh Orange Juice",
+    "collection": "drinks-beverages",
+    "confidence": 6,
+    "features": {
+      "name": "fresh orange juice",
+      "ingredients": "4  oranges",
+      "directions": "lightly smack each orange on the counter. cut each orange in half and squeeze juice into a glass.",
+      "cuisine_path": "/drinks recipes/",
+      "timing": "prep time: 5 mins, total time: 5 mins, servings: 3, yield: 1 1/2 cups",
+      "nutrition": "total fat 0g 0%, sodium 1mg 0%, total carbohydrate 12g 4%, dietary fiber 0g 1%, total sugars 9g, protein 1g, vitamin c 55mg 276%, calcium 12mg 1%, iron 0mg 1%, potassium 220mg 5%",
+      "combined_text": "fresh orange juice 4  oranges /drinks recipes/ prep time: 5 mins, total time: 5 mins, servings: 3, yield: 1 1/2 cups"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/",
+      "ingredients": "4  oranges",
+      "prep_time": "5 mins",
+      "cook_time": NaN,
+      "servings": 3
+    }
+  },
+  {
+    "id": 328,
+    "name": "Pan-Fried Shrimp",
+    "collection": "drinks-beverages",
+    "confidence": 1,
+    "features": {
+      "name": "pan-fried shrimp",
+      "ingredients": "8 tablespoons butter, divided, 1 pound peeled and deveined bay shrimp, 1 tablespoon lemon juice, divided, 1 pinch garlic salt, or to taste,   salt and ground black pepper to taste",
+      "directions": "melt 6 tablespoons butter in a large skillet over high heat. add shrimp; cook and stir in hot butter until browned, about 2 minutes. reduce heat to medium-low.\nstir in 1 1/2 teaspoons lemon juice, garlic salt, salt, and pepper; cook until heated through, about 1 minute. remove from heat; stir in remaining 2 tablespoons butter and 1 1/2 teaspoons lemon juice.",
+      "cuisine_path": "/seafood/shellfish/shrimp/",
+      "timing": "prep time: 5 mins, cook time: 5 mins, total time: 10 mins, servings: 4, yield: 1 pound shrimp",
+      "nutrition": "total fat 24g 31%, saturated fat 15g 74%, cholesterol 234mg 78%, sodium 483mg 21%, total carbohydrate 0g 0%, total sugars 0g, protein 19g, vitamin c 4mg 19%, calcium 42mg 3%, iron 3mg 15%, potassium 173mg 4%",
+      "combined_text": "pan-fried shrimp 8 tablespoons butter, divided, 1 pound peeled and deveined bay shrimp, 1 tablespoon lemon juice, divided, 1 pinch garlic salt, or to taste,   salt and ground black pepper to taste /seafood/shellfish/shrimp/ prep time: 5 mins, cook time: 5 mins, total time: 10 mins, servings: 4, yield: 1 pound shrimp"
+    },
+    "original_data": {
+      "cuisine_path": "/Seafood/Shellfish/Shrimp/",
+      "ingredients": "8 tablespoons butter, divided, 1 pound peeled and deveined bay shrimp, 1 tablespoon lemon juice, divided, 1 pinch garlic salt, or to taste,   salt and ground black pepper to taste",
+      "prep_time": "5 mins",
+      "cook_time": "5 mins",
+      "servings": 4
+    }
+  },
+  {
+    "id": 331,
+    "name": "Honey Lemon Tea",
+    "collection": "drinks-beverages",
+    "confidence": 8,
+    "features": {
+      "name": "honey lemon tea",
+      "ingredients": "1 cup water, 2 teaspoons honey, 1 teaspoon fresh lemon juice, 1 teaspoon white sugar, or to taste",
+      "directions": "pour water into a mug. add honey and heat in the microwave for 1 minute 30 seconds.\nstir in lemon juice, mixing until honey is dissolved. stir in sugar.",
+      "cuisine_path": "/drinks recipes/tea/iced tea recipes/",
+      "timing": "prep time: 5 mins, cook time: 5 mins, total time: 10 mins, servings: 1",
+      "nutrition": "sodium 1mg 0%, total carbohydrate 17g 6%, dietary fiber 0g 0%, total sugars 17g, protein 0g, vitamin c 3mg 13%, calcium 1mg 0%, iron 0mg 1%, potassium 15mg 0%",
+      "combined_text": "honey lemon tea 1 cup water, 2 teaspoons honey, 1 teaspoon fresh lemon juice, 1 teaspoon white sugar, or to taste /drinks recipes/tea/iced tea recipes/ prep time: 5 mins, cook time: 5 mins, total time: 10 mins, servings: 1"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Tea/Iced Tea Recipes/",
+      "ingredients": "1 cup water, 2 teaspoons honey, 1 teaspoon fresh lemon juice, 1 teaspoon white sugar, or to taste",
+      "prep_time": "5 mins",
+      "cook_time": "5 mins",
+      "servings": 1
+    }
+  },
+  {
+    "id": 340,
+    "name": "Old Fashioned Cocktail",
+    "collection": "drinks-beverages",
+    "confidence": 8,
+    "features": {
+      "name": "old fashioned cocktail",
+      "ingredients": "1  sugar cube, 1 teaspoon water, 1 dash bitters, 2 fluid ounces whiskey (rye or bourbon), 1  lemon twist, ½ cup ice cubes, or as needed, 1  orange slice, for garnish, 1  maraschino cherry, for garnish",
+      "directions": "muddle sugar cube, water, and bitters in an old fashioned glass for 1 minute. pour in whiskey; stir for 1 minute.\nsqueeze lemon twist over the glass and drop it in. add ice cubes. garnish with orange slice and maraschino cherry; serve with a swizzle stick.\n\n\n\n\n\n\n\n\n\n",
+      "cuisine_path": "/drinks recipes/cocktail recipes/whiskey drinks recipes/",
+      "timing": "prep time: 5 mins, total time: 5 mins, servings: 1",
+      "nutrition": "sodium 7mg 0%, total carbohydrate 7g 3%, dietary fiber 0g 0%, total sugars 4g, calcium 8mg 1%, potassium 12mg 0%",
+      "combined_text": "old fashioned cocktail 1  sugar cube, 1 teaspoon water, 1 dash bitters, 2 fluid ounces whiskey (rye or bourbon), 1  lemon twist, ½ cup ice cubes, or as needed, 1  orange slice, for garnish, 1  maraschino cherry, for garnish /drinks recipes/cocktail recipes/whiskey drinks recipes/ prep time: 5 mins, total time: 5 mins, servings: 1"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Cocktail Recipes/Whiskey Drinks Recipes/",
+      "ingredients": "1  sugar cube, 1 teaspoon water, 1 dash bitters, 2 fluid ounces whiskey (rye or bourbon), 1  lemon twist, ½ cup ice cubes, or as needed, 1  orange slice, for garnish, 1  maraschino cherry, for garnish",
+      "prep_time": "5 mins",
+      "cook_time": NaN,
+      "servings": 1
+    }
+  },
+  {
+    "id": 348,
+    "name": "Refreshing Cucumber Lemonade",
+    "collection": "drinks-beverages",
+    "confidence": 8,
+    "features": {
+      "name": "refreshing cucumber lemonade",
+      "ingredients": "1 cup water, ½ cup white sugar, 1  cucumber, sliced, 6  lemons, juiced",
+      "directions": "make the simple syrup: combine water and sugar together in a saucepan over medium heat; heat until just about to boil and sugar has dissolved. place in refrigerator until cool, about 30 minutes.\nblend cucumber in a blender or food processor until mashed into a pulp. pour cucumber pulp into a fine mesh strainer placed over a bowl; allow to sit until you have about 2/3 cup of cucumber juice in the bowl, about 15 minutes.\nstir simple syrup, cucumber juice, and lemon juice together in a pitcher. serve cold.",
+      "cuisine_path": "/drinks recipes/lemonade recipes/",
+      "timing": "prep time: 15 mins, cook time: 5 mins, additional time: 30 mins, total time: 50 mins, servings: 4",
+      "nutrition": "total fat 1g 1%, saturated fat 0g 1%, sodium 8mg 0%, total carbohydrate 46g 17%, dietary fiber 8g 29%, total sugars 26g, protein 3g, vitamin c 131mg 657%, calcium 116mg 9%, iron 1mg 8%, potassium 348mg 7%",
+      "combined_text": "refreshing cucumber lemonade 1 cup water, ½ cup white sugar, 1  cucumber, sliced, 6  lemons, juiced /drinks recipes/lemonade recipes/ prep time: 15 mins, cook time: 5 mins, additional time: 30 mins, total time: 50 mins, servings: 4"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Lemonade Recipes/",
+      "ingredients": "1 cup water, ½ cup white sugar, 1  cucumber, sliced, 6  lemons, juiced",
+      "prep_time": "15 mins",
+      "cook_time": "5 mins",
+      "servings": 4
+    }
+  },
+  {
+    "id": 354,
+    "name": "Basic Fruit Smoothie",
+    "collection": "drinks-beverages",
+    "confidence": 8,
+    "features": {
+      "name": "basic fruit smoothie",
+      "ingredients": "1 quart strawberries, hulled, 2  fresh peaches - peeled, pitted, and sliced, 1  banana, broken into chunks, 2 cups ice, 1 cup orange-peach-mango juice",
+      "directions": "combine strawberries, peaches, and banana in a blender; blend until smooth. add ice and pour in juice; blend again to desired consistency.\n\n\n\n\n\n\n\n\n\n\n\ndotdash meredith food studios\n",
+      "cuisine_path": "/drinks recipes/smoothie recipes/strawberry/",
+      "timing": "prep time: 10 mins, total time: 10 mins, servings: 4",
+      "nutrition": "total fat 1g 1%, saturated fat 0g 1%, sodium 16mg 1%, total carbohydrate 29g 10%, dietary fiber 4g 14%, total sugars 20g, protein 2g, vitamin c 129mg 644%, calcium 36mg 3%, iron 1mg 4%, potassium 443mg 9%",
+      "combined_text": "basic fruit smoothie 1 quart strawberries, hulled, 2  fresh peaches - peeled, pitted, and sliced, 1  banana, broken into chunks, 2 cups ice, 1 cup orange-peach-mango juice /drinks recipes/smoothie recipes/strawberry/ prep time: 10 mins, total time: 10 mins, servings: 4"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Smoothie Recipes/Strawberry/",
+      "ingredients": "1 quart strawberries, hulled, 2  fresh peaches - peeled, pitted, and sliced, 1  banana, broken into chunks, 2 cups ice, 1 cup orange-peach-mango juice",
+      "prep_time": "10 mins",
+      "cook_time": NaN,
+      "servings": 4
+    }
+  },
+  {
+    "id": 373,
+    "name": "White Peachy Sangria",
+    "collection": "drinks-beverages",
+    "confidence": 6,
+    "features": {
+      "name": "white peachy sangria",
+      "ingredients": "4 (750 milliliter) bottles moscato wine, 4 (12 fluid ounce) cans or bottles lemon-lime soda (such as sprite®), 1 cup brandy, 1 cup peach schnapps, 2  fresh peaches, pitted and sliced, 1 (16 ounce) package fresh strawberries, sliced, 2  mangos - peeled, seeded, and sliced, ½  fresh pineapple - peeled, cored, and cut into chunks, 1 (6 ounce) container fresh raspberries",
+      "directions": "stir moscato wine, lemon-lime soda, brandy, peach schnapps, peaches, strawberries, mangos, pineapple chunks, and raspberries together in a large container and chill 8 hours or overnight.",
+      "cuisine_path": "/drinks recipes/sangria recipes/",
+      "timing": "prep time: 30 mins, additional time: 8 hrs, total time: 8 hrs 30 mins, servings: 20, yield: 20 servings",
+      "nutrition": "total fat 0g 0%, sodium 24mg 1%, total carbohydrate 41g 15%, dietary fiber 2g 5%, total sugars 22g, protein 1g, vitamin c 30mg 148%, calcium 23mg 2%, iron 1mg 3%, potassium 228mg 5%",
+      "combined_text": "white peachy sangria 4 (750 milliliter) bottles moscato wine, 4 (12 fluid ounce) cans or bottles lemon-lime soda (such as sprite®), 1 cup brandy, 1 cup peach schnapps, 2  fresh peaches, pitted and sliced, 1 (16 ounce) pac /drinks recipes/sangria recipes/ prep time: 30 mins, additional time: 8 hrs, total time: 8 hrs 30 mins, servings: 20, yield: 20 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Sangria Recipes/",
+      "ingredients": "4 (750 milliliter) bottles moscato wine, 4 (12 fluid ounce) cans or bottles lemon-lime soda (such as Sprite®), 1 cup brandy, 1 cup peach schnapps, 2  fresh peaches, pitted and sliced, 1 (16 ounce) package fresh strawberries, sliced, 2  mangos - peeled, seeded, and sliced, ½  fresh pineapple - peeled, cored, and cut into chunks, 1 (6 ounce) container fresh raspberries",
+      "prep_time": "30 mins",
+      "cook_time": NaN,
+      "servings": 20
+    }
+  },
+  {
+    "id": 380,
+    "name": "Peach Banana Smoothie",
+    "collection": "drinks-beverages",
+    "confidence": 8,
+    "features": {
+      "name": "peach banana smoothie",
+      "ingredients": "1 cup plain yogurt, 1 (15.25 ounce) can peaches, 2  bananas, sliced, ¼ cup orange juice, ¼ cup white sugar, or to taste, 2 cubes  ice",
+      "directions": "blend yogurt, peaches, bananas, orange juice, sugar, and ice in a blender on high until the ice is crushed and the smoothie is to your desired consistency.",
+      "cuisine_path": "/drinks recipes/smoothie recipes/orange/",
+      "timing": "prep time: 5 mins, total time: 5 mins, servings: 4, yield: 5 cups",
+      "nutrition": "total fat 1g 2%, saturated fat 1g 4%, cholesterol 4mg 1%, sodium 48mg 2%, total carbohydrate 44g 16%, dietary fiber 3g 11%, total sugars 36g, protein 5g, vitamin c 17mg 87%, calcium 124mg 10%, iron 1mg 3%, potassium 524mg 11%",
+      "combined_text": "peach banana smoothie 1 cup plain yogurt, 1 (15.25 ounce) can peaches, 2  bananas, sliced, ¼ cup orange juice, ¼ cup white sugar, or to taste, 2 cubes  ice /drinks recipes/smoothie recipes/orange/ prep time: 5 mins, total time: 5 mins, servings: 4, yield: 5 cups"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Smoothie Recipes/Orange/",
+      "ingredients": "1 cup plain yogurt, 1 (15.25 ounce) can peaches, 2  bananas, sliced, ¼ cup orange juice, ¼ cup white sugar, or to taste, 2 cubes  ice",
+      "prep_time": "5 mins",
+      "cook_time": NaN,
+      "servings": 4
+    }
+  },
+  {
+    "id": 394,
+    "name": "Bananerberry Smoothie",
+    "collection": "drinks-beverages",
+    "confidence": 9,
+    "features": {
+      "name": "bananerberry smoothie",
+      "ingredients": "1 cup fresh strawberries, 1  banana, sliced, 1 cup fresh peaches, 1 cup apples, 1 ½ cups vanilla ice cream, 1 ½ cups ice cubes, ½ cup milk",
+      "directions": "in a blender combine strawberries, banana, peaches, apples, and ice cream. blend until smooth. add ice, pour in milk and blend again until smooth. serve immediately.",
+      "cuisine_path": "/breakfast and brunch/drinks/",
+      "timing": "prep time: 10 mins, total time: 10 mins, servings: 2, yield: 2 servings",
+      "nutrition": "total fat 13g 16%, saturated fat 8g 38%, cholesterol 48mg 16%, sodium 109mg 5%, total carbohydrate 58g 21%, dietary fiber 5g 19%, total sugars 45g, protein 7g, vitamin c 78mg 392%, calcium 224mg 17%, iron 1mg 4%, potassium 698mg 15%",
+      "combined_text": "bananerberry smoothie 1 cup fresh strawberries, 1  banana, sliced, 1 cup fresh peaches, 1 cup apples, 1 ½ cups vanilla ice cream, 1 ½ cups ice cubes, ½ cup milk /breakfast and brunch/drinks/ prep time: 10 mins, total time: 10 mins, servings: 2, yield: 2 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Breakfast and Brunch/Drinks/",
+      "ingredients": "1 cup fresh strawberries, 1  banana, sliced, 1 cup fresh peaches, 1 cup apples, 1 ½ cups vanilla ice cream, 1 ½ cups ice cubes, ½ cup milk",
+      "prep_time": "10 mins",
+      "cook_time": NaN,
+      "servings": 2
+    }
+  },
+  {
+    "id": 399,
+    "name": "Homemade Peach Tea",
+    "collection": "drinks-beverages",
+    "confidence": 8,
+    "features": {
+      "name": "homemade peach tea",
+      "ingredients": "1 cup water, 1 cup white sugar, 2 slices fresh peach, or more to taste",
+      "directions": "mix 1 cup water, sugar, and peach slices together in a saucepan; bring to a boil. reduce heat to medium and simmer, crushing peach slices as you stir, until sugar is dissolved, about 5 minutes. remove saucepan from heat, cover, and allow peaches to infuse syrup, about 30 minutes. strain to remove peach slices.\nbring 6 cups remaining water to a boil in a separate pot. remove from heat, add tea bags, cover, and steep for about 5 minutes.\nremove tea bags from the pot, pour in peach syrup, and cool to room temperature. refrigerate until ready to serve.",
+      "cuisine_path": "/drinks recipes/tea/iced tea recipes/",
+      "timing": "prep time: 5 mins, cook time: 10 mins, additional time: 35 mins, total time: 50 mins, servings: 6, yield: 6 cups",
+      "nutrition": "sodium 8mg 0%, total carbohydrate 34g 12%, total sugars 34g, vitamin c 1mg 7%, calcium 9mg 1%, potassium 17mg 0%",
+      "combined_text": "homemade peach tea 1 cup water, 1 cup white sugar, 2 slices fresh peach, or more to taste /drinks recipes/tea/iced tea recipes/ prep time: 5 mins, cook time: 10 mins, additional time: 35 mins, total time: 50 mins, servings: 6, yield: 6 cups"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Tea/Iced Tea Recipes/",
+      "ingredients": "1 cup water, 1 cup white sugar, 2 slices fresh peach, or more to taste",
+      "prep_time": "5 mins",
+      "cook_time": "10 mins",
+      "servings": 6
+    }
+  },
+  {
+    "id": 459,
+    "name": "Tangy Plum Liqueur",
+    "collection": "drinks-beverages",
+    "confidence": 12,
+    "features": {
+      "name": "tangy plum liqueur",
+      "ingredients": "16 cups black or red plums, pitted and cut into eighths, 3 ¼ cups white sugar, divided, 3 cups 100 proof vodka, 1 ½ tablespoons vanilla extract, divided, 1  orange peel in pieces, divided",
+      "directions": "layer half the plums into the bottom of a very large jar with a lid, pressing the plums down as tightly as possible. pour half the sugar over the plums, then half the vodka over the sugar. sprinkle on half the vanilla extract, and place about half the orange peel pieces into the jar. layer the rest of the plums into the jar, pressing them down, and top them with the remaining sugar, vodka, vanilla extract, and orange peel pieces. screw on the jar lid.\nusing an unscented candle, drip a coating of wax around the jar lid to prevent leaking. cover the jar with a dark-colored towel. place the jar on its side in a dark, cool place, and turn the jar every day for 21 days, replacing the towel to keep out light.\nafter 21 days, strain out the liqueur from the plums and peel with a fine strainer lined with cheesecloth, and bottle the liqueur in attractive bottles with tight-fitting caps.",
+      "cuisine_path": "/drinks recipes/liqueur recipes/",
+      "timing": "prep time: 1 hrs, additional time: 21 days, total time: 21 days 1 hrs, servings: 80, yield: 10 cups",
+      "nutrition": "total fat 0g 0%, sodium 0mg 0%, total carbohydrate 12g 4%, dietary fiber 1g 2%, total sugars 11g, protein 0g, vitamin c 3mg 16%, calcium 2mg 0%, iron 0mg 1%, potassium 53mg 1%",
+      "combined_text": "tangy plum liqueur 16 cups black or red plums, pitted and cut into eighths, 3 ¼ cups white sugar, divided, 3 cups 100 proof vodka, 1 ½ tablespoons vanilla extract, divided, 1  orange peel in pieces, divided /drinks recipes/liqueur recipes/ prep time: 1 hrs, additional time: 21 days, total time: 21 days 1 hrs, servings: 80, yield: 10 cups"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Liqueur Recipes/",
+      "ingredients": "16 cups black or red plums, pitted and cut into eighths, 3 ¼ cups white sugar, divided, 3 cups 100 proof vodka, 1 ½ tablespoons vanilla extract, divided, 1  orange peel in pieces, divided",
+      "prep_time": "1 hrs",
+      "cook_time": NaN,
+      "servings": 80
+    }
+  },
+  {
+    "id": 502,
+    "name": "Pomegranate Holiday Cocktail",
+    "collection": "drinks-beverages",
+    "confidence": 8,
+    "features": {
+      "name": "pomegranate holiday cocktail",
+      "ingredients": "3 cups ice, or as needed, 2 fluid ounces vodka, 2 fluid ounces pomegranate juice, 1  lime, juiced, ½ fluid ounce orange-flavored liqueur, 2 ½ fluid ounces club soda, or as needed, 1 teaspoon pomegranate seeds, or to taste",
+      "directions": "fill 2 highball glasses and a cocktail shaker with ice.\nadd vodka, pomegranate juice, lime juice, and orange-flavored liqueur to the cocktail shaker and secure the lid. place one hand on the lid and one hand on the shaker; shake vigorously until the outside of the shaker frosts, about a slow count to 10.\npour evenly into the prepared glasses. top with soda and pomegranate seeds; stir before serving.",
+      "cuisine_path": "/drinks recipes/cocktail recipes/vodka drinks recipes/",
+      "timing": "prep time: 5 mins, total time: 5 mins, servings: 2, yield: 2 cocktails",
+      "nutrition": "total fat 0g 0%, sodium 15mg 1%, total carbohydrate 12g 4%, dietary fiber 1g 3%, total sugars 8g, protein 0g, vitamin c 10mg 50%, calcium 23mg 2%, iron 0mg 1%, potassium 44mg 1%",
+      "combined_text": "pomegranate holiday cocktail 3 cups ice, or as needed, 2 fluid ounces vodka, 2 fluid ounces pomegranate juice, 1  lime, juiced, ½ fluid ounce orange-flavored liqueur, 2 ½ fluid ounces club soda, or as needed, 1 teaspoon pomegrana /drinks recipes/cocktail recipes/vodka drinks recipes/ prep time: 5 mins, total time: 5 mins, servings: 2, yield: 2 cocktails"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Cocktail Recipes/Vodka Drinks Recipes/",
+      "ingredients": "3 cups ice, or as needed, 2 fluid ounces vodka, 2 fluid ounces pomegranate juice, 1  lime, juiced, ½ fluid ounce orange-flavored liqueur, 2 ½ fluid ounces club soda, or as needed, 1 teaspoon pomegranate seeds, or to taste",
+      "prep_time": "5 mins",
+      "cook_time": NaN,
+      "servings": 2
+    }
+  },
+  {
+    "id": 504,
+    "name": "Lamb Braised in Pomegranate",
+    "collection": "drinks-beverages",
+    "confidence": 1,
+    "features": {
+      "name": "lamb braised in pomegranate",
+      "ingredients": "3 pounds lamb shoulder blade chops,   salt and freshly ground pepper to taste, 1 tablespoon vegetable oil, 1  onion, sliced, 1 pinch salt, 4 cloves garlic, sliced, 2 cups pomegranate juice, ⅓ cup aged balsamic vinegar, 8  fresh mint leaves, ¼ teaspoon dried rosemary, ¼ teaspoon red pepper flakes, 1 tablespoon honey, or more to taste, 2 tablespoons pomegranate seeds, 1 tablespoon sliced fresh mint leaves, 1 tablespoon pumpkin seeds",
+      "directions": "preheat the oven to 300 degrees f (150 degrees c).\ngenerously season lamb chops with salt and black pepper.\nheat vegetable oil in a dutch oven over high heat. place lamb chops in dutch oven and cook until browned on all sides, about 8 minutes. transfer lamb to a plate and reduce heat to medium.\nstir onion and a pinch of salt into the dutch oven; cook until onions are slightly golden, about 3 minutes. stir in garlic and cook for 30 seconds.\npour pomegranate juice into the dutch oven and scrape any browned bits off of the bottom of the pot. pour in balsamic vinegar, increase heat to high, and bring to a boil.\nstir mint leaves, rosemary, and red pepper flakes into pomegranate juice mixture. continue to boil until liquid is reduced by half, about 10 minutes. return lamb and any accumulated juices to the dutch oven, spoon pomegranate mixture over lamb, and cover.\ncook in the preheated oven until lamb is fork tender, about 2 hours.\ntransfer lamb to a plate and set the dutch oven on the stovetop over high heat. bring pomegranate mixture to a boil; cook, skimming any fat that accumulates, until liquid is reduced by 1/3, about 5 minutes.\nstir in honey and season with salt and black pepper. return lamb to the dutch oven; stir to combine. garnish with pomegranate seeds, sliced mint leaves, and pumpkin seeds.\n\n\n\n\n\n\n\n\n\n\n\nchef john/allrecipes\n",
+      "cuisine_path": "/meat and poultry/lamb/chops/",
+      "timing": "prep time: 15 mins, cook time: 2 hrs 30 mins, total time: 2 hrs 45 mins, servings: 6",
+      "nutrition": "total fat 34g 44%, saturated fat 14g 69%, cholesterol 135mg 45%, sodium 190mg 8%, total carbohydrate 23g 8%, dietary fiber 1g 3%, total sugars 18g, protein 35g, vitamin c 4mg 21%, calcium 46mg 4%, iron 3mg 16%, potassium 540mg 11%",
+      "combined_text": "lamb braised in pomegranate 3 pounds lamb shoulder blade chops,   salt and freshly ground pepper to taste, 1 tablespoon vegetable oil, 1  onion, sliced, 1 pinch salt, 4 cloves garlic, sliced, 2 cups pomegranate juice, ⅓ cup aged /meat and poultry/lamb/chops/ prep time: 15 mins, cook time: 2 hrs 30 mins, total time: 2 hrs 45 mins, servings: 6"
+    },
+    "original_data": {
+      "cuisine_path": "/Meat and Poultry/Lamb/Chops/",
+      "ingredients": "3 pounds lamb shoulder blade chops,   salt and freshly ground pepper to taste, 1 tablespoon vegetable oil, 1  onion, sliced, 1 pinch salt, 4 cloves garlic, sliced, 2 cups pomegranate juice, ⅓ cup aged balsamic vinegar, 8  fresh mint leaves, ¼ teaspoon dried rosemary, ¼ teaspoon red pepper flakes, 1 tablespoon honey, or more to taste, 2 tablespoons pomegranate seeds, 1 tablespoon sliced fresh mint leaves, 1 tablespoon pumpkin seeds",
+      "prep_time": "15 mins",
+      "cook_time": "2 hrs 30 mins",
+      "servings": 6
+    }
+  },
+  {
+    "id": 509,
+    "name": "Heart Healthy Blueberry Smoothie",
+    "collection": "drinks-beverages",
+    "confidence": 8,
+    "features": {
+      "name": "heart healthy blueberry smoothie",
+      "ingredients": "1 cup blueberries, ¾ cup pomegranate juice, ½ cup low-fat plain greek-style yogurt, ½ cup skim milk, ½ cup rolled oats, ¼ cup granular sucralose sweetener (such as splenda®), 1 teaspoon ground cinnamon",
+      "directions": "blend blueberries, pomegranate juice, yogurt, milk, oats, sweetener, and cinnamon together in a blender until smooth, about 2 minutes.",
+      "cuisine_path": "/drinks recipes/smoothie recipes/blueberry/",
+      "timing": "prep time: 10 mins, total time: 10 mins, servings: 2, yield: 2 servings",
+      "nutrition": "total fat 3g 4%, saturated fat 1g 6%, cholesterol 4mg 1%, sodium 50mg 2%, total carbohydrate 45g 16%, dietary fiber 4g 16%, total sugars 25g, protein 10g, vitamin c 7mg 36%, calcium 103mg 8%, iron 1mg 7%, potassium 230mg 5%",
+      "combined_text": "heart healthy blueberry smoothie 1 cup blueberries, ¾ cup pomegranate juice, ½ cup low-fat plain greek-style yogurt, ½ cup skim milk, ½ cup rolled oats, ¼ cup granular sucralose sweetener (such as splenda®), 1 teaspoon ground cinnamo /drinks recipes/smoothie recipes/blueberry/ prep time: 10 mins, total time: 10 mins, servings: 2, yield: 2 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Smoothie Recipes/Blueberry/",
+      "ingredients": "1 cup blueberries, ¾ cup pomegranate juice, ½ cup low-fat plain Greek-style yogurt, ½ cup skim milk, ½ cup rolled oats, ¼ cup granular sucralose sweetener (such as Splenda®), 1 teaspoon ground cinnamon",
+      "prep_time": "10 mins",
+      "cook_time": NaN,
+      "servings": 2
+    }
+  },
+  {
+    "id": 515,
+    "name": "Cranberry-Pomegranate Mimosa",
+    "collection": "drinks-beverages",
+    "confidence": 9,
+    "features": {
+      "name": "cranberry-pomegranate mimosa",
+      "ingredients": "2 tablespoons white sugar, or as needed, 3  frozen cranberries, 1 fluid ounce cranberry-pomegranate juice (such as ocean spray®), 1 fluid ounce orange juice, 2 fluid ounces champagne",
+      "directions": "fill a small plate with 1/4 inch of water. pour sugar onto a second small plate, making a depth of 1/8 to 1/4 inch. gently dip the rim of a champagne glass into the water. raise the glass to allow excess water to drip off, then dip the rim into the sugar. twist the glass to ensure the entire rim is coated. discard remaining sugar.\nplace cranberries in the bottom of the champagne glass. add cranberry-pomegranate juice, orange juice, and champagne.",
+      "cuisine_path": "/breakfast and brunch/drinks/",
+      "timing": "prep time: 5 mins, total time: 5 mins, servings: 1, yield: 1 glass",
+      "nutrition": "total fat 0g 0%, sodium 8mg 0%, total carbohydrate 34g 13%, dietary fiber 0g 1%, total sugars 28g, protein 0g, vitamin c 16mg 82%, calcium 9mg 1%, iron 0mg 2%, potassium 126mg 3%",
+      "combined_text": "cranberry-pomegranate mimosa 2 tablespoons white sugar, or as needed, 3  frozen cranberries, 1 fluid ounce cranberry-pomegranate juice (such as ocean spray®), 1 fluid ounce orange juice, 2 fluid ounces champagne /breakfast and brunch/drinks/ prep time: 5 mins, total time: 5 mins, servings: 1, yield: 1 glass"
+    },
+    "original_data": {
+      "cuisine_path": "/Breakfast and Brunch/Drinks/",
+      "ingredients": "2 tablespoons white sugar, or as needed, 3  frozen cranberries, 1 fluid ounce cranberry-pomegranate juice (such as Ocean Spray®), 1 fluid ounce orange juice, 2 fluid ounces champagne",
+      "prep_time": "5 mins",
+      "cook_time": NaN,
+      "servings": 1
+    }
+  },
+  {
+    "id": 584,
+    "name": "Peanut Butter Banana Smoothie",
+    "collection": "drinks-beverages",
+    "confidence": 7,
+    "features": {
+      "name": "peanut butter banana smoothie",
+      "ingredients": "2  bananas, broken into chunks, 2 cups milk, ½ cup peanut butter, 2 tablespoons honey, or to taste, 2 cups ice cubes",
+      "directions": "place bananas, milk, peanut butter, honey, and ice cubes in a blender; blend until smooth, about 30 seconds.\n\n\n\n\n\n\n\n\n\n\n\ndotdash meredith food studio\n",
+      "cuisine_path": "/drinks recipes/smoothie recipes/banana/",
+      "timing": "prep time: 5 mins, total time: 5 mins, servings: 4, yield: 4 servings",
+      "nutrition": "total fat 19g 24%, saturated fat 5g 25%, cholesterol 10mg 3%, sodium 203mg 9%, total carbohydrate 34g 12%, dietary fiber 4g 13%, total sugars 25g, protein 13g, vitamin c 5mg 27%, calcium 164mg 13%, iron 1mg 4%, potassium 610mg 13%",
+      "combined_text": "peanut butter banana smoothie 2  bananas, broken into chunks, 2 cups milk, ½ cup peanut butter, 2 tablespoons honey, or to taste, 2 cups ice cubes /drinks recipes/smoothie recipes/banana/ prep time: 5 mins, total time: 5 mins, servings: 4, yield: 4 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Smoothie Recipes/Banana/",
+      "ingredients": "2  bananas, broken into chunks, 2 cups milk, ½ cup peanut butter, 2 tablespoons honey, or to taste, 2 cups ice cubes",
+      "prep_time": "5 mins",
+      "cook_time": NaN,
+      "servings": 4
+    }
+  },
+  {
+    "id": 593,
+    "name": "Chocolate Banana Peanut Butter Protein Shake",
+    "collection": "drinks-beverages",
+    "confidence": 12,
+    "features": {
+      "name": "chocolate banana peanut butter protein shake",
+      "ingredients": "6  ice cubes, 1 cup milk, 1  banana, 1 scoop chocolate-flavored protein powder, 2 tablespoons peanut butter, 1 tablespoon honey, 1 teaspoon unsweetened cocoa powder, or more to taste",
+      "directions": "blend ice cubes, milk, banana, protein powder, peanut butter, honey, and cocoa powder together in a blender until smooth.",
+      "cuisine_path": "/drinks recipes/shakes and floats recipes/chocolate/",
+      "timing": "prep time: 10 mins, total time: 10 mins, servings: 1",
+      "nutrition": "total fat 23g 29%, saturated fat 7g 37%, cholesterol 60mg 20%, sodium 341mg 15%, total carbohydrate 67g 24%, dietary fiber 6g 22%, total sugars 46g, protein 31g, vitamin c 11mg 55%, calcium 313mg 24%, iron 1mg 7%, potassium 1041mg 22%",
+      "combined_text": "chocolate banana peanut butter protein shake 6  ice cubes, 1 cup milk, 1  banana, 1 scoop chocolate-flavored protein powder, 2 tablespoons peanut butter, 1 tablespoon honey, 1 teaspoon unsweetened cocoa powder, or more to taste /drinks recipes/shakes and floats recipes/chocolate/ prep time: 10 mins, total time: 10 mins, servings: 1"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Shakes and Floats Recipes/Chocolate/",
+      "ingredients": "6  ice cubes, 1 cup milk, 1  banana, 1 scoop chocolate-flavored protein powder, 2 tablespoons peanut butter, 1 tablespoon honey, 1 teaspoon unsweetened cocoa powder, or more to taste",
+      "prep_time": "10 mins",
+      "cook_time": NaN,
+      "servings": 1
+    }
+  },
+  {
+    "id": 594,
+    "name": "Fruit and Yogurt Smoothie",
+    "collection": "drinks-beverages",
+    "confidence": 9,
+    "features": {
+      "name": "fruit and yogurt smoothie",
+      "ingredients": "1 cup strawberries, 1  banana, ½ cup yogurt, ¼ cup pineapple juice, 1 ½ teaspoons white sugar, 1 teaspoon orange juice, 1 teaspoon milk",
+      "directions": "combine strawberries, banana, yogurt, pineapple juice, sugar, orange juice, and milk in a blender; blend until smooth.",
+      "cuisine_path": "/drinks recipes/smoothie recipes/strawberry/",
+      "timing": "prep time: 5 mins, total time: 5 mins, servings: 2",
+      "nutrition": "total fat 1g 2%, saturated fat 1g 4%, cholesterol 4mg 1%, sodium 45mg 2%, total carbohydrate 31g 11%, dietary fiber 3g 11%, total sugars 22g, protein 5g, vitamin c 56mg 278%, calcium 132mg 10%, iron 1mg 3%, potassium 519mg 11%",
+      "combined_text": "fruit and yogurt smoothie 1 cup strawberries, 1  banana, ½ cup yogurt, ¼ cup pineapple juice, 1 ½ teaspoons white sugar, 1 teaspoon orange juice, 1 teaspoon milk /drinks recipes/smoothie recipes/strawberry/ prep time: 5 mins, total time: 5 mins, servings: 2"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Smoothie Recipes/Strawberry/",
+      "ingredients": "1 cup strawberries, 1  banana, ½ cup yogurt, ¼ cup pineapple juice, 1 ½ teaspoons white sugar, 1 teaspoon orange juice, 1 teaspoon milk",
+      "prep_time": "5 mins",
+      "cook_time": NaN,
+      "servings": 2
+    }
+  },
+  {
+    "id": 596,
+    "name": "Strawberry Oatmeal Breakfast Smoothie",
+    "collection": "drinks-beverages",
+    "confidence": 13,
+    "features": {
+      "name": "strawberry oatmeal breakfast smoothie",
+      "ingredients": "1 cup soy milk, ½ cup rolled oats, 14  frozen strawberries, 1  banana, broken into chunks, 1 ½ teaspoons white sugar (optional), ½ teaspoon vanilla extract (optional)",
+      "directions": "blend soy milk, oats, strawberries, and banana in a blender until smooth. add sugar and vanilla and blend again until smooth.\npour into glasses and serve.\n\n\n\n\n\n\n\n\n\n\n\nalberta rose\n",
+      "cuisine_path": "/breakfast and brunch/drinks/",
+      "timing": "prep time: 5 mins, total time: 5 mins, servings: 2",
+      "nutrition": "total fat 4g 4%, saturated fat 1g 3%, sodium 63mg 3%, total carbohydrate 21g 8%, dietary fiber 3g 10%, protein 7g, calcium 41mg 3%, iron 2mg 9%, potassium 217mg 5%",
+      "combined_text": "strawberry oatmeal breakfast smoothie 1 cup soy milk, ½ cup rolled oats, 14  frozen strawberries, 1  banana, broken into chunks, 1 ½ teaspoons white sugar (optional), ½ teaspoon vanilla extract (optional) /breakfast and brunch/drinks/ prep time: 5 mins, total time: 5 mins, servings: 2"
+    },
+    "original_data": {
+      "cuisine_path": "/Breakfast and Brunch/Drinks/",
+      "ingredients": "1 cup soy milk, ½ cup rolled oats, 14  frozen strawberries, 1  banana, broken into chunks, 1 ½ teaspoons white sugar (Optional), ½ teaspoon vanilla extract (Optional)",
+      "prep_time": "5 mins",
+      "cook_time": NaN,
+      "servings": 2
+    }
+  },
+  {
+    "id": 600,
+    "name": "Spinach and Banana Power Smoothie",
+    "collection": "drinks-beverages",
+    "confidence": 7,
+    "features": {
+      "name": "spinach and banana power smoothie",
+      "ingredients": "1 cup plain soy milk, ¾ cup packed fresh spinach leaves, 1 large banana, sliced",
+      "directions": "blend soy milk and spinach together in a blender until smooth. add banana and pulse until thoroughly blended.",
+      "cuisine_path": "/drinks recipes/smoothie recipes/veggie/",
+      "timing": "prep time: 10 mins, total time: 10 mins, servings: 1",
+      "nutrition": "total fat 5g 6%, saturated fat 1g 4%, sodium 143mg 6%, total carbohydrate 47g 17%, dietary fiber 6g 20%, total sugars 26g, protein 10g, vitamin c 18mg 91%, calcium 90mg 7%, iron 3mg 14%, potassium 899mg 19%",
+      "combined_text": "spinach and banana power smoothie 1 cup plain soy milk, ¾ cup packed fresh spinach leaves, 1 large banana, sliced /drinks recipes/smoothie recipes/veggie/ prep time: 10 mins, total time: 10 mins, servings: 1"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Smoothie Recipes/Veggie/",
+      "ingredients": "1 cup plain soy milk, ¾ cup packed fresh spinach leaves, 1 large banana, sliced",
+      "prep_time": "10 mins",
+      "cook_time": NaN,
+      "servings": 1
+    }
+  },
+  {
+    "id": 601,
+    "name": "Basic Fruit Smoothie",
+    "collection": "drinks-beverages",
+    "confidence": 8,
+    "features": {
+      "name": "basic fruit smoothie",
+      "ingredients": "1 quart strawberries, hulled, 2  fresh peaches - peeled, pitted, and sliced, 1  banana, broken into chunks, 2 cups ice, 1 cup orange-peach-mango juice",
+      "directions": "combine strawberries, peaches, and banana in a blender; blend until smooth. add ice and pour in juice; blend again to desired consistency.\n\n\n\n\n\n\n\n\n\n\n\ndotdash meredith food studios\n",
+      "cuisine_path": "/drinks recipes/smoothie recipes/strawberry/",
+      "timing": "prep time: 10 mins, total time: 10 mins, servings: 4",
+      "nutrition": "total fat 1g 1%, saturated fat 0g 1%, sodium 16mg 1%, total carbohydrate 29g 10%, dietary fiber 4g 14%, total sugars 20g, protein 2g, vitamin c 129mg 644%, calcium 36mg 3%, iron 1mg 4%, potassium 443mg 9%",
+      "combined_text": "basic fruit smoothie 1 quart strawberries, hulled, 2  fresh peaches - peeled, pitted, and sliced, 1  banana, broken into chunks, 2 cups ice, 1 cup orange-peach-mango juice /drinks recipes/smoothie recipes/strawberry/ prep time: 10 mins, total time: 10 mins, servings: 4"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Smoothie Recipes/Strawberry/",
+      "ingredients": "1 quart strawberries, hulled, 2  fresh peaches - peeled, pitted, and sliced, 1  banana, broken into chunks, 2 cups ice, 1 cup orange-peach-mango juice",
+      "prep_time": "10 mins",
+      "cook_time": NaN,
+      "servings": 4
+    }
+  },
+  {
+    "id": 605,
+    "name": "Pineapple and Banana Smoothie",
+    "collection": "drinks-beverages",
+    "confidence": 9,
+    "features": {
+      "name": "pineapple and banana smoothie",
+      "ingredients": "4  ice cubes, ¼  fresh pineapple - peeled, cored and cubed, 1 large banana, cut into chunks, 1 cup pineapple or apple juice",
+      "directions": "place ice cubes, pineapple, banana, and pineapple juice into the container of a blender. puree on high until smooth.\n\n\n\n\n\n\n\n\n\n\n\ndotdash meredith food studios\n",
+      "cuisine_path": "/breakfast and brunch/drinks/",
+      "timing": "prep time: 5 mins, total time: 5 mins, servings: 1, yield: 1 smoothie",
+      "nutrition": "total fat 1g 1%, saturated fat 0g 1%, sodium 10mg 0%, total carbohydrate 79g 29%, dietary fiber 6g 20%, total sugars 53g, protein 3g, vitamin c 93mg 466%, calcium 57mg 4%, iron 2mg 8%, potassium 941mg 20%",
+      "combined_text": "pineapple and banana smoothie 4  ice cubes, ¼  fresh pineapple - peeled, cored and cubed, 1 large banana, cut into chunks, 1 cup pineapple or apple juice /breakfast and brunch/drinks/ prep time: 5 mins, total time: 5 mins, servings: 1, yield: 1 smoothie"
+    },
+    "original_data": {
+      "cuisine_path": "/Breakfast and Brunch/Drinks/",
+      "ingredients": "4  ice cubes, ¼  fresh pineapple - peeled, cored and cubed, 1 large banana, cut into chunks, 1 cup pineapple or apple juice",
+      "prep_time": "5 mins",
+      "cook_time": NaN,
+      "servings": 1
+    }
+  },
+  {
+    "id": 620,
+    "name": "Easy Mango Banana Smoothie",
+    "collection": "drinks-beverages",
+    "confidence": 7,
+    "features": {
+      "name": "easy mango banana smoothie",
+      "ingredients": "2  mangos - peeled, seeded, and sliced, 2  bananas, 2 cups vanilla yogurt, 2 cups milk",
+      "directions": "combine mangos, banana, vanilla yogurt, and milk in a blender; blend until smooth.",
+      "cuisine_path": "/drinks recipes/smoothie recipes/mango/",
+      "timing": "prep time: 10 mins, total time: 10 mins, servings: 8",
+      "nutrition": "total fat 2g 3%, saturated fat 1g 7%, cholesterol 8mg 3%, sodium 67mg 3%, total carbohydrate 24g 9%, dietary fiber 1g 5%, total sugars 21g, protein 6g, vitamin c 14mg 68%, calcium 181mg 14%, iron 0mg 1%, potassium 390mg 8%",
+      "combined_text": "easy mango banana smoothie 2  mangos - peeled, seeded, and sliced, 2  bananas, 2 cups vanilla yogurt, 2 cups milk /drinks recipes/smoothie recipes/mango/ prep time: 10 mins, total time: 10 mins, servings: 8"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Smoothie Recipes/Mango/",
+      "ingredients": "2  mangos - peeled, seeded, and sliced, 2  bananas, 2 cups vanilla yogurt, 2 cups milk",
+      "prep_time": "10 mins",
+      "cook_time": NaN,
+      "servings": 8
+    }
+  },
+  {
+    "id": 621,
+    "name": "Strawberry Banana Protein Smoothie",
+    "collection": "drinks-beverages",
+    "confidence": 9,
+    "features": {
+      "name": "strawberry banana protein smoothie",
+      "ingredients": "1 ¼ cups sliced fresh strawberries, 1  banana, 10  whole almonds, 2 tablespoons water, 1 cup ice cubes, 3 tablespoons chocolate flavored protein powder",
+      "directions": "place strawberries, banana, almonds, and water into a blender; blend to combine. add ice cubes and puree until smooth. add protein powder and mix until evenly incorporated, about 30 seconds.",
+      "cuisine_path": "/breakfast and brunch/drinks/",
+      "timing": "prep time: 10 mins, total time: 10 mins, servings: 1",
+      "nutrition": "total fat 8g 10%, saturated fat 1g 4%, sodium 195mg 8%, total carbohydrate 53g 19%, dietary fiber 10g 36%, total sugars 25g, protein 21g, vitamin c 132mg 662%, calcium 200mg 15%, iron 14mg 78%, potassium 936mg 20%",
+      "combined_text": "strawberry banana protein smoothie 1 ¼ cups sliced fresh strawberries, 1  banana, 10  whole almonds, 2 tablespoons water, 1 cup ice cubes, 3 tablespoons chocolate flavored protein powder /breakfast and brunch/drinks/ prep time: 10 mins, total time: 10 mins, servings: 1"
+    },
+    "original_data": {
+      "cuisine_path": "/Breakfast and Brunch/Drinks/",
+      "ingredients": "1 ¼ cups sliced fresh strawberries, 1  banana, 10  whole almonds, 2 tablespoons water, 1 cup ice cubes, 3 tablespoons chocolate flavored protein powder",
+      "prep_time": "10 mins",
+      "cook_time": NaN,
+      "servings": 1
+    }
+  },
+  {
+    "id": 627,
+    "name": "Quick Banana Milkshake (Ice Cream Free)",
+    "collection": "drinks-beverages",
+    "confidence": 8,
+    "features": {
+      "name": "quick banana milkshake (ice cream free)",
+      "ingredients": "3  ice cubes, 1 cup milk, 1  banana, 1 tablespoon white sugar, or to taste, 1 pinch ground cinnamon",
+      "directions": "combine ice, milk, banana, sugar, and cinnamon in a blender; blend until smooth.",
+      "cuisine_path": "/drinks recipes/shakes and floats recipes/",
+      "timing": "prep time: 5 mins, total time: 5 mins, servings: 2",
+      "nutrition": "total fat 3g 3%, saturated fat 2g 8%, cholesterol 10mg 3%, sodium 52mg 2%, total carbohydrate 26g 9%, dietary fiber 2g 6%, total sugars 19g, protein 5g, vitamin c 5mg 27%, calcium 152mg 12%, iron 0mg 1%, potassium 397mg 8%",
+      "combined_text": "quick banana milkshake (ice cream free) 3  ice cubes, 1 cup milk, 1  banana, 1 tablespoon white sugar, or to taste, 1 pinch ground cinnamon /drinks recipes/shakes and floats recipes/ prep time: 5 mins, total time: 5 mins, servings: 2"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Shakes and Floats Recipes/",
+      "ingredients": "3  ice cubes, 1 cup milk, 1  banana, 1 tablespoon white sugar, or to taste, 1 pinch ground cinnamon",
+      "prep_time": "5 mins",
+      "cook_time": NaN,
+      "servings": 2
+    }
+  },
+  {
+    "id": 629,
+    "name": "Strawberry Orange Banana Smoothie",
+    "collection": "drinks-beverages",
+    "confidence": 8,
+    "features": {
+      "name": "strawberry orange banana smoothie",
+      "ingredients": "1 cup fresh strawberries, ¾ cup orange juice, 1  ripe banana, 1 cup ice cubes, or as needed",
+      "directions": "blend strawberries, orange juice, banana, and ice in a blender until smooth and frothy.",
+      "cuisine_path": "/drinks recipes/smoothie recipes/strawberry/",
+      "timing": "prep time: 5 mins, total time: 5 mins, servings: 1",
+      "nutrition": "total fat 1g 2%, saturated fat 0g 1%, sodium 8mg 0%, total carbohydrate 58g 21%, dietary fiber 7g 23%, total sugars 38g, protein 4g, vitamin c 194mg 971%, calcium 55mg 4%, iron 1mg 7%, potassium 1032mg 22%",
+      "combined_text": "strawberry orange banana smoothie 1 cup fresh strawberries, ¾ cup orange juice, 1  ripe banana, 1 cup ice cubes, or as needed /drinks recipes/smoothie recipes/strawberry/ prep time: 5 mins, total time: 5 mins, servings: 1"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Smoothie Recipes/Strawberry/",
+      "ingredients": "1 cup fresh strawberries, ¾ cup orange juice, 1  ripe banana, 1 cup ice cubes, or as needed",
+      "prep_time": "5 mins",
+      "cook_time": NaN,
+      "servings": 1
+    }
+  },
+  {
+    "id": 632,
+    "name": "Healthy Chocolate Smoothie",
+    "collection": "drinks-beverages",
+    "confidence": 12,
+    "features": {
+      "name": "healthy chocolate smoothie",
+      "ingredients": "2  very ripe bananas, 1 cup milk, 6  ice cubes, 1 ½ tablespoons unsweetened cocoa powder, 1 tablespoon peanut butter, 1 teaspoon vanilla extract",
+      "directions": "combine bananas, milk, ice cubes, cocoa powder, peanut butter, and vanilla in a blender; blend on high speed until smooth. pour into 2 glasses.",
+      "cuisine_path": "/breakfast and brunch/drinks/",
+      "timing": "prep time: 10 mins, total time: 10 mins, servings: 2",
+      "nutrition": "total fat 7g 9%, saturated fat 3g 14%, cholesterol 10mg 3%, sodium 92mg 4%, total carbohydrate 37g 13%, dietary fiber 5g 18%, total sugars 21g, protein 8g, vitamin c 11mg 53%, calcium 159mg 12%, iron 1mg 6%, potassium 724mg 15%",
+      "combined_text": "healthy chocolate smoothie 2  very ripe bananas, 1 cup milk, 6  ice cubes, 1 ½ tablespoons unsweetened cocoa powder, 1 tablespoon peanut butter, 1 teaspoon vanilla extract /breakfast and brunch/drinks/ prep time: 10 mins, total time: 10 mins, servings: 2"
+    },
+    "original_data": {
+      "cuisine_path": "/Breakfast and Brunch/Drinks/",
+      "ingredients": "2  very ripe bananas, 1 cup milk, 6  ice cubes, 1 ½ tablespoons unsweetened cocoa powder, 1 tablespoon peanut butter, 1 teaspoon vanilla extract",
+      "prep_time": "10 mins",
+      "cook_time": NaN,
+      "servings": 2
+    }
+  },
+  {
+    "id": 639,
+    "name": "Kiwi Banana Apple Smoothie",
+    "collection": "drinks-beverages",
+    "confidence": 9,
+    "features": {
+      "name": "kiwi banana apple smoothie",
+      "ingredients": "1  apple, roughly chopped, 1  banana, broken into chunks, 2  kiwifruit, peeled, 1 ¼ cups milk, ¼ cup ice, or as desired, 2 teaspoons chia seeds, 1 teaspoon maca powder",
+      "directions": "blend apple, banana, kiwifruit, milk, ice, chia seeds, and maca powder together in a blender until smooth.",
+      "cuisine_path": "/breakfast and brunch/drinks/",
+      "timing": "prep time: 10 mins, total time: 10 mins, servings: 2, yield: 2 servings",
+      "nutrition": "total fat 5g 6%, saturated fat 2g 11%, cholesterol 12mg 4%, sodium 67mg 3%, total carbohydrate 44g 16%, dietary fiber 7g 25%, total sugars 28g, protein 8g, vitamin c 78mg 388%, calcium 227mg 17%, iron 1mg 4%, potassium 749mg 16%",
+      "combined_text": "kiwi banana apple smoothie 1  apple, roughly chopped, 1  banana, broken into chunks, 2  kiwifruit, peeled, 1 ¼ cups milk, ¼ cup ice, or as desired, 2 teaspoons chia seeds, 1 teaspoon maca powder /breakfast and brunch/drinks/ prep time: 10 mins, total time: 10 mins, servings: 2, yield: 2 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Breakfast and Brunch/Drinks/",
+      "ingredients": "1  apple, roughly chopped, 1  banana, broken into chunks, 2  kiwifruit, peeled, 1 ¼ cups milk, ¼ cup ice, or as desired, 2 teaspoons chia seeds, 1 teaspoon maca powder",
+      "prep_time": "10 mins",
+      "cook_time": NaN,
+      "servings": 2
+    }
+  },
+  {
+    "id": 645,
+    "name": "Supreme Green Smoothie",
+    "collection": "drinks-beverages",
+    "confidence": 9,
+    "features": {
+      "name": "supreme green smoothie",
+      "ingredients": "2 cups almond breeze hint of honey almondmilk, 1 cup green grapes, 2 cups packed baby kale, 1 large kiwi fruit, peeled and chopped, 1 (10 ounce) package frozen pineapple chunks",
+      "directions": "place all ingredients in large blender container in order given. cover; blend on high 15 to 20 seconds or until completely smooth. pour into glasses.",
+      "cuisine_path": "/trusted brands: recipes and tips/almond breeze/",
+      "timing": "prep time: 5 mins, total time: 5 mins, servings: 3, yield: 3 servings",
+      "nutrition": "total fat 3g 3%, saturated fat 0g 1%, sodium 123mg 5%, total carbohydrate 45g 17%, dietary fiber 3g 12%, protein 3g, potassium 488mg 10%",
+      "combined_text": "supreme green smoothie 2 cups almond breeze hint of honey almondmilk, 1 cup green grapes, 2 cups packed baby kale, 1 large kiwi fruit, peeled and chopped, 1 (10 ounce) package frozen pineapple chunks /trusted brands: recipes and tips/almond breeze/ prep time: 5 mins, total time: 5 mins, servings: 3, yield: 3 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Trusted Brands: Recipes and Tips/Almond Breeze/",
+      "ingredients": "2 cups Almond Breeze Hint of Honey almondmilk, 1 cup green grapes, 2 cups packed baby kale, 1 large kiwi fruit, peeled and chopped, 1 (10 ounce) package frozen pineapple chunks",
+      "prep_time": "5 mins",
+      "cook_time": NaN,
+      "servings": 3
+    }
+  },
+  {
+    "id": 649,
+    "name": "Caribbean Health Drink",
+    "collection": "drinks-beverages",
+    "confidence": 1,
+    "features": {
+      "name": "caribbean health drink",
+      "ingredients": "1 cup chopped carrot, 1  banana, 1  kiwi, peeled, 1  apple - peeled, cored, and sliced, 1 cup chopped pineapple, 1 cup ice cubes",
+      "directions": "blend the carrot, banana, kiwi, apple, pineapple, and ice cubes in a blender until smooth.",
+      "cuisine_path": "/cuisine/latin american/caribbean/",
+      "timing": "prep time: 10 mins, total time: 10 mins, servings: 2, yield: 3 cups",
+      "nutrition": "total fat 1g 1%, saturated fat 0g 1%, sodium 47mg 2%, total carbohydrate 45g 17%, dietary fiber 7g 26%, total sugars 29g, protein 2g, vitamin c 86mg 429%, calcium 52mg 4%, iron 1mg 4%, potassium 695mg 15%",
+      "combined_text": "caribbean health drink 1 cup chopped carrot, 1  banana, 1  kiwi, peeled, 1  apple - peeled, cored, and sliced, 1 cup chopped pineapple, 1 cup ice cubes /cuisine/latin american/caribbean/ prep time: 10 mins, total time: 10 mins, servings: 2, yield: 3 cups"
+    },
+    "original_data": {
+      "cuisine_path": "/Cuisine/Latin American/Caribbean/",
+      "ingredients": "1 cup chopped carrot, 1  banana, 1  kiwi, peeled, 1  apple - peeled, cored, and sliced, 1 cup chopped pineapple, 1 cup ice cubes",
+      "prep_time": "10 mins",
+      "cook_time": NaN,
+      "servings": 2
+    }
+  },
+  {
+    "id": 652,
+    "name": "White Sangria with Kiwi",
+    "collection": "drinks-beverages",
+    "confidence": 8,
+    "features": {
+      "name": "white sangria with kiwi",
+      "ingredients": "1 (750 milliliter) bottle chardonnay wine, 1 liter club soda, 3 tablespoons orange-flavored liqueur (such as cointreau®), 2 tablespoons white sugar, 1 cup seedless green grapes, 2  kiwis, peeled and sliced, 1 large pear, thinly sliced,   ice cubes, 8 sprigs mint",
+      "directions": "mix chardonnay wine, club soda, orange-flavored liqueur, sugar, grapes, kiwis, and pear in a large pitcher. stir until sugar is dissolved. pour wine mixture into wine glasses filled with ice, making sure each glass has some fruit. garnish with mint sprigs.",
+      "cuisine_path": "/drinks recipes/sangria recipes/",
+      "timing": "prep time: 20 mins, total time: 20 mins, servings: 8, yield: 8 servings",
+      "nutrition": "total fat 0g 0%, sodium 10mg 0%, total carbohydrate 19g 7%, dietary fiber 2g 6%, total sugars 14g, protein 1g, vitamin c 22mg 112%, calcium 29mg 2%, iron 1mg 3%, potassium 200mg 4%",
+      "combined_text": "white sangria with kiwi 1 (750 milliliter) bottle chardonnay wine, 1 liter club soda, 3 tablespoons orange-flavored liqueur (such as cointreau®), 2 tablespoons white sugar, 1 cup seedless green grapes, 2  kiwis, peeled and s /drinks recipes/sangria recipes/ prep time: 20 mins, total time: 20 mins, servings: 8, yield: 8 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Sangria Recipes/",
+      "ingredients": "1 (750 milliliter) bottle Chardonnay wine, 1 liter club soda, 3 tablespoons orange-flavored liqueur (such as Cointreau®), 2 tablespoons white sugar, 1 cup seedless green grapes, 2  kiwis, peeled and sliced, 1 large pear, thinly sliced,   ice cubes, 8 sprigs mint",
+      "prep_time": "20 mins",
+      "cook_time": NaN,
+      "servings": 8
+    }
+  },
+  {
+    "id": 658,
+    "name": "Strawberry-Kiwi Slush",
+    "collection": "drinks-beverages",
+    "confidence": 7,
+    "features": {
+      "name": "strawberry-kiwi slush",
+      "ingredients": "2 cups crushed ice, ¾ pint fresh strawberries, hulled, ¾ cup grape juice (such as welch's®), 1 large kiwi fruit, peeled, ¼ cup water, ¼ cup lemon juice",
+      "directions": "blend ice, strawberries, grape juice, kiwi fruit, water, and lemon juice in a blender until it reaches an even slush consistency, 25 to 35 seconds.",
+      "cuisine_path": "/drinks recipes/slushie recipes/",
+      "timing": "prep time: 5 mins, total time: 5 mins, servings: 3, yield: 24 ounces",
+      "nutrition": "total fat 1g 1%, sodium 5mg 0%, total carbohydrate 23g 8%, dietary fiber 3g 10%, total sugars 17g, protein 1g, vitamin c 90mg 450%, calcium 32mg 2%, iron 1mg 3%, potassium 340mg 7%",
+      "combined_text": "strawberry-kiwi slush 2 cups crushed ice, ¾ pint fresh strawberries, hulled, ¾ cup grape juice (such as welch's®), 1 large kiwi fruit, peeled, ¼ cup water, ¼ cup lemon juice /drinks recipes/slushie recipes/ prep time: 5 mins, total time: 5 mins, servings: 3, yield: 24 ounces"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Slushie Recipes/",
+      "ingredients": "2 cups crushed ice, ¾ pint fresh strawberries, hulled, ¾ cup grape juice (such as Welch's®), 1 large kiwi fruit, peeled, ¼ cup water, ¼ cup lemon juice",
+      "prep_time": "5 mins",
+      "cook_time": NaN,
+      "servings": 3
+    }
+  },
+  {
+    "id": 662,
+    "name": "Crazy Fruit Smoothie",
+    "collection": "drinks-beverages",
+    "confidence": 7,
+    "features": {
+      "name": "crazy fruit smoothie",
+      "ingredients": "1 ½ cups crushed ice, 1  banana, chopped, 1  kiwi, peeled and chopped, ½ cup chopped strawberries, ½ cup chopped pineapple, ¼ cup cream of coconut, 1 tablespoon coconut flakes for garnish",
+      "directions": "blend the ice, banana, kiwi, strawberries, pineapple, and cream of coconut in a blender until smooth; pour into a glass and garnish with the coconut flakes to serve.",
+      "cuisine_path": "/drinks recipes/smoothie recipes/strawberry/",
+      "timing": "prep time: 10 mins, total time: 10 mins, servings: 1, yield: 1 servings",
+      "nutrition": "total fat 2g 3%, saturated fat 1g 7%, sodium 18mg 1%, total carbohydrate 57g 21%, dietary fiber 8g 30%, total sugars 35g, protein 3g, vitamin c 164mg 819%, calcium 55mg 4%, iron 1mg 7%, potassium 878mg 19%",
+      "combined_text": "crazy fruit smoothie 1 ½ cups crushed ice, 1  banana, chopped, 1  kiwi, peeled and chopped, ½ cup chopped strawberries, ½ cup chopped pineapple, ¼ cup cream of coconut, 1 tablespoon coconut flakes for garnish /drinks recipes/smoothie recipes/strawberry/ prep time: 10 mins, total time: 10 mins, servings: 1, yield: 1 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Smoothie Recipes/Strawberry/",
+      "ingredients": "1 ½ cups crushed ice, 1  banana, chopped, 1  kiwi, peeled and chopped, ½ cup chopped strawberries, ½ cup chopped pineapple, ¼ cup cream of coconut, 1 tablespoon coconut flakes for garnish",
+      "prep_time": "10 mins",
+      "cook_time": NaN,
+      "servings": 1
+    }
+  },
+  {
+    "id": 673,
+    "name": "White Peachy Sangria",
+    "collection": "drinks-beverages",
+    "confidence": 6,
+    "features": {
+      "name": "white peachy sangria",
+      "ingredients": "4 (750 milliliter) bottles moscato wine, 4 (12 fluid ounce) cans or bottles lemon-lime soda (such as sprite®), 1 cup brandy, 1 cup peach schnapps, 2  fresh peaches, pitted and sliced, 1 (16 ounce) package fresh strawberries, sliced, 2  mangos - peeled, seeded, and sliced, ½  fresh pineapple - peeled, cored, and cut into chunks, 1 (6 ounce) container fresh raspberries",
+      "directions": "stir moscato wine, lemon-lime soda, brandy, peach schnapps, peaches, strawberries, mangos, pineapple chunks, and raspberries together in a large container and chill 8 hours or overnight.",
+      "cuisine_path": "/drinks recipes/sangria recipes/",
+      "timing": "prep time: 30 mins, additional time: 8 hrs, total time: 8 hrs 30 mins, servings: 20, yield: 20 servings",
+      "nutrition": "total fat 0g 0%, sodium 24mg 1%, total carbohydrate 41g 15%, dietary fiber 2g 5%, total sugars 22g, protein 1g, vitamin c 30mg 148%, calcium 23mg 2%, iron 1mg 3%, potassium 228mg 5%",
+      "combined_text": "white peachy sangria 4 (750 milliliter) bottles moscato wine, 4 (12 fluid ounce) cans or bottles lemon-lime soda (such as sprite®), 1 cup brandy, 1 cup peach schnapps, 2  fresh peaches, pitted and sliced, 1 (16 ounce) pac /drinks recipes/sangria recipes/ prep time: 30 mins, additional time: 8 hrs, total time: 8 hrs 30 mins, servings: 20, yield: 20 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Sangria Recipes/",
+      "ingredients": "4 (750 milliliter) bottles moscato wine, 4 (12 fluid ounce) cans or bottles lemon-lime soda (such as Sprite®), 1 cup brandy, 1 cup peach schnapps, 2  fresh peaches, pitted and sliced, 1 (16 ounce) package fresh strawberries, sliced, 2  mangos - peeled, seeded, and sliced, ½  fresh pineapple - peeled, cored, and cut into chunks, 1 (6 ounce) container fresh raspberries",
+      "prep_time": "30 mins",
+      "cook_time": NaN,
+      "servings": 20
+    }
+  },
+  {
+    "id": 677,
+    "name": "Lela's Protein Mango Smoothie",
+    "collection": "drinks-beverages",
+    "confidence": 9,
+    "features": {
+      "name": "lela's protein mango smoothie",
+      "ingredients": "½  mango, chopped, or more to taste, ½ cup low-fat vanilla yogurt, ½ cup almond milk, ½ cup ice, 1 scoop vanilla whey protein powder, 1 teaspoon honey, or to taste (optional)",
+      "directions": "blend mango, yogurt, almond milk, ice, protein powder, and honey together in a blender until smooth.",
+      "cuisine_path": "/breakfast and brunch/drinks/",
+      "timing": "prep time: 10 mins, total time: 10 mins, servings: 1, yield: 1 smoothie",
+      "nutrition": "total fat 4g 6%, saturated fat 2g 12%, cholesterol 19mg 6%, sodium 379mg 16%, total carbohydrate 49g 18%, dietary fiber 2g 9%, total sugars 43g, protein 45g, vitamin c 30mg 149%, calcium 331mg 25%, iron 0mg 2%, potassium 531mg 11%",
+      "combined_text": "lela's protein mango smoothie ½  mango, chopped, or more to taste, ½ cup low-fat vanilla yogurt, ½ cup almond milk, ½ cup ice, 1 scoop vanilla whey protein powder, 1 teaspoon honey, or to taste (optional) /breakfast and brunch/drinks/ prep time: 10 mins, total time: 10 mins, servings: 1, yield: 1 smoothie"
+    },
+    "original_data": {
+      "cuisine_path": "/Breakfast and Brunch/Drinks/",
+      "ingredients": "½  mango, chopped, or more to taste, ½ cup low-fat vanilla yogurt, ½ cup almond milk, ½ cup ice, 1 scoop vanilla whey protein powder, 1 teaspoon honey, or to taste (Optional)",
+      "prep_time": "10 mins",
+      "cook_time": NaN,
+      "servings": 1
+    }
+  },
+  {
+    "id": 680,
+    "name": "Creamy Mango Smoothie",
+    "collection": "drinks-beverages",
+    "confidence": 7,
+    "features": {
+      "name": "creamy mango smoothie",
+      "ingredients": "¾ cup cold milk, ¼ cup vanilla yogurt, ¾ teaspoon vanilla extract, 1 ½ cups chopped fresh mango, 3  ice cubes",
+      "directions": "blend the milk, yogurt, vanilla extract, mango, and ice cubes in a blender until smooth and creamy.",
+      "cuisine_path": "/drinks recipes/smoothie recipes/mango/",
+      "timing": "prep time: 5 mins, total time: 5 mins, servings: 2, yield: 2 servings",
+      "nutrition": "total fat 3g 3%, saturated fat 2g 8%, cholesterol 9mg 3%, sodium 61mg 3%, total carbohydrate 30g 11%, dietary fiber 2g 8%, total sugars 27g, protein 5g, vitamin c 35mg 174%, calcium 173mg 13%, iron 0mg 1%, potassium 400mg 9%",
+      "combined_text": "creamy mango smoothie ¾ cup cold milk, ¼ cup vanilla yogurt, ¾ teaspoon vanilla extract, 1 ½ cups chopped fresh mango, 3  ice cubes /drinks recipes/smoothie recipes/mango/ prep time: 5 mins, total time: 5 mins, servings: 2, yield: 2 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Smoothie Recipes/Mango/",
+      "ingredients": "¾ cup cold milk, ¼ cup vanilla yogurt, ¾ teaspoon vanilla extract, 1 ½ cups chopped fresh mango, 3  ice cubes",
+      "prep_time": "5 mins",
+      "cook_time": NaN,
+      "servings": 2
+    }
+  },
+  {
+    "id": 686,
+    "name": "Peanut Butter Mango Smoothie",
+    "collection": "drinks-beverages",
+    "confidence": 7,
+    "features": {
+      "name": "peanut butter mango smoothie",
+      "ingredients": "1 cup vanilla yogurt, 1  banana, broken into chunks, ½ cup frozen mango chunks, 2 tablespoons peanut butter, or to taste",
+      "directions": "blend yogurt, banana, mango, and peanut butter together in a blender until smooth.",
+      "cuisine_path": "/drinks recipes/smoothie recipes/mango/",
+      "timing": "prep time: 5 mins, total time: 5 mins, servings: 2, yield: 2 smoothies",
+      "nutrition": "total fat 10g 13%, saturated fat 3g 14%, cholesterol 6mg 2%, sodium 157mg 7%, total carbohydrate 41g 15%, dietary fiber 3g 12%, total sugars 32g, protein 11g, vitamin c 18mg 88%, calcium 224mg 17%, iron 1mg 3%, potassium 649mg 14%",
+      "combined_text": "peanut butter mango smoothie 1 cup vanilla yogurt, 1  banana, broken into chunks, ½ cup frozen mango chunks, 2 tablespoons peanut butter, or to taste /drinks recipes/smoothie recipes/mango/ prep time: 5 mins, total time: 5 mins, servings: 2, yield: 2 smoothies"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Smoothie Recipes/Mango/",
+      "ingredients": "1 cup vanilla yogurt, 1  banana, broken into chunks, ½ cup frozen mango chunks, 2 tablespoons peanut butter, or to taste",
+      "prep_time": "5 mins",
+      "cook_time": NaN,
+      "servings": 2
+    }
+  },
+  {
+    "id": 687,
+    "name": "Mango Watermelon Smoothie",
+    "collection": "drinks-beverages",
+    "confidence": 8,
+    "features": {
+      "name": "mango watermelon smoothie",
+      "ingredients": "5 cups cubed seeded watermelon, 1  mango - peeled, seeded, and diced, ½ cup water, 1 tablespoon white sugar, 4 cubes  ice cubes",
+      "directions": "blend watermelon, mango, water, and sugar together in a blender until smooth.\nplace ice into glasses and pour smoothie over ice.",
+      "cuisine_path": "/drinks recipes/smoothie recipes/mango/",
+      "timing": "prep time: 10 mins, total time: 10 mins, servings: 4, yield: 4 servings",
+      "nutrition": "total fat 0g 1%, saturated fat 0g 1%, sodium 5mg 0%, total carbohydrate 26g 10%, dietary fiber 2g 6%, total sugars 23g, protein 1g, vitamin c 30mg 149%, calcium 20mg 2%, iron 1mg 3%, potassium 294mg 6%",
+      "combined_text": "mango watermelon smoothie 5 cups cubed seeded watermelon, 1  mango - peeled, seeded, and diced, ½ cup water, 1 tablespoon white sugar, 4 cubes  ice cubes /drinks recipes/smoothie recipes/mango/ prep time: 10 mins, total time: 10 mins, servings: 4, yield: 4 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Smoothie Recipes/Mango/",
+      "ingredients": "5 cups cubed seeded watermelon, 1  mango - peeled, seeded, and diced, ½ cup water, 1 tablespoon white sugar, 4 cubes  ice cubes",
+      "prep_time": "10 mins",
+      "cook_time": NaN,
+      "servings": 4
+    }
+  },
+  {
+    "id": 690,
+    "name": "Mango Oatmeal Breakfast Smoothie",
+    "collection": "drinks-beverages",
+    "confidence": 13,
+    "features": {
+      "name": "mango oatmeal breakfast smoothie",
+      "ingredients": "½ cup orange juice, ½ cup frozen mango chunks, ½  banana, cut into chunks, ⅓ cup plain yogurt, ¼ cup oats",
+      "directions": "blend orange juice, mango, banana, yogurt, and oats together in a blender until smooth.",
+      "cuisine_path": "/breakfast and brunch/drinks/",
+      "timing": "prep time: 10 mins, total time: 10 mins, servings: 1, yield: 1 smoothie",
+      "nutrition": "total fat 3g 4%, saturated fat 1g 6%, cholesterol 5mg 2%, sodium 62mg 3%, total carbohydrate 60g 22%, dietary fiber 5g 19%, total sugars 36g, protein 9g, vitamin c 91mg 453%, calcium 185mg 14%, iron 1mg 8%, potassium 852mg 18%",
+      "combined_text": "mango oatmeal breakfast smoothie ½ cup orange juice, ½ cup frozen mango chunks, ½  banana, cut into chunks, ⅓ cup plain yogurt, ¼ cup oats /breakfast and brunch/drinks/ prep time: 10 mins, total time: 10 mins, servings: 1, yield: 1 smoothie"
+    },
+    "original_data": {
+      "cuisine_path": "/Breakfast and Brunch/Drinks/",
+      "ingredients": "½ cup orange juice, ½ cup frozen mango chunks, ½  banana, cut into chunks, ⅓ cup plain yogurt, ¼ cup oats",
+      "prep_time": "10 mins",
+      "cook_time": NaN,
+      "servings": 1
+    }
+  },
+  {
+    "id": 695,
+    "name": "Summertime Mango Drink",
+    "collection": "drinks-beverages",
+    "confidence": 10,
+    "features": {
+      "name": "summertime mango drink",
+      "ingredients": "2  mangoes, cut into cubes, 1 cup ice cubes, 1 teaspoon vanilla extract, 1 tablespoon white sugar, 1 ⅔ cups milk",
+      "directions": "combine mangoes, ice cubes, vanilla extract, and sugar in a blender; pour in milk. blend until liquefied.",
+      "cuisine_path": "/breakfast and brunch/drinks/",
+      "timing": "prep time: 5 mins, total time: 5 mins, servings: 4, yield: 4 servings",
+      "nutrition": "total fat 2g 3%, saturated fat 1g 7%, cholesterol 8mg 3%, sodium 43mg 2%, total carbohydrate 21g 8%, dietary fiber 1g 5%, total sugars 19g, protein 4g, vitamin c 21mg 105%, calcium 127mg 10%, iron 0mg 1%, potassium 271mg 6%",
+      "combined_text": "summertime mango drink 2  mangoes, cut into cubes, 1 cup ice cubes, 1 teaspoon vanilla extract, 1 tablespoon white sugar, 1 ⅔ cups milk /breakfast and brunch/drinks/ prep time: 5 mins, total time: 5 mins, servings: 4, yield: 4 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Breakfast and Brunch/Drinks/",
+      "ingredients": "2  mangoes, cut into cubes, 1 cup ice cubes, 1 teaspoon vanilla extract, 1 tablespoon white sugar, 1 ⅔ cups milk",
+      "prep_time": "5 mins",
+      "cook_time": NaN,
+      "servings": 4
+    }
+  },
+  {
+    "id": 703,
+    "name": "Mango-Peach Smoothie",
+    "collection": "drinks-beverages",
+    "confidence": 9,
+    "features": {
+      "name": "mango-peach smoothie",
+      "ingredients": "1  peach, sliced, 1  mango, peeled and diced, ½ cup vanilla soy milk, ½ cup orange juice, or as needed",
+      "directions": "place peach, mango, soy milk, and orange juice into a blender. cover, and puree until smooth. pour into glasses to serve.",
+      "cuisine_path": "/breakfast and brunch/drinks/",
+      "timing": "prep time: 10 mins, total time: 10 mins, servings: 2",
+      "nutrition": "total fat 1g 2%, saturated fat 0g 1%, sodium 29mg 1%, total carbohydrate 22g 8%, dietary fiber 2g 6%, total sugars 18g, protein 3g, vitamin c 52mg 260%, calcium 24mg 2%, iron 0mg 2%, potassium 316mg 7%",
+      "combined_text": "mango-peach smoothie 1  peach, sliced, 1  mango, peeled and diced, ½ cup vanilla soy milk, ½ cup orange juice, or as needed /breakfast and brunch/drinks/ prep time: 10 mins, total time: 10 mins, servings: 2"
+    },
+    "original_data": {
+      "cuisine_path": "/Breakfast and Brunch/Drinks/",
+      "ingredients": "1  peach, sliced, 1  mango, peeled and diced, ½ cup vanilla soy milk, ½ cup orange juice, or as needed",
+      "prep_time": "10 mins",
+      "cook_time": NaN,
+      "servings": 2
+    }
+  },
+  {
+    "id": 710,
+    "name": "Mango Cherry Smoothie",
+    "collection": "drinks-beverages",
+    "confidence": 9,
+    "features": {
+      "name": "mango cherry smoothie",
+      "ingredients": "2 cups pitted cherries, 1 cup chopped mango, 1 cup water, 1 cup ice cubes",
+      "directions": "blend cherries, mango, water, and ice cubes in a blender until smooth.",
+      "cuisine_path": "/breakfast and brunch/drinks/",
+      "timing": "prep time: 10 mins, total time: 10 mins, servings: 2",
+      "nutrition": "total fat 2g 2%, saturated fat 0g 2%, sodium 9mg 0%, total carbohydrate 38g 14%, dietary fiber 5g 17%, total sugars 33g, protein 2g, vitamin c 33mg 165%, calcium 37mg 3%, iron 1mg 4%, potassium 456mg 10%",
+      "combined_text": "mango cherry smoothie 2 cups pitted cherries, 1 cup chopped mango, 1 cup water, 1 cup ice cubes /breakfast and brunch/drinks/ prep time: 10 mins, total time: 10 mins, servings: 2"
+    },
+    "original_data": {
+      "cuisine_path": "/Breakfast and Brunch/Drinks/",
+      "ingredients": "2 cups pitted cherries, 1 cup chopped mango, 1 cup water, 1 cup ice cubes",
+      "prep_time": "10 mins",
+      "cook_time": NaN,
+      "servings": 2
+    }
+  },
+  {
+    "id": 719,
+    "name": "Tropical Mango-Pineapple-Berry Smoothie",
+    "collection": "drinks-beverages",
+    "confidence": 8,
+    "features": {
+      "name": "tropical mango-pineapple-berry smoothie",
+      "ingredients": "1  mango - peeled, seeded, and diced, 1 cup frozen strawberries, 1 cup low-fat vanilla yogurt, 6 ounces pineapple juice, ½ cup frozen blueberries",
+      "directions": "combine mango, frozen strawberries, yogurt, pineapple juice, and frozen blueberries in a blender; blend until smooth.",
+      "cuisine_path": "/drinks recipes/smoothie recipes/strawberry/",
+      "timing": "prep time: 5 mins, total time: 5 mins, servings: 2",
+      "nutrition": "total fat 2g 3%, saturated fat 1g 6%, cholesterol 6mg 2%, sodium 87mg 4%, total carbohydrate 57g 21%, dietary fiber 5g 18%, total sugars 46g, protein 7g, vitamin c 78mg 388%, calcium 250mg 19%, iron 1mg 8%, potassium 692mg 15%",
+      "combined_text": "tropical mango-pineapple-berry smoothie 1  mango - peeled, seeded, and diced, 1 cup frozen strawberries, 1 cup low-fat vanilla yogurt, 6 ounces pineapple juice, ½ cup frozen blueberries /drinks recipes/smoothie recipes/strawberry/ prep time: 5 mins, total time: 5 mins, servings: 2"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Smoothie Recipes/Strawberry/",
+      "ingredients": "1  mango - peeled, seeded, and diced, 1 cup frozen strawberries, 1 cup low-fat vanilla yogurt, 6 ounces pineapple juice, ½ cup frozen blueberries",
+      "prep_time": "5 mins",
+      "cook_time": NaN,
+      "servings": 2
+    }
+  },
+  {
+    "id": 722,
+    "name": "Blue Hawaiian Cocktail",
+    "collection": "drinks-beverages",
+    "confidence": 9,
+    "features": {
+      "name": "blue hawaiian cocktail",
+      "ingredients": "1 cup crushed ice, 2 fluid ounces pineapple juice, 1 fluid ounce light rum, 1 fluid ounce blue curacao liqueur, 1 fluid ounce cream of coconut, 1  pineapple slice, 1  maraschino cherry",
+      "directions": "combine crushed ice, pineapple juice, rum, blue curacao, and cream of coconut in a blender. puree on high speed until smooth. pour into a chilled highball glass.\ngarnish with a slice of pineapple and a maraschino cherry.\n\n\n\n\n\n\n\n\n\n\n\ndotdash meredith food studios\n",
+      "cuisine_path": "/drinks recipes/cocktail recipes/rum drinks recipes/",
+      "timing": "prep time: 5 mins, total time: 5 mins, servings: 1, yield: 1 cocktail",
+      "nutrition": "total fat 7g 9%, saturated fat 5g 26%, sodium 31mg 1%, total carbohydrate 49g 18%, dietary fiber 1g 2%, total sugars 43g, protein 0g, vitamin c 20mg 99%, calcium 20mg 2%, iron 0mg 2%, potassium 128mg 3%",
+      "combined_text": "blue hawaiian cocktail 1 cup crushed ice, 2 fluid ounces pineapple juice, 1 fluid ounce light rum, 1 fluid ounce blue curacao liqueur, 1 fluid ounce cream of coconut, 1  pineapple slice, 1  maraschino cherry /drinks recipes/cocktail recipes/rum drinks recipes/ prep time: 5 mins, total time: 5 mins, servings: 1, yield: 1 cocktail"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Cocktail Recipes/Rum Drinks Recipes/",
+      "ingredients": "1 cup crushed ice, 2 fluid ounces pineapple juice, 1 fluid ounce light rum, 1 fluid ounce blue Curacao liqueur, 1 fluid ounce cream of coconut, 1  pineapple slice, 1  maraschino cherry",
+      "prep_time": "5 mins",
+      "cook_time": NaN,
+      "servings": 1
+    }
+  },
+  {
+    "id": 724,
+    "name": "Jamaican Rum Punch",
+    "collection": "drinks-beverages",
+    "confidence": 8,
+    "features": {
+      "name": "jamaican rum punch",
+      "ingredients": "2 ½ cups pineapple juice, 2 ½ cups orange juice, 1 cup 151 proof rum (such as bacardi®), ½ cup dark rum (such as meyer's®), ¼ cup coconut-flavored rum (such as malibu®), ¼ cup fresh lime juice, 3 tablespoons grenadine syrup, 1  orange, sliced, 1  lime, sliced, 1  lemon, sliced",
+      "directions": "stir pineapple juice, orange juice, 151 proof rum, dark rum, coconut-flavored rum, lime juice, and grenadine syrup together in a punch bowl. float orange slices, lime slices, and lemon slices in the punch.\nladle the punch into ice filled glasses, or chill the punch in the refrigerator until ready to serve.\n\n\n\n\n\n\n\n\n\n\n\ndotdash meredith food studios\n",
+      "cuisine_path": "/drinks recipes/punch recipes/adult punch recipes/",
+      "timing": "prep time: 10 mins, total time: 10 mins, servings: 8, yield: 7 cups",
+      "nutrition": "total fat 1g 1%, saturated fat 0g 2%, cholesterol 5mg 2%, sodium 10mg 0%, total carbohydrate 30g 11%, dietary fiber 2g 6%, total sugars 20g, protein 2g, vitamin c 73mg 365%, calcium 50mg 4%, iron 1mg 3%, potassium 350mg 7%",
+      "combined_text": "jamaican rum punch 2 ½ cups pineapple juice, 2 ½ cups orange juice, 1 cup 151 proof rum (such as bacardi®), ½ cup dark rum (such as meyer's®), ¼ cup coconut-flavored rum (such as malibu®), ¼ cup fresh lime juice, 3 tabl /drinks recipes/punch recipes/adult punch recipes/ prep time: 10 mins, total time: 10 mins, servings: 8, yield: 7 cups"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Punch Recipes/Adult Punch Recipes/",
+      "ingredients": "2 ½ cups pineapple juice, 2 ½ cups orange juice, 1 cup 151 proof rum (such as Bacardi®), ½ cup dark rum (such as Meyer's®), ¼ cup coconut-flavored rum (such as Malibu®), ¼ cup fresh lime juice, 3 tablespoons grenadine syrup, 1  orange, sliced, 1  lime, sliced, 1  lemon, sliced",
+      "prep_time": "10 mins",
+      "cook_time": NaN,
+      "servings": 8
+    }
+  },
+  {
+    "id": 731,
+    "name": "Pineapple Upside-Down Cake in a Glass",
+    "collection": "drinks-beverages",
+    "confidence": 9,
+    "features": {
+      "name": "pineapple upside-down cake in a glass",
+      "ingredients": "  ice, 1 splash grenadine syrup, 3 ounces pineapple juice, 1 (1.5 fluid ounce) jigger cake-flavored vodka, 1  maraschino cherry",
+      "directions": "fill a glass with ice.\nsplash grenadine over ice. pour in pineapple juice and cake-flavored vodka; stir.\ngarnish with maraschino cherry to serve.",
+      "cuisine_path": "/drinks recipes/cocktail recipes/vodka drinks recipes/",
+      "timing": "prep time: 5 mins, total time: 5 mins, servings: 1",
+      "nutrition": "total fat 0g 0%, sodium 13mg 1%, total carbohydrate 31g 11%, dietary fiber 0g 1%, total sugars 21g, protein 0g, vitamin c 9mg 47%, calcium 18mg 1%, iron 0mg 2%, potassium 139mg 3%",
+      "combined_text": "pineapple upside-down cake in a glass   ice, 1 splash grenadine syrup, 3 ounces pineapple juice, 1 (1.5 fluid ounce) jigger cake-flavored vodka, 1  maraschino cherry /drinks recipes/cocktail recipes/vodka drinks recipes/ prep time: 5 mins, total time: 5 mins, servings: 1"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Cocktail Recipes/Vodka Drinks Recipes/",
+      "ingredients": "  ice, 1 splash grenadine syrup, 3 ounces pineapple juice, 1 (1.5 fluid ounce) jigger cake-flavored vodka, 1  maraschino cherry",
+      "prep_time": "5 mins",
+      "cook_time": NaN,
+      "servings": 1
+    }
+  },
+  {
+    "id": 732,
+    "name": "Pineapple and Banana Smoothie",
+    "collection": "drinks-beverages",
+    "confidence": 9,
+    "features": {
+      "name": "pineapple and banana smoothie",
+      "ingredients": "4  ice cubes, ¼  fresh pineapple - peeled, cored and cubed, 1 large banana, cut into chunks, 1 cup pineapple or apple juice",
+      "directions": "place ice cubes, pineapple, banana, and pineapple juice into the container of a blender. puree on high until smooth.\n\n\n\n\n\n\n\n\n\n\n\ndotdash meredith food studios\n",
+      "cuisine_path": "/breakfast and brunch/drinks/",
+      "timing": "prep time: 5 mins, total time: 5 mins, servings: 1, yield: 1 smoothie",
+      "nutrition": "total fat 1g 1%, saturated fat 0g 1%, sodium 10mg 0%, total carbohydrate 79g 29%, dietary fiber 6g 20%, total sugars 53g, protein 3g, vitamin c 93mg 466%, calcium 57mg 4%, iron 2mg 8%, potassium 941mg 20%",
+      "combined_text": "pineapple and banana smoothie 4  ice cubes, ¼  fresh pineapple - peeled, cored and cubed, 1 large banana, cut into chunks, 1 cup pineapple or apple juice /breakfast and brunch/drinks/ prep time: 5 mins, total time: 5 mins, servings: 1, yield: 1 smoothie"
+    },
+    "original_data": {
+      "cuisine_path": "/Breakfast and Brunch/Drinks/",
+      "ingredients": "4  ice cubes, ¼  fresh pineapple - peeled, cored and cubed, 1 large banana, cut into chunks, 1 cup pineapple or apple juice",
+      "prep_time": "5 mins",
+      "cook_time": NaN,
+      "servings": 1
+    }
+  },
+  {
+    "id": 739,
+    "name": "Singapore Sling Cocktail",
+    "collection": "drinks-beverages",
+    "confidence": 9,
+    "features": {
+      "name": "singapore sling cocktail",
+      "ingredients": "2 cups ice, divided, 4 fluid ounces pineapple juice, 1 ½ fluid ounces gin, ½ fluid ounce cherry-flavored brandy, ½ fluid ounce lime juice, ½ fluid ounce grenadine syrup, ¼ fluid ounce triple sec, ¼ fluid ounce benedictine® liqueur, 1 slice fresh pineapple, 1  maraschino cherry",
+      "directions": "fill a collins glass with 1 cup ice and place in the freezer.\ncombine pineapple juice, gin, cherry-flavored brandy, lime juice, grenadine, triple sec, and bénédictine in a cocktail shaker. add 1 cup ice, cover, and shake until chilled. strain into the prepared collins glass.\ngarnish with pineapple slice and cherry.\n\n\n\n\n\n\n\n\n\n\n\ntalin alton\n",
+      "cuisine_path": "/drinks recipes/cocktail recipes/gin drinks recipes/",
+      "timing": "prep time: 5 mins, total time: 5 mins, servings: 1",
+      "nutrition": "total fat 0g 0%, sodium 10mg 0%, total carbohydrate 44g 16%, dietary fiber 1g 4%, total sugars 30g, protein 1g, vitamin c 44mg 220%, calcium 28mg 2%, iron 1mg 3%, potassium 257mg 5%",
+      "combined_text": "singapore sling cocktail 2 cups ice, divided, 4 fluid ounces pineapple juice, 1 ½ fluid ounces gin, ½ fluid ounce cherry-flavored brandy, ½ fluid ounce lime juice, ½ fluid ounce grenadine syrup, ¼ fluid ounce triple sec, ¼ fl /drinks recipes/cocktail recipes/gin drinks recipes/ prep time: 5 mins, total time: 5 mins, servings: 1"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Cocktail Recipes/Gin Drinks Recipes/",
+      "ingredients": "2 cups ice, divided, 4 fluid ounces pineapple juice, 1 ½ fluid ounces gin, ½ fluid ounce cherry-flavored brandy, ½ fluid ounce lime juice, ½ fluid ounce grenadine syrup, ¼ fluid ounce triple sec, ¼ fluid ounce Benedictine® liqueur, 1 slice fresh pineapple, 1  maraschino cherry",
+      "prep_time": "5 mins",
+      "cook_time": NaN,
+      "servings": 1
+    }
+  },
+  {
+    "id": 741,
+    "name": "Pineapple Cleanser Smoothie",
+    "collection": "drinks-beverages",
+    "confidence": 9,
+    "features": {
+      "name": "pineapple cleanser smoothie",
+      "ingredients": "1 cup coconut water, or to taste, 1 cup chopped fresh pineapple, 1 stalk celery, ½  cucumber, peeled, ½  lemon, peeled, ⅓ bunch fresh parsley, 1 (1 inch) piece fresh ginger root",
+      "directions": "blend coconut water, pineapple, celery, cucumber, lemon, parsley, and ginger together in a blender until smooth.",
+      "cuisine_path": "/breakfast and brunch/drinks/",
+      "timing": "prep time: 10 mins, total time: 10 mins, servings: 1",
+      "nutrition": "total fat 1g 2%, saturated fat 1g 3%, sodium 301mg 13%, total carbohydrate 43g 15%, dietary fiber 10g 34%, total sugars 17g, protein 5g, vitamin c 159mg 794%, calcium 172mg 13%, iron 3mg 17%, potassium 1248mg 27%",
+      "combined_text": "pineapple cleanser smoothie 1 cup coconut water, or to taste, 1 cup chopped fresh pineapple, 1 stalk celery, ½  cucumber, peeled, ½  lemon, peeled, ⅓ bunch fresh parsley, 1 (1 inch) piece fresh ginger root /breakfast and brunch/drinks/ prep time: 10 mins, total time: 10 mins, servings: 1"
+    },
+    "original_data": {
+      "cuisine_path": "/Breakfast and Brunch/Drinks/",
+      "ingredients": "1 cup coconut water, or to taste, 1 cup chopped fresh pineapple, 1 stalk celery, ½  cucumber, peeled, ½  lemon, peeled, ⅓ bunch fresh parsley, 1 (1 inch) piece fresh ginger root",
+      "prep_time": "10 mins",
+      "cook_time": NaN,
+      "servings": 1
+    }
+  },
+  {
+    "id": 748,
+    "name": "Pineapple-Infused Vodka",
+    "collection": "drinks-beverages",
+    "confidence": 6,
+    "features": {
+      "name": "pineapple-infused vodka",
+      "ingredients": "1  fresh pineapple, peeled and sliced, 1 (750 milliliter) bottle vodka (such as stolichnaya®)",
+      "directions": "stack pineapple slices in a circle around the edges of a large glass jar, leaving the center open. pour vodka into jar, completely covering pineapple. seal jar and store in a cool, dark place for 10 days.\nremove pineapple and strain vodka through a mesh strainer back into a jar; seal and refrigerate.",
+      "cuisine_path": "/drinks recipes/cocktail recipes/vodka drinks recipes/",
+      "timing": "prep time: 10 mins, additional time: 10 days, total time: 10 days 10 mins, servings: 17, yield: 17 servings",
+      "nutrition": "total fat 0g 0%, sodium 1mg 0%, total carbohydrate 11g 4%, dietary fiber 1g 4%, total sugars 8g, protein 0g, vitamin c 38mg 192%, calcium 10mg 1%, iron 0mg 1%, potassium 88mg 2%",
+      "combined_text": "pineapple-infused vodka 1  fresh pineapple, peeled and sliced, 1 (750 milliliter) bottle vodka (such as stolichnaya®) /drinks recipes/cocktail recipes/vodka drinks recipes/ prep time: 10 mins, additional time: 10 days, total time: 10 days 10 mins, servings: 17, yield: 17 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Cocktail Recipes/Vodka Drinks Recipes/",
+      "ingredients": "1  fresh pineapple, peeled and sliced, 1 (750 milliliter) bottle vodka (such as Stolichnaya®)",
+      "prep_time": "10 mins",
+      "cook_time": NaN,
+      "servings": 17
+    }
+  },
+  {
+    "id": 766,
+    "name": "White Peachy Sangria",
+    "collection": "drinks-beverages",
+    "confidence": 6,
+    "features": {
+      "name": "white peachy sangria",
+      "ingredients": "4 (750 milliliter) bottles moscato wine, 4 (12 fluid ounce) cans or bottles lemon-lime soda (such as sprite®), 1 cup brandy, 1 cup peach schnapps, 2  fresh peaches, pitted and sliced, 1 (16 ounce) package fresh strawberries, sliced, 2  mangos - peeled, seeded, and sliced, ½  fresh pineapple - peeled, cored, and cut into chunks, 1 (6 ounce) container fresh raspberries",
+      "directions": "stir moscato wine, lemon-lime soda, brandy, peach schnapps, peaches, strawberries, mangos, pineapple chunks, and raspberries together in a large container and chill 8 hours or overnight.",
+      "cuisine_path": "/drinks recipes/sangria recipes/",
+      "timing": "prep time: 30 mins, additional time: 8 hrs, total time: 8 hrs 30 mins, servings: 20, yield: 20 servings",
+      "nutrition": "total fat 0g 0%, sodium 24mg 1%, total carbohydrate 41g 15%, dietary fiber 2g 5%, total sugars 22g, protein 1g, vitamin c 30mg 148%, calcium 23mg 2%, iron 1mg 3%, potassium 228mg 5%",
+      "combined_text": "white peachy sangria 4 (750 milliliter) bottles moscato wine, 4 (12 fluid ounce) cans or bottles lemon-lime soda (such as sprite®), 1 cup brandy, 1 cup peach schnapps, 2  fresh peaches, pitted and sliced, 1 (16 ounce) pac /drinks recipes/sangria recipes/ prep time: 30 mins, additional time: 8 hrs, total time: 8 hrs 30 mins, servings: 20, yield: 20 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Sangria Recipes/",
+      "ingredients": "4 (750 milliliter) bottles moscato wine, 4 (12 fluid ounce) cans or bottles lemon-lime soda (such as Sprite®), 1 cup brandy, 1 cup peach schnapps, 2  fresh peaches, pitted and sliced, 1 (16 ounce) package fresh strawberries, sliced, 2  mangos - peeled, seeded, and sliced, ½  fresh pineapple - peeled, cored, and cut into chunks, 1 (6 ounce) container fresh raspberries",
+      "prep_time": "30 mins",
+      "cook_time": NaN,
+      "servings": 20
+    }
+  },
+  {
+    "id": 780,
+    "name": "Fruit Batido",
+    "collection": "drinks-beverages",
+    "confidence": 10,
+    "features": {
+      "name": "fruit batido",
+      "ingredients": "1 (12 fluid ounce) can evaporated milk, 1 cup chopped papaya, ¼ cup white sugar, or more to taste, 1 teaspoon vanilla extract, 1 pinch ground cinnamon, 1 tray ice cubes",
+      "directions": "blend milk, papaya, sugar, vanilla extract, and cinnamon together in a blender until smooth; add ice and blend until slushy.",
+      "cuisine_path": "/drinks recipes/smoothie recipes/",
+      "timing": "prep time: 10 mins, total time: 10 mins, servings: 6, yield: 6 servings",
+      "nutrition": "total fat 5g 6%, saturated fat 3g 15%, cholesterol 18mg 6%, sodium 69mg 3%, total carbohydrate 17g 6%, dietary fiber 1g 2%, total sugars 16g, protein 4g, vitamin c 16mg 78%, calcium 174mg 13%, iron 0mg 1%, potassium 253mg 5%",
+      "combined_text": "fruit batido 1 (12 fluid ounce) can evaporated milk, 1 cup chopped papaya, ¼ cup white sugar, or more to taste, 1 teaspoon vanilla extract, 1 pinch ground cinnamon, 1 tray ice cubes /drinks recipes/smoothie recipes/ prep time: 10 mins, total time: 10 mins, servings: 6, yield: 6 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Smoothie Recipes/",
+      "ingredients": "1 (12 fluid ounce) can evaporated milk, 1 cup chopped papaya, ¼ cup white sugar, or more to taste, 1 teaspoon vanilla extract, 1 pinch ground cinnamon, 1 tray ice cubes",
+      "prep_time": "10 mins",
+      "cook_time": NaN,
+      "servings": 6
+    }
+  },
+  {
+    "id": 781,
+    "name": "Papaya Surprise Smoothie",
+    "collection": "drinks-beverages",
+    "confidence": 8,
+    "features": {
+      "name": "papaya surprise smoothie",
+      "ingredients": "1  papaya - peeled, seeded and diced, 1  banana, peeled and sliced, ½ cup sliced fresh strawberries, ⅓ cup milk, ¼ cup sugar, 15  ice cubes",
+      "directions": "in a blender, blend the papaya, banana, strawberries, milk, sugar, and ice cubes until smooth.",
+      "cuisine_path": "/drinks recipes/smoothie recipes/strawberry/",
+      "timing": "prep time: 10 mins, total time: 10 mins, servings: 2, yield: 2 servings",
+      "nutrition": "total fat 1g 2%, saturated fat 1g 3%, cholesterol 3mg 1%, sodium 25mg 1%, total carbohydrate 55g 20%, dietary fiber 4g 15%, total sugars 43g, protein 3g, vitamin c 79mg 394%, calcium 82mg 6%, iron 1mg 3%, potassium 600mg 13%",
+      "combined_text": "papaya surprise smoothie 1  papaya - peeled, seeded and diced, 1  banana, peeled and sliced, ½ cup sliced fresh strawberries, ⅓ cup milk, ¼ cup sugar, 15  ice cubes /drinks recipes/smoothie recipes/strawberry/ prep time: 10 mins, total time: 10 mins, servings: 2, yield: 2 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Smoothie Recipes/Strawberry/",
+      "ingredients": "1  papaya - peeled, seeded and diced, 1  banana, peeled and sliced, ½ cup sliced fresh strawberries, ⅓ cup milk, ¼ cup sugar, 15  ice cubes",
+      "prep_time": "10 mins",
+      "cook_time": NaN,
+      "servings": 2
+    }
+  },
+  {
+    "id": 786,
+    "name": "Pawpaw (Papaya) And Mango Punch",
+    "collection": "drinks-beverages",
+    "confidence": 8,
+    "features": {
+      "name": "pawpaw (papaya) and mango punch",
+      "ingredients": "1 cup sliced mango, 1 cup diced, peeled papaya, 1 cup orange juice, ¼ cup lime juice, ¼ cup white sugar, or to taste, 1 teaspoon grated orange zest, 4 cups water",
+      "directions": "place the mango and papaya into a blender. cover, and puree until smooth; add the orange juice, lime juice, sugar, orange zest, and water. blend well. serve over crushed ice.",
+      "cuisine_path": "/drinks recipes/smoothie recipes/orange/",
+      "timing": "prep time: 10 mins, total time: 10 mins, servings: 8, yield: 8 servings",
+      "nutrition": "total fat 0g 0%, sodium 5mg 0%, total carbohydrate 15g 6%, dietary fiber 1g 3%, total sugars 13g, protein 1g, vitamin c 35mg 174%, calcium 15mg 1%, iron 0mg 1%, potassium 150mg 3%",
+      "combined_text": "pawpaw (papaya) and mango punch 1 cup sliced mango, 1 cup diced, peeled papaya, 1 cup orange juice, ¼ cup lime juice, ¼ cup white sugar, or to taste, 1 teaspoon grated orange zest, 4 cups water /drinks recipes/smoothie recipes/orange/ prep time: 10 mins, total time: 10 mins, servings: 8, yield: 8 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Smoothie Recipes/Orange/",
+      "ingredients": "1 cup sliced mango, 1 cup diced, peeled papaya, 1 cup orange juice, ¼ cup lime juice, ¼ cup white sugar, or to taste, 1 teaspoon grated orange zest, 4 cups water",
+      "prep_time": "10 mins",
+      "cook_time": NaN,
+      "servings": 8
+    }
+  },
+  {
+    "id": 795,
+    "name": "Papaya Passion Smoothie",
+    "collection": "drinks-beverages",
+    "confidence": 12,
+    "features": {
+      "name": "papaya passion smoothie",
+      "ingredients": "2 cups papaya - peeled, seeded and cubed, 2 cups milk, ¼ cup white sugar, ¼ cup sweetened condensed milk, 1 cup vanilla yogurt, 2 tablespoons cream cheese, 2 cups ice",
+      "directions": "place papaya, milk, sugar, condensed milk, yogurt, cream cheese, and ice in a blender. blend until smooth. serve immediately.",
+      "cuisine_path": "/breakfast and brunch/drinks/",
+      "timing": "prep time: 10 mins, total time: 10 mins, servings: 6, yield: 6 cups",
+      "nutrition": "total fat 5g 6%, saturated fat 3g 16%, cholesterol 18mg 6%, sodium 92mg 4%, total carbohydrate 29g 11%, dietary fiber 1g 3%, total sugars 28g, protein 6g, vitamin c 30mg 149%, calcium 216mg 17%, iron 0mg 1%, potassium 385mg 8%",
+      "combined_text": "papaya passion smoothie 2 cups papaya - peeled, seeded and cubed, 2 cups milk, ¼ cup white sugar, ¼ cup sweetened condensed milk, 1 cup vanilla yogurt, 2 tablespoons cream cheese, 2 cups ice /breakfast and brunch/drinks/ prep time: 10 mins, total time: 10 mins, servings: 6, yield: 6 cups"
+    },
+    "original_data": {
+      "cuisine_path": "/Breakfast and Brunch/Drinks/",
+      "ingredients": "2 cups papaya - peeled, seeded and cubed, 2 cups milk, ¼ cup white sugar, ¼ cup sweetened condensed milk, 1 cup vanilla yogurt, 2 tablespoons cream cheese, 2 cups ice",
+      "prep_time": "10 mins",
+      "cook_time": NaN,
+      "servings": 6
+    }
+  },
+  {
+    "id": 800,
+    "name": "Avocado Smoothie",
+    "collection": "drinks-beverages",
+    "confidence": 7,
+    "features": {
+      "name": "avocado smoothie",
+      "ingredients": "1 cup milk, 1  ripe avocado, halved and pitted, ½ cup vanilla yogurt, 3 tablespoons honey, 8  ice cubes",
+      "directions": "place milk, avocado, yogurt, and honey into a blender; add ice cubes and blend until smooth.",
+      "cuisine_path": "/drinks recipes/smoothie recipes/",
+      "timing": "prep time: 5 mins, total time: 5 mins, servings: 2",
+      "nutrition": "total fat 18g 23%, saturated fat 4g 21%, cholesterol 13mg 4%, sodium 101mg 4%, total carbohydrate 49g 18%, dietary fiber 7g 24%, total sugars 41g, protein 9g, vitamin c 11mg 55%, calcium 264mg 20%, iron 1mg 4%, potassium 822mg 17%",
+      "combined_text": "avocado smoothie 1 cup milk, 1  ripe avocado, halved and pitted, ½ cup vanilla yogurt, 3 tablespoons honey, 8  ice cubes /drinks recipes/smoothie recipes/ prep time: 5 mins, total time: 5 mins, servings: 2"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Smoothie Recipes/",
+      "ingredients": "1 cup milk, 1  ripe avocado, halved and pitted, ½ cup vanilla yogurt, 3 tablespoons honey, 8  ice cubes",
+      "prep_time": "5 mins",
+      "cook_time": NaN,
+      "servings": 2
+    }
+  },
+  {
+    "id": 807,
+    "name": "Banana, Avocado, and Spinach Smoothie",
+    "collection": "drinks-beverages",
+    "confidence": 9,
+    "features": {
+      "name": "banana, avocado, and spinach smoothie",
+      "ingredients": "1  banana, sliced, ½  avocado, peeled and sliced, ½ cup fresh spinach, ½ cup 1% milk, 6  ice cubes, 2 teaspoons honey, 1 teaspoon vanilla extract",
+      "directions": "blend banana, avocado, spinach, milk, ice cubes, honey, and vanilla extract together in a blender until smooth.",
+      "cuisine_path": "/breakfast and brunch/drinks/",
+      "timing": "prep time: 10 mins, total time: 10 mins, servings: 2, yield: 2 servings",
+      "nutrition": "total fat 8g 11%, saturated fat 2g 8%, cholesterol 3mg 1%, sodium 45mg 2%, total carbohydrate 28g 10%, dietary fiber 5g 18%, total sugars 14g, protein 4g, vitamin c 13mg 65%, calcium 97mg 7%, iron 1mg 4%, potassium 604mg 13%",
+      "combined_text": "banana, avocado, and spinach smoothie 1  banana, sliced, ½  avocado, peeled and sliced, ½ cup fresh spinach, ½ cup 1% milk, 6  ice cubes, 2 teaspoons honey, 1 teaspoon vanilla extract /breakfast and brunch/drinks/ prep time: 10 mins, total time: 10 mins, servings: 2, yield: 2 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Breakfast and Brunch/Drinks/",
+      "ingredients": "1  banana, sliced, ½  avocado, peeled and sliced, ½ cup fresh spinach, ½ cup 1% milk, 6  ice cubes, 2 teaspoons honey, 1 teaspoon vanilla extract",
+      "prep_time": "10 mins",
+      "cook_time": NaN,
+      "servings": 2
+    }
+  },
+  {
+    "id": 812,
+    "name": "Simple Avocado Milkshake",
+    "collection": "drinks-beverages",
+    "confidence": 5,
+    "features": {
+      "name": "simple avocado milkshake",
+      "ingredients": "1 cup milk, 1  ripe avocado, peeled and pitted, 1  banana, cut into chunks, 3 tablespoons honey",
+      "directions": "blend milk, avocado, banana, and honey together in a blender until smooth.",
+      "cuisine_path": "/drinks recipes/shakes and floats recipes/",
+      "timing": "prep time: 10 mins, total time: 10 mins, servings: 3, yield: 3 servings",
+      "nutrition": "total fat 12g 15%, saturated fat 3g 13%, cholesterol 7mg 2%, sodium 39mg 2%, total carbohydrate 36g 13%, dietary fiber 6g 20%, total sugars 26g, protein 5g, vitamin c 10mg 52%, calcium 106mg 8%, iron 1mg 3%, potassium 599mg 13%",
+      "combined_text": "simple avocado milkshake 1 cup milk, 1  ripe avocado, peeled and pitted, 1  banana, cut into chunks, 3 tablespoons honey /drinks recipes/shakes and floats recipes/ prep time: 10 mins, total time: 10 mins, servings: 3, yield: 3 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Shakes and Floats Recipes/",
+      "ingredients": "1 cup milk, 1  ripe avocado, peeled and pitted, 1  banana, cut into chunks, 3 tablespoons honey",
+      "prep_time": "10 mins",
+      "cook_time": NaN,
+      "servings": 3
+    }
+  },
+  {
+    "id": 815,
+    "name": "Filipino Avocado Milkshake",
+    "collection": "drinks-beverages",
+    "confidence": 10,
+    "features": {
+      "name": "filipino avocado milkshake",
+      "ingredients": "1  avocado - peeled, pitted, and cubed, 5 cubes  ice, 3 tablespoons white sugar, 1 ⅓ cups milk, 1 teaspoon fresh lemon or lime juice, 1 scoop vanilla ice cream",
+      "directions": "place avocado, ice, sugar, milk, lemon juice, and ice cream into a blender. puree until smooth.",
+      "cuisine_path": "/breakfast and brunch/drinks/",
+      "timing": "prep time: 5 mins, total time: 5 mins, servings: 2, yield: 2 servings",
+      "nutrition": "total fat 19g 24%, saturated fat 5g 25%, cholesterol 18mg 6%, sodium 84mg 4%, total carbohydrate 38g 14%, dietary fiber 7g 24%, total sugars 29g, protein 8g, vitamin c 12mg 59%, calcium 218mg 17%, iron 1mg 3%, potassium 757mg 16%",
+      "combined_text": "filipino avocado milkshake 1  avocado - peeled, pitted, and cubed, 5 cubes  ice, 3 tablespoons white sugar, 1 ⅓ cups milk, 1 teaspoon fresh lemon or lime juice, 1 scoop vanilla ice cream /breakfast and brunch/drinks/ prep time: 5 mins, total time: 5 mins, servings: 2, yield: 2 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Breakfast and Brunch/Drinks/",
+      "ingredients": "1  avocado - peeled, pitted, and cubed, 5 cubes  ice, 3 tablespoons white sugar, 1 ⅓ cups milk, 1 teaspoon fresh lemon or lime juice, 1 scoop vanilla ice cream",
+      "prep_time": "5 mins",
+      "cook_time": NaN,
+      "servings": 2
+    }
+  },
+  {
+    "id": 904,
+    "name": "Aileen's Punch",
+    "collection": "drinks-beverages",
+    "confidence": 7,
+    "features": {
+      "name": "aileen's punch",
+      "ingredients": "1 (46 fluid ounce) can pineapple juice, 1 (46 fluid ounce) can apricot nectar, 1 (6 ounce) can frozen limeade concentrate, 2 liters lemon-lime flavored carbonated beverage",
+      "directions": "in a punch bowl combine pineapple juice, apricot nectar and limeade; finally, pour in the lemon-lime soda.",
+      "cuisine_path": "/drinks recipes/punch recipes/non-alcoholic punch recipes/",
+      "timing": "prep time: 5 mins, total time: 5 mins, servings: 30, yield: 30 servings",
+      "nutrition": "total fat 0g 0%, sodium 9mg 0%, total carbohydrate 23g 9%, dietary fiber 0g 1%, total sugars 15g, protein 0g, vitamin c 6mg 29%, calcium 10mg 1%, iron 0mg 2%, potassium 114mg 2%",
+      "combined_text": "aileen's punch 1 (46 fluid ounce) can pineapple juice, 1 (46 fluid ounce) can apricot nectar, 1 (6 ounce) can frozen limeade concentrate, 2 liters lemon-lime flavored carbonated beverage /drinks recipes/punch recipes/non-alcoholic punch recipes/ prep time: 5 mins, total time: 5 mins, servings: 30, yield: 30 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Punch Recipes/Non-Alcoholic Punch Recipes/",
+      "ingredients": "1 (46 fluid ounce) can pineapple juice, 1 (46 fluid ounce) can apricot nectar, 1 (6 ounce) can frozen limeade concentrate, 2 liters lemon-lime flavored carbonated beverage",
+      "prep_time": "5 mins",
+      "cook_time": NaN,
+      "servings": 30
+    }
+  },
+  {
+    "id": 919,
+    "name": "Flavored Water",
+    "collection": "drinks-beverages",
+    "confidence": 5,
+    "features": {
+      "name": "flavored water",
+      "ingredients": "½ small cucumber, sliced thin, ½  nectarine, pitted and chopped, ½  lemon, sliced, ½  lemon, juiced, ½  lime, sliced, ½  lime, juiced, 4 slices ginger root, peeled, or more to taste, 10  melissa leaves (lemon balm), or more to taste, 2 quarts water, 1 drop liquid stevia, or to taste",
+      "directions": "place cucumber, nectarine, lemon slices, lemon juice, lime slices, lime juice, ginger, and melissa leaves in a large pitcher; mash gently with a wooden spoon. pour in water, stir, and refrigerate until flavors blend, 2 hours to overnight. strain; serve over ice.",
+      "cuisine_path": "/drinks recipes/",
+      "timing": "prep time: 15 mins, additional time: 2 hrs, total time: 2 hrs 15 mins, servings: 8, yield: 2 liters",
+      "nutrition": "total fat 0g 0%, sodium 8mg 0%, total carbohydrate 2g 1%, dietary fiber 1g 2%, total sugars 1g, protein 0g, vitamin c 8mg 39%, calcium 16mg 1%, iron 0mg 1%, potassium 53mg 1%",
+      "combined_text": "flavored water ½ small cucumber, sliced thin, ½  nectarine, pitted and chopped, ½  lemon, sliced, ½  lemon, juiced, ½  lime, sliced, ½  lime, juiced, 4 slices ginger root, peeled, or more to taste, 10  melissa leave /drinks recipes/ prep time: 15 mins, additional time: 2 hrs, total time: 2 hrs 15 mins, servings: 8, yield: 2 liters"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/",
+      "ingredients": "½ small cucumber, sliced thin, ½  nectarine, pitted and chopped, ½  lemon, sliced, ½  lemon, juiced, ½  lime, sliced, ½  lime, juiced, 4 slices ginger root, peeled, or more to taste, 10  melissa leaves (lemon balm), or more to taste, 2 quarts water, 1 drop liquid stevia, or to taste",
+      "prep_time": "15 mins",
+      "cook_time": NaN,
+      "servings": 8
+    }
+  },
+  {
+    "id": 928,
+    "name": "Nectarine Blush",
+    "collection": "drinks-beverages",
+    "confidence": 8,
+    "features": {
+      "name": "nectarine blush",
+      "ingredients": "2  nectarines, pitted and chopped, 2 tablespoons brown sugar, 1 cup buttermilk",
+      "directions": "place the nectarines, brown sugar and buttermilk in the bowl of a blender and blend until smooth. serve immediately.",
+      "cuisine_path": "/drinks recipes/smoothie recipes/",
+      "timing": "prep time: 2 mins, cook time: 2 mins, total time: 4 mins, servings: 2, yield: 2 cups",
+      "nutrition": "total fat 2g 2%, saturated fat 1g 4%, cholesterol 5mg 2%, sodium 132mg 6%, total carbohydrate 34g 12%, dietary fiber 2g 8%, total sugars 30g, protein 6g, vitamin c 9mg 43%, calcium 162mg 12%, iron 1mg 3%, potassium 476mg 10%",
+      "combined_text": "nectarine blush 2  nectarines, pitted and chopped, 2 tablespoons brown sugar, 1 cup buttermilk /drinks recipes/smoothie recipes/ prep time: 2 mins, cook time: 2 mins, total time: 4 mins, servings: 2, yield: 2 cups"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Smoothie Recipes/",
+      "ingredients": "2  nectarines, pitted and chopped, 2 tablespoons brown sugar, 1 cup buttermilk",
+      "prep_time": "2 mins",
+      "cook_time": "2 mins",
+      "servings": 2
+    }
+  },
+  {
+    "id": 959,
+    "name": "Coquito",
+    "collection": "drinks-beverages",
+    "confidence": 9,
+    "features": {
+      "name": "coquito",
+      "ingredients": "1 (12 fluid ounce) can evaporated milk, 2 large egg yolks, beaten, 1 (14 ounce) can cream of coconut, 1 (14 ounce) can sweetened condensed milk, ½ cup white rum, ½ cup water, 1 teaspoon vanilla extract, ½ teaspoon ground cinnamon, ¼ teaspoon ground cloves",
+      "directions": "combine evaporated milk and egg yolks in the top of a double boiler over simmering water. cook over the simmering water, stirring constantly, until mixture is thick enough to coat the back of a spoon, and reaches a temperature of 160 degrees f (71 degrees c).\ntransfer mixture to a blender. add cream of coconut, sweetened condensed milk, rum, water, vanilla, cinnamon, and cloves; blend until combined, about 30 seconds.\npour into glass bottles and chill 8 hours to overnight before serving.\n\n\n\n\n\n\n\n\n\n\n\noana ennis/allrecipes\n",
+      "cuisine_path": "/drinks recipes/eggnog recipes/",
+      "timing": "prep time: 5 mins, cook time: 10 mins, additional time: 8 hrs, total time: 8 hrs 15 mins, servings: 10",
+      "nutrition": "total fat 14g 17%, saturated fat 10g 52%, cholesterol 65mg 22%, sodium 106mg 5%, total carbohydrate 46g 17%, dietary fiber 0g 1%, protein 7g, potassium 305mg 6%",
+      "combined_text": "coquito 1 (12 fluid ounce) can evaporated milk, 2 large egg yolks, beaten, 1 (14 ounce) can cream of coconut, 1 (14 ounce) can sweetened condensed milk, ½ cup white rum, ½ cup water, 1 teaspoon vanilla extrac /drinks recipes/eggnog recipes/ prep time: 5 mins, cook time: 10 mins, additional time: 8 hrs, total time: 8 hrs 15 mins, servings: 10"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Eggnog Recipes/",
+      "ingredients": "1 (12 fluid ounce) can evaporated milk, 2 large egg yolks, beaten, 1 (14 ounce) can cream of coconut, 1 (14 ounce) can sweetened condensed milk, ½ cup white rum, ½ cup water, 1 teaspoon vanilla extract, ½ teaspoon ground cinnamon, ¼ teaspoon ground cloves",
+      "prep_time": "5 mins",
+      "cook_time": "10 mins",
+      "servings": 10
+    }
+  },
+  {
+    "id": 1007,
+    "name": "Blueberry Smoothie",
+    "collection": "drinks-beverages",
+    "confidence": 10,
+    "features": {
+      "name": "blueberry smoothie",
+      "ingredients": "1 cup blueberries (frozen or fresh), 1 (8 ounce) container plain yogurt, ¾ cup 2% reduced-fat milk, 2 tablespoons white sugar, ½ teaspoon vanilla extract, ⅛ teaspoon ground nutmeg",
+      "directions": "blend blueberries, yogurt, milk, sugar, vanilla, and nutmeg in a blender until frothy, scraping down the sides of the blender if needed.\ndivide between 2 glasses and serve immediately.\n\n\n\n\n\n\n\n\n\n",
+      "cuisine_path": "/drinks recipes/smoothie recipes/blueberry/",
+      "timing": "prep time: 5 mins, total time: 5 mins, servings: 2",
+      "nutrition": "total fat 4g 5%, saturated fat 2g 12%, cholesterol 14mg 5%, sodium 118mg 5%, total carbohydrate 36g 13%, dietary fiber 2g 6%, total sugars 32g, protein 10g, vitamin c 8mg 41%, calcium 320mg 25%, iron 0mg 2%, potassium 461mg 10%",
+      "combined_text": "blueberry smoothie 1 cup blueberries (frozen or fresh), 1 (8 ounce) container plain yogurt, ¾ cup 2% reduced-fat milk, 2 tablespoons white sugar, ½ teaspoon vanilla extract, ⅛ teaspoon ground nutmeg /drinks recipes/smoothie recipes/blueberry/ prep time: 5 mins, total time: 5 mins, servings: 2"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Smoothie Recipes/Blueberry/",
+      "ingredients": "1 cup blueberries (frozen or fresh), 1 (8 ounce) container plain yogurt, ¾ cup 2% reduced-fat milk, 2 tablespoons white sugar, ½ teaspoon vanilla extract, ⅛ teaspoon ground nutmeg",
+      "prep_time": "5 mins",
+      "cook_time": NaN,
+      "servings": 2
+    }
+  },
+  {
+    "id": 1021,
+    "name": "Fruit and Yogurt Smoothie",
+    "collection": "drinks-beverages",
+    "confidence": 9,
+    "features": {
+      "name": "fruit and yogurt smoothie",
+      "ingredients": "1 cup strawberries, 1  banana, ½ cup yogurt, ¼ cup pineapple juice, 1 ½ teaspoons white sugar, 1 teaspoon orange juice, 1 teaspoon milk",
+      "directions": "combine strawberries, banana, yogurt, pineapple juice, sugar, orange juice, and milk in a blender; blend until smooth.",
+      "cuisine_path": "/drinks recipes/smoothie recipes/strawberry/",
+      "timing": "prep time: 5 mins, total time: 5 mins, servings: 2",
+      "nutrition": "total fat 1g 2%, saturated fat 1g 4%, cholesterol 4mg 1%, sodium 45mg 2%, total carbohydrate 31g 11%, dietary fiber 3g 11%, total sugars 22g, protein 5g, vitamin c 56mg 278%, calcium 132mg 10%, iron 1mg 3%, potassium 519mg 11%",
+      "combined_text": "fruit and yogurt smoothie 1 cup strawberries, 1  banana, ½ cup yogurt, ¼ cup pineapple juice, 1 ½ teaspoons white sugar, 1 teaspoon orange juice, 1 teaspoon milk /drinks recipes/smoothie recipes/strawberry/ prep time: 5 mins, total time: 5 mins, servings: 2"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Smoothie Recipes/Strawberry/",
+      "ingredients": "1 cup strawberries, 1  banana, ½ cup yogurt, ¼ cup pineapple juice, 1 ½ teaspoons white sugar, 1 teaspoon orange juice, 1 teaspoon milk",
+      "prep_time": "5 mins",
+      "cook_time": NaN,
+      "servings": 2
+    }
+  },
+  {
+    "id": 1022,
+    "name": "Strawberry Oatmeal Breakfast Smoothie",
+    "collection": "drinks-beverages",
+    "confidence": 13,
+    "features": {
+      "name": "strawberry oatmeal breakfast smoothie",
+      "ingredients": "1 cup soy milk, ½ cup rolled oats, 14  frozen strawberries, 1  banana, broken into chunks, 1 ½ teaspoons white sugar (optional), ½ teaspoon vanilla extract (optional)",
+      "directions": "blend soy milk, oats, strawberries, and banana in a blender until smooth. add sugar and vanilla and blend again until smooth.\npour into glasses and serve.\n\n\n\n\n\n\n\n\n\n\n\nalberta rose\n",
+      "cuisine_path": "/breakfast and brunch/drinks/",
+      "timing": "prep time: 5 mins, total time: 5 mins, servings: 2",
+      "nutrition": "total fat 4g 4%, saturated fat 1g 3%, sodium 63mg 3%, total carbohydrate 21g 8%, dietary fiber 3g 10%, protein 7g, calcium 41mg 3%, iron 2mg 9%, potassium 217mg 5%",
+      "combined_text": "strawberry oatmeal breakfast smoothie 1 cup soy milk, ½ cup rolled oats, 14  frozen strawberries, 1  banana, broken into chunks, 1 ½ teaspoons white sugar (optional), ½ teaspoon vanilla extract (optional) /breakfast and brunch/drinks/ prep time: 5 mins, total time: 5 mins, servings: 2"
+    },
+    "original_data": {
+      "cuisine_path": "/Breakfast and Brunch/Drinks/",
+      "ingredients": "1 cup soy milk, ½ cup rolled oats, 14  frozen strawberries, 1  banana, broken into chunks, 1 ½ teaspoons white sugar (Optional), ½ teaspoon vanilla extract (Optional)",
+      "prep_time": "5 mins",
+      "cook_time": NaN,
+      "servings": 2
+    }
+  },
+  {
+    "id": 1024,
+    "name": "Basic Fruit Smoothie",
+    "collection": "drinks-beverages",
+    "confidence": 8,
+    "features": {
+      "name": "basic fruit smoothie",
+      "ingredients": "1 quart strawberries, hulled, 2  fresh peaches - peeled, pitted, and sliced, 1  banana, broken into chunks, 2 cups ice, 1 cup orange-peach-mango juice",
+      "directions": "combine strawberries, peaches, and banana in a blender; blend until smooth. add ice and pour in juice; blend again to desired consistency.\n\n\n\n\n\n\n\n\n\n\n\ndotdash meredith food studios\n",
+      "cuisine_path": "/drinks recipes/smoothie recipes/strawberry/",
+      "timing": "prep time: 10 mins, total time: 10 mins, servings: 4",
+      "nutrition": "total fat 1g 1%, saturated fat 0g 1%, sodium 16mg 1%, total carbohydrate 29g 10%, dietary fiber 4g 14%, total sugars 20g, protein 2g, vitamin c 129mg 644%, calcium 36mg 3%, iron 1mg 4%, potassium 443mg 9%",
+      "combined_text": "basic fruit smoothie 1 quart strawberries, hulled, 2  fresh peaches - peeled, pitted, and sliced, 1  banana, broken into chunks, 2 cups ice, 1 cup orange-peach-mango juice /drinks recipes/smoothie recipes/strawberry/ prep time: 10 mins, total time: 10 mins, servings: 4"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Smoothie Recipes/Strawberry/",
+      "ingredients": "1 quart strawberries, hulled, 2  fresh peaches - peeled, pitted, and sliced, 1  banana, broken into chunks, 2 cups ice, 1 cup orange-peach-mango juice",
+      "prep_time": "10 mins",
+      "cook_time": NaN,
+      "servings": 4
+    }
+  },
+  {
+    "id": 1026,
+    "name": "Virgin Strawberry Daiquiri",
+    "collection": "drinks-beverages",
+    "confidence": 8,
+    "features": {
+      "name": "virgin strawberry daiquiri",
+      "ingredients": "2 large strawberries, hulled, ¼ cup white sugar, ¾ cup chilled lemon-lime soda, 1 tablespoon lemon juice, 4 cubes  ice",
+      "directions": "combine strawberries, sugar, lemon-lime soda, and lemon juice in the container of a blender. add ice and blend until smooth.\npour into a fancy glass to serve.",
+      "cuisine_path": "/drinks recipes/mocktail recipes/",
+      "timing": "prep time: 5 mins, total time: 5 mins, servings: 1",
+      "nutrition": "total fat 0g 0%, sodium 25mg 1%, total carbohydrate 74g 27%, dietary fiber 1g 3%, total sugars 52g, protein 0g, vitamin c 28mg 141%, calcium 14mg 1%, iron 0mg 2%, potassium 78mg 2%",
+      "combined_text": "virgin strawberry daiquiri 2 large strawberries, hulled, ¼ cup white sugar, ¾ cup chilled lemon-lime soda, 1 tablespoon lemon juice, 4 cubes  ice /drinks recipes/mocktail recipes/ prep time: 5 mins, total time: 5 mins, servings: 1"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Mocktail Recipes/",
+      "ingredients": "2 large strawberries, hulled, ¼ cup white sugar, ¾ cup chilled lemon-lime soda, 1 tablespoon lemon juice, 4 cubes  ice",
+      "prep_time": "5 mins",
+      "cook_time": NaN,
+      "servings": 1
+    }
+  },
+  {
+    "id": 1032,
+    "name": "B and L's Strawberry Smoothie",
+    "collection": "drinks-beverages",
+    "confidence": 10,
+    "features": {
+      "name": "b and l's strawberry smoothie",
+      "ingredients": "8  strawberries, hulled, ½ cup skim milk, ½ cup plain yogurt, 3 tablespoons white sugar, 2 teaspoons vanilla extract, 6 cubes  ice, crushed",
+      "directions": "combine strawberries, milk, yogurt, sugar, and vanilla in a blender. add ice and blend until smooth and creamy.\npour into glasses and serve immediately.\n\n\n\n\n\n\n\n\n\n",
+      "cuisine_path": "/drinks recipes/smoothie recipes/strawberry/",
+      "timing": "prep time: 5 mins, total time: 5 mins, servings: 2",
+      "nutrition": "total fat 1g 1%, saturated fat 1g 4%, cholesterol 5mg 2%, sodium 71mg 3%, total carbohydrate 30g 11%, dietary fiber 1g 4%, total sugars 29g, protein 6g, vitamin c 29mg 144%, calcium 199mg 15%, iron 0mg 2%, potassium 320mg 7%",
+      "combined_text": "b and l's strawberry smoothie 8  strawberries, hulled, ½ cup skim milk, ½ cup plain yogurt, 3 tablespoons white sugar, 2 teaspoons vanilla extract, 6 cubes  ice, crushed /drinks recipes/smoothie recipes/strawberry/ prep time: 5 mins, total time: 5 mins, servings: 2"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Smoothie Recipes/Strawberry/",
+      "ingredients": "8  strawberries, hulled, ½ cup skim milk, ½ cup plain yogurt, 3 tablespoons white sugar, 2 teaspoons vanilla extract, 6 cubes  ice, crushed",
+      "prep_time": "5 mins",
+      "cook_time": NaN,
+      "servings": 2
+    }
+  },
+  {
+    "id": 1040,
+    "name": "Blueberry Tea Cocktail",
+    "collection": "drinks-beverages",
+    "confidence": 7,
+    "features": {
+      "name": "blueberry tea cocktail",
+      "ingredients": "1 fluid ounce amaretto liqueur, 1 fluid ounce orange liqueur (such as grand marnier®), 4 fluid ounces orange pekoe tea, or more to taste",
+      "directions": "combine amaretto and orange liqueurs in a brandy snifter or glass. pour in hot tea.",
+      "cuisine_path": "/drinks recipes/cocktail recipes/",
+      "timing": "prep time: 5 mins, total time: 5 mins, servings: 1",
+      "nutrition": "total fat 0g 0%, sodium 7mg 0%, total carbohydrate 27g 10%, total sugars 24g, calcium 0mg 0%, iron 0mg 1%, potassium 53mg 1%",
+      "combined_text": "blueberry tea cocktail 1 fluid ounce amaretto liqueur, 1 fluid ounce orange liqueur (such as grand marnier®), 4 fluid ounces orange pekoe tea, or more to taste /drinks recipes/cocktail recipes/ prep time: 5 mins, total time: 5 mins, servings: 1"
+    },
+    "original_data": {
+      "cuisine_path": "/Drinks Recipes/Cocktail Recipes/",
+      "ingredients": "1 fluid ounce amaretto liqueur, 1 fluid ounce orange liqueur (such as Grand Marnier®), 4 fluid ounces orange pekoe tea, or more to taste",
+      "prep_time": "5 mins",
+      "cook_time": NaN,
+      "servings": 1
+    }
+  }
+]
