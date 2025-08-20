@@ -474,6 +474,12 @@ const MealPlanner: React.FC = () => {
   const renderMealCard = (meal: Meal | undefined) => {
     if (!meal) return <Typography color="text.secondary">No meal planned</Typography>;
     
+    const handleViewRecipe = () => {
+      if (meal.recipe_id) {
+        navigate(`/recipes/${meal.recipe_id}`);
+      }
+    };
+    
     return (
       <Card variant="outlined">
         <CardContent>
@@ -495,6 +501,18 @@ const MealPlanner: React.FC = () => {
               </Typography>
             )}
           </Box>
+          {meal.recipe_id && (
+            <Box sx={{ mt: 2 }}>
+              <Button
+                size="small"
+                variant="outlined"
+                onClick={handleViewRecipe}
+                startIcon={<RestaurantIcon />}
+              >
+                View Recipe
+              </Button>
+            </Box>
+          )}
         </CardContent>
       </Card>
     );
