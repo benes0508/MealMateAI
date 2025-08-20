@@ -1,5 +1,6 @@
 from sqlalchemy.orm import Session
 import json
+from typing import List
 from app.models.models import MealPlan, MealPlanRecipe, UserPreference
 from datetime import datetime
 
@@ -138,12 +139,43 @@ class MealPlanRepository:
         db.commit()
         return True
 
-    def move_meal(self, db: Session, meal_plan_id: int, recipe_id: int, to_day: int, to_meal_type: str):
+    def reorder_meal_plan_days(self, db: Session, meal_plan_id: int, day_order: List[int]):
+        """Reorder days in a meal plan according to the provided order"""
+        # Get all recipes for this meal plan
+        all_recipes = db.query(MealPlanRecipe).filter(
+            MealPlanRecipe.meal_plan_id == meal_plan_id
+        ).all()
+        
+        # Create a mapping from old day numbers to new day numbers
+        day_mapping = {}
+        for new_position, old_day in enumerate(day_order, 1):
+            day_mapping[old_day] = new_position
+        
+        # Update each recipe with its new day number
+        for recipe in all_recipes:
+            if recipe.day in day_mapping:
+                recipe.day = day_mapping[recipe.day]
+        
+        db.commit()
+        return True
+
+    def move_meal(self, db: Session, meal_plan_id: int, recipe_id: int, to_day: int, to_meal_type: str, from_day: int = None, from_meal_type: str = None):
         """Move a meal to a different day or meal type"""
-        db_recipe = db.query(MealPlanRecipe).filter(
+        # First, try to find the meal record by recipe_id within the meal plan
+        # If we have source day and meal type, use them for more precise matching
+        query = db.query(MealPlanRecipe).filter(
             MealPlanRecipe.meal_plan_id == meal_plan_id,
-            MealPlanRecipe.id == recipe_id
-        ).first()
+            MealPlanRecipe.recipe_id == recipe_id
+        )
+        
+        # If we have source location information, use it to find the exact record
+        if from_day is not None and from_meal_type is not None:
+            query = query.filter(
+                MealPlanRecipe.day == from_day,
+                MealPlanRecipe.meal_type == from_meal_type
+            )
+        
+        db_recipe = query.first()
         
         if db_recipe:
             # Check if there's already a meal at the destination

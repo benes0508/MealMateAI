@@ -26,11 +26,11 @@ export interface Recipe {
   cookTime: number;
   servings: number;
   difficulty: 'easy' | 'medium' | 'hard';
-  ingredients: string[]; // Simplified to match actual usage
-  instructions: string[];
-  tags: string[];
-  nutritionalInfo: NutritionalInfo;
-  dietaryInfo: {
+  ingredients?: string[]; // Made optional to match actual usage
+  instructions?: string[]; // Made optional to match actual usage
+  tags?: string[]; // Already optional
+  nutritionalInfo?: NutritionalInfo;
+  dietaryInfo?: {
     vegetarian: boolean;
     vegan: boolean;
     glutenFree: boolean;

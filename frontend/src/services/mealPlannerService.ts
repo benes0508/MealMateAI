@@ -367,15 +367,23 @@ export const getGroceryList = async (mealPlanId: number) => {
 };
 
 // Move a meal to a different day or meal type
-export const moveMeal = async (mealPlanId: number, recipeId: number, toDay: number, toMealType: string): Promise<boolean> => {
+export const moveMeal = async (mealPlanId: number, recipeId: number, toDay: number, toMealType: string, fromDay?: number, fromMealType?: string): Promise<boolean> => {
   try {
     const token = localStorage.getItem('token');
+    const requestBody: any = {
+      recipe_id: recipeId,
+      to_day: toDay,
+      to_meal_type: toMealType
+    };
+    
+    // Add source location if provided for more precise matching
+    if (fromDay !== undefined && fromMealType !== undefined) {
+      requestBody.from_day = fromDay;
+      requestBody.from_meal_type = fromMealType;
+    }
+    
     const response = await axios.post(`${API_URL}/${mealPlanId}/move-meal`, 
-      {
-        recipe_id: recipeId,
-        to_day: toDay,
-        to_meal_type: toMealType
-      },
+      requestBody,
       {
         headers: {
           Authorization: `Bearer ${token}`
@@ -411,6 +419,26 @@ export const swapDays = async (mealPlanId: number, day1: number, day2: number): 
   }
 };
 
+export const reorderDays = async (mealPlanId: number, dayOrder: number[]): Promise<boolean> => {
+  try {
+    const token = localStorage.getItem('token');
+    const response = await axios.post(`${API_URL}/${mealPlanId}/reorder-days`, 
+      {
+        day_order: dayOrder
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      }
+    );
+    return response.data.success;
+  } catch (error) {
+    console.error('Error reordering days:', error);
+    throw error;
+  }
+};
+
 // Create a default export with all functions
 // Delete a meal plan
 export const deleteMealPlan = async (mealPlanId: number): Promise<void> => {
@@ -432,6 +460,125 @@ export const deleteMealPlan = async (mealPlanId: number): Promise<void> => {
   }
 };
 
+// RAG workflow functions for chat interface
+export const generateRAGMealPlan = async (userPrompt: string): Promise<any> => {
+  try {
+    const token = localStorage.getItem('token');
+    
+    // Get user ID from the token
+    let userId;
+    if (token) {
+      try {
+        const decoded = jwtDecode<{ id: string }>(token);
+        userId = decoded.id;
+      } catch (e) {
+        console.error('Failed to decode token to get userId:', e);
+      }
+    }
+    
+    if (!userId) {
+      throw new Error('User ID not found. You may need to log in again.');
+    }
+    
+    const response = await axios.post(
+      `${API_URL}/rag/generate`, 
+      { 
+        user_prompt: userPrompt,
+        user_id: parseInt(userId)
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      }
+    );
+    
+    return response.data;
+  } catch (error) {
+    console.error('Error generating RAG meal plan:', error);
+    throw error;
+  }
+};
+
+export const modifyRAGMealPlan = async (conversationId: string, userFeedback: string): Promise<any> => {
+  try {
+    const token = localStorage.getItem('token');
+    
+    // Get user ID from the token
+    let userId;
+    if (token) {
+      try {
+        const decoded = jwtDecode<{ id: string }>(token);
+        userId = decoded.id;
+      } catch (e) {
+        console.error('Failed to decode token to get userId:', e);
+      }
+    }
+    
+    if (!userId) {
+      throw new Error('User ID not found. You may need to log in again.');
+    }
+    
+    const response = await axios.post(
+      `${API_URL}/rag/modify`, 
+      { 
+        conversation_id: conversationId,
+        user_feedback: userFeedback,
+        user_id: parseInt(userId)
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      }
+    );
+    
+    return response.data;
+  } catch (error) {
+    console.error('Error modifying RAG meal plan:', error);
+    throw error;
+  }
+};
+
+export const finalizeRAGMealPlan = async (conversationId: string): Promise<MealPlanResponse> => {
+  try {
+    const token = localStorage.getItem('token');
+    
+    // Get user ID from the token
+    let userId;
+    if (token) {
+      try {
+        const decoded = jwtDecode<{ id: string }>(token);
+        userId = decoded.id;
+      } catch (e) {
+        console.error('Failed to decode token to get userId:', e);
+      }
+    }
+    
+    if (!userId) {
+      throw new Error('User ID not found. You may need to log in again.');
+    }
+    
+    const response = await axios.post(
+      `${API_URL}/rag/finalize`, 
+      { 
+        conversation_id: conversationId,
+        user_id: parseInt(userId)
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      }
+    );
+    
+    return response.data;
+  } catch (error) {
+    console.error('Error finalizing RAG meal plan:', error);
+    throw error;
+  }
+};
+
 export default {
   getMealPlan,
   getUserMealPlans,
@@ -441,5 +588,9 @@ export default {
   getGroceryList,
   moveMeal,
   swapDays,
-  deleteMealPlan
+  reorderDays,
+  deleteMealPlan,
+  generateRAGMealPlan,
+  modifyRAGMealPlan,
+  finalizeRAGMealPlan
 };

@@ -406,7 +406,7 @@ class MealPlanService:
             logger.error(f"Error deleting meal plan: {e}")
             return False
     
-    async def move_meal(self, db: Session, meal_plan_id: int, recipe_id: int, to_day: int, to_meal_type: str) -> bool:
+    async def move_meal(self, db: Session, meal_plan_id: int, recipe_id: int, to_day: int, to_meal_type: str, from_day: int = None, from_meal_type: str = None) -> bool:
         """
         Move a meal to a different day or meal type
         
@@ -416,6 +416,8 @@ class MealPlanService:
             recipe_id: Recipe ID within the meal plan
             to_day: Destination day
             to_meal_type: Destination meal type
+            from_day: Source day (optional for more precise matching)
+            from_meal_type: Source meal type (optional for more precise matching)
             
         Returns:
             True if successful, False otherwise
@@ -428,7 +430,7 @@ class MealPlanService:
                 return False
             
             # Move the meal
-            result = self.meal_plan_repository.move_meal(db, meal_plan_id, recipe_id, to_day, to_meal_type)
+            result = self.meal_plan_repository.move_meal(db, meal_plan_id, recipe_id, to_day, to_meal_type, from_day, from_meal_type)
             
             # If successful, update the plan_data field
             if result:
@@ -518,6 +520,45 @@ class MealPlanService:
             return result
         except Exception as e:
             logger.error(f"Error swapping days: {e}")
+            return False
+    
+    async def reorder_days(self, db: Session, meal_plan_id: int, day_order: List[int]) -> bool:
+        """
+        Reorder days in a meal plan
+        
+        Args:
+            db: Database session
+            meal_plan_id: Meal plan ID
+            day_order: New order of days by their original day numbers
+            
+        Returns:
+            True if successful, False otherwise
+        """
+        try:
+            # Check if the meal plan exists
+            db_meal_plan = self.meal_plan_repository.get_meal_plan(db, meal_plan_id)
+            if not db_meal_plan:
+                logger.error(f"Meal plan {meal_plan_id} not found")
+                return False
+            
+            # Validate the day_order
+            if len(day_order) != db_meal_plan.days:
+                logger.error(f"Day order length ({len(day_order)}) doesn't match meal plan days ({db_meal_plan.days})")
+                return False
+            
+            # Check that all days are present and valid
+            expected_days = set(range(1, db_meal_plan.days + 1))
+            provided_days = set(day_order)
+            if expected_days != provided_days:
+                logger.error(f"Invalid day order: {day_order}. Expected days: {expected_days}")
+                return False
+            
+            # Reorder the days
+            result = self.meal_plan_repository.reorder_meal_plan_days(db, meal_plan_id, day_order)
+            
+            return result
+        except Exception as e:
+            logger.error(f"Error reordering days: {e}")
             return False
     
     async def _get_user_preferences(self, db: Session, user_id: int) -> Dict[str, Any]:
@@ -635,12 +676,38 @@ class MealPlanService:
             logger.info(f"Searching recipes with query: {query}")
             recipes = await self.microservice_client.search_recipes(query, limit=20)
             
+            # If no recipes found with this query, try fallback searches
+            if not recipes and query in ["vegetarian", "vegan"]:
+                logger.info(f"No recipes found for '{query}', trying vegetarian-friendly alternatives")
+                fallback_queries = ["salad", "avocado", "toast"]
+                for fallback_query in fallback_queries:
+                    fallback_recipes = await self.microservice_client.search_recipes(fallback_query, limit=10)
+                    recipes.extend(fallback_recipes)
+            elif not recipes and query in ["protein"]:
+                logger.info(f"No recipes found for '{query}', trying protein-rich alternatives")
+                fallback_queries = ["chicken", "beef", "eggs"]
+                for fallback_query in fallback_queries:
+                    fallback_recipes = await self.microservice_client.search_recipes(fallback_query, limit=10)
+                    recipes.extend(fallback_recipes)
+            
             # Add unique recipes
             for recipe in recipes:
                 recipe_id = recipe.get("id") or recipe.get("recipe_id")
                 if recipe_id and recipe_id not in seen_recipe_ids:
                     all_recipes.append(recipe)
                     seen_recipe_ids.add(recipe_id)
+        
+        # If still no recipes found, try a broad search
+        if not all_recipes:
+            logger.warning("No recipes found with any queries, trying broad search")
+            broad_queries = ["chicken", "salad", "sandwich"]
+            for broad_query in broad_queries:
+                broad_recipes = await self.microservice_client.search_recipes(broad_query, limit=10)
+                for recipe in broad_recipes:
+                    recipe_id = recipe.get("id") or recipe.get("recipe_id")
+                    if recipe_id and recipe_id not in seen_recipe_ids:
+                        all_recipes.append(recipe)
+                        seen_recipe_ids.add(recipe_id)
         
         # Limit to 100 recipes total
         if len(all_recipes) > 100:

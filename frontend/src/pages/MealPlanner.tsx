@@ -10,13 +10,7 @@ import {
   Button,
   CircularProgress,
   Alert,
-  TextField,
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogActions,
   Paper,
-  InputAdornment,
   IconButton,
   Tabs,
   Tab,
@@ -49,7 +43,7 @@ import {
   Code as CodeIcon
 } from '@mui/icons-material';
 import { DragDropContext, Droppable, Draggable, DropResult, DroppableProvided } from 'react-beautiful-dnd';
-import { getMealPlan, generateMealPlan, generateMealPlanFromText, editMealPlanWithText, getUserMealPlans, getGroceryList, moveMeal, swapDays, createMockMealPlan } from '../services/mealPlannerService';
+import { getMealPlan, generateMealPlan, getUserMealPlans, getGroceryList, moveMeal, swapDays, reorderDays } from '../services/mealPlannerService';
 
 interface Meal {
   id: string;
@@ -102,10 +96,7 @@ const MealPlanner: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   
-  // Text prompt dialog
-  const [showTextPromptDialog, setShowTextPromptDialog] = useState<boolean>(false);
-  const [textPrompt, setTextPrompt] = useState<string>('');
-  const [isSubmittingPrompt, setIsSubmittingPrompt] = useState<boolean>(false);
+  // Text prompt dialog - REMOVED (functionality moved to chat page)
   
   // Multiple meal plans support
   const [allMealPlans, setAllMealPlans] = useState<MealPlanMetadata[]>([]);
@@ -261,8 +252,8 @@ const MealPlanner: React.FC = () => {
       };
     });
     
-    // Convert the map to an array
-    return Array.from(dayMap.values());
+    // Convert the map to an array and sort by day number to ensure correct order
+    return Array.from(dayMap.values()).sort((a, b) => a.dayNumber - b.dayNumber);
   };
 
   const fetchMealPlan = async (mealPlanId?: number) => {
@@ -315,75 +306,6 @@ const MealPlanner: React.FC = () => {
     navigate('/create-meal-plan');
   };
 
-  const handleOpenTextPromptDialog = () => {
-    setTextPrompt('');
-    setShowTextPromptDialog(true);
-  };
-
-  const handleCloseTextPromptDialog = () => {
-    setShowTextPromptDialog(false);
-  };
-
-  const handleTextPromptChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setTextPrompt(e.target.value);
-  };
-
-  const handleGenerateFromText = async () => {
-    if (!textPrompt.trim()) {
-      return;
-    }
-
-    setIsSubmittingPrompt(true);
-    setError(null);
-    setShowTextPromptDialog(false);
-    setLoading(true); // Start loading state for the main UI
-    
-    try {
-      let data;
-      
-      if (selectedMealPlanId) {
-        // Edit existing meal plan
-        console.log(`Editing meal plan ${selectedMealPlanId} with feedback: "${textPrompt}"`);
-        data = await editMealPlanWithText(selectedMealPlanId, textPrompt);
-        console.log("Raw edited meal plan data:", data);
-      } else {
-        // Create new meal plan
-        console.log(`Creating new meal plan with prompt: "${textPrompt}"`);
-        data = await generateMealPlanFromText(textPrompt);
-        console.log("Raw text-generated meal plan data:", data);
-      }
-      
-      const transformedData = transformMealPlanData(data);
-      console.log("Transformed meal plan data:", transformedData);
-      setMealPlan(transformedData);
-      
-      // Update the current meal plan metadata
-      if (data) {
-        setCurrentMealPlanMetadata({
-          id: data.id,
-          name: data.plan_name,
-          explanation: data.plan_explanation,
-          createdAt: data.created_at,
-          days: data.days,
-          mealsPerDay: data.meals_per_day
-        });
-        
-        // If we were editing, update the selected meal plan ID
-        if (selectedMealPlanId && data.id !== selectedMealPlanId) {
-          setSelectedMealPlanId(data.id);
-        }
-      }
-      
-    } catch (err) {
-      const action = selectedMealPlanId ? 'edit' : 'generate';
-      setError(`Failed to ${action} a meal plan from your text prompt. Please try again.`);
-      console.error(err);
-    } finally {
-      setIsSubmittingPrompt(false);
-      setLoading(false); // End loading state
-    }
-  };
-
   // Function to handle undoing the last change
   const handleUndoChange = () => {
     if (lastMealPlanState) {
@@ -395,38 +317,6 @@ const MealPlanner: React.FC = () => {
 
   const handleCloseUndoSnackbar = () => {
     setShowUndoSnackbar(false);
-  };
-
-  // Function to load a mock meal plan for development/testing
-  const handleLoadMockMealPlan = () => {
-    setLoading(true);
-    setError(null);
-    
-    try {
-      // Get mock data
-      const mockData = createMockMealPlan();
-      
-      // Set metadata
-      setCurrentMealPlanMetadata({
-        id: mockData.id,
-        plan_name: mockData.plan_name,
-        created_at: mockData.created_at,
-        days: mockData.days,
-        meals_per_day: mockData.meals_per_day,
-        plan_explanation: mockData.plan_explanation
-      });
-      
-      // Transform and set meal plan data
-      const transformedData = transformMealPlanData(mockData);
-      console.log("Mock meal plan loaded:", transformedData);
-      setMealPlan(transformedData);
-      
-    } catch (err) {
-      setError('Failed to load mock meal plan.');
-      console.error(err);
-    } finally {
-      setLoading(false);
-    }
   };
 
   // Function to handle drag and drop of meals and days
@@ -450,30 +340,41 @@ const MealPlanner: React.FC = () => {
     
     // If we're moving a whole day
     if (type === 'days') {
-      const day1 = parseInt(source.droppableId.split('-')[1]);
-      const day2 = parseInt(destination.droppableId.split('-')[1]);
+      // Store the original meal plan state for rollback
+      const originalMealPlan = [...mealPlan];
       
-      // Update UI optimistically
+      // Create the new order by reordering the meal plan array
       const newMealPlan = [...mealPlan];
       const [movedDay] = newMealPlan.splice(source.index, 1);
       newMealPlan.splice(destination.index, 0, movedDay);
+      
+      // Create the day order array: capture the original day numbers in their new positions
+      // BEFORE we update the day numbers
+      const dayOrder = newMealPlan.map(dayPlan => dayPlan.dayNumber);
+      
+      // Update day numbers and titles to match new positions
+      newMealPlan.forEach((dayPlan, index) => {
+        const newDayNumber = index + 1;
+        dayPlan.dayNumber = newDayNumber;
+        dayPlan.day = `Day ${newDayNumber}`;
+      });
+      
+      // Update UI optimistically
       setMealPlan(newMealPlan);
       
       // Call API to make the change permanent
       if (selectedMealPlanId) {
         setMovingMeal(true);
         try {
-          await swapDays(selectedMealPlanId, day1, day2);
+          await reorderDays(selectedMealPlanId, dayOrder);
+          // Refresh the meal plan data from server to ensure everything is in sync
+          await fetchMealPlan(selectedMealPlanId);
           setShowUndoSnackbar(true);
         } catch (err) {
-          console.error('Error swapping days:', err);
+          console.error('Error reordering days:', err);
           setError('Failed to update meal plan. Please try again.');
           // Revert UI change on error
-          if (lastMealPlanState) {
-            setMealPlan(lastMealPlanState);
-          } else {
-            fetchMealPlan(selectedMealPlanId);
-          }
+          setMealPlan(originalMealPlan);
         } finally {
           setMovingMeal(false);
         }
@@ -508,22 +409,35 @@ const MealPlanner: React.FC = () => {
       // Create a new meal plan with the changes
       const newMealPlan = [...mealPlan];
       
-      // Update source and destination meals
-      newMealPlan[sourceDayIndex] = {
-        ...mealPlan[sourceDayIndex],
-        meals: {
-          ...mealPlan[sourceDayIndex].meals,
-          [sourceMealType]: destMeal
-        }
-      };
-      
-      newMealPlan[destDayIndex] = {
-        ...mealPlan[destDayIndex],
-        meals: {
-          ...mealPlan[destDayIndex].meals,
-          [destMealType]: sourceMeal
-        }
-      };
+      // Handle same-day swaps differently to avoid overwriting
+      if (sourceDayIndex === destDayIndex) {
+        // Same day swap - update both meals in a single operation
+        newMealPlan[sourceDayIndex] = {
+          ...mealPlan[sourceDayIndex],
+          meals: {
+            ...mealPlan[sourceDayIndex].meals,
+            [sourceMealType]: destMeal,
+            [destMealType]: sourceMeal
+          }
+        };
+      } else {
+        // Different day swap - update each day separately
+        newMealPlan[sourceDayIndex] = {
+          ...mealPlan[sourceDayIndex],
+          meals: {
+            ...mealPlan[sourceDayIndex].meals,
+            [sourceMealType]: destMeal
+          }
+        };
+        
+        newMealPlan[destDayIndex] = {
+          ...mealPlan[destDayIndex],
+          meals: {
+            ...mealPlan[destDayIndex].meals,
+            [destMealType]: sourceMeal
+          }
+        };
+      }
       
       // Update UI optimistically
       setMealPlan(newMealPlan);
@@ -536,7 +450,9 @@ const MealPlanner: React.FC = () => {
             selectedMealPlanId, 
             sourceMeal.recipe_id, 
             destDayId, 
-            destMealType
+            destMealType,
+            sourceDayId,
+            sourceMealType
           );
           setShowUndoSnackbar(true);
         } catch (err) {
@@ -557,6 +473,12 @@ const MealPlanner: React.FC = () => {
 
   const renderMealCard = (meal: Meal | undefined) => {
     if (!meal) return <Typography color="text.secondary">No meal planned</Typography>;
+    
+    const handleViewRecipe = () => {
+      if (meal.recipe_id) {
+        navigate(`/recipes/${meal.recipe_id}`);
+      }
+    };
     
     return (
       <Card variant="outlined">
@@ -579,6 +501,18 @@ const MealPlanner: React.FC = () => {
               </Typography>
             )}
           </Box>
+          {meal.recipe_id && (
+            <Box sx={{ mt: 2 }}>
+              <Button
+                size="small"
+                variant="outlined"
+                onClick={handleViewRecipe}
+                startIcon={<RestaurantIcon />}
+              >
+                View Recipe
+              </Button>
+            </Box>
+          )}
         </CardContent>
       </Card>
     );
@@ -592,31 +526,12 @@ const MealPlanner: React.FC = () => {
         </Typography>
         <Box sx={{ display: 'flex', gap: 2 }}>
           <Button 
-            variant="outlined" 
-            color="primary"
-            onClick={handleOpenTextPromptDialog}
-            disabled={loading}
-            startIcon={<RestaurantIcon />}
-          >
-            {selectedMealPlanId ? 'Edit with Text' : 'Create with Text'}
-          </Button>
-          <Button 
             variant="contained" 
             color="primary"
             onClick={handleGenerateNewPlan}
             disabled={loading}
           >
             Generate New Plan
-          </Button>
-          <Button
-            variant="outlined"
-            color="secondary"
-            onClick={handleLoadMockMealPlan}
-            disabled={loading}
-            startIcon={<CodeIcon />}
-            title="For development/testing only"
-          >
-            Load Mock Data
           </Button>
         </Box>
       </Box>
@@ -707,25 +622,6 @@ const MealPlanner: React.FC = () => {
                 sx={{ px: 4, py: 1.5, fontWeight: 'bold' }}
               >
                 Generate My First Meal Plan
-              </Button>
-            </Box>
-            <Box sx={{ mt: 2 }}>
-              <Button
-                variant="outlined"
-                color="primary"
-                startIcon={<RestaurantIcon />}
-                onClick={handleOpenTextPromptDialog}
-              >
-                Or create with a custom text prompt
-              </Button>
-              <Button
-                variant="outlined"
-                color="secondary"
-                onClick={handleLoadMockMealPlan}
-                sx={{ mt: 1 }}
-                startIcon={<CodeIcon />}
-              >
-                Load Mock Data (For Testing)
               </Button>
             </Box>
           </Paper>
@@ -1097,78 +993,6 @@ const MealPlanner: React.FC = () => {
           </Button>
         }
       />
-
-      <Dialog
-        open={showTextPromptDialog}
-        onClose={handleCloseTextPromptDialog}
-        maxWidth="sm"
-        fullWidth
-      >
-        <DialogTitle>
-          {selectedMealPlanId ? 'Edit Meal Plan with Text' : 'Generate Meal Plan from Text Prompt'}
-          <IconButton
-            edge="end"
-            color="inherit"
-            onClick={handleCloseTextPromptDialog}
-            aria-label="close"
-            sx={{ position: 'absolute', right: 8, top: 8 }}
-          >
-            <CloseIcon />
-          </IconButton>
-        </DialogTitle>
-        <DialogContent>
-          <Typography variant="body2" color="text.secondary" paragraph>
-            {selectedMealPlanId 
-              ? 'Describe what you want to change about your current meal plan. Be as specific as possible.'
-              : 'Enter a description of your desired meal plan. Be as detailed as possible.'
-            }
-          </Typography>
-          <Typography variant="body2" color="text.secondary" sx={{ mb: 2, fontStyle: 'italic' }}>
-            {selectedMealPlanId 
-              ? 'Example: "Replace all breakfast items with high-protein options" or "Make day 3 and 4 vegetarian" or "Add more Mediterranean dishes"'
-              : 'Example: "I need a 7-day vegetarian meal plan with high protein options. I\'m allergic to nuts and prefer Mediterranean-style cooking."'
-            }
-          </Typography>
-          <TextField
-            autoFocus
-            margin="dense"
-            label="Text Prompt"
-            multiline
-            rows={4}
-            fullWidth
-            variant="outlined"
-            value={textPrompt}
-            onChange={handleTextPromptChange}
-            placeholder={selectedMealPlanId ? "I want to change..." : "I need a meal plan that..."}
-            InputProps={{
-              endAdornment: textPrompt ? (
-                <InputAdornment position="end">
-                  <IconButton
-                    edge="end"
-                    color="inherit"
-                    onClick={() => setTextPrompt('')}
-                    aria-label="clear"
-                  >
-                    <CloseIcon />
-                  </IconButton>
-                </InputAdornment>
-              ) : null,
-            }}
-          />
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleCloseTextPromptDialog} color="primary">
-            Cancel
-          </Button>
-          <Button 
-            onClick={handleGenerateFromText} 
-            color="primary" 
-            disabled={isSubmittingPrompt || !textPrompt.trim()}
-          >
-            {isSubmittingPrompt ? <CircularProgress size={24} /> : (selectedMealPlanId ? 'Edit Plan' : 'Generate Plan')}
-          </Button>
-        </DialogActions>
-      </Dialog>
     </Container>
   );
 };

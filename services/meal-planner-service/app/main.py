@@ -27,11 +27,11 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Include routers
-# Use empty prefix since API gateway handles the /api/meal-plans prefix
-app.include_router(meal_plan_controller.router, tags=["meal-plans"])
-
 @app.get("/health")
 def health_check():
     """Health check endpoint for the service."""
     return {"status": "healthy", "service": "meal-planner-service"}
+
+# Include routers
+# Use empty prefix since API gateway handles the /api/meal-plans prefix
+app.include_router(meal_plan_controller.router, tags=["meal-plans"])
