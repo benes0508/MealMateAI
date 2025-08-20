@@ -1,5 +1,11 @@
 #version: '3.8'
 
+# Docker Compose with optimized caching for faster rebuilds
+# Key optimizations:
+# - Shared pip cache volumes across all Python services
+# - Multi-stage builds with dedicated dependency layers
+# - BuildKit cache mounts for package downloads
+
 services:
   frontend:
     build: ./frontend
@@ -30,7 +36,11 @@ services:
     restart: always
 
   user-service:
-    build: ./services/user-service
+    build: 
+      context: ./services/user-service
+      dockerfile: Dockerfile
+      # Enable BuildKit for cache mounts
+      target: production
     ports:
       - "8000:8000"
     environment:
@@ -47,6 +57,7 @@ services:
     restart: always
     volumes:
       - ./services/user-service:/app
+      - pip_cache:/pip_cache  # Shared pip cache
       - /app/__pycache__
       - /app/app/__pycache__
       - /app/app/controllers/__pycache__
@@ -69,16 +80,25 @@ services:
     restart: always
 
   recipe-service:
-    build: ./services/recipe-service
+    build:
+      context: ./services/recipe-service
+      dockerfile: Dockerfile
+      target: production
     ports:
       - "8001:8001"
     environment:
       - DATABASE_URL=postgresql://recipe_user:recipe_password@postgres:5432/recipe_db
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY}
+      - QDRANT_URL=http://qdrant:6333
     depends_on:
       - postgres
+      - qdrant
     restart: always
     volumes:
       - ./services/recipe-service:/app
+      - pip_cache:/pip_cache  # Shared pip cache
+      - huggingface_cache:/root/.cache/huggingface  # Cache for sentence transformers
+      - torch_cache:/root/.cache/torch  # Cache for PyTorch models
 
   postgres:
     image: pgvector/pgvector:pg15
@@ -106,7 +126,10 @@ services:
     restart: unless-stopped
 
   meal-planner-service:
-    build: ./services/meal-planner-service
+    build:
+      context: ./services/meal-planner-service
+      dockerfile: Dockerfile
+      target: production
     ports:
       - "8002:8002"
     environment:
@@ -121,6 +144,7 @@ services:
     restart: always
     volumes:
       - ./services/meal-planner-service:/app
+      - pip_cache:/pip_cache  # Shared pip cache
       - /app/__pycache__
       - /app/app/__pycache__
       - /app/app/controllers/__pycache__
@@ -131,3 +155,10 @@ services:
 volumes:
   mysql_data:
   postgres_data:
+  # Caching volumes for faster rebuilds
+  pip_cache:
+    driver: local
+  huggingface_cache:
+    driver: local
+  torch_cache:
+    driver: local

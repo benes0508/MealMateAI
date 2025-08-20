@@ -94,6 +94,11 @@ class QdrantLoader:
         """Initialize Qdrant client and embedding model"""
         print("🚀 QDRANT VECTOR DATABASE LOADER")
         print("=" * 50)
+        print(f"🔧 Configuration:")
+        print(f"   QDRANT_URL: {QDRANT_URL}")
+        print(f"   VECTOR_SIZE: {VECTOR_SIZE}")
+        print(f"   Collections to load: {len(COLLECTIONS_CONFIG)}")
+        print()
         
         # Initialize Qdrant client
         print(f"🔌 Connecting to Qdrant at {QDRANT_URL}...")
@@ -102,18 +107,24 @@ class QdrantLoader:
             # Test connection
             collections = self.client.get_collections()
             print(f"✅ Connected to Qdrant (found {len(collections.collections)} existing collections)")
+            if collections.collections:
+                print(f"   Existing collections: {[c.name for c in collections.collections]}")
         except Exception as e:
             print(f"❌ Failed to connect to Qdrant: {e}")
+            print(f"   Error details: {type(e).__name__}: {e}")
             print("💡 Make sure Qdrant is running: docker run -p 6333:6333 qdrant/qdrant")
             return False
         
         # Initialize embedding model
         print("🤖 Loading embedding model (all-mpnet-base-v2)...")
+        print("   This may take a moment on first run...")
         try:
             self.model = SentenceTransformer("all-mpnet-base-v2")
             print("✅ Embedding model loaded successfully")
+            print(f"   Model max sequence length: {self.model.max_seq_length}")
         except Exception as e:
             print(f"❌ Failed to load embedding model: {e}")
+            print(f"   Error details: {type(e).__name__}: {e}")
             return False
         
         return True
@@ -123,17 +134,34 @@ class QdrantLoader:
         print(f"📂 Loading classified recipes from {CLASSIFICATION_RESULTS_PATH}...")
         
         try:
+            import os
+            file_size = os.path.getsize(CLASSIFICATION_RESULTS_PATH) / (1024 * 1024)  # MB
+            print(f"   File size: {file_size:.1f} MB")
+            
             with open(CLASSIFICATION_RESULTS_PATH, 'r', encoding='utf-8') as f:
                 self.classified_recipes = json.load(f)
             
             print(f"✅ Loaded {len(self.classified_recipes)} classified recipes")
+            
+            # Count recipes per collection
+            collection_counts = {}
+            for recipe_data in self.classified_recipes.values():
+                collection = recipe_data.get('collection', 'unknown')
+                collection_counts[collection] = collection_counts.get(collection, 0) + 1
+            
+            print("   Recipe distribution by collection:")
+            for collection, count in sorted(collection_counts.items()):
+                print(f"     {collection}: {count} recipes")
+            
             return True
             
         except FileNotFoundError:
             print(f"❌ Classification results not found at {CLASSIFICATION_RESULTS_PATH}")
+            print(f"   Current directory: {os.getcwd()}")
             return False
         except Exception as e:
             print(f"❌ Error loading classification results: {e}")
+            print(f"   Error details: {type(e).__name__}: {e}")
             return False
     
     def create_collection(self, collection_name: str, description: str) -> bool:
@@ -206,12 +234,18 @@ class QdrantLoader:
         config = COLLECTIONS_CONFIG[collection_name]
         description = config["description"]
         batch_size = config["batch_size"]
+        expected_count = config["estimated_count"]
+        
+        print(f"   🎯 Target: {description}")
+        print(f"   📊 Expected: ~{expected_count} recipes")
+        print(f"   🔢 Batch size: {batch_size}")
         
         # Create collection
         if not self.create_collection(collection_name, description):
             return False
         
         # Get recipes for this collection
+        print(f"   🔍 Scanning classified recipes for collection '{collection_name}'...")
         collection_recipes = []
         for recipe_id, recipe_data in self.classified_recipes.items():
             if recipe_data.get('collection') == collection_name:
@@ -221,9 +255,10 @@ class QdrantLoader:
             print(f"   ⚠️  No recipes found for collection {collection_name}")
             return True
         
-        print(f"   📊 Found {len(collection_recipes)} recipes")
+        print(f"   📊 Found {len(collection_recipes)} recipes (expected ~{expected_count})")
         
         # Check existing vectors in collection
+        existing_count = 0
         try:
             collection_info = self.client.get_collection(collection_name)
             existing_count = collection_info.vectors_count
@@ -231,39 +266,49 @@ class QdrantLoader:
             
             if existing_count >= len(collection_recipes):
                 print(f"   ✅ Collection appears complete, skipping")
+                self.stats["total_loaded"] += existing_count  # Count as loaded
                 return True
-        except:
+        except Exception as e:
+            print(f"   ⚠️  Could not check existing vectors: {e}")
             pass
         
         # Load recipes in batches
+        print(f"   🚀 Starting batch processing...")
         loaded_count = 0
         skipped_count = 0
+        total_batches = (len(collection_recipes) + batch_size - 1) // batch_size
         
         for i in range(0, len(collection_recipes), batch_size):
             batch = collection_recipes[i:i + batch_size]
+            batch_num = i//batch_size + 1
             
-            print(f"   🔄 Processing batch {i//batch_size + 1}: {len(batch)} recipes...")
+            print(f"   🔄 Processing batch {batch_num}/{total_batches}: {len(batch)} recipes...")
             
             # Prepare batch data
             points = []
+            batch_skipped = 0
             
-            for recipe_id, recipe_data in batch:
+            for j, (recipe_id, recipe_data) in enumerate(batch):
+                # Progress indicator for large batches
+                if len(batch) >= 50 and j % 25 == 0 and j > 0:
+                    print(f"     ⏳ Progress: {j}/{len(batch)} recipes processed...")
+                
                 # Load summary
                 summary = self.load_recipe_summary(recipe_id, collection_name)
                 if not summary:
-                    skipped_count += 1
+                    batch_skipped += 1
                     continue
                 
                 # Generate embedding
                 embedding = self.generate_embedding(summary)
                 if not embedding:
-                    skipped_count += 1
+                    batch_skipped += 1
                     continue
                 
                 # Prepare metadata
                 payload = {
                     "recipe_id": recipe_id,
-                    "title": str(recipe_data.get('title', '')),
+                    "title": str(recipe_data.get('title', ''))[:100],  # Limit title length
                     "collection": collection_name,
                     "confidence": recipe_data.get('confidence', 0),
                     "summary": summary[:500],  # Truncate for storage efficiency
@@ -272,34 +317,57 @@ class QdrantLoader:
                 }
                 
                 # Create point
-                point = rest.PointStruct(
-                    id=int(recipe_id),
-                    vector=embedding,
-                    payload=payload
-                )
-                
-                points.append(point)
+                try:
+                    point = rest.PointStruct(
+                        id=int(recipe_id),
+                        vector=embedding,
+                        payload=payload
+                    )
+                    points.append(point)
+                except Exception as e:
+                    print(f"     ⚠️  Error creating point for recipe {recipe_id}: {e}")
+                    batch_skipped += 1
+                    continue
             
             # Insert batch into Qdrant
             if points:
                 try:
+                    print(f"     📤 Inserting {len(points)} vectors into Qdrant...")
                     self.client.upsert(
                         collection_name=collection_name,
                         points=points
                     )
                     loaded_count += len(points)
-                    print(f"   ✅ Batch inserted: {len(points)} vectors")
+                    print(f"   ✅ Batch {batch_num} completed: {len(points)} vectors inserted")
                     
                     # Brief pause to avoid overwhelming the database
-                    time.sleep(0.1)
+                    time.sleep(0.2)
                     
                 except Exception as e:
-                    print(f"   ❌ Error inserting batch: {e}")
+                    print(f"   ❌ Error inserting batch {batch_num}: {e}")
+                    print(f"      Error details: {type(e).__name__}: {e}")
                     self.stats["errors"] += 1
+            else:
+                print(f"   ⚠️  Batch {batch_num} skipped: no valid vectors")
             
-        print(f"   📈 Collection {collection_name}: {loaded_count} loaded, {skipped_count} skipped")
+            skipped_count += batch_skipped
+            
+            # Progress summary for large collections
+            if total_batches > 5:
+                progress = (batch_num / total_batches) * 100
+                print(f"   📊 Progress: {progress:.1f}% ({loaded_count} loaded, {skipped_count} skipped)")
+        
+        print(f"   🎉 Collection {collection_name} completed: {loaded_count} loaded, {skipped_count} skipped")
         self.stats["total_loaded"] += loaded_count
         self.stats["skipped"] += skipped_count
+        
+        # Final verification
+        try:
+            final_info = self.client.get_collection(collection_name)
+            final_count = final_info.vectors_count
+            print(f"   ✅ Final verification: {final_count} vectors in collection")
+        except Exception as e:
+            print(f"   ⚠️  Could not verify final count: {e}")
         
         return True
     

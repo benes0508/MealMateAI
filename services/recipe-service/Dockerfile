@@ -1,25 +1,57 @@
-# Use an official slim Python runtime as a parent image
-FROM python:3.11-slim
+# Multi-stage Dockerfile optimized for fast rebuilds
+# Stage 1: Dependencies (cached separately)
+FROM python:3.11-slim as dependencies
 
-# Set a working directory
-WORKDIR /app
-
-# Install system deps for PostgreSQL client & compiling Python packages
+# Install system dependencies for PostgreSQL and ML packages
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
        build-essential \
        libpq-dev \
+       git \
     && rm -rf /var/lib/apt/lists/*
 
-# Copy requirements and install Python dependencies
+# Configure pip for caching
+ENV PIP_CACHE_DIR=/pip_cache
+ENV PIP_NO_CACHE_DIR=0
+
+# Set working directory
+WORKDIR /app
+
+# Copy requirements first (for Docker layer caching)
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+
+# Install Python dependencies with cache mount
+RUN --mount=type=cache,target=/pip_cache \
+    pip install --cache-dir=/pip_cache -r requirements.txt
+
+# Stage 2: Production image
+FROM python:3.11-slim as production
+
+# Install minimal runtime dependencies
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+       libpq5 \
+    && rm -rf /var/lib/apt/lists/*
+
+# Set working directory
+WORKDIR /app
+
+# Copy installed packages from dependencies stage
+COPY --from=dependencies /usr/local/lib/python3.11/site-packages /usr/local/lib/python3.11/site-packages
+COPY --from=dependencies /usr/local/bin /usr/local/bin
 
 # Copy application code
 COPY . .
 
+# Create cache directories for ML models
+RUN mkdir -p /root/.cache/huggingface /root/.cache/torch
+
 # Expose the service port
 EXPOSE 8001
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=30s --retries=3 \
+    CMD curl -f http://localhost:8001/health || exit 1
 
 # Default command: run Uvicorn
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8001"]
