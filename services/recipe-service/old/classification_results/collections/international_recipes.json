@@ -1,0 +1,46 @@
+[
+  {
+    "id": 499,
+    "name": "Chiles en Nogada (Mexican Stuffed Poblano Peppers in Walnut Sauce)",
+    "collection": "international",
+    "confidence": 2,
+    "features": {
+      "name": "chiles en nogada (mexican stuffed poblano peppers in walnut sauce)",
+      "ingredients": "8  poblano peppers",
+      "directions": "roast poblano chiles over an open flame on a gas stove or grill until the skin is black and charred on all sides, turning often, 10 to 15 minutes.\nplace the charred chiles in a plastic bag or in a large bowl covered with plastic wrap. allow to sit for 5 to 10 minutes, then open and peel off the skin. cut a slit in each chile lengthwise and remove the seeds.\nheat olive oil in a large pot over medium heat. add onion and garlic and cook until soft and translucent, 3 to 4 minutes. add ground pork and cook until browned, breaking up with a spoon while cooking, about 7 minutes. mix in tomatoes, plantain, apple, peach, parsley, candied orange peel, pine nuts, raisins, almonds, cloves, salt, and pepper. simmer until filling is cooked through and flavors are well combined, about 10 minutes.\ncombine walnuts, milk, goat cheese, sugar, and cinnamon stick in a blender; blend until walnut sauce is smooth and creamy.\nfill each poblano chile with the pork filling and place on a plate. spoon walnut sauce over chile and sprinkle with pomegranate seeds and parsley.\n\n\n\n\n\n\n\n\n\n\n\ndotdash meredith food studios\n",
+      "cuisine_path": "/cuisine/latin american/mexican/",
+      "timing": "prep time: 1 hrs, cook time: 30 mins, additional time: 5 mins, total time: 1 hrs 35 mins, servings: 8, yield: 8 servings",
+      "nutrition": "total fat 51g 65%, saturated fat 13g 66%, cholesterol 86mg 29%, sodium 227mg 10%, total carbohydrate 41g 15%, dietary fiber 9g 30%, total sugars 23g, protein 34g, vitamin c 107mg 533%, calcium 231mg 18%, iron 4mg 24%, potassium 1220mg 26%",
+      "combined_text": "chiles en nogada (mexican stuffed poblano peppers in walnut sauce) 8  poblano peppers /cuisine/latin american/mexican/ prep time: 1 hrs, cook time: 30 mins, additional time: 5 mins, total time: 1 hrs 35 mins, servings: 8, yield: 8 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Cuisine/Latin American/Mexican/",
+      "ingredients": "8  poblano peppers",
+      "prep_time": "1 hrs",
+      "cook_time": "30 mins",
+      "servings": 8
+    }
+  },
+  {
+    "id": 844,
+    "name": "Mexican Baked Fish",
+    "collection": "international",
+    "confidence": 2,
+    "features": {
+      "name": "mexican baked fish",
+      "ingredients": "1 ½ pounds cod, 1 cup salsa, 1 cup shredded sharp cheddar cheese, ½ cup coarsely crushed corn chips, 1  avocado - peeled, pitted and sliced, ¼ cup sour cream",
+      "directions": "preheat oven to 400 degrees f (200 degrees c). lightly grease one 8x12 inch baking dish.\nrinse fish fillets under cold water, and pat dry with paper towels. lay fillets side by side in the prepared baking dish. pour the salsa over the top, and sprinkle evenly with the shredded cheese. top with the crushed corn chips.\nbake, uncovered, in the preheated oven for 15 minutes, or until fish is opaque and flakes with a fork. serve topped with sliced avocado and sour cream.",
+      "cuisine_path": "/cuisine/latin american/mexican/",
+      "timing": "prep time: 15 mins, cook time: 15 mins, total time: 30 mins, servings: 6, yield: 6 servings",
+      "nutrition": "total fat 18g 23%, saturated fat 7g 36%, cholesterol 69mg 23%, sodium 529mg 23%, total carbohydrate 11g 4%, dietary fiber 3g 12%, total sugars 2g, protein 28g, vitamin c 7mg 34%, calcium 213mg 16%, iron 1mg 5%, potassium 717mg 15%",
+      "combined_text": "mexican baked fish 1 ½ pounds cod, 1 cup salsa, 1 cup shredded sharp cheddar cheese, ½ cup coarsely crushed corn chips, 1  avocado - peeled, pitted and sliced, ¼ cup sour cream /cuisine/latin american/mexican/ prep time: 15 mins, cook time: 15 mins, total time: 30 mins, servings: 6, yield: 6 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Cuisine/Latin American/Mexican/",
+      "ingredients": "1 ½ pounds cod, 1 cup salsa, 1 cup shredded sharp Cheddar cheese, ½ cup coarsely crushed corn chips, 1  avocado - peeled, pitted and sliced, ¼ cup sour cream",
+      "prep_time": "15 mins",
+      "cook_time": "15 mins",
+      "servings": 6
+    }
+  }
+]

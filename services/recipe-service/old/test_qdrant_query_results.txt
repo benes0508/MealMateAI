@@ -1,0 +1,407 @@
+=== Common queries across collections ===
+
+Query: chocolate cake
+ Collection: quick-light
+  Top results:
+    - How To Temper Chocolate
+    - Coconut Chocolate Bites
+    - Peanut Butter Chocolate Eggs
+    - Ganache For Hot Chocolate and Mochas
+    - Luscious Hot Chocolate
+    - Matcha White Hot Chocolate
+    - Milk Chocolate Cup-of-Fluffs
+    - Chocolate-Dipped Ice Cream Cones With Peanuts
+    - Roasted White Chocolate Panna Cotta
+    - Bread with Chocolate and Olive Oil
+ Collection: baked-breads
+  Top results:
+    - Hershey's "Perfectly Chocolate" Chocolate Cake
+    - Triple-Chocolate Cookies
+    - Coconut-Chocolate Marjolaine
+    - Strawberry and Chocolate Baked Alaska
+    - Double-Decker Chocolate and Cherry-Raspberry Birthday Pie
+    - Cherry-Chocolate Shortcakes with Kirsch Whipped Cream
+    - Chocolate Hazelnut Cake with Praline Chocolate Crunch
+    - Lemon or Orange Cake (Cake Citron ou Cake Orange)
+    - Lemon Pudding Cake
+    - Peppermint Meringue Cake with Chocolate Buttercream
+ Collection: fresh-cold
+  Top results:
+    - Chocolate-Malt Ice Cream
+    - Chocolate Mousse with Raspberries
+    - Cocoa Delight
+    - Easy Chocolate Mousse, Three Ways
+    - Coconut And Cream Float
+    - Rhubarb Fool
+    - Fresh Fruit with Mascarpone and White Chocolate Dip
+    - Monster Pops
+    - Two-Ingredient Truffles
+    - Dark Chocolate Mousse with Sugared Kumquats
+ Collection: breakfast-morning
+  Top results:
+    - Chocolate Glaze
+    - Chocolate-Filled Delights
+    - Classic Chocolate Egg Cream
+    - Buttermilk Pudding Cake with Maple Raspberries
+    - Orange Upside-Down Cake
+    - Frozen Chocolate Bananas
+    - Mixed-Berry Chocolate-Toffee Bites
+    - Chocolate Toasted Almond Torte
+    - The Easiest Chocolate Mousse Ever
+    - Fluffy Baked Eggs with Roasted-Vegetable Hash
+ Collection: desserts-sweets
+  Top results:
+    - One-Bowl Milk Chocolate Cake with Chocolate-Caramel Frosting
+    - Chocolate Cake
+    - Quick Double-Chocolate Sheet Cake
+    - My Kind of Chocolate Birthday Cake
+    - Giant Chocolate Cake with Bittersweet Chocolate Ganache and Edible Flowers
+    - Chocolate Spoonful Cake
+    - Chocolatey Chocolate Cake
+    - Flourless Chocolate Cake
+    - Chocolate Stout Layer Cake with Chocolate Frosting
+    - Banana-Chocolate Chip Cake with Peanut Butter Frosting
+ Collection: comfort-cooked
+  Top results:
+    - Meyer Lemon Buttermilk Pudding Cake with Fresh Berries
+    - Great British Fool
+    - Golden Potato Cake
+    - Ecuadoran Potato Cakes with Peanut Sauce
+    - Rhubarb Sorbet with Vanilla Rhubarb Compote
+    - Golden Colcannon Pie
+    - Herbed Rösti Potato Cake
+    - Pumpkin Bread Puddings Brûlée
+    - Ginger Cardamom Oeufs à la Neige
+    - Coq au Vin with Cocoa Powder
+ Collection: protein-mains
+  Top results:
+    - Bibingkang Cassava (Cassava Cake)
+    - Amaretto Olive Oil Cake
+    - Chocolate-Nut Tart with Dried Fruit
+    - Dessert Pancakes with Custard and Berries
+    - Pumpkin Cheesecake
+    - Paleo Granola with Coconut and Almonds
+    - Coconut Rice Puddings with Crispy Coconut
+    - No-Bake Energy Bites with Ginger and Turmeric
+    - Baked Brie with Mushrooms and Thyme
+    - Duchess Baked Potatoes
+ Collection: plant-based
+  Top results:
+    - Chocolate Banana Bites
+    - Ghostly Chocolate-Nut Bark
+    - Tahini-Walnut Magic Shell
+    - Mushroom and Farro Pie
+    - Quinoa Cakes with Eggplant-Tomato Ragù and Smoked Mozzarella
+    - Eggplant and Walnut Phyllo Pie
+    - Fragrant Indian Brittle
+    - Chicken Satay (Sate Ayam)
+    - Haroseth (Dried Fruit and Nut Paste)
+    - Seedy Cherry-Quinoa Bars
+
+Query: vegetable soup
+ Collection: quick-light
+  Top results:
+    - The Cabbage Soup Diet
+    - One-of-Each Soup
+    - Carrot-Coconut Soup
+    - Zucchini-Basil Soup
+    - Three Onion Soup
+    - White Bean Soup with Chive Oil
+    - Belgian Onion Soup
+    - Rustic Tomato Soup with Toasted Cumin and Mini Rajas
+    - Mushroom Soup
+    - Late Summer Tomato Soup with Shell Beans, Squid Rings and Parsley
+ Collection: baked-breads
+  Top results:
+    - Lettuce Soup with Croutons
+    - Tomato Soup with Arugula, Croutons, and Pecorino
+    - Vegetable Latkes
+    - Cauliflower Soup with Chive Oil and Rye Crostini
+    - Summer Vegetable Ragout With Carrot-Ginger Sauce
+    - Second City Diner Veggie Burger
+    - Wild Mushroom and Spinach Stuffing
+    - Green Bean Casserole
+    - Cabbage Rolls with Meat Stuffing and Wild Mushroom Sauce
+    - Veggie Balls
+ Collection: fresh-cold
+  Top results:
+    - Chilled Corn Soup
+    - Lime-Crab Soup
+    - Potato, Leek, and Pea Pot Pie with Spinach-Arugula Salad
+    - Chilled Radish Buttermilk Soup
+    - Cold Avocado Soup
+    - Avocado and Crab Soup
+    - The Crunchiest Vegetable Salad
+    - Green Vegetable Salad
+    - Tricolor Matzo Ball Soup
+    - Bulgur, Garbanzo Bean, and Cucumber Salad
+ Collection: breakfast-morning
+  Top results:
+    - Cucumber-Dill Soup with Scallions
+    - Celery Root and Carrot Soup
+    - Cheddar Beer Soup
+    - Four Corners Lentil Soup
+    - Avocado Soup with Herbs, Slivered Radishes, and Pistachios
+    - Chilled Avocado and Yogurt Soup with Tomato Salsa
+    - Scallop Chowder with Bacon
+    - Greens and Grains Scramble
+    - Shakshuka With Red Peppers and Cumin
+    - Potato, Sausage, and Spinach Breakfast Casserole
+ Collection: desserts-sweets
+  Top results:
+    - A Green Peas Soup, Without Meat
+    - Broccoli-Mascarpone Soup
+    - Wilted Greens Soup with Crème Fraîche
+    - Sweet Potato and Coconut Soup
+    - Mushroom and Leek Soup with Thyme Cream
+    - Roasted Peanut Soup with Honey Whipped Cream
+    - Roasted-Tomato Soup with Parmesan Wafers
+    - White Bean Soup with Chile Paste
+    - Savory Pumpkin Pie Soup with Cinnamon Marshmallows, Pepita Streusel, and Whipped Crème Fraîche
+    - Vietnamese Chicken Soup With Rice
+ Collection: comfort-cooked
+  Top results:
+    - Winter Vegetable Soup
+    - Gingery Chicken Soup with Zucchini “Noodles”
+    - Chicken and Spelt Soup with Greens
+    - Chicken, Vegetable, and Dumpling Soup
+    - Carrot Soup with Star Anise
+    - Ivory Carrot Soup with a Fine Dice of Orange Carrots
+    - Lettuce Soup
+    - Carrot-Ginger Soup with Chile Butter and Roasted Peanuts
+    - Carrot Soup with Thyme and Fennel
+    - Lemony Chicken Soup with Farro, White Beans, and Kale
+ Collection: protein-mains
+  Top results:
+    - Chicken and White Bean Soup with Herb Swirl
+    - Cabbage and White Bean Soup with Sausage
+    - Chicken & Rice Soup
+    - Garlic Soup With Potatoes and Poached Eggs
+    - Butternut Squash Soup with Pumpkin Butter
+    - Cauliflower Soup with Seared Scallops, Lemon Oil, and American Caviar
+    - Roasted Carrot Soup with Dukkah Spice and Yogurt
+    - Our Favorite French Onion Soup
+    - Egg Drop Soup with Fresh Spinach
+    - Michael Romano's Secret-Ingredient Soup
+ Collection: plant-based
+  Top results:
+    - Mushroom Barley Soup
+    - Persian New Year's Soup with Beans, Noodles, and Herbs (Ash-e-reshteh)
+    - Beef Barley Soup with Wild Mushrooms and Parsnips
+    - Beef, Mushroom, and Barley Soup
+    - Good Gravy Bowl with Broccoli & Seitan
+    - Summer Vegetable Stir-Fry
+    - Eggplant-and-Bulgur-Stuffed Vegetables
+    - Mushroom and Brown Rice Veggie Burger
+    - Picnic Three-Bean Salad
+    - Bean & 'Bello Burger
+
+=== Per-collection multiple queries ===
+
+Collection: quick-light
+ Query: avocado toast
+  Top results:
+    - Avocado with Savory Tomato Sorbet and Chips
+    - Avocado Gelato
+    - Creamy Avocado Dip With Scallions
+    - Chile-and-Olive-Oil-Fried Egg With Avocado and Sprouts
+    - Microwave Egg Sandwich with Cheddar and Avocado
+    - Avo and Egg
+    - Avocado Cream
+    - Fried Avocado Tacos (Tacos de aguacate rebosado)
+    - Spanish-Style Tomato Toast with Garlic and Olive Oil
+    - Avocado Egg-in-a-Hole
+ Query: smoothie bowl
+  Top results:
+    - Drambuie-Flavored Crème Anglaise
+    - Root Beer Granita Float
+    - Spinach + Shiitake Grits Harvest Bowl (with sliced avocado)
+    - Black Sesame Noodle Bowl
+    - Fresh Lumpia Wrappers
+    - Turkey Sloppy Joes
+    - Cajun Turkey Cheeseburgers With Tabasco Ketchup
+    - Luscious Hot Chocolate
+    - 3-Ingredient Red Snapper With Green Sauce and Scallions
+    - Green Garlic and Pea Soup with Whipped Cream
+
+Collection: baked-breads
+ Query: banana bread
+  Top results:
+    - Caramel-Banana Bread Puddings
+    - Chocolate Chip and Banana Ice Cream Sandwiches
+    - Basic Soft White Sandwich Loaf
+    - BA's Best Bread
+    - Pear, Almond, and Dried-Cherry Brown Betty
+    - Apple Brown Betty with Sorghum Zabaglione
+    - Chai-Spiced Monkey Bread
+    - Charred-Bread Powder
+    - Rum, Caramel, and Banana Bread Pudding
+    - Gluten-Free Coconut Bread
+ Query: bagel
+  Top results:
+    - Plain Bagels
+    - Apple and Nut-Butter Puff Pastry Tarts
+    - One-a-Day Baguette
+    - Rustic Fig, Serrano Ham & Hazelnut Tartines
+    - Rustic Bread
+    - Baked Brie with Caramelized Onions
+    - Traditional Soft Pretzels
+    - Cheesy Kale and Mushroom Strata
+    - Cheesy Potato and Kale Gratin with Rye Croutons
+    - Pigs in Sleeping Bags
+
+Collection: fresh-cold
+ Query: fruit salad
+  Top results:
+    - Green Bean Salad with Apricot Vinaigrette
+    - Savory Peach and Cucumber Salad
+    - Apple, Celery, and Walnut Salad
+    - Tiger Fruit Salad
+    - Green Tomato and Honeydew Melon Salad
+    - Crab, Mango, and Avocado Salad with Citrus Dressing
+    - Tomato-Peach Salad with Tofu Cream
+    - Tomato, Onion, and Roasted Lemon Salad
+    - Cherry Tomato and Lemon Salad
+    - Red Leaf Salad with Oranges
+ Query: gazpacho
+  Top results:
+    - Sippin’ Green Gazpacho
+    - Grilled Gazpacho Salad with Shrimp
+    - Basil-Fennel Soda
+    - Goddess Guacamole
+    - Passion-Fruit Caipirinha
+    - Frozen Gin and Tonic
+    - Taqueria Guacamole
+    - Aperol Spritz
+    - Beer Americano
+    - Remember the Alimony
+
+Collection: breakfast-morning
+ Query: pancakes
+  Top results:
+    - Lemon (or Lime or Orange) Ricotta Pancakes
+    - Fruit and Nut Pancakes
+    - Pancakes with Warm Maple Syrup & Coffee Butter
+    - Whole Grain Pancakes with Wild Blueberry-Maple Syrup
+    - Cecylia Roznowska's Potato Pancakes Stuffed with Bacon, Mushrooms, and Onion
+    - Chestnut Pancakes with Bacon and Crème Fraîche
+    - Buckwheat Pancakes with Sausage, Scallions and Fried Eggs
+    - Breakfast Sandwich on an English Muffin With Charred Red Onions, Herbs, and Cheddar
+    - Moby's Vegan Blueberry Pancakes
+    - Sheet-Pan Eggs
+ Query: omelette
+  Top results:
+    - Pop’s Double-Stuffed, Double-Fluffed American Omelet
+    - Absinthe Suissesse
+    - Breakfast Calzones
+    - Iced Café de Olla
+    - Brainy Breakfast
+    - Coupe Glacée Meringue
+    - Chocolate Glaze
+    - Lowcountry Breakfast Shrimp
+    - Ponche a Crème
+    - Breakfast Hobo Packs with Hash Brown Potatoes, Sausage, and Scallions
+
+Collection: desserts-sweets
+ Query: cheesecake
+  Top results:
+    - No-Bake Strawberry Cheesecake
+    - Ricotta Cheesecake with Caramel-Orange Sauce
+    - Chocolate Marble Cheesecake
+    - Little Lemony Ricotta Cheesecake
+    - Lemon Cheesecake Squares with Fresh Berries
+    - Cheesecake with Ginger-Lime Candied Raspberries
+    - Deep Dark Chocolate Cheesecake
+    - 3-Ingredient Japanese Cheesecake
+    - Chocolate Cream Cheese Cupcakes
+    - Mascarpone Cheesecake
+ Query: brownies
+  Top results:
+    - Brownie Thins
+    - SSC Brownies
+    - Fudgy Brownie Cake
+    - Brownies
+    - Layered Brownies with White-Chocolate Caramel and Cocoa Nib Gelato
+    - Chocolate-Stout Brownies
+    - Deep Chocolate Brownies
+    - Fudgy Double-Chocolate Brownies
+    - Sheet-Pan Brownie Thins
+    - Chocolate Brownie Cookies
+
+Collection: comfort-cooked
+ Query: mac and cheese
+  Top results:
+    - Homemade Instant Mac and Cheese
+    - Instant Pot Macaroni and Cheese
+    - Hidden Cauliflower Mac ‘n’ Cheese
+    - Mac Sauce (Béchamel 101)
+    - Maple-Roasted Tomato Toast with Goat Cheese and Mint
+    - Homemade Ricotta Cheese
+    - Cheese Fondue
+    - Ricotta Cheese
+    - Grilled Cheese and Short Rib Sandwiches with Pickled Caramelized Onions and Arugula
+    - Chipotle-White Cheddar Mashed Potatoes
+ Query: beef stew
+  Top results:
+    - Beef Stew
+    - Beef Stew with Potatoes and Carrots
+    - Short Rib and Vegetable Stew
+    - Red Wine Beef Stew
+    - Beef and Wild Mushrooms
+    - Winter Vegetable and Beef Soup
+    - Roast Beef Stock
+    - Herb-Crusted Beef Rib Roast with Potatoes, Carrots, and Pinot Noir Jus
+    - Big-Batch Seasoned Ground Beef
+    - Beef Stock
+
+Collection: protein-mains
+ Query: grilled chicken
+  Top results:
+    - Spicy Grilled Chicken with Lemon and Parsley
+    - Garlic and Herb Spatchcock Grilled Chicken
+    - Grilled Chicken with Board Dressing
+    - Grilled Indian-Spiced Butter Chicken
+    - Grilled Jerk Chicken with Scotch Bonnet Sauce and Mango Chutney
+    - Grilled Chicken with Lemon and Thyme
+    - Herb Grilled Chicken Wings
+    - Grilled Chicken Breasts with Honeydew Salsa
+    - Grilled Lemon Chicken
+    - Grilled Asian Chicken with Bok Choy, Shiitake Mushrooms, and Radishes
+ Query: tofu stir fry
+  Top results:
+    - Chicken Stir-Fry with Peanut Sauce Over Rice
+    - Scarborough Fair Tofu Burger
+    - Irish Weekend Fry-Up
+    - Fried Rice
+    - Shrimp and Basil Stir-Fry
+    - Chicken and Cashew Stir-Fry
+    - Beet Tostadas With Fried Eggs
+    - Quinoa Stir-Fry with Vegetables and Chicken
+    - Cornflake Fried Chicken
+    - Lettuce Cups with Stir-Fried Chicken
+
+Collection: plant-based
+ Query: vegan curry
+  Top results:
+    - Tofu and Summer Vegetable Curry
+    - Vegan Chili
+    - The Trifecta Burger
+    - Stuffed Sweet Potatoes with Curried Chickpeas and Mushrooms
+    - Creamy Vegan Mushroom Lasagna
+    - Curried Red Lentil and Swiss Chard Stew with Garbanzo Beans
+    - Quinoa and Red Lentil Burgers
+    - Turkey Shawarma with Tomato Relish and Tahini Sauce
+    - Tahini-Walnut Magic Shell
+    - Slow-Cooked Lamb with Sage and Pearl Barley
+ Query: lentil soup
+  Top results:
+    - Lentils with Cucumbers, Chard, and Poached Egg
+    - Persian New Year's Soup with Beans, Noodles, and Herbs (Ash-e-reshteh)
+    - Quinoa and Red Lentil Burgers
+    - Beef Barley Soup with Wild Mushrooms and Parsnips
+    - Curried Red Lentil and Swiss Chard Stew with Garbanzo Beans
+    - Mushroom Barley Soup
+    - Beef, Mushroom, and Barley Soup
+    - Turkey Shawarma with Tomato Relish and Tahini Sauce
+    - Chicken Satay (Sate Ayam)
+    - Veggie Tacos

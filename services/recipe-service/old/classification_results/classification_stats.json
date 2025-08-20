@@ -1,0 +1,27 @@
+{
+  "collection_counts": {
+    "desserts-sweets": 473,
+    "sides-sauces": 132,
+    "drinks-beverages": 107,
+    "soups-stews": 23,
+    "breads-baked": 87,
+    "salads-fresh": 114,
+    "breakfast-brunch": 16,
+    "meat-mains": 66,
+    "appetizers-snacks": 70,
+    "international": 2
+  },
+  "average_confidence": {
+    "desserts-sweets": 16.147991543340382,
+    "sides-sauces": 7.757575757575758,
+    "drinks-beverages": 8.121495327102803,
+    "soups-stews": 9.869565217391305,
+    "breads-baked": 9.977011494252874,
+    "salads-fresh": 7.87719298245614,
+    "breakfast-brunch": 8.125,
+    "meat-mains": 4.5,
+    "appetizers-snacks": 7.257142857142857,
+    "international": 2.0
+  },
+  "total_recipes": 1090
+}

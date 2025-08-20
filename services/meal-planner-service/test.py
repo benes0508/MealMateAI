@@ -1,6 +1,12 @@
+import os
 from google import genai
 
-client = genai.Client(api_key="AIzaSyA0QF3AVII4K34xLlR93T4I1OyWxdo9Zv0")
+# SECURITY: Never hardcode API keys! Always use environment variables
+api_key = os.getenv("GOOGLE_API_KEY")
+if not api_key:
+    raise ValueError("GOOGLE_API_KEY environment variable not set")
+
+client = genai.Client(api_key=api_key)
 
 response = client.models.generate_content(
     model="gemini-2.5-flash", contents="Explain how AI works in a few words"

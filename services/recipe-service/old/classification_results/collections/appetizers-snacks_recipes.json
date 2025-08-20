@@ -1,0 +1,1542 @@
+[
+  {
+    "id": 144,
+    "name": "Apple Chips",
+    "collection": "appetizers-snacks",
+    "confidence": 8,
+    "features": {
+      "name": "apple chips",
+      "ingredients": "2  golden delicious apples, cored and thinly sliced, 1 ½ teaspoons white sugar, ½ teaspoon ground cinnamon",
+      "directions": "preheat the oven to 225 degrees f (110 degrees c).\narrange apple slices in a single layer on a metal baking sheet.\nmix together sugar and cinnamon in a small bowl; sprinkle over apple slices.\nbake in the preheated oven until apples are dried and edges curl, 45 minutes to 1 hour. use a metal spatula to transfer chips to a wire rack until cool and crispy.",
+      "cuisine_path": "/appetizers and snacks/snacks/kids/healthy/",
+      "timing": "prep time: 10 mins, cook time: 45 mins, total time: 55 mins, servings: 6",
+      "nutrition": "sodium 1mg 0%, total carbohydrate 7g 3%, dietary fiber 1g 3%, total sugars 6g, protein 0g, vitamin c 2mg 12%, calcium 3mg 0%, iron 0mg 1%, potassium 35mg 1%",
+      "combined_text": "apple chips 2  golden delicious apples, cored and thinly sliced, 1 ½ teaspoons white sugar, ½ teaspoon ground cinnamon /appetizers and snacks/snacks/kids/healthy/ prep time: 10 mins, cook time: 45 mins, total time: 55 mins, servings: 6"
+    },
+    "original_data": {
+      "cuisine_path": "/Appetizers and Snacks/Snacks/Kids/Healthy/",
+      "ingredients": "2  Golden Delicious apples, cored and thinly sliced, 1 ½ teaspoons white sugar, ½ teaspoon ground cinnamon",
+      "prep_time": "10 mins",
+      "cook_time": "45 mins",
+      "servings": 6
+    }
+  },
+  {
+    "id": 206,
+    "name": "Elegant Fig Appetizers with Goat Cheese and Almonds",
+    "collection": "appetizers-snacks",
+    "confidence": 6,
+    "features": {
+      "name": "elegant fig appetizers with goat cheese and almonds",
+      "ingredients": "12  fresh figs, halved, 4 ounces herbed goat cheese (chevre), 24  almonds, 1 tablespoon honey, 2 teaspoons balsamic vinegar",
+      "directions": "preheat the oven broiler for high heat.\nplace the fig halves, cut side up, on a baking sheet. top each half with about 1/2 teaspoon goat cheese. place one almond on each, press to push the cheese slightly into each fig.\nbroil the figs in the preheated oven until the cheese is soft and the almonds are turning a rich shade of brown, 2 to 3 minutes. remove from the broiler and let cool for 5 minutes. arrange the figs on a serving platter and drizzle with honey and balsamic vinegar. serve warm.",
+      "cuisine_path": "/appetizers and snacks/fruit/",
+      "timing": "prep time: 15 mins, cook time: 3 mins, total time: 18 mins, servings: 12, yield: 24 appetizers",
+      "nutrition": "total fat 4g 5%, saturated fat 2g 11%, cholesterol 8mg 3%, sodium 50mg 2%, total carbohydrate 12g 4%, dietary fiber 2g 6%, total sugars 10g, protein 3g, vitamin c 1mg 5%, calcium 52mg 4%, iron 1mg 3%, potassium 150mg 3%",
+      "combined_text": "elegant fig appetizers with goat cheese and almonds 12  fresh figs, halved, 4 ounces herbed goat cheese (chevre), 24  almonds, 1 tablespoon honey, 2 teaspoons balsamic vinegar /appetizers and snacks/fruit/ prep time: 15 mins, cook time: 3 mins, total time: 18 mins, servings: 12, yield: 24 appetizers"
+    },
+    "original_data": {
+      "cuisine_path": "/Appetizers and Snacks/Fruit/",
+      "ingredients": "12  fresh figs, halved, 4 ounces herbed goat cheese (chevre), 24  almonds, 1 tablespoon honey, 2 teaspoons balsamic vinegar",
+      "prep_time": "15 mins",
+      "cook_time": "3 mins",
+      "servings": 12
+    }
+  },
+  {
+    "id": 211,
+    "name": "Figs and Toasted Almonds Brie",
+    "collection": "appetizers-snacks",
+    "confidence": 10,
+    "features": {
+      "name": "figs and toasted almonds brie",
+      "ingredients": "½ cup brown sugar, 2 tablespoons water, 6  fresh figs, stemmed and quartered, 1 (14 ounce) round 4 1/4-inch diameter round brie cheese, ½ cup toasted almonds, ½ teaspoon vanilla extract",
+      "directions": "preheat oven to 325 degrees f (165 c).\nheat brown sugar and water in a small saucepan over medium heat until sugar is completely dissolved. add figs and vanilla, and cook until softened, about 10 minutes. stir in almonds and vanilla. place brie wheel in a baking dish, and pour fig mixture over the top.\nbake in the preheated oven for 10 to 15 minutes, or until softened but not melted. serve with water crackers.",
+      "cuisine_path": "/appetizers and snacks/cheese/baked brie recipes/",
+      "timing": "prep time: 10 mins, cook time: 25 mins, total time: 35 mins, servings: 12, yield: 12 servings",
+      "nutrition": "total fat 12g 16%, saturated fat 6g 30%, cholesterol 33mg 11%, sodium 211mg 9%, total carbohydrate 12g 4%, dietary fiber 1g 5%, total sugars 10g, protein 8g, vitamin c 1mg 3%, calcium 90mg 7%, iron 1mg 3%, potassium 160mg 3%",
+      "combined_text": "figs and toasted almonds brie ½ cup brown sugar, 2 tablespoons water, 6  fresh figs, stemmed and quartered, 1 (14 ounce) round 4 1/4-inch diameter round brie cheese, ½ cup toasted almonds, ½ teaspoon vanilla extract /appetizers and snacks/cheese/baked brie recipes/ prep time: 10 mins, cook time: 25 mins, total time: 35 mins, servings: 12, yield: 12 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Appetizers and Snacks/Cheese/Baked Brie Recipes/",
+      "ingredients": "½ cup brown sugar, 2 tablespoons water, 6  fresh figs, stemmed and quartered, 1 (14 ounce) round 4 1/4-inch diameter round Brie cheese, ½ cup toasted almonds, ½ teaspoon vanilla extract",
+      "prep_time": "10 mins",
+      "cook_time": "25 mins",
+      "servings": 12
+    }
+  },
+  {
+    "id": 218,
+    "name": "Fig and Prosciutto Appetizer Bites",
+    "collection": "appetizers-snacks",
+    "confidence": 7,
+    "features": {
+      "name": "fig and prosciutto appetizer bites",
+      "ingredients": "4 ounces honey-flavored goat cheese, 3 ounces prosciutto, 2  fresh figs, thinly sliced, 2 leaves fresh basil, cut into thin strips, ⅛ teaspoon freshly ground black pepper",
+      "directions": "place goat cheese on a sheet of plastic wrap. top with another sheet of plastic wrap and use a rolling pin to flatten into a 4x8-inch rectangle.\nremove the top sheet of plastic wrap and cover goat cheese with slices of prosciutto, slightly overlapping the edges. cover prosciutto with a new sheet of plastic wrap and flip both sheets over so the goat cheese layer is now facing up.\nremove top sheet of plastic wrap. cover goat cheese evenly with figs, basil, and black pepper. starting from the long edge, roll tightly to form a log. wrap log in plastic wrap and refrigerate at least 2 hours.",
+      "cuisine_path": "/appetizers and snacks/wraps and rolls/",
+      "timing": "prep time: 10 mins, additional time: 2 hrs, total time: 2 hrs 10 mins, servings: 25, yield: 25 bites",
+      "nutrition": "total fat 2g 3%, saturated fat 1g 7%, cholesterol 7mg 2%, sodium 89mg 4%, total carbohydrate 1g 0%, dietary fiber 0g 0%, total sugars 1g, protein 2g, vitamin c 0mg 1%, calcium 15mg 1%, iron 0mg 1%, potassium 15mg 0%",
+      "combined_text": "fig and prosciutto appetizer bites 4 ounces honey-flavored goat cheese, 3 ounces prosciutto, 2  fresh figs, thinly sliced, 2 leaves fresh basil, cut into thin strips, ⅛ teaspoon freshly ground black pepper /appetizers and snacks/wraps and rolls/ prep time: 10 mins, additional time: 2 hrs, total time: 2 hrs 10 mins, servings: 25, yield: 25 bites"
+    },
+    "original_data": {
+      "cuisine_path": "/Appetizers and Snacks/Wraps and Rolls/",
+      "ingredients": "4 ounces honey-flavored goat cheese, 3 ounces prosciutto, 2  fresh figs, thinly sliced, 2 leaves fresh basil, cut into thin strips, ⅛ teaspoon freshly ground black pepper",
+      "prep_time": "10 mins",
+      "cook_time": NaN,
+      "servings": 25
+    }
+  },
+  {
+    "id": 223,
+    "name": "Bourbon Fig Compote",
+    "collection": "appetizers-snacks",
+    "confidence": 8,
+    "features": {
+      "name": "bourbon fig compote",
+      "ingredients": "7 ounces dried mission figs, diced, ¼ cup white sugar, ¼ cup bourbon whiskey, ¼ cup balsamic vinegar, 1 tablespoon lemon juice, 1 pinch salt",
+      "directions": "combine figs, sugar, whiskey, balsamic vinegar, lemon juice, and salt in a small saucepan; bring to a boil. reduce heat and simmer until liquid reduces by half, about 30 minutes. cool before serving.",
+      "cuisine_path": "/appetizers and snacks/dips and spreads recipes/",
+      "timing": "prep time: 10 mins, cook time: 30 mins, total time: 40 mins, servings: 12, yield: 12 servings",
+      "nutrition": "total fat 0g 0%, sodium 3mg 0%, total carbohydrate 16g 6%, dietary fiber 2g 7%, total sugars 14g, protein 1g, vitamin c 1mg 4%, calcium 26mg 2%, iron 0mg 2%, potassium 124mg 3%",
+      "combined_text": "bourbon fig compote 7 ounces dried mission figs, diced, ¼ cup white sugar, ¼ cup bourbon whiskey, ¼ cup balsamic vinegar, 1 tablespoon lemon juice, 1 pinch salt /appetizers and snacks/dips and spreads recipes/ prep time: 10 mins, cook time: 30 mins, total time: 40 mins, servings: 12, yield: 12 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Appetizers and Snacks/Dips and Spreads Recipes/",
+      "ingredients": "7 ounces dried Mission figs, diced, ¼ cup white sugar, ¼ cup bourbon whiskey, ¼ cup balsamic vinegar, 1 tablespoon lemon juice, 1 pinch salt",
+      "prep_time": "10 mins",
+      "cook_time": "30 mins",
+      "servings": 12
+    }
+  },
+  {
+    "id": 226,
+    "name": "Burrata Bruschetta with Figs",
+    "collection": "appetizers-snacks",
+    "confidence": 6,
+    "features": {
+      "name": "burrata bruschetta with figs",
+      "ingredients": "12  black mission figs, halved lengthwise, 2 tablespoons balsamic vinegar, 2 tablespoons extra virgin olive oil, 6 ounces burrata cheese, thickly sliced, 6 (1/2 inch thick) slices italian bread, toasted,   sea salt and ground black pepper to taste",
+      "directions": "preheat an outdoor grill for high heat, and lightly oil the grate.\nplace figs, skin-side down, on grill. cook until figs start to swell and bubble, 2 to 4 minutes.\nwhisk together balsamic vinegar and olive oil until completely combined, about 1 minute.\nplace burrata cheese on top of each piece of toast. spread figs around bread and drizzle with balsamic vinegar mixture. season with sea salt and black pepper to taste.\n\n\n\n\n\n\n\n\n\n",
+      "cuisine_path": "/appetizers and snacks/bruschetta recipes/",
+      "timing": "prep time: 10 mins, cook time: 5 mins, total time: 15 mins, servings: 4, yield: 4 servings",
+      "nutrition": "total fat 17g 22%, saturated fat 7g 37%, cholesterol 30mg 10%, sodium 364mg 16%, total carbohydrate 45g 16%, dietary fiber 5g 19%, total sugars 26g, protein 10g, vitamin c 3mg 15%, calcium 78mg 6%, iron 3mg 14%, potassium 388mg 8%",
+      "combined_text": "burrata bruschetta with figs 12  black mission figs, halved lengthwise, 2 tablespoons balsamic vinegar, 2 tablespoons extra virgin olive oil, 6 ounces burrata cheese, thickly sliced, 6 (1/2 inch thick) slices italian bread, toast /appetizers and snacks/bruschetta recipes/ prep time: 10 mins, cook time: 5 mins, total time: 15 mins, servings: 4, yield: 4 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Appetizers and Snacks/Bruschetta Recipes/",
+      "ingredients": "12  Black Mission figs, halved lengthwise, 2 tablespoons balsamic vinegar, 2 tablespoons extra virgin olive oil, 6 ounces Burrata cheese, thickly sliced, 6 (1/2 inch thick) slices Italian bread, toasted,   sea salt and ground black pepper to taste",
+      "prep_time": "10 mins",
+      "cook_time": "5 mins",
+      "servings": 4
+    }
+  },
+  {
+    "id": 228,
+    "name": "Delish Black Mission Figs!",
+    "collection": "appetizers-snacks",
+    "confidence": 7,
+    "features": {
+      "name": "delish black mission figs!",
+      "ingredients": "8  black mission figs, cut in half, ¼ cup crumbled goat cheese, or as needed, 3 slices prosciutto, trimmed of all fat and cut into strips, 2 tablespoons honey, or to taste",
+      "directions": "set oven rack about 6 inches from the heat source and preheat the oven's broiler.\narrange fig halves, cut sides up, on a baking sheet. top each fig half with goat cheese; lay prosciutto strips atop goat cheese layer.\nbroil figs in the preheated oven until prosciutto is crisp and goat cheese is melted, 3 to 5 minutes.\ntransfer the warm figs to a serving platter and drizzle with honey.",
+      "cuisine_path": "/appetizers and snacks/meat and poultry/pork/",
+      "timing": "prep time: 10 mins, cook time: 5 mins, total time: 15 mins, servings: 4, yield: 4 servings",
+      "nutrition": "total fat 8g 10%, saturated fat 4g 22%, cholesterol 21mg 7%, sodium 283mg 12%, total carbohydrate 28g 10%, dietary fiber 3g 10%, total sugars 25g, protein 6g, vitamin c 2mg 11%, calcium 78mg 6%, iron 1mg 4%, potassium 260mg 6%",
+      "combined_text": "delish black mission figs! 8  black mission figs, cut in half, ¼ cup crumbled goat cheese, or as needed, 3 slices prosciutto, trimmed of all fat and cut into strips, 2 tablespoons honey, or to taste /appetizers and snacks/meat and poultry/pork/ prep time: 10 mins, cook time: 5 mins, total time: 15 mins, servings: 4, yield: 4 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Appetizers and Snacks/Meat and Poultry/Pork/",
+      "ingredients": "8  Black Mission figs, cut in half, ¼ cup crumbled goat cheese, or as needed, 3 slices prosciutto, trimmed of all fat and cut into strips, 2 tablespoons honey, or to taste",
+      "prep_time": "10 mins",
+      "cook_time": "5 mins",
+      "servings": 4
+    }
+  },
+  {
+    "id": 232,
+    "name": "Zurie's Fresh Fig Compote Over Cream Cheese",
+    "collection": "appetizers-snacks",
+    "confidence": 10,
+    "features": {
+      "name": "zurie's fresh fig compote over cream cheese",
+      "ingredients": "⅔ cup brown sugar, ¼ cup water, 1 pinch salt, 2 cups fresh figs, stemmed and quartered, 1 teaspoon vanilla extract, 1 (8 ounce) package cream cheese",
+      "directions": "heat a saucepan over medium heat; add brown sugar, water, salt, and figs. cook and stir until sugar has dissolved and figs have softened, about 10 minutes. remove from heat; stir in vanilla extract. cool for 5 minutes.\nplace cream cheese on a platter; pour fig mixture over cream cheese.",
+      "cuisine_path": "/appetizers and snacks/dips and spreads recipes/cheese dips and spreads recipes/",
+      "timing": "prep time: 10 mins, cook time: 10 mins, additional time: 5 mins, total time: 25 mins, servings: 8, yield: 8 servings",
+      "nutrition": "total fat 10g 13%, saturated fat 6g 31%, cholesterol 31mg 10%, sodium 87mg 4%, total carbohydrate 21g 7%, dietary fiber 1g 4%, total sugars 19g, protein 2g, vitamin c 1mg 4%, calcium 47mg 4%, iron 1mg 3%, potassium 146mg 3%",
+      "combined_text": "zurie's fresh fig compote over cream cheese ⅔ cup brown sugar, ¼ cup water, 1 pinch salt, 2 cups fresh figs, stemmed and quartered, 1 teaspoon vanilla extract, 1 (8 ounce) package cream cheese /appetizers and snacks/dips and spreads recipes/cheese dips and spreads recipes/ prep time: 10 mins, cook time: 10 mins, additional time: 5 mins, total time: 25 mins, servings: 8, yield: 8 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Appetizers and Snacks/Dips and Spreads Recipes/Cheese Dips and Spreads Recipes/",
+      "ingredients": "⅔ cup brown sugar, ¼ cup water, 1 pinch salt, 2 cups fresh figs, stemmed and quartered, 1 teaspoon vanilla extract, 1 (8 ounce) package cream cheese",
+      "prep_time": "10 mins",
+      "cook_time": "10 mins",
+      "servings": 8
+    }
+  },
+  {
+    "id": 233,
+    "name": "Fig and Ricotta Crostini",
+    "collection": "appetizers-snacks",
+    "confidence": 6,
+    "features": {
+      "name": "fig and ricotta crostini",
+      "ingredients": "1  french baguette, cut into 1/2 inch slices, 1 (15 ounce) container ricotta cheese, 12  fresh basil leaves, cut into thin strips, 8  black mission figs, cut in quarters , ¼ cup aged balsamic vinegar",
+      "directions": "preheat oven to 375 degrees f (190 degrees c).\nplace the baguette slices on an ungreased, foil-lined baking sheet.\nbake the bread in the preheated oven until the bottoms are brown, about 5 minutes; flip and bake until crisp, 5 minutes. remove the pan from the oven.\nspread 1 tablespoon of ricotta on each slice of toasted bread. place a few ribbons of basil on each, arrange a slice of fig on top, and drizzle the finished crostini with balsamic vinegar.",
+      "cuisine_path": "/appetizers and snacks/canapes and crostini recipes/",
+      "timing": "prep time: 25 mins, cook time: 10 mins, total time: 35 mins, servings: 12, yield: 24 crostini",
+      "nutrition": "total fat 4g 5%, saturated fat 2g 10%, cholesterol 11mg 4%, sodium 292mg 13%, total carbohydrate 30g 11%, dietary fiber 2g 7%, total sugars 7g, protein 9g, vitamin c 1mg 5%, calcium 127mg 10%, iron 2mg 9%, potassium 176mg 4%",
+      "combined_text": "fig and ricotta crostini 1  french baguette, cut into 1/2 inch slices, 1 (15 ounce) container ricotta cheese, 12  fresh basil leaves, cut into thin strips, 8  black mission figs, cut in quarters , ¼ cup aged balsamic vinegar /appetizers and snacks/canapes and crostini recipes/ prep time: 25 mins, cook time: 10 mins, total time: 35 mins, servings: 12, yield: 24 crostini"
+    },
+    "original_data": {
+      "cuisine_path": "/Appetizers and Snacks/Canapes and Crostini Recipes/",
+      "ingredients": "1  French baguette, cut into 1/2 inch slices, 1 (15 ounce) container ricotta cheese, 12  fresh basil leaves, cut into thin strips, 8  black mission figs, cut in quarters , ¼ cup aged balsamic vinegar",
+      "prep_time": "25 mins",
+      "cook_time": "10 mins",
+      "servings": 12
+    }
+  },
+  {
+    "id": 241,
+    "name": "Figs with Caramelized Onions and Goat Cheese",
+    "collection": "appetizers-snacks",
+    "confidence": 5,
+    "features": {
+      "name": "figs with caramelized onions and goat cheese",
+      "ingredients": "¼ cup canola oil, 1 large yellow onion, cut into thin slices, ¼ cup small dried mission figs, 6 ounces goat cheese, softened, 40  crackers",
+      "directions": "heat a skillet over medium heat; add oil. add onion; cook and stir until onion has softened and turned translucent, about 5 minutes. reduce heat to low and continue cooking and stirring until onion is very tender and dark brown, about 40 minutes more. remove from heat and cool.\nwhile the onion is cooling, cut the figs lengthwise into 1/4-inch rounds.\nlayer 1/4 teaspoon goat cheese, 1/4 teaspoon caramelized onions, and 1 or 2 fig slices on each cracker.",
+      "cuisine_path": "/appetizers and snacks/snacks/cracker recipes/",
+      "timing": "prep time: 15 mins, cook time: 45 mins, total time: 1 hrs, servings: 40, yield: 40 crackers",
+      "nutrition": "total fat 4g 5%, saturated fat 1g 6%, cholesterol 3mg 1%, sodium 54mg 2%, total carbohydrate 3g 1%, dietary fiber 0g 1%, total sugars 1g, protein 1g, vitamin c 0mg 2%, calcium 18mg 1%, iron 0mg 1%, potassium 21mg 0%",
+      "combined_text": "figs with caramelized onions and goat cheese ¼ cup canola oil, 1 large yellow onion, cut into thin slices, ¼ cup small dried mission figs, 6 ounces goat cheese, softened, 40  crackers /appetizers and snacks/snacks/cracker recipes/ prep time: 15 mins, cook time: 45 mins, total time: 1 hrs, servings: 40, yield: 40 crackers"
+    },
+    "original_data": {
+      "cuisine_path": "/Appetizers and Snacks/Snacks/Cracker Recipes/",
+      "ingredients": "¼ cup canola oil, 1 large yellow onion, cut into thin slices, ¼ cup small dried Mission figs, 6 ounces goat cheese, softened, 40  crackers",
+      "prep_time": "15 mins",
+      "cook_time": "45 mins",
+      "servings": 40
+    }
+  },
+  {
+    "id": 243,
+    "name": "Sweet and Spicy Fig Compote",
+    "collection": "appetizers-snacks",
+    "confidence": 11,
+    "features": {
+      "name": "sweet and spicy fig compote",
+      "ingredients": "1 cup sliced dried figs, 1 cup red wine, ¼ cup white sugar, 1 tablespoon honey, 1 teaspoon red pepper flakes, or to taste, 1 pinch salt",
+      "directions": "heat figs, red wine, sugar, honey, red pepper flakes, and salt in a small saucepan over medium heat. simmer until wine is reduced and thickened, about 20 minutes, stirring occasionally.",
+      "cuisine_path": "/appetizers and snacks/spicy/",
+      "timing": "prep time: 5 mins, cook time: 20 mins, total time: 25 mins, servings: 6, yield: 6 servings",
+      "nutrition": "total fat 1g 1%, saturated fat 0g 1%, sodium 6mg 0%, total carbohydrate 34g 12%, dietary fiber 4g 15%, total sugars 29g, protein 1g, vitamin c 1mg 4%, calcium 52mg 4%, iron 1mg 6%, potassium 298mg 6%",
+      "combined_text": "sweet and spicy fig compote 1 cup sliced dried figs, 1 cup red wine, ¼ cup white sugar, 1 tablespoon honey, 1 teaspoon red pepper flakes, or to taste, 1 pinch salt /appetizers and snacks/spicy/ prep time: 5 mins, cook time: 20 mins, total time: 25 mins, servings: 6, yield: 6 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Appetizers and Snacks/Spicy/",
+      "ingredients": "1 cup sliced dried figs, 1 cup red wine, ¼ cup white sugar, 1 tablespoon honey, 1 teaspoon red pepper flakes, or to taste, 1 pinch salt",
+      "prep_time": "5 mins",
+      "cook_time": "20 mins",
+      "servings": 6
+    }
+  },
+  {
+    "id": 258,
+    "name": "Watermelon Caprese Appetizer",
+    "collection": "appetizers-snacks",
+    "confidence": 7,
+    "features": {
+      "name": "watermelon caprese appetizer",
+      "ingredients": "3 sprigs fresh basil, stems removed, 1 small watermelon, fruit removed with a melon baller, 1 (8 ounce) package fresh mozzarella cheese, cut into small pieces, 2 tablespoons olive oil, 2 tablespoons balsamic vinegar,   salt and ground black pepper to taste",
+      "directions": "trim basil leaves into small circles about 1 inch in diameter.\nthread watermelon and mozzarella cheese on toothpicks, sandwiching a basil leaf in between. arrange on a serving plate.\npour olive oil and balsamic vinegar over toothpicks. sprinkle salt and black pepper on top.\n\n\n\n\n\n\n\n\n\n",
+      "cuisine_path": "/appetizers and snacks/antipasto recipes/",
+      "timing": "prep time: 30 mins, total time: 30 mins, servings: 4, yield: 4 servings",
+      "nutrition": "total fat 20g 25%, saturated fat 9g 46%, cholesterol 45mg 15%, sodium 125mg 5%, total carbohydrate 28g 10%, dietary fiber 1g 5%, total sugars 24g, protein 12g, vitamin c 28mg 142%, calcium 357mg 27%, iron 1mg 8%, potassium 399mg 8%",
+      "combined_text": "watermelon caprese appetizer 3 sprigs fresh basil, stems removed, 1 small watermelon, fruit removed with a melon baller, 1 (8 ounce) package fresh mozzarella cheese, cut into small pieces, 2 tablespoons olive oil, 2 tablespoons b /appetizers and snacks/antipasto recipes/ prep time: 30 mins, total time: 30 mins, servings: 4, yield: 4 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Appetizers and Snacks/Antipasto Recipes/",
+      "ingredients": "3 sprigs fresh basil, stems removed, 1 small watermelon, fruit removed with a melon baller, 1 (8 ounce) package fresh mozzarella cheese, cut into small pieces, 2 tablespoons olive oil, 2 tablespoons balsamic vinegar,   salt and ground black pepper to taste",
+      "prep_time": "30 mins",
+      "cook_time": NaN,
+      "servings": 4
+    }
+  },
+  {
+    "id": 270,
+    "name": "Watermelon Fruit Bowl",
+    "collection": "appetizers-snacks",
+    "confidence": 5,
+    "features": {
+      "name": "watermelon fruit bowl",
+      "ingredients": "1  large watermelon, 1  cantaloupe, halved and seeded, 1  honeydew melon, halved and seeded, 2 (15 ounce) cans mandarin oranges, drained, 2 (20 ounce) cans pineapple chunks, drained, 2 cups halved fresh strawberries, 2 cups seedless grapes , ½ cup water, ¼ cup white sugar, 2 tablespoons grated lemon zest",
+      "directions": "with a large, sharp knife, remove the top 1/4 section of the watermelon. with a melon baller, scoop flesh from inside of watermelon, removing as many seeds as possible. leave 1/2 inch of flesh inside the shell of the watermelon. scoop cantaloupe and honeydew in the same manner, removing as much flesh as possible, and discarding the rinds. refrigerate fruits separately until ready to assemble.\nin a small saucepan over medium-high heat, bring water and sugar to a boil. remove from heat, and continue stirring until sugar has completely dissolved. add lemon zest, and set aside to cool.\nto serve, place watermelon balls, cantaloupe, honeydew, oranges, pineapple, strawberries, and grapes, in a large mixing bowl. pour syrup over, and toss thoroughly. transfer mixture to watermelon bowl, and serve. set aside any fruit mixture that will not fit. there will be enough fruit to refill the bowl.",
+      "cuisine_path": "/appetizers and snacks/fruit/",
+      "timing": "prep time: 30 mins, cook time: 5 mins, additional time: 15 mins, total time: 50 mins, servings: 20, yield: 20 servings",
+      "nutrition": "total fat 1g 1%, saturated fat 0g 1%, sodium 23mg 1%, total carbohydrate 45g 17%, dietary fiber 3g 11%, total sugars 40g, protein 3g, vitamin c 75mg 377%, calcium 41mg 3%, iron 1mg 6%, potassium 683mg 15%",
+      "combined_text": "watermelon fruit bowl 1  large watermelon, 1  cantaloupe, halved and seeded, 1  honeydew melon, halved and seeded, 2 (15 ounce) cans mandarin oranges, drained, 2 (20 ounce) cans pineapple chunks, drained, 2 cups halved fre /appetizers and snacks/fruit/ prep time: 30 mins, cook time: 5 mins, additional time: 15 mins, total time: 50 mins, servings: 20, yield: 20 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Appetizers and Snacks/Fruit/",
+      "ingredients": "1  large watermelon, 1  cantaloupe, halved and seeded, 1  honeydew melon, halved and seeded, 2 (15 ounce) cans mandarin oranges, drained, 2 (20 ounce) cans pineapple chunks, drained, 2 cups halved fresh strawberries, 2 cups seedless grapes , ½ cup water, ¼ cup white sugar, 2 tablespoons grated lemon zest",
+      "prep_time": "30 mins",
+      "cook_time": "5 mins",
+      "servings": 20
+    }
+  },
+  {
+    "id": 289,
+    "name": "Watermelon Fire and Ice Salsa",
+    "collection": "appetizers-snacks",
+    "confidence": 6,
+    "features": {
+      "name": "watermelon fire and ice salsa",
+      "ingredients": "3 cups chopped watermelon, ½ cup chopped green bell pepper, 2 tablespoons lime juice, 2 tablespoons chopped fresh cilantro, 1 tablespoon chopped green onions, 1 tablespoon chopped jalapeno pepper, ½ teaspoon garlic salt",
+      "directions": "in a large bowl, combine the watermelon, green bell pepper, lime juice, cilantro, green onions, jalapeno and garlic salt. mix well and serve.",
+      "cuisine_path": "/appetizers and snacks/dips and spreads recipes/salsa recipes/watermelon salsa recipes/",
+      "timing": "prep time: 15 mins, total time: 15 mins, servings: 32, yield: 4 cups",
+      "nutrition": "sodium 29mg 1%, total carbohydrate 1g 0%, dietary fiber 0g 0%, total sugars 1g, protein 0g, vitamin c 4mg 18%, calcium 2mg 0%, iron 0mg 1%, potassium 23mg 0%",
+      "combined_text": "watermelon fire and ice salsa 3 cups chopped watermelon, ½ cup chopped green bell pepper, 2 tablespoons lime juice, 2 tablespoons chopped fresh cilantro, 1 tablespoon chopped green onions, 1 tablespoon chopped jalapeno pepper, ½ t /appetizers and snacks/dips and spreads recipes/salsa recipes/watermelon salsa recipes/ prep time: 15 mins, total time: 15 mins, servings: 32, yield: 4 cups"
+    },
+    "original_data": {
+      "cuisine_path": "/Appetizers and Snacks/Dips and Spreads Recipes/Salsa Recipes/Watermelon Salsa Recipes/",
+      "ingredients": "3 cups chopped watermelon, ½ cup chopped green bell pepper, 2 tablespoons lime juice, 2 tablespoons chopped fresh cilantro, 1 tablespoon chopped green onions, 1 tablespoon chopped jalapeno pepper, ½ teaspoon garlic salt",
+      "prep_time": "15 mins",
+      "cook_time": NaN,
+      "servings": 32
+    }
+  },
+  {
+    "id": 344,
+    "name": "Baked Banana Chips",
+    "collection": "appetizers-snacks",
+    "confidence": 7,
+    "features": {
+      "name": "baked banana chips",
+      "ingredients": "2  just-ripe bananas, sliced in 1/10-inch-thick rounds, or more as needed, 1 teaspoon lemon juice, or to taste",
+      "directions": "preheat the oven to 225 degrees f (110 degrees c). line a baking sheet with parchment paper.\nspread banana slices out onto the prepared baking sheet, making sure slices are not touching. brush with lemon juice.\nbake in the preheated oven for 90 minutes. check bananas, lifting slices up to separate from the paper once or twice. continue baking until bananas are dried out, 30 to 90 minutes more.\nlet bananas cool until crispy, at least 5 minutes.",
+      "cuisine_path": "/appetizers and snacks/snacks/snack chip recipes/",
+      "timing": "prep time: 10 mins, cook time: 2 hrs, additional time: 5 mins, total time: 2 hrs 15 mins, servings: 2",
+      "nutrition": "total fat 0g 1%, saturated fat 0g 1%, sodium 1mg 0%, total carbohydrate 27g 10%, dietary fiber 3g 11%, total sugars 15g, protein 1g, vitamin c 12mg 58%, calcium 6mg 0%, iron 0mg 2%, potassium 426mg 9%",
+      "combined_text": "baked banana chips 2  just-ripe bananas, sliced in 1/10-inch-thick rounds, or more as needed, 1 teaspoon lemon juice, or to taste /appetizers and snacks/snacks/snack chip recipes/ prep time: 10 mins, cook time: 2 hrs, additional time: 5 mins, total time: 2 hrs 15 mins, servings: 2"
+    },
+    "original_data": {
+      "cuisine_path": "/Appetizers and Snacks/Snacks/Snack Chip Recipes/",
+      "ingredients": "2  just-ripe bananas, sliced in 1/10-inch-thick rounds, or more as needed, 1 teaspoon lemon juice, or to taste",
+      "prep_time": "10 mins",
+      "cook_time": "2 hrs",
+      "servings": 2
+    }
+  },
+  {
+    "id": 397,
+    "name": "Mango, Peach and Pineapple Salsa",
+    "collection": "appetizers-snacks",
+    "confidence": 6,
+    "features": {
+      "name": "mango, peach and pineapple salsa",
+      "ingredients": "2  mangos, peeled, seeded and chopped, 2 small peaches, halved, pitted, and cut into 1/2-inch dice, 1 cup diced fresh pineapple, 4  tomatoes, chopped, 1  white onion, diced, 1  red bell pepper, diced, 1  yellow bell pepper, diced, 1 cup chopped fresh cilantro, or to taste, 1 clove garlic, minced, 1 small jalapeno pepper, minced, 2 tablespoons lime juice, 1 teaspoon salt, 2 tablespoons white sugar, or to taste, ¾ cup water",
+      "directions": "place the mango, peach, pineapple, tomato, onion, red pepper, yellow pepper, and cilantro in a mixing bowl. stir in the garlic, jalapeno, lime juice, salt, sugar, and water. cover and refrigerate at least 1 hour before serving.",
+      "cuisine_path": "/appetizers and snacks/dips and spreads recipes/salsa recipes/peach salsa recipes/",
+      "timing": "prep time: 20 mins, additional time: 1 hrs, total time: 1 hrs 20 mins, servings: 16, yield: 8 cups",
+      "nutrition": "total fat 0g 0%, sodium 150mg 7%, total carbohydrate 10g 4%, dietary fiber 1g 5%, total sugars 7g, protein 1g, vitamin c 48mg 242%, calcium 14mg 1%, iron 0mg 2%, potassium 199mg 4%",
+      "combined_text": "mango, peach and pineapple salsa 2  mangos, peeled, seeded and chopped, 2 small peaches, halved, pitted, and cut into 1/2-inch dice, 1 cup diced fresh pineapple, 4  tomatoes, chopped, 1  white onion, diced, 1  red bell pepper, diced, /appetizers and snacks/dips and spreads recipes/salsa recipes/peach salsa recipes/ prep time: 20 mins, additional time: 1 hrs, total time: 1 hrs 20 mins, servings: 16, yield: 8 cups"
+    },
+    "original_data": {
+      "cuisine_path": "/Appetizers and Snacks/Dips and Spreads Recipes/Salsa Recipes/Peach Salsa Recipes/",
+      "ingredients": "2  mangos, peeled, seeded and chopped, 2 small peaches, halved, pitted, and cut into 1/2-inch dice, 1 cup diced fresh pineapple, 4  tomatoes, chopped, 1  white onion, diced, 1  red bell pepper, diced, 1  yellow bell pepper, diced, 1 cup chopped fresh cilantro, or to taste, 1 clove garlic, minced, 1 small jalapeno pepper, minced, 2 tablespoons lime juice, 1 teaspoon salt, 2 tablespoons white sugar, or to taste, ¾ cup water",
+      "prep_time": "20 mins",
+      "cook_time": NaN,
+      "servings": 16
+    }
+  },
+  {
+    "id": 448,
+    "name": "Fruit Leather",
+    "collection": "appetizers-snacks",
+    "confidence": 8,
+    "features": {
+      "name": "fruit leather",
+      "ingredients": "1 cup sugar, ¼ cup lemon juice, 4 cups peeled, cored and chopped apple, 4 cups peeled, cored and chopped pears",
+      "directions": "preheat the oven to 150 degrees f (65 degrees c). cover a baking sheet with a layer of plastic wrap or parchment paper.\nin the container of a blender, combine the sugar, lemon juice, apple and pear. cover and puree until smooth. spread evenly on the prepared pan. place the pan on the top rack of the oven.\nbake for 5 to 6 hours, leaving the door to the oven partway open. fruit is dry when the surface is no longer tacky and you can tear it like leather. roll up on the plastic wrap and store in an airtight jar.",
+      "cuisine_path": "/appetizers and snacks/",
+      "timing": "prep time: 20 mins, cook time: 5 hrs, total time: 5 hrs 20 mins, servings: 16, yield: 1 sheet",
+      "nutrition": "total fat 0g 0%, sodium 1mg 0%, total carbohydrate 24g 9%, dietary fiber 2g 7%, total sugars 20g, protein 0g, vitamin c 5mg 25%, calcium 6mg 0%, iron 0mg 1%, potassium 88mg 2%",
+      "combined_text": "fruit leather 1 cup sugar, ¼ cup lemon juice, 4 cups peeled, cored and chopped apple, 4 cups peeled, cored and chopped pears /appetizers and snacks/ prep time: 20 mins, cook time: 5 hrs, total time: 5 hrs 20 mins, servings: 16, yield: 1 sheet"
+    },
+    "original_data": {
+      "cuisine_path": "/Appetizers and Snacks/",
+      "ingredients": "1 cup sugar, ¼ cup lemon juice, 4 cups peeled, cored and chopped apple, 4 cups peeled, cored and chopped pears",
+      "prep_time": "20 mins",
+      "cook_time": "5 hrs",
+      "servings": 16
+    }
+  },
+  {
+    "id": 537,
+    "name": "World's Best Guacamole",
+    "collection": "appetizers-snacks",
+    "confidence": 6,
+    "features": {
+      "name": "world's best guacamole",
+      "ingredients": "¼ cup minced onion, 2  limes, juiced, 2  serrano chile peppers, or to taste, 2  limes, juiced,   salt to taste, 4  ripe avocados, peeled and pitted, ¼ cup chopped fresh cilantro, ¼ cup pomegranate seeds, divided, 1 sprig cilantro for garnish",
+      "directions": "combine the onion with the juice of 2 limes in a small bowl; allow the onion to soak in the lime juice for 2 hours. strain through a fine-mesh sieve and discard the lime juice. set the onions aside.\ngrind the serrano chile peppers, the juice of 2 limes, and salt together in a food processor until smooth; add the avocado and continue processing until creamy and smooth. transfer the mixture into a small serving bowl; fold the soaked onions, chopped cilantro, and about half the pomegranate seeds into the avocado mixture. top with the remaining pomegranate seeds and garnish with the cilantro sprig to serve.",
+      "cuisine_path": "/appetizers and snacks/dips and spreads recipes/guacamole recipes/",
+      "timing": "prep time: 25 mins, additional time: 2 hrs, total time: 2 hrs 25 mins, servings: 6, yield: 6 servings",
+      "nutrition": "total fat 20g 25%, saturated fat 3g 15%, sodium 12mg 1%, total carbohydrate 17g 6%, dietary fiber 11g 38%, total sugars 2g, protein 3g, vitamin c 29mg 143%, calcium 34mg 3%, iron 1mg 6%, potassium 724mg 15%",
+      "combined_text": "world's best guacamole ¼ cup minced onion, 2  limes, juiced, 2  serrano chile peppers, or to taste, 2  limes, juiced,   salt to taste, 4  ripe avocados, peeled and pitted, ¼ cup chopped fresh cilantro, ¼ cup pomegranate see /appetizers and snacks/dips and spreads recipes/guacamole recipes/ prep time: 25 mins, additional time: 2 hrs, total time: 2 hrs 25 mins, servings: 6, yield: 6 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Appetizers and Snacks/Dips and Spreads Recipes/Guacamole Recipes/",
+      "ingredients": "¼ cup minced onion, 2  limes, juiced, 2  serrano chile peppers, or to taste, 2  limes, juiced,   salt to taste, 4  ripe avocados, peeled and pitted, ¼ cup chopped fresh cilantro, ¼ cup pomegranate seeds, divided, 1 sprig cilantro for garnish",
+      "prep_time": "25 mins",
+      "cook_time": NaN,
+      "servings": 6
+    }
+  },
+  {
+    "id": 565,
+    "name": "Roasted Persimmon-Burrata Focaccia",
+    "collection": "appetizers-snacks",
+    "confidence": 6,
+    "features": {
+      "name": "roasted persimmon-burrata focaccia",
+      "ingredients": "1  precooked 9-inch focaccia flatbread, 1  fuyu persimmon, peeled and sliced into 1/4-inch rounds, 4 teaspoons olive oil, divided, ½ teaspoon salt, 2 sprigs fresh rosemary, leaves stripped, ½ cup burrata cheese",
+      "directions": "preheat the oven to 350 degrees f (175 degrees c). line a baking sheet with parchment paper.\nlay persimmon slices onto the prepared baking sheet. drizzle with 2 teaspoons olive oil and sprinkle salt on top. sprinkle 1/2 the rosemary leaves over the persimmon slices.\nroast in the preheated oven for 20 minutes. turn persimmon slices over and roast 10 minutes more.\nremove baking sheet from the oven and increase temperature to 200 degrees c. place focaccia on a baking sheet.\nbake focaccia in the hot oven until warmed through, about 5 minutes. remove from oven and top focaccia with roasted persimmon slices. tear burrata cheese using your hands and lay evenly on the focaccia, avoiding the persimmon slices. reserve about 1 tablespoon rosemary leaves and sprinkle the rest on top.\nreturn focaccia to the hot oven and bake until warmed and burrata cheese has melted slightly, about 5 minutes. top with reserved fresh rosemary leaves and drizzle remaining 2 teaspoons olive oil on top. slice and serve hot.",
+      "cuisine_path": "/appetizers and snacks/cheese/",
+      "timing": "prep time: 10 mins, cook time: 40 mins, total time: 50 mins, servings: 2, yield: 2 servings",
+      "nutrition": "total fat 31g 40%, saturated fat 12g 62%, cholesterol 45mg 15%, sodium 2067mg 90%, total carbohydrate 118g 43%, dietary fiber 6g 23%, total sugars 2g, protein 29g, vitamin c 8mg 42%, calcium 183mg 14%, iron 7mg 39%, potassium 294mg 6%",
+      "combined_text": "roasted persimmon-burrata focaccia 1  precooked 9-inch focaccia flatbread, 1  fuyu persimmon, peeled and sliced into 1/4-inch rounds, 4 teaspoons olive oil, divided, ½ teaspoon salt, 2 sprigs fresh rosemary, leaves stripped, ½ cup burr /appetizers and snacks/cheese/ prep time: 10 mins, cook time: 40 mins, total time: 50 mins, servings: 2, yield: 2 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Appetizers and Snacks/Cheese/",
+      "ingredients": "1  precooked 9-inch focaccia flatbread, 1  Fuyu persimmon, peeled and sliced into 1/4-inch rounds, 4 teaspoons olive oil, divided, ½ teaspoon salt, 2 sprigs fresh rosemary, leaves stripped, ½ cup burrata cheese",
+      "prep_time": "10 mins",
+      "cook_time": "40 mins",
+      "servings": 2
+    }
+  },
+  {
+    "id": 622,
+    "name": "Baked Banana Chips",
+    "collection": "appetizers-snacks",
+    "confidence": 7,
+    "features": {
+      "name": "baked banana chips",
+      "ingredients": "2  just-ripe bananas, sliced in 1/10-inch-thick rounds, or more as needed, 1 teaspoon lemon juice, or to taste",
+      "directions": "preheat the oven to 225 degrees f (110 degrees c). line a baking sheet with parchment paper.\nspread banana slices out onto the prepared baking sheet, making sure slices are not touching. brush with lemon juice.\nbake in the preheated oven for 90 minutes. check bananas, lifting slices up to separate from the paper once or twice. continue baking until bananas are dried out, 30 to 90 minutes more.\nlet bananas cool until crispy, at least 5 minutes.",
+      "cuisine_path": "/appetizers and snacks/snacks/snack chip recipes/",
+      "timing": "prep time: 10 mins, cook time: 2 hrs, additional time: 5 mins, total time: 2 hrs 15 mins, servings: 2",
+      "nutrition": "total fat 0g 1%, saturated fat 0g 1%, sodium 1mg 0%, total carbohydrate 27g 10%, dietary fiber 3g 11%, total sugars 15g, protein 1g, vitamin c 12mg 58%, calcium 6mg 0%, iron 0mg 2%, potassium 426mg 9%",
+      "combined_text": "baked banana chips 2  just-ripe bananas, sliced in 1/10-inch-thick rounds, or more as needed, 1 teaspoon lemon juice, or to taste /appetizers and snacks/snacks/snack chip recipes/ prep time: 10 mins, cook time: 2 hrs, additional time: 5 mins, total time: 2 hrs 15 mins, servings: 2"
+    },
+    "original_data": {
+      "cuisine_path": "/Appetizers and Snacks/Snacks/Snack Chip Recipes/",
+      "ingredients": "2  just-ripe bananas, sliced in 1/10-inch-thick rounds, or more as needed, 1 teaspoon lemon juice, or to taste",
+      "prep_time": "10 mins",
+      "cook_time": "2 hrs",
+      "servings": 2
+    }
+  },
+  {
+    "id": 650,
+    "name": "Spicy Fruit Salsa",
+    "collection": "appetizers-snacks",
+    "confidence": 6,
+    "features": {
+      "name": "spicy fruit salsa",
+      "ingredients": "5  kiwis, peeled and diced, 1 quart strawberries, finely chopped, 1 pint fresh blackberries, chopped, 4  granny smith apples - peeled, cored and coarsely shredded, 2 tablespoons any flavor fruit jelly, ¾ cup brown sugar, 1 tablespoon cayenne pepper, 3 tablespoons habanero hot sauce, 1 (7 ounce) can green salsa, ⅓ cup lime juice",
+      "directions": "place kiwis, strawberries, blackberries, and apples in a bowl. stir in jelly, brown sugar, cayenne pepper, hot sauce, green salsa, and lime juice. stir together.",
+      "cuisine_path": "/appetizers and snacks/dips and spreads recipes/salsa recipes/",
+      "timing": "prep time: 15 mins, total time: 15 mins, servings: 12, yield: 12 servings",
+      "nutrition": "total fat 1g 1%, sodium 149mg 6%, total carbohydrate 34g 12%, dietary fiber 4g 15%, total sugars 27g, protein 1g, vitamin c 71mg 356%, calcium 42mg 3%, iron 1mg 4%, potassium 307mg 7%",
+      "combined_text": "spicy fruit salsa 5  kiwis, peeled and diced, 1 quart strawberries, finely chopped, 1 pint fresh blackberries, chopped, 4  granny smith apples - peeled, cored and coarsely shredded, 2 tablespoons any flavor fruit jelly /appetizers and snacks/dips and spreads recipes/salsa recipes/ prep time: 15 mins, total time: 15 mins, servings: 12, yield: 12 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Appetizers and Snacks/Dips and Spreads Recipes/Salsa Recipes/",
+      "ingredients": "5  kiwis, peeled and diced, 1 quart strawberries, finely chopped, 1 pint fresh blackberries, chopped, 4  Granny Smith apples - peeled, cored and coarsely shredded, 2 tablespoons any flavor fruit jelly, ¾ cup brown sugar, 1 tablespoon cayenne pepper, 3 tablespoons habanero hot sauce, 1 (7 ounce) can green salsa, ⅓ cup lime juice",
+      "prep_time": "15 mins",
+      "cook_time": NaN,
+      "servings": 12
+    }
+  },
+  {
+    "id": 660,
+    "name": "Simple Strawberry Salsa",
+    "collection": "appetizers-snacks",
+    "confidence": 10,
+    "features": {
+      "name": "simple strawberry salsa",
+      "ingredients": "1 tablespoon lemon juice, 1 ½ teaspoons white sugar, 1 cup finely chopped strawberries, 1 (8 ounce) can unsweetened crushed pineapple, drained, 3  kiwis, peeled and finely chopped, 1  naval orange, peeled and cut into small pieces",
+      "directions": "stir lemon juice and sugar together in a bowl to dissolve the sugar; add strawberries, pineapple, kiwis, and orange pieces and stir to coat in the lemon juice mixture.\ncover bowl with plastic wrap and refrigerate at least 30 minutes.",
+      "cuisine_path": "/appetizers and snacks/dips and spreads recipes/fruit dip/",
+      "timing": "prep time: 15 mins, additional time: 30 mins, total time: 45 mins, servings: 10, yield: 10 servings",
+      "nutrition": "total fat 0g 0%, sodium 1mg 0%, total carbohydrate 11g 4%, dietary fiber 2g 6%, total sugars 8g, protein 1g, vitamin c 42mg 211%, calcium 20mg 2%, iron 0mg 1%, potassium 154mg 3%",
+      "combined_text": "simple strawberry salsa 1 tablespoon lemon juice, 1 ½ teaspoons white sugar, 1 cup finely chopped strawberries, 1 (8 ounce) can unsweetened crushed pineapple, drained, 3  kiwis, peeled and finely chopped, 1  naval orange, pe /appetizers and snacks/dips and spreads recipes/fruit dip/ prep time: 15 mins, additional time: 30 mins, total time: 45 mins, servings: 10, yield: 10 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Appetizers and Snacks/Dips and Spreads Recipes/Fruit Dip/",
+      "ingredients": "1 tablespoon lemon juice, 1 ½ teaspoons white sugar, 1 cup finely chopped strawberries, 1 (8 ounce) can unsweetened crushed pineapple, drained, 3  kiwis, peeled and finely chopped, 1  naval orange, peeled and cut into small pieces",
+      "prep_time": "15 mins",
+      "cook_time": NaN,
+      "servings": 10
+    }
+  },
+  {
+    "id": 665,
+    "name": "Sweet Salsa and Cinnamon Chips",
+    "collection": "appetizers-snacks",
+    "confidence": 11,
+    "features": {
+      "name": "sweet salsa and cinnamon chips",
+      "ingredients": "10  frozen strawberries, 2  kiwi, peeled and chopped, ½ medium mango - peeled and diced, 1 ½  bananas, peeled and diced, 3 (12 inch) flour tortillas,   canola cooking spray, 1 cup cinnamon sugar",
+      "directions": "preheat oven to 400 degrees f (200 degrees c).\ncombine the kiwi, mango, and banana in a bowl. process the strawberries in a blender until they are liquefied and pour over fruit mixture. stir to coat and refrigerate.\ncoat both sides of each tortilla with the cooking spray. cut them into triangle-shaped wedges and place on a baking sheet. sprinkle cinnamon sugar evenly over the chips. bake in preheated oven until golden-brown, about 10 minutes. allow to cool and serve with the fruit mixture.",
+      "cuisine_path": "/appetizers and snacks/snacks/kids/healthy/",
+      "timing": "prep time: 20 mins, cook time: 10 mins, total time: 30 mins, servings: 5, yield: 5 servings",
+      "nutrition": "total fat 6g 7%, saturated fat 1g 7%, sodium 450mg 20%, total carbohydrate 94g 34%, dietary fiber 5g 17%, total sugars 12g, protein 7g, vitamin c 45mg 225%, calcium 108mg 8%, iron 3mg 15%, potassium 392mg 8%",
+      "combined_text": "sweet salsa and cinnamon chips 10  frozen strawberries, 2  kiwi, peeled and chopped, ½ medium mango - peeled and diced, 1 ½  bananas, peeled and diced, 3 (12 inch) flour tortillas,   canola cooking spray, 1 cup cinnamon sugar /appetizers and snacks/snacks/kids/healthy/ prep time: 20 mins, cook time: 10 mins, total time: 30 mins, servings: 5, yield: 5 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Appetizers and Snacks/Snacks/Kids/Healthy/",
+      "ingredients": "10  frozen strawberries, 2  kiwi, peeled and chopped, ½ medium mango - peeled and diced, 1 ½  bananas, peeled and diced, 3 (12 inch) flour tortillas,   canola cooking spray, 1 cup cinnamon sugar",
+      "prep_time": "20 mins",
+      "cook_time": "10 mins",
+      "servings": 5
+    }
+  },
+  {
+    "id": 670,
+    "name": "Mango-Habanero Chicken Wings",
+    "collection": "appetizers-snacks",
+    "confidence": 9,
+    "features": {
+      "name": "mango-habanero chicken wings",
+      "ingredients": "30  chicken wing sections, 1 (12 ounce) can mango nectar, ¼ cup brown sugar, 6  habanero peppers, stemmed, 2 tablespoons soy sauce, 1 tablespoon sriracha hot chili sauce, 1 tablespoon rice vinegar, 1 stick butter, 3 cloves garlic, minced, 2 tablespoons honey, 1 cup cornstarch, 2 cups vegetable oil for frying",
+      "directions": "rinse chicken wings and pat dry with paper towels. place wings on a baking sheet and refrigerate to dry a bit more.\ncombine mango nectar, brown sugar, habanero peppers, soy sauce, sriracha sauce, and vinegar in a food processor. mix until peppers are pureed; seeds will still be visible. remove food processor lid carefully; the pepper fumes can be strong.\nmelt butter in a saucepan over medium heat. add minced garlic; cook until fragrant, about 30 seconds. add the mango-habanero mixture immediately; bring to a simmer, stirring frequently. reduce heat to medium-low; add honey. simmer, stirring frequently, until sauce is reduced by 75% and thickened to a glaze, 45 minutes to 1 hour. remove from heat.\npreheat the oven to 200 degrees f (95 degrees c).\nheat oil in a deep-fryer to 350 degrees f (175 degrees c).\ncoat wings lightly with cornstarch. place 5 to 6 wings in the hot oil; fry until golden brown and crispy, about 8 minutes. place wings on a paper towel to absorb excess oil; transfer to the preheated oven to keep warm. repeat until all wings have been fried and drained.\nplace wings in a large bowl. pour half the sauce over the wings and mix, coating the wings with the sauce. continue adding the remaining sauce until you have coated the wings to your liking.",
+      "cuisine_path": "/appetizers and snacks/meat and poultry/chicken/",
+      "timing": "prep time: 20 mins, cook time: 1 hrs 33 mins, total time: 1 hrs 53 mins, servings: 10, yield: 30 wings",
+      "nutrition": "total fat 29g 37%, saturated fat 11g 53%, cholesterol 80mg 27%, sodium 367mg 16%, total carbohydrate 29g 10%, dietary fiber 1g 3%, total sugars 14g, protein 19g, vitamin c 5mg 25%, calcium 23mg 2%, iron 1mg 7%, potassium 177mg 4%",
+      "combined_text": "mango-habanero chicken wings 30  chicken wing sections, 1 (12 ounce) can mango nectar, ¼ cup brown sugar, 6  habanero peppers, stemmed, 2 tablespoons soy sauce, 1 tablespoon sriracha hot chili sauce, 1 tablespoon rice vinegar, 1  /appetizers and snacks/meat and poultry/chicken/ prep time: 20 mins, cook time: 1 hrs 33 mins, total time: 1 hrs 53 mins, servings: 10, yield: 30 wings"
+    },
+    "original_data": {
+      "cuisine_path": "/Appetizers and Snacks/Meat and Poultry/Chicken/",
+      "ingredients": "30  chicken wing sections, 1 (12 ounce) can mango nectar, ¼ cup brown sugar, 6  habanero peppers, stemmed, 2 tablespoons soy sauce, 1 tablespoon sriracha hot chili sauce, 1 tablespoon rice vinegar, 1 stick butter, 3 cloves garlic, minced, 2 tablespoons honey, 1 cup cornstarch, 2 cups vegetable oil for frying",
+      "prep_time": "20 mins",
+      "cook_time": "1 hrs 33 mins",
+      "servings": 10
+    }
+  },
+  {
+    "id": 679,
+    "name": "Fresh Mango Salsa",
+    "collection": "appetizers-snacks",
+    "confidence": 8,
+    "features": {
+      "name": "fresh mango salsa",
+      "ingredients": "2 cups diced roma tomatoes , 1 ½ cups diced mango, ½ cup diced onion, 1 teaspoon white sugar, ½ cup chopped fresh cilantro, 2 tablespoons fresh lime juice, 1 tablespoon cider vinegar, ½ teaspoon salt, ½ teaspoon black pepper, 2 cloves garlic, minced",
+      "directions": "stir the tomatoes, mango, onion, sugar, cilantro, lime juice, cider vinegar, salt, pepper, and garlic together in a bowl; refrigerate 1 hour before serving.",
+      "cuisine_path": "/appetizers and snacks/dips and spreads recipes/salsa recipes/mango salsa recipes/",
+      "timing": "prep time: 20 mins, additional time: 1 hrs, total time: 1 hrs 20 mins, servings: 40, yield: 5 cups",
+      "nutrition": "sodium 30mg 1%, total carbohydrate 2g 1%, dietary fiber 0g 1%, total sugars 1g, protein 0g, vitamin c 3mg 17%, calcium 3mg 0%, iron 0mg 1%, potassium 39mg 1%",
+      "combined_text": "fresh mango salsa 2 cups diced roma tomatoes , 1 ½ cups diced mango, ½ cup diced onion, 1 teaspoon white sugar, ½ cup chopped fresh cilantro, 2 tablespoons fresh lime juice, 1 tablespoon cider vinegar, ½ teaspoon salt, /appetizers and snacks/dips and spreads recipes/salsa recipes/mango salsa recipes/ prep time: 20 mins, additional time: 1 hrs, total time: 1 hrs 20 mins, servings: 40, yield: 5 cups"
+    },
+    "original_data": {
+      "cuisine_path": "/Appetizers and Snacks/Dips and Spreads Recipes/Salsa Recipes/Mango Salsa Recipes/",
+      "ingredients": "2 cups diced Roma tomatoes , 1 ½ cups diced mango, ½ cup diced onion, 1 teaspoon white sugar, ½ cup chopped fresh cilantro, 2 tablespoons fresh lime juice, 1 tablespoon cider vinegar, ½ teaspoon salt, ½ teaspoon black pepper, 2 cloves garlic, minced",
+      "prep_time": "20 mins",
+      "cook_time": NaN,
+      "servings": 40
+    }
+  },
+  {
+    "id": 691,
+    "name": "Mango, Peach and Pineapple Salsa",
+    "collection": "appetizers-snacks",
+    "confidence": 6,
+    "features": {
+      "name": "mango, peach and pineapple salsa",
+      "ingredients": "2  mangos, peeled, seeded and chopped, 2 small peaches, halved, pitted, and cut into 1/2-inch dice, 1 cup diced fresh pineapple, 4  tomatoes, chopped, 1  white onion, diced, 1  red bell pepper, diced, 1  yellow bell pepper, diced, 1 cup chopped fresh cilantro, or to taste, 1 clove garlic, minced, 1 small jalapeno pepper, minced, 2 tablespoons lime juice, 1 teaspoon salt, 2 tablespoons white sugar, or to taste, ¾ cup water",
+      "directions": "place the mango, peach, pineapple, tomato, onion, red pepper, yellow pepper, and cilantro in a mixing bowl. stir in the garlic, jalapeno, lime juice, salt, sugar, and water. cover and refrigerate at least 1 hour before serving.",
+      "cuisine_path": "/appetizers and snacks/dips and spreads recipes/salsa recipes/peach salsa recipes/",
+      "timing": "prep time: 20 mins, additional time: 1 hrs, total time: 1 hrs 20 mins, servings: 16, yield: 8 cups",
+      "nutrition": "total fat 0g 0%, sodium 150mg 7%, total carbohydrate 10g 4%, dietary fiber 1g 5%, total sugars 7g, protein 1g, vitamin c 48mg 242%, calcium 14mg 1%, iron 0mg 2%, potassium 199mg 4%",
+      "combined_text": "mango, peach and pineapple salsa 2  mangos, peeled, seeded and chopped, 2 small peaches, halved, pitted, and cut into 1/2-inch dice, 1 cup diced fresh pineapple, 4  tomatoes, chopped, 1  white onion, diced, 1  red bell pepper, diced, /appetizers and snacks/dips and spreads recipes/salsa recipes/peach salsa recipes/ prep time: 20 mins, additional time: 1 hrs, total time: 1 hrs 20 mins, servings: 16, yield: 8 cups"
+    },
+    "original_data": {
+      "cuisine_path": "/Appetizers and Snacks/Dips and Spreads Recipes/Salsa Recipes/Peach Salsa Recipes/",
+      "ingredients": "2  mangos, peeled, seeded and chopped, 2 small peaches, halved, pitted, and cut into 1/2-inch dice, 1 cup diced fresh pineapple, 4  tomatoes, chopped, 1  white onion, diced, 1  red bell pepper, diced, 1  yellow bell pepper, diced, 1 cup chopped fresh cilantro, or to taste, 1 clove garlic, minced, 1 small jalapeno pepper, minced, 2 tablespoons lime juice, 1 teaspoon salt, 2 tablespoons white sugar, or to taste, ¾ cup water",
+      "prep_time": "20 mins",
+      "cook_time": NaN,
+      "servings": 16
+    }
+  },
+  {
+    "id": 699,
+    "name": "Mexican Mango and White Fish Ceviche",
+    "collection": "appetizers-snacks",
+    "confidence": 7,
+    "features": {
+      "name": "mexican mango and white fish ceviche",
+      "ingredients": "2 pounds white fish, cut into small cubes, 4  limes, juiced, ½  orange, juiced, 1 tablespoon olive oil, 1  green chile pepper, chopped, 2  mangoes, cut into cubes, 5  green onions, chopped, 3  tomatoes, seeded and chopped, ½ cup chopped fresh cilantro,   salt and ground black pepper to taste",
+      "directions": "combine white fish, lime juice, orange juice, oil, and chile pepper in a glass or ceramic bowl. cover with plastic wrap and refrigerate for 90 minutes.\nmix in mangoes and green onions, cover, and chill for 10 minutes more.\ngently fold in tomatoes and cilantro. season with salt and pepper and serve immediately.\n\n\n\n\n\n\n\n\n\n",
+      "cuisine_path": "/appetizers and snacks/seafood/ceviche recipes/",
+      "timing": "prep time: 15 mins, additional time: 1 hrs 40 mins, total time: 1 hrs 55 mins, servings: 12, yield: 12 servings",
+      "nutrition": "total fat 6g 7%, saturated fat 1g 5%, cholesterol 45mg 15%, sodium 57mg 2%, total carbohydrate 10g 4%, dietary fiber 2g 7%, total sugars 6g, protein 15g, vitamin c 33mg 163%, calcium 43mg 3%, iron 1mg 4%, potassium 442mg 9%",
+      "combined_text": "mexican mango and white fish ceviche 2 pounds white fish, cut into small cubes, 4  limes, juiced, ½  orange, juiced, 1 tablespoon olive oil, 1  green chile pepper, chopped, 2  mangoes, cut into cubes, 5  green onions, chopped, 3  tomatoe /appetizers and snacks/seafood/ceviche recipes/ prep time: 15 mins, additional time: 1 hrs 40 mins, total time: 1 hrs 55 mins, servings: 12, yield: 12 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Appetizers and Snacks/Seafood/Ceviche Recipes/",
+      "ingredients": "2 pounds white fish, cut into small cubes, 4  limes, juiced, ½  orange, juiced, 1 tablespoon olive oil, 1  green chile pepper, chopped, 2  mangoes, cut into cubes, 5  green onions, chopped, 3  tomatoes, seeded and chopped, ½ cup chopped fresh cilantro,   salt and ground black pepper to taste",
+      "prep_time": "15 mins",
+      "cook_time": NaN,
+      "servings": 12
+    }
+  },
+  {
+    "id": 707,
+    "name": "Jerk Chicken Egg Rolls with Mango-Habanero Sauce",
+    "collection": "appetizers-snacks",
+    "confidence": 8,
+    "features": {
+      "name": "jerk chicken egg rolls with mango-habanero sauce",
+      "ingredients": "1  mango, peeled and diced, ¾ cup water, 1 tablespoon seasoned rice vinegar, 1 clove garlic, minced, 1 pinch salt, ½ cup brown sugar, divided, 2  habanero peppers, seeded and minced, 2 tablespoons water, 1 teaspoon cornstarch",
+      "directions": "for the habanero sauce: combine mango with 3/4 cup water, rice vinegar, garlic, and salt in a small saucepan. add most of the brown sugar, reserving 1 teaspoon. bring to a boil, then reduce heat to medium-low; cook for 5 minutes. add habanero peppers and simmer for 2 minutes. mix 2 tablespoon water with cornstarch; stir slurry into the saucepan. cook over medium-high until thick, 3 to 5 minutes. leave mixture chunky or blend for a smoother texture.\nfor the filling: heat 1 tablespoon oil in a large saucepan over medium-high heat. add chicken thighs and sauté until browned, 5 to 7 minutes; sprinkle jerk seasoning over chicken. add shallot and garlic; cook and stir until shallot begins to soften, about 3 minutes. reduce heat to medium; add cabbage, carrots, and reserved sugar. cook until cabbage is translucent but still a little crunchy, 3 to 5 minutes. taste for seasoning. let mixture cool.\nheat remaining vegetable oil in a pan over medium-high heat. fry plantains until they start to brown, about 5 minutes. transfer plantains onto a paper towel and let cool.\nseparate and place egg roll wrappers onto your work surface. mix egg with water for egg wash.\nlay out one wrapper with a corner pointed toward you. use a slotted spoon to add some of the chicken and cabbage mixtures across the center. sprinkle plantain bits on top. use your finger or a pastry brush to lightly moisten edges of wonton wrappers with egg wash. fold one corner of the wrapper over filling onto the opposite corner to form a triangle. press edges together to seal. fill and fold remaining egg rolls.\nheat oil in a large saucepan over medium-high heat. fry egg rolls in batches in hot oil, turning occasionally, until golden brown, about 5 minutes. remove and drain on paper towels or a rack. serve with mango-habanero sauce.",
+      "cuisine_path": "/appetizers and snacks/wraps and rolls/egg roll recipes/",
+      "timing": "prep time: 45 mins, cook time: 40 mins, total time: 1 hrs 25 mins, servings: 18",
+      "nutrition": "total fat 8g 11%, saturated fat 2g 9%, cholesterol 35mg 12%, sodium 294mg 13%, total carbohydrate 35g 13%, dietary fiber 3g 12%, total sugars 14g, protein 11g, vitamin c 32mg 159%, calcium 59mg 5%, iron 2mg 11%, potassium 385mg 8%",
+      "combined_text": "jerk chicken egg rolls with mango-habanero sauce 1  mango, peeled and diced, ¾ cup water, 1 tablespoon seasoned rice vinegar, 1 clove garlic, minced, 1 pinch salt, ½ cup brown sugar, divided, 2  habanero peppers, seeded and minced, 2 tablespoons wat /appetizers and snacks/wraps and rolls/egg roll recipes/ prep time: 45 mins, cook time: 40 mins, total time: 1 hrs 25 mins, servings: 18"
+    },
+    "original_data": {
+      "cuisine_path": "/Appetizers and Snacks/Wraps and Rolls/Egg Roll Recipes/",
+      "ingredients": "1  mango, peeled and diced, ¾ cup water, 1 tablespoon seasoned rice vinegar, 1 clove garlic, minced, 1 pinch salt, ½ cup brown sugar, divided, 2  habanero peppers, seeded and minced, 2 tablespoons water, 1 teaspoon cornstarch",
+      "prep_time": "45 mins",
+      "cook_time": "40 mins",
+      "servings": 18
+    }
+  },
+  {
+    "id": 715,
+    "name": "Savory Mango Guacamole",
+    "collection": "appetizers-snacks",
+    "confidence": 6,
+    "features": {
+      "name": "savory mango guacamole",
+      "ingredients": "3 large avocados, peeled and pitted, 1 small red onion, chopped, 1  mango - peeled, pitted, and chopped, 1  lime, juiced, 1 tablespoon minced garlic, 1 tablespoon salt, 3 tablespoons chopped fresh cilantro",
+      "directions": "mash avocados in a medium bowl to a lumpy consistency. mix onion, mango, lime juice, garlic, salt, and cilantro into avocado.",
+      "cuisine_path": "/appetizers and snacks/dips and spreads recipes/guacamole recipes/",
+      "timing": "prep time: 15 mins, total time: 15 mins, servings: 6, yield: 6 servings",
+      "nutrition": "total fat 21g 27%, saturated fat 3g 15%, sodium 1175mg 51%, total carbohydrate 19g 7%, dietary fiber 11g 38%, total sugars 5g, protein 3g, vitamin c 26mg 131%, calcium 30mg 2%, iron 1mg 6%, potassium 770mg 16%",
+      "combined_text": "savory mango guacamole 3 large avocados, peeled and pitted, 1 small red onion, chopped, 1  mango - peeled, pitted, and chopped, 1  lime, juiced, 1 tablespoon minced garlic, 1 tablespoon salt, 3 tablespoons chopped fresh cil /appetizers and snacks/dips and spreads recipes/guacamole recipes/ prep time: 15 mins, total time: 15 mins, servings: 6, yield: 6 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Appetizers and Snacks/Dips and Spreads Recipes/Guacamole Recipes/",
+      "ingredients": "3 large avocados, peeled and pitted, 1 small red onion, chopped, 1  mango - peeled, pitted, and chopped, 1  lime, juiced, 1 tablespoon minced garlic, 1 tablespoon salt, 3 tablespoons chopped fresh cilantro",
+      "prep_time": "15 mins",
+      "cook_time": NaN,
+      "servings": 6
+    }
+  },
+  {
+    "id": 755,
+    "name": "Fresh Pineapple Salsa",
+    "collection": "appetizers-snacks",
+    "confidence": 8,
+    "features": {
+      "name": "fresh pineapple salsa",
+      "ingredients": "1 cup finely chopped fresh pineapple, ¼ cup finely chopped red onion, ¼ cup red bell pepper, chopped, 1  jalapeno pepper, seeded and minced, 1 tablespoon finely chopped fresh cilantro, 1 tablespoon lime juice, 1 clove garlic, minced (optional), ½ teaspoon white sugar, ½ teaspoon salt",
+      "directions": "combine pineapple, red onion, bell pepper, jalapeno pepper, cilantro, lime juice, garlic, sugar, and salt. stir to combine. cover with plastic wrap and refrigerate for 1 hour so flavors can meld.",
+      "cuisine_path": "/appetizers and snacks/dips and spreads recipes/salsa recipes/",
+      "timing": "prep time: 15 mins, additional time: 1 hrs, total time: 1 hrs 15 mins, servings: 6, yield: 6 servings",
+      "nutrition": "total fat 0g 0%, sodium 195mg 8%, total carbohydrate 6g 2%, dietary fiber 1g 3%, total sugars 4g, protein 0g, vitamin c 24mg 120%, calcium 8mg 1%, iron 0mg 1%, potassium 66mg 1%",
+      "combined_text": "fresh pineapple salsa 1 cup finely chopped fresh pineapple, ¼ cup finely chopped red onion, ¼ cup red bell pepper, chopped, 1  jalapeno pepper, seeded and minced, 1 tablespoon finely chopped fresh cilantro, 1 tablespoon li /appetizers and snacks/dips and spreads recipes/salsa recipes/ prep time: 15 mins, additional time: 1 hrs, total time: 1 hrs 15 mins, servings: 6, yield: 6 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Appetizers and Snacks/Dips and Spreads Recipes/Salsa Recipes/",
+      "ingredients": "1 cup finely chopped fresh pineapple, ¼ cup finely chopped red onion, ¼ cup red bell pepper, chopped, 1  jalapeno pepper, seeded and minced, 1 tablespoon finely chopped fresh cilantro, 1 tablespoon lime juice, 1 clove garlic, minced (Optional), ½ teaspoon white sugar, ½ teaspoon salt",
+      "prep_time": "15 mins",
+      "cook_time": NaN,
+      "servings": 6
+    }
+  },
+  {
+    "id": 762,
+    "name": "World's Best Cream Cheese and Pineapple Dip",
+    "collection": "appetizers-snacks",
+    "confidence": 7,
+    "features": {
+      "name": "world's best cream cheese and pineapple dip",
+      "ingredients": "1 (8 ounce) package cream cheese, softened, 2 cups crushed pineapple, drained with juice reserved, 1 teaspoon onion powder, 2 cloves garlic, peeled and crushed",
+      "directions": "in a medium bowl, mix together cream cheese, crushed pineapple, onion powder and garlic. mix in reserved juice from pineapple as desired. chill in the refrigerator until serving.",
+      "cuisine_path": "/appetizers and snacks/dips and spreads recipes/fruit dip/",
+      "timing": "prep time: 10 mins, total time: 10 mins, servings: 24, yield: 3 cups",
+      "nutrition": "total fat 3g 4%, saturated fat 2g 11%, cholesterol 10mg 3%, sodium 28mg 1%, total carbohydrate 4g 1%, dietary fiber 0g 1%, total sugars 3g, protein 1g, vitamin c 2mg 10%, calcium 11mg 1%, iron 0mg 1%, potassium 37mg 1%",
+      "combined_text": "world's best cream cheese and pineapple dip 1 (8 ounce) package cream cheese, softened, 2 cups crushed pineapple, drained with juice reserved, 1 teaspoon onion powder, 2 cloves garlic, peeled and crushed /appetizers and snacks/dips and spreads recipes/fruit dip/ prep time: 10 mins, total time: 10 mins, servings: 24, yield: 3 cups"
+    },
+    "original_data": {
+      "cuisine_path": "/Appetizers and Snacks/Dips and Spreads Recipes/Fruit Dip/",
+      "ingredients": "1 (8 ounce) package cream cheese, softened, 2 cups crushed pineapple, drained with juice reserved, 1 teaspoon onion powder, 2 cloves garlic, peeled and crushed",
+      "prep_time": "10 mins",
+      "cook_time": NaN,
+      "servings": 24
+    }
+  },
+  {
+    "id": 779,
+    "name": "Mango Papaya Salsa",
+    "collection": "appetizers-snacks",
+    "confidence": 8,
+    "features": {
+      "name": "mango papaya salsa",
+      "ingredients": "1  mango - peeled, seeded and diced, 1  papaya - peeled, seeded and diced, 1 large red bell pepper, seeded and diced, 1  avocado - peeled, pitted and diced, ½  sweet onion, peeled and diced, 2 tablespoons chopped fresh cilantro, 2 tablespoons balsamic vinegar,   salt and pepper to taste",
+      "directions": "in a medium bowl, mix mango, papaya, red bell pepper, avocado, sweet onion, cilantro, and balsamic vinegar. season with salt and pepper. cover, and chill in the refrigerator at least 30 minutes before serving.",
+      "cuisine_path": "/appetizers and snacks/dips and spreads recipes/salsa recipes/avocado salsa recipes/",
+      "timing": "prep time: 15 mins, additional time: 30 mins, total time: 45 mins, servings: 8, yield: 8 servings",
+      "nutrition": "total fat 4g 5%, saturated fat 1g 3%, sodium 5mg 0%, total carbohydrate 11g 4%, dietary fiber 3g 11%, total sugars 7g, protein 1g, vitamin c 49mg 245%, calcium 15mg 1%, iron 0mg 2%, potassium 274mg 6%",
+      "combined_text": "mango papaya salsa 1  mango - peeled, seeded and diced, 1  papaya - peeled, seeded and diced, 1 large red bell pepper, seeded and diced, 1  avocado - peeled, pitted and diced, ½  sweet onion, peeled and diced, 2 tablesp /appetizers and snacks/dips and spreads recipes/salsa recipes/avocado salsa recipes/ prep time: 15 mins, additional time: 30 mins, total time: 45 mins, servings: 8, yield: 8 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Appetizers and Snacks/Dips and Spreads Recipes/Salsa Recipes/Avocado Salsa Recipes/",
+      "ingredients": "1  mango - peeled, seeded and diced, 1  papaya - peeled, seeded and diced, 1 large red bell pepper, seeded and diced, 1  avocado - peeled, pitted and diced, ½  sweet onion, peeled and diced, 2 tablespoons chopped fresh cilantro, 2 tablespoons balsamic vinegar,   salt and pepper to taste",
+      "prep_time": "15 mins",
+      "cook_time": NaN,
+      "servings": 8
+    }
+  },
+  {
+    "id": 784,
+    "name": "Papaya Bruschetta",
+    "collection": "appetizers-snacks",
+    "confidence": 8,
+    "features": {
+      "name": "papaya bruschetta",
+      "ingredients": "1 small papaya, 5 medium roma (plum) tomatoes, diced, ½ medium red onion, diced, 1 medium red bell pepper, seeded and diced, ¼ cup chopped fresh basil leaves, 2 tablespoons white sugar, ¼ cup red wine vinegar, ¼ cup vegetable oil, ½ teaspoon mustard powder, 2 stalks green onions, chopped, 1 (16 inch) french baguette, cut into 1/2 inch pieces",
+      "directions": "cut papaya in half and remove seeds. reserve 2 tablespoons of seeds for the dressing. peel and dice the papaya, and place in a medium bowl. add tomatoes, red onion, red pepper and basil, and set aside.\nin a food processor or blender, combine the papaya seeds, sugar, wine vinegar, oil, mustard and green onions. process until smooth and thick, and most of the seeds have broken up. pour over the papaya mixture and stir to coat all of the ingredients. serve with slices of baguette.",
+      "cuisine_path": "/appetizers and snacks/bruschetta recipes/",
+      "timing": "prep time: 20 mins, total time: 20 mins, servings: 8, yield: 8 servings",
+      "nutrition": "total fat 8g 10%, saturated fat 1g 7%, sodium 373mg 16%, total carbohydrate 41g 15%, dietary fiber 3g 10%, total sugars 8g, protein 8g, vitamin c 38mg 189%, calcium 42mg 3%, iron 2mg 13%, potassium 280mg 6%",
+      "combined_text": "papaya bruschetta 1 small papaya, 5 medium roma (plum) tomatoes, diced, ½ medium red onion, diced, 1 medium red bell pepper, seeded and diced, ¼ cup chopped fresh basil leaves, 2 tablespoons white sugar, ¼ cup red wine /appetizers and snacks/bruschetta recipes/ prep time: 20 mins, total time: 20 mins, servings: 8, yield: 8 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Appetizers and Snacks/Bruschetta Recipes/",
+      "ingredients": "1 small papaya, 5 medium Roma (plum) tomatoes, diced, ½ medium red onion, diced, 1 medium red bell pepper, seeded and diced, ¼ cup chopped fresh basil leaves, 2 tablespoons white sugar, ¼ cup red wine vinegar, ¼ cup vegetable oil, ½ teaspoon mustard powder, 2 stalks green onions, chopped, 1 (16 inch) French baguette, cut into 1/2 inch pieces",
+      "prep_time": "20 mins",
+      "cook_time": NaN,
+      "servings": 8
+    }
+  },
+  {
+    "id": 799,
+    "name": "Seven-Layer Dip",
+    "collection": "appetizers-snacks",
+    "confidence": 7,
+    "features": {
+      "name": "seven-layer dip",
+      "ingredients": "2  avocados - peeled, pitted and diced, ¼ cup chopped fresh cilantro, ¼ cup salsa, 1 ½ tablespoons fresh lime juice, ¼ teaspoon garlic salt,   ground black pepper to taste, 1 (8 ounce) container sour cream, 1 (1 ounce) package taco seasoning mix, 1 (16 ounce) can refried beans, 4  roma (plum) tomatoes, diced, 1 bunch green onions, finely chopped, 2 cups shredded mexican-style cheese blend, 1 (2.25 ounce) can black olives - drained and finely chopped",
+      "directions": "mash avocados in a medium bowl to desired consistency. mix in cilantro, salsa, lime juice, garlic salt, and pepper. set aside.\nblend sour cream and taco seasoning in a small bowl until combined. set aside.\nspread refried beans in a 9x13-inch dish or on a large serving platter. top with sour cream mixture; cover with guacamole. top with tomatoes, green onions, mexican-style cheese blend, and black olives.\n\n\n\n\n\n\n\n\n\n\n\nallrecipes magazine \n",
+      "cuisine_path": "/appetizers and snacks/dips and spreads recipes/cheese dips and spreads recipes/",
+      "timing": "prep time: 20 mins, total time: 20 mins, servings: 64, yield: 1 9x13-inch dish",
+      "nutrition": "total fat 3g 4%, saturated fat 1g 7%, cholesterol 5mg 2%, sodium 92mg 4%, total carbohydrate 3g 1%, dietary fiber 1g 4%, total sugars 0g, protein 2g, vitamin c 2mg 12%, calcium 12mg 1%, iron 0mg 2%, potassium 78mg 2%",
+      "combined_text": "seven-layer dip 2  avocados - peeled, pitted and diced, ¼ cup chopped fresh cilantro, ¼ cup salsa, 1 ½ tablespoons fresh lime juice, ¼ teaspoon garlic salt,   ground black pepper to taste, 1 (8 ounce) container sour  /appetizers and snacks/dips and spreads recipes/cheese dips and spreads recipes/ prep time: 20 mins, total time: 20 mins, servings: 64, yield: 1 9x13-inch dish"
+    },
+    "original_data": {
+      "cuisine_path": "/Appetizers and Snacks/Dips and Spreads Recipes/Cheese Dips and Spreads Recipes/",
+      "ingredients": "2  avocados - peeled, pitted and diced, ¼ cup chopped fresh cilantro, ¼ cup salsa, 1 ½ tablespoons fresh lime juice, ¼ teaspoon garlic salt,   ground black pepper to taste, 1 (8 ounce) container sour cream, 1 (1 ounce) package taco seasoning mix, 1 (16 ounce) can refried beans, 4  roma (plum) tomatoes, diced, 1 bunch green onions, finely chopped, 2 cups shredded Mexican-style cheese blend, 1 (2.25 ounce) can black olives - drained and finely chopped",
+      "prep_time": "20 mins",
+      "cook_time": NaN,
+      "servings": 64
+    }
+  },
+  {
+    "id": 801,
+    "name": "Homemade Sushi",
+    "collection": "appetizers-snacks",
+    "confidence": 8,
+    "features": {
+      "name": "homemade sushi",
+      "ingredients": "1 ⅓ cups water, ⅔ cup uncooked short-grain white rice, 3 tablespoons rice vinegar, 3 tablespoons white sugar, 1 ½ teaspoons salt, 4 sheets nori seaweed sheets, ½ pound imitation crabmeat, flaked, 1  avocado - peeled, pitted, and sliced, ½  cucumber, peeled, cut into small strips, 2 tablespoons pickled ginger",
+      "directions": "preheat the oven to 300 degrees f (150 degrees c).\nbring water to a boil in a medium pot; stir in rice. reduce heat to medium-low, cover, and simmer until rice is tender and water has been absorbed, 20 to 25 minutes.\nmix rice vinegar, sugar, and salt in a small bowl. gently stir into cooked rice in the pot and set aside.\nlay nori sheets on a baking sheet.\nheat nori in the preheated oven until warm, 1 to 2 minutes.\ncenter 1 nori sheet on a bamboo sushi mat. use wet hands to spread a thin layer of rice on top. arrange 1/4 of the crabmeat, avocado, cucumber, and pickled ginger over rice in a line down the center. lift one end of the mat and roll it tightly over filling to make a complete roll. repeat with remaining ingredients.\nuse a wet, sharp knife to cut each roll into 4 to 6 slices.",
+      "cuisine_path": "/appetizers and snacks/spicy/",
+      "timing": "prep time: 40 mins, cook time: 25 mins, total time: 1 hrs 5 mins, servings: 8, yield: 4 cut rolls",
+      "nutrition": "total fat 4g 5%, saturated fat 1g 3%, cholesterol 6mg 2%, sodium 703mg 31%, total carbohydrate 26g 9%, dietary fiber 2g 9%, total sugars 7g, protein 4g, vitamin c 3mg 17%, calcium 12mg 1%, iron 1mg 6%, potassium 186mg 4%",
+      "combined_text": "homemade sushi 1 ⅓ cups water, ⅔ cup uncooked short-grain white rice, 3 tablespoons rice vinegar, 3 tablespoons white sugar, 1 ½ teaspoons salt, 4 sheets nori seaweed sheets, ½ pound imitation crabmeat, flaked, 1  a /appetizers and snacks/spicy/ prep time: 40 mins, cook time: 25 mins, total time: 1 hrs 5 mins, servings: 8, yield: 4 cut rolls"
+    },
+    "original_data": {
+      "cuisine_path": "/Appetizers and Snacks/Spicy/",
+      "ingredients": "1 ⅓ cups water, ⅔ cup uncooked short-grain white rice, 3 tablespoons rice vinegar, 3 tablespoons white sugar, 1 ½ teaspoons salt, 4 sheets nori seaweed sheets, ½ pound imitation crabmeat, flaked, 1  avocado - peeled, pitted, and sliced, ½  cucumber, peeled, cut into small strips, 2 tablespoons pickled ginger",
+      "prep_time": "40 mins",
+      "cook_time": "25 mins",
+      "servings": 8
+    }
+  },
+  {
+    "id": 804,
+    "name": "Traditional Mexican Guacamole",
+    "collection": "appetizers-snacks",
+    "confidence": 7,
+    "features": {
+      "name": "traditional mexican guacamole",
+      "ingredients": "2  avocados, peeled and pitted, 1 cup chopped tomatoes, ¼ cup chopped onion, ¼ cup chopped cilantro, 2 tablespoons lemon juice, 1  jalapeno pepper, seeded and minced (optional),   salt and ground black pepper to taste",
+      "directions": "mash avocados in a bowl until creamy.\nmix tomatoes, onion, cilantro, lemon juice, and jalapeño pepper into mashed avocado until well combined. season with salt and pepper.",
+      "cuisine_path": "/appetizers and snacks/dips and spreads recipes/guacamole recipes/",
+      "timing": "prep time: 10 mins, total time: 10 mins, servings: 4",
+      "nutrition": "total fat 15g 19%, saturated fat 2g 11%, sodium 50mg 2%, total carbohydrate 12g 4%, dietary fiber 8g 27%, total sugars 3g, protein 3g, vitamin c 22mg 112%, calcium 22mg 2%, iron 1mg 4%, potassium 641mg 14%",
+      "combined_text": "traditional mexican guacamole 2  avocados, peeled and pitted, 1 cup chopped tomatoes, ¼ cup chopped onion, ¼ cup chopped cilantro, 2 tablespoons lemon juice, 1  jalapeno pepper, seeded and minced (optional),   salt and ground blac /appetizers and snacks/dips and spreads recipes/guacamole recipes/ prep time: 10 mins, total time: 10 mins, servings: 4"
+    },
+    "original_data": {
+      "cuisine_path": "/Appetizers and Snacks/Dips and Spreads Recipes/Guacamole Recipes/",
+      "ingredients": "2  avocados, peeled and pitted, 1 cup chopped tomatoes, ¼ cup chopped onion, ¼ cup chopped cilantro, 2 tablespoons lemon juice, 1  jalapeno pepper, seeded and minced (Optional),   salt and ground black pepper to taste",
+      "prep_time": "10 mins",
+      "cook_time": NaN,
+      "servings": 4
+    }
+  },
+  {
+    "id": 809,
+    "name": "Cucumber and Avocado Sushi",
+    "collection": "appetizers-snacks",
+    "confidence": 5,
+    "features": {
+      "name": "cucumber and avocado sushi",
+      "ingredients": "1 ¼ cups water, 1 cup uncooked glutinous white rice (sushi rice), 3 tablespoons rice vinegar, 1 pinch salt, 4 sheets nori (dry seaweed), ½ medium cucumber, sliced into thin strips, 1 medium avocado - peeled, pitted and sliced",
+      "directions": "combine water and rice in a saucepan and bring to a boil. cover, reduce the heat to low, and simmer until rice is tender and water has been absorbed, about 20 minutes. remove from the heat, stir in vinegar and salt, and set aside to cool for at least 5 minutes.\ncover a bamboo sushi mat with plastic wrap to keep rice from sticking. place one nori sheet over the plastic. spread rice evenly onto nori sheet, leaving about a 1/2 inch uncovered at the bottom. arrange cucumber and avocado across the center of the rice. lift the mat, roll over vegetables once, and press down. unroll, then roll again towards the uncovered end of the nori to make a long roll. seal roll with a little water if necessary. repeat to make remaining rolls.\nuse a sharp, wet knife to slice each roll into 6 pieces.",
+      "cuisine_path": "/appetizers and snacks/",
+      "timing": "prep time: 35 mins, cook time: 25 mins, additional time: 5 mins, total time: 1 hrs 5 mins, servings: 6, yield: 24 rolls",
+      "nutrition": "total fat 5g 7%, saturated fat 1g 4%, sodium 6mg 0%, total carbohydrate 29g 10%, dietary fiber 3g 11%, total sugars 1g, protein 3g, vitamin c 5mg 23%, calcium 11mg 1%, iron 1mg 4%, potassium 217mg 5%",
+      "combined_text": "cucumber and avocado sushi 1 ¼ cups water, 1 cup uncooked glutinous white rice (sushi rice), 3 tablespoons rice vinegar, 1 pinch salt, 4 sheets nori (dry seaweed), ½ medium cucumber, sliced into thin strips, 1 medium avocado -  /appetizers and snacks/ prep time: 35 mins, cook time: 25 mins, additional time: 5 mins, total time: 1 hrs 5 mins, servings: 6, yield: 24 rolls"
+    },
+    "original_data": {
+      "cuisine_path": "/Appetizers and Snacks/",
+      "ingredients": "1 ¼ cups water, 1 cup uncooked glutinous white rice (sushi rice), 3 tablespoons rice vinegar, 1 pinch salt, 4 sheets nori (dry seaweed), ½ medium cucumber, sliced into thin strips, 1 medium avocado - peeled, pitted and sliced",
+      "prep_time": "35 mins",
+      "cook_time": "25 mins",
+      "servings": 6
+    }
+  },
+  {
+    "id": 811,
+    "name": "Mexican Shrimp Cocktail",
+    "collection": "appetizers-snacks",
+    "confidence": 8,
+    "features": {
+      "name": "mexican shrimp cocktail",
+      "ingredients": "2 pounds cooked shrimp, peeled and deveined, ½ cup finely chopped red onion, ¼ cup fresh cilantro, chopped, 1 tablespoon crushed garlic, 1 ½ cups tomato and clam juice cocktail, ¼ cup ketchup, ¼ cup fresh lime juice, ¼ cup prepared horseradish, 1 teaspoon hot pepper sauce, or to taste,   salt to taste, 1  ripe avocado - peeled, pitted and chopped",
+      "directions": "place shrimp in a large bowl. stir in red onion, cilantro, and garlic. add tomato and clam juice, ketchup, lime juice, horseradish, and hot pepper sauce; mix well to combine. season with salt. gently stir in avocado. cover, and refrigerate for 2 to 3 hours.",
+      "cuisine_path": "/appetizers and snacks/seafood/shrimp/",
+      "timing": "prep time: 15 mins, additional time: 2 hrs, total time: 2 hrs 15 mins, servings: 6",
+      "nutrition": "total fat 7g 9%, saturated fat 1g 6%, cholesterol 295mg 98%, sodium 711mg 31%, total carbohydrate 16g 6%, dietary fiber 3g 11%, total sugars 6g, protein 33g, vitamin c 19mg 94%, calcium 84mg 6%, iron 5mg 28%, potassium 604mg 13%",
+      "combined_text": "mexican shrimp cocktail 2 pounds cooked shrimp, peeled and deveined, ½ cup finely chopped red onion, ¼ cup fresh cilantro, chopped, 1 tablespoon crushed garlic, 1 ½ cups tomato and clam juice cocktail, ¼ cup ketchup, ¼ cup f /appetizers and snacks/seafood/shrimp/ prep time: 15 mins, additional time: 2 hrs, total time: 2 hrs 15 mins, servings: 6"
+    },
+    "original_data": {
+      "cuisine_path": "/Appetizers and Snacks/Seafood/Shrimp/",
+      "ingredients": "2 pounds cooked shrimp, peeled and deveined, ½ cup finely chopped red onion, ¼ cup fresh cilantro, chopped, 1 tablespoon crushed garlic, 1 ½ cups tomato and clam juice cocktail, ¼ cup ketchup, ¼ cup fresh lime juice, ¼ cup prepared horseradish, 1 teaspoon hot pepper sauce, or to taste,   salt to taste, 1  ripe avocado - peeled, pitted and chopped",
+      "prep_time": "15 mins",
+      "cook_time": NaN,
+      "servings": 6
+    }
+  },
+  {
+    "id": 813,
+    "name": "Avocado Tomatillo Salsa",
+    "collection": "appetizers-snacks",
+    "confidence": 6,
+    "features": {
+      "name": "avocado tomatillo salsa",
+      "ingredients": "6 ounces fresh tomatillos - husked, rinsed, and halved, 1 tablespoon thinly sliced serrano chiles, or to taste, 1 large ripe avocado - halved, seeded, and flesh scooped out of peel, ¼ cup packed cilantro leaves, ½  lime, juiced,   salt to taste",
+      "directions": "place tomatillos into a food processor. add serrano pepper, avocado, cilantro, and lime juice. season with salt to taste. process until smooth; adjust seasoning. transfer to a serving bowl.\n\n\n\n\n\n\n\n\n\n",
+      "cuisine_path": "/appetizers and snacks/dips and spreads recipes/salsa recipes/salsa verde recipes/",
+      "timing": "prep time: 15 mins, total time: 15 mins, servings: 6, yield: 1 -1/4 cup",
+      "nutrition": "total fat 7g 9%, saturated fat 1g 5%, sodium 5mg 0%, total carbohydrate 6g 2%, dietary fiber 4g 14%, total sugars 2g, protein 1g, vitamin c 11mg 54%, calcium 11mg 1%, iron 1mg 3%, potassium 325mg 7%",
+      "combined_text": "avocado tomatillo salsa 6 ounces fresh tomatillos - husked, rinsed, and halved, 1 tablespoon thinly sliced serrano chiles, or to taste, 1 large ripe avocado - halved, seeded, and flesh scooped out of peel, ¼ cup packed cilan /appetizers and snacks/dips and spreads recipes/salsa recipes/salsa verde recipes/ prep time: 15 mins, total time: 15 mins, servings: 6, yield: 1 -1/4 cup"
+    },
+    "original_data": {
+      "cuisine_path": "/Appetizers and Snacks/Dips and Spreads Recipes/Salsa Recipes/Salsa Verde Recipes/",
+      "ingredients": "6 ounces fresh tomatillos - husked, rinsed, and halved, 1 tablespoon thinly sliced serrano chiles, or to taste, 1 large ripe avocado - halved, seeded, and flesh scooped out of peel, ¼ cup packed cilantro leaves, ½  lime, juiced,   salt to taste",
+      "prep_time": "15 mins",
+      "cook_time": NaN,
+      "servings": 6
+    }
+  },
+  {
+    "id": 814,
+    "name": "Avocado Mango Salsa",
+    "collection": "appetizers-snacks",
+    "confidence": 6,
+    "features": {
+      "name": "avocado mango salsa",
+      "ingredients": "1  avocado - peeled, pitted and diced, 1  lime, juiced, 1  mango - peeled, seeded and diced, 1 small red onion, chopped, 1  habanero pepper, seeded and chopped, 1 tablespoon chopped fresh cilantro,   salt to taste",
+      "directions": "place the avocado in a serving bowl, and mix with the lime juice. mix in the mango, onion, habanero pepper, cilantro and salt.\n\n\n\n\n\n\n\n\n\n",
+      "cuisine_path": "/appetizers and snacks/dips and spreads recipes/salsa recipes/avocado salsa recipes/",
+      "timing": "prep time: 20 mins, total time: 20 mins, servings: 8, yield: 8 servings",
+      "nutrition": "total fat 4g 5%, saturated fat 1g 3%, sodium 3mg 0%, total carbohydrate 8g 3%, dietary fiber 3g 9%, total sugars 5g, protein 1g, vitamin c 13mg 66%, calcium 11mg 1%, iron 0mg 2%, potassium 188mg 4%",
+      "combined_text": "avocado mango salsa 1  avocado - peeled, pitted and diced, 1  lime, juiced, 1  mango - peeled, seeded and diced, 1 small red onion, chopped, 1  habanero pepper, seeded and chopped, 1 tablespoon chopped fresh cilantro,    /appetizers and snacks/dips and spreads recipes/salsa recipes/avocado salsa recipes/ prep time: 20 mins, total time: 20 mins, servings: 8, yield: 8 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Appetizers and Snacks/Dips and Spreads Recipes/Salsa Recipes/Avocado Salsa Recipes/",
+      "ingredients": "1  avocado - peeled, pitted and diced, 1  lime, juiced, 1  mango - peeled, seeded and diced, 1 small red onion, chopped, 1  habanero pepper, seeded and chopped, 1 tablespoon chopped fresh cilantro,   salt to taste",
+      "prep_time": "20 mins",
+      "cook_time": NaN,
+      "servings": 8
+    }
+  },
+  {
+    "id": 816,
+    "name": "Black Bean Avocado Salsa",
+    "collection": "appetizers-snacks",
+    "confidence": 8,
+    "features": {
+      "name": "black bean avocado salsa",
+      "ingredients": "1 (15 ounce) can black beans (such as bush's®), rinsed and drained, 1 (11 ounce) can whole kernel sweet corn, drained, 4  roma (plum) tomatoes, seeded and chopped, 1 small red bell pepper, diced, 1  jalapeno pepper, seeded and minced, ⅓ cup chopped fresh cilantro, ¼ cup diced red onion, ¼ cup fresh lime juice, 2 tablespoons red wine vinegar, 1 teaspoon salt, ½ teaspoon ground black pepper, 2  avocados, diced",
+      "directions": "mix black beans, corn, tomatoes, red bell pepper, jalapeno pepper, cilantro, red onion, lime juice, vinegar, salt, and black pepper in a bowl; fold avocado into the mixture. cover bowl with plastic wrap, putting it right on top of salsa; chill at least 2 hours.",
+      "cuisine_path": "/appetizers and snacks/dips and spreads recipes/salsa recipes/corn salsa recipes/",
+      "timing": "prep time: 15 mins, additional time: 2 hrs, total time: 2 hrs 15 mins, servings: 10, yield: 10 servings",
+      "nutrition": "total fat 6g 8%, saturated fat 1g 5%, sodium 493mg 21%, total carbohydrate 19g 7%, dietary fiber 7g 25%, total sugars 3g, protein 5g, vitamin c 21mg 106%, calcium 28mg 2%, iron 1mg 8%, potassium 471mg 10%",
+      "combined_text": "black bean avocado salsa 1 (15 ounce) can black beans (such as bush's®), rinsed and drained, 1 (11 ounce) can whole kernel sweet corn, drained, 4  roma (plum) tomatoes, seeded and chopped, 1 small red bell pepper, diced, 1  j /appetizers and snacks/dips and spreads recipes/salsa recipes/corn salsa recipes/ prep time: 15 mins, additional time: 2 hrs, total time: 2 hrs 15 mins, servings: 10, yield: 10 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Appetizers and Snacks/Dips and Spreads Recipes/Salsa Recipes/Corn Salsa Recipes/",
+      "ingredients": "1 (15 ounce) can black beans (such as Bush's®), rinsed and drained, 1 (11 ounce) can whole kernel sweet corn, drained, 4  roma (plum) tomatoes, seeded and chopped, 1 small red bell pepper, diced, 1  jalapeno pepper, seeded and minced, ⅓ cup chopped fresh cilantro, ¼ cup diced red onion, ¼ cup fresh lime juice, 2 tablespoons red wine vinegar, 1 teaspoon salt, ½ teaspoon ground black pepper, 2  avocados, diced",
+      "prep_time": "15 mins",
+      "cook_time": NaN,
+      "servings": 10
+    }
+  },
+  {
+    "id": 818,
+    "name": "Best Guacamole",
+    "collection": "appetizers-snacks",
+    "confidence": 5,
+    "features": {
+      "name": "best guacamole",
+      "ingredients": "2  avocados, ½  lemon, juiced, 2 tablespoons chopped onion, ½ teaspoon salt, 2 tablespoons olive oil",
+      "directions": "cut the avocados into halves. remove the seeds, and scoop out the pulp into a small bowl. use a fork to mash the avocado. stir in lemon juice, onion, salt, and olive oil. cover the bowl, and refrigerate for 1 hour before serving.\n\n\n\n\n\n\n\n\n\n",
+      "cuisine_path": "/appetizers and snacks/dips and spreads recipes/guacamole recipes/",
+      "timing": "prep time: 5 mins, additional time: 1 hrs, total time: 1 hrs 5 mins, servings: 16, yield: 2 cups",
+      "nutrition": "total fat 5g 7%, saturated fat 1g 4%, sodium 75mg 3%, total carbohydrate 3g 1%, dietary fiber 2g 7%, total sugars 0g, protein 1g, vitamin c 5mg 26%, calcium 5mg 0%, iron 0mg 1%, potassium 129mg 3%",
+      "combined_text": "best guacamole 2  avocados, ½  lemon, juiced, 2 tablespoons chopped onion, ½ teaspoon salt, 2 tablespoons olive oil /appetizers and snacks/dips and spreads recipes/guacamole recipes/ prep time: 5 mins, additional time: 1 hrs, total time: 1 hrs 5 mins, servings: 16, yield: 2 cups"
+    },
+    "original_data": {
+      "cuisine_path": "/Appetizers and Snacks/Dips and Spreads Recipes/Guacamole Recipes/",
+      "ingredients": "2  avocados, ½  lemon, juiced, 2 tablespoons chopped onion, ½ teaspoon salt, 2 tablespoons olive oil",
+      "prep_time": "5 mins",
+      "cook_time": NaN,
+      "servings": 16
+    }
+  },
+  {
+    "id": 821,
+    "name": "Mexican Pizza I",
+    "collection": "appetizers-snacks",
+    "confidence": 6,
+    "features": {
+      "name": "mexican pizza i",
+      "ingredients": "1 (16 ounce) can refried beans, 1 pound ground beef, 1 (1.25 ounce) package taco seasoning mix, 1 tablespoon vegetable oil, 4 (6 inch) corn tortillas, 8 ounces shredded cheddar cheese, 8 tablespoons sour cream, 2  roma (plum) tomatoes, chopped, 2  green onion, chopped, 1 (4 ounce) can diced green chiles, drained, ½  avocado, diced, 1 tablespoon black olives, sliced",
+      "directions": "heat the refried beans.\nin a large skillet, brown the ground beef. stir in the seasoning packet.\npreheat oven to 350 degrees f (175 degrees c).\nplace a small amount of vegetable oil in a large skillet. let the oil heat, then place one corn tortilla in the skillet. after 15 seconds, flip the tortilla over and let it fry another 15 seconds. repeat this process with the remaining tortillas, letting them drain on paper towels once they have been heated. when the tortillas have drained, arrange them on a cookie sheet.\nspread a thin layer of beans on the tortillas, followed by a layer of beef, and cheese.\nbake the tortillas in the preheated oven for 20 to 30 minutes. slice the tortillas into wedges and arrange them on plates or a serving platter and garnish them with the sour cream, tomatoes, green onions, chiles, avocado, and olives.\n\n\n\n\n\n\n\n\n\n\n\nunknown\n",
+      "cuisine_path": "/appetizers and snacks/beans and peas/",
+      "timing": "prep time: 17 mins, cook time: 30 mins, additional time: 3 mins, total time: 50 mins, servings: 4, yield: 4 pizzas",
+      "nutrition": "total fat 48g 62%, saturated fat 23g 114%, cholesterol 150mg 50%, sodium 1542mg 67%, total carbohydrate 42g 15%, dietary fiber 10g 37%, total sugars 4g, protein 42g, vitamin c 24mg 122%, calcium 534mg 41%, iron 5mg 29%, potassium 866mg 18%",
+      "combined_text": "mexican pizza i 1 (16 ounce) can refried beans, 1 pound ground beef, 1 (1.25 ounce) package taco seasoning mix, 1 tablespoon vegetable oil, 4 (6 inch) corn tortillas, 8 ounces shredded cheddar cheese, 8 tablespoons s /appetizers and snacks/beans and peas/ prep time: 17 mins, cook time: 30 mins, additional time: 3 mins, total time: 50 mins, servings: 4, yield: 4 pizzas"
+    },
+    "original_data": {
+      "cuisine_path": "/Appetizers and Snacks/Beans and Peas/",
+      "ingredients": "1 (16 ounce) can refried beans, 1 pound ground beef, 1 (1.25 ounce) package taco seasoning mix, 1 tablespoon vegetable oil, 4 (6 inch) corn tortillas, 8 ounces shredded Cheddar cheese, 8 tablespoons sour cream, 2  roma (plum) tomatoes, chopped, 2  green onion, chopped, 1 (4 ounce) can diced green chiles, drained, ½  avocado, diced, 1 tablespoon black olives, sliced",
+      "prep_time": "17 mins",
+      "cook_time": "30 mins",
+      "servings": 4
+    }
+  },
+  {
+    "id": 823,
+    "name": "Smoked Salmon Sushi Roll",
+    "collection": "appetizers-snacks",
+    "confidence": 5,
+    "features": {
+      "name": "smoked salmon sushi roll",
+      "ingredients": "2 cups japanese sushi rice, 6 tablespoons rice wine vinegar, 6 sheets nori (dry seaweed), 1  avocado - peeled, pitted and sliced, 1  cucumber, peeled and sliced, 8 ounces smoked salmon, cut into long strips, 2 tablespoons wasabi paste",
+      "directions": "soak rice for 4 hours. drain rice and cook in a rice cooker with 2 cups of water. rice must be slightly dry as vinegar will be added later.\nimmediately after rice is cooked, mix in 6 tablespoons rice vinegar to the hot rice. spread rice on a plate until completely cool.\nplace 1 sheet of seaweed on bamboo mat, press a thin layer of cool rice on the seaweed. leave at least 1/2 inch top and bottom edge of the seaweed uncovered. this is for easier sealing later. dot some wasabi on the rice. arrange cucumber, avocado and smoked salmon to the rice. position them about 1 inch away from the bottom edge of the seaweed.\nslightly wet the top edge of the seaweed. roll from bottom to the top edge with the help of the bamboo mat tightly. cut roll into 8 equal pieces and serve. repeat for other rolls.",
+      "cuisine_path": "/appetizers and snacks/seafood/",
+      "timing": "prep time: 30 mins, additional time: 4 hrs 30 mins, total time: 5 hrs, servings: 6, yield: 6 rolls",
+      "nutrition": "total fat 7g 9%, saturated fat 1g 6%, cholesterol 9mg 3%, sodium 405mg 18%, total carbohydrate 45g 16%, dietary fiber 4g 14%, total sugars 0g, protein 11g, vitamin c 5mg 27%, calcium 16mg 1%, iron 3mg 14%, potassium 323mg 7%",
+      "combined_text": "smoked salmon sushi roll 2 cups japanese sushi rice, 6 tablespoons rice wine vinegar, 6 sheets nori (dry seaweed), 1  avocado - peeled, pitted and sliced, 1  cucumber, peeled and sliced, 8 ounces smoked salmon, cut into long  /appetizers and snacks/seafood/ prep time: 30 mins, additional time: 4 hrs 30 mins, total time: 5 hrs, servings: 6, yield: 6 rolls"
+    },
+    "original_data": {
+      "cuisine_path": "/Appetizers and Snacks/Seafood/",
+      "ingredients": "2 cups Japanese sushi rice, 6 tablespoons rice wine vinegar, 6 sheets nori (dry seaweed), 1  avocado - peeled, pitted and sliced, 1  cucumber, peeled and sliced, 8 ounces smoked salmon, cut into long strips, 2 tablespoons wasabi paste",
+      "prep_time": "30 mins",
+      "cook_time": NaN,
+      "servings": 6
+    }
+  },
+  {
+    "id": 824,
+    "name": "Avocado Deviled Eggs",
+    "collection": "appetizers-snacks",
+    "confidence": 10,
+    "features": {
+      "name": "avocado deviled eggs",
+      "ingredients": "6  hard-boiled eggs, peeled and halved, 1  avocado - peeled, pitted, and diced, 3 slices cooked turkey bacon, chopped, divided, 2 ½ tablespoons mayonnaise, 2 teaspoons lime juice, 1 clove garlic, crushed, ⅛ teaspoon cayenne pepper,   sea salt to taste, 1  jalapeno pepper, sliced (optional), 1 dash hot sauce, or to taste (optional)",
+      "directions": "scoop egg yolks into a bowl; add avocado, 2/3 of chopped turkey bacon, mayonnaise, lime juice, garlic, cayenne pepper, and salt. mash egg yolk mixture until filling is evenly combined.\nspoon filling into a piping bag or plastic bag with a snipped corner. pipe filling into each egg white; top with a turkey bacon piece, jalapeno slice, and dash hot sauce.",
+      "cuisine_path": "/appetizers and snacks/deviled eggs/bacon deviled egg recipes/",
+      "timing": "prep time: 20 mins, total time: 20 mins, servings: 12, yield: 12 servings",
+      "nutrition": "total fat 9g 11%, saturated fat 2g 10%, cholesterol 113mg 38%, sodium 162mg 7%, total carbohydrate 2g 1%, dietary fiber 1g 4%, total sugars 1g, protein 5g, vitamin c 3mg 13%, calcium 18mg 1%, iron 1mg 4%, potassium 133mg 3%",
+      "combined_text": "avocado deviled eggs 6  hard-boiled eggs, peeled and halved, 1  avocado - peeled, pitted, and diced, 3 slices cooked turkey bacon, chopped, divided, 2 ½ tablespoons mayonnaise, 2 teaspoons lime juice, 1 clove garlic, crus /appetizers and snacks/deviled eggs/bacon deviled egg recipes/ prep time: 20 mins, total time: 20 mins, servings: 12, yield: 12 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Appetizers and Snacks/Deviled Eggs/Bacon Deviled Egg Recipes/",
+      "ingredients": "6  hard-boiled eggs, peeled and halved, 1  avocado - peeled, pitted, and diced, 3 slices cooked turkey bacon, chopped, divided, 2 ½ tablespoons mayonnaise, 2 teaspoons lime juice, 1 clove garlic, crushed, ⅛ teaspoon cayenne pepper,   sea salt to taste, 1  jalapeno pepper, sliced (Optional), 1 dash hot sauce, or to taste (Optional)",
+      "prep_time": "20 mins",
+      "cook_time": NaN,
+      "servings": 12
+    }
+  },
+  {
+    "id": 828,
+    "name": "Avocado Shrimp Ceviche-Estillo Sarita",
+    "collection": "appetizers-snacks",
+    "confidence": 7,
+    "features": {
+      "name": "avocado shrimp ceviche-estillo sarita",
+      "ingredients": "2 pounds large shrimp - peeled, deveined and chopped, ¾ cup fresh lime juice, 5  roma (plum) tomatoes, diced, 1  white onion, chopped, ½ cup chopped fresh cilantro, 1 tablespoon worcestershire sauce, 1 tablespoon ketchup, 1 teaspoon hot pepper sauce,   salt and pepper to taste, 1  avocado - peeled, pitted and diced, 16  saltine crackers",
+      "directions": "place the shrimp and lime juice into a large bowl, and stir to coat. let stand for about 5 minutes, or until shrimp are opaque. the lime juice will cook them. mix in the tomatoes, onion, and cilantro until coated with lime juice; cover and refrigerate for 1 hour.\nremove from the refrigerator, and mix in the worcestershire sauce, ketchup, hot sauce, salt and pepper. we have our own hot sauce recipe, but you can use whatever hot sauce you like, or leave it out and let people add their own when serving.\nserve in glass tumblers and top with avocado pieces. set out extra worcestershire sauce, ketchup, lime wedges and hot sauce for people to individualize their dish. serve with saltine crackers.\n\n\n\n\n\n\n\n\n\n",
+      "cuisine_path": "/appetizers and snacks/seafood/ceviche recipes/",
+      "timing": "prep time: 1 hrs 30 mins, total time: 1 hrs 30 mins, servings: 4, yield: 4 servings",
+      "nutrition": "total fat 11g 14%, saturated fat 2g 9%, cholesterol 346mg 115%, sodium 691mg 30%, total carbohydrate 24g 9%, dietary fiber 6g 20%, total sugars 6g, protein 41g, vitamin c 38mg 191%, calcium 113mg 9%, iron 7mg 39%, potassium 943mg 20%",
+      "combined_text": "avocado shrimp ceviche-estillo sarita 2 pounds large shrimp - peeled, deveined and chopped, ¾ cup fresh lime juice, 5  roma (plum) tomatoes, diced, 1  white onion, chopped, ½ cup chopped fresh cilantro, 1 tablespoon worcestershire sauce,  /appetizers and snacks/seafood/ceviche recipes/ prep time: 1 hrs 30 mins, total time: 1 hrs 30 mins, servings: 4, yield: 4 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Appetizers and Snacks/Seafood/Ceviche Recipes/",
+      "ingredients": "2 pounds large shrimp - peeled, deveined and chopped, ¾ cup fresh lime juice, 5  roma (plum) tomatoes, diced, 1  white onion, chopped, ½ cup chopped fresh cilantro, 1 tablespoon Worcestershire sauce, 1 tablespoon ketchup, 1 teaspoon hot pepper sauce,   salt and pepper to taste, 1  avocado - peeled, pitted and diced, 16  saltine crackers",
+      "prep_time": "1 hrs 30 mins",
+      "cook_time": NaN,
+      "servings": 4
+    }
+  },
+  {
+    "id": 839,
+    "name": "Corn and Avocado Salsa",
+    "collection": "appetizers-snacks",
+    "confidence": 6,
+    "features": {
+      "name": "corn and avocado salsa",
+      "ingredients": "3 ears fresh corn, husks and silks removed, 2  avocados - peeled, pitted, and cubed, 1  red onion, finely diced, 1  red bell pepper, seeded and diced, 1 tablespoon minced garlic, 1 tablespoon ground cumin, 1 teaspoon crushed red pepper flakes, ¼ cup chopped fresh cilantro, ⅓ cup red wine vinegar, 2 tablespoons olive oil, ¼ cup fresh lime juice,   salt and black pepper to taste",
+      "directions": "place the corn in a large pot with enough water to cover, and bring to a boil. cook until kernels are tender but crisp, about 5 minutes. drain, and cool in cold water. use a knife to scrape kernels from the cobs.\nplace kernels in a medium bowl. stir in avocados, red onion, bell pepper, and garlic. add cumin, red pepper flakes, and cilantro. mix in vinegar, olive oil, and lime juice. season with salt and pepper.",
+      "cuisine_path": "/appetizers and snacks/dips and spreads recipes/salsa recipes/corn salsa recipes/",
+      "timing": "prep time: 30 mins, cook time: 5 mins, total time: 35 mins, servings: 4, yield: 4 cups",
+      "nutrition": "total fat 23g 29%, saturated fat 3g 17%, sodium 65mg 3%, total carbohydrate 29g 11%, dietary fiber 10g 36%, total sugars 6g, protein 5g, vitamin c 62mg 308%, calcium 46mg 4%, iron 2mg 13%, potassium 856mg 18%",
+      "combined_text": "corn and avocado salsa 3 ears fresh corn, husks and silks removed, 2  avocados - peeled, pitted, and cubed, 1  red onion, finely diced, 1  red bell pepper, seeded and diced, 1 tablespoon minced garlic, 1 tablespoon ground c /appetizers and snacks/dips and spreads recipes/salsa recipes/corn salsa recipes/ prep time: 30 mins, cook time: 5 mins, total time: 35 mins, servings: 4, yield: 4 cups"
+    },
+    "original_data": {
+      "cuisine_path": "/Appetizers and Snacks/Dips and Spreads Recipes/Salsa Recipes/Corn Salsa Recipes/",
+      "ingredients": "3 ears fresh corn, husks and silks removed, 2  avocados - peeled, pitted, and cubed, 1  red onion, finely diced, 1  red bell pepper, seeded and diced, 1 tablespoon minced garlic, 1 tablespoon ground cumin, 1 teaspoon crushed red pepper flakes, ¼ cup chopped fresh cilantro, ⅓ cup red wine vinegar, 2 tablespoons olive oil, ¼ cup fresh lime juice,   salt and black pepper to taste",
+      "prep_time": "30 mins",
+      "cook_time": "5 mins",
+      "servings": 4
+    }
+  },
+  {
+    "id": 845,
+    "name": "Easy Never Forgotten Guacamole",
+    "collection": "appetizers-snacks",
+    "confidence": 5,
+    "features": {
+      "name": "easy never forgotten guacamole",
+      "ingredients": "3  avocados - peeled, pitted and diced, 1 tablespoon sour cream, 2 (3 ounce) packages cream cheese, softened, 2 tablespoons salsa, 1 pinch salt, 1 dash ground black pepper, 1 dash garlic salt, 1 dash onion powder",
+      "directions": "in a small bowl, mix together the avocados, sour cream, cream cheese and salsa. blend to desired consistency.\nin a small bowl mix the salt, pepper, garlic salt and onion powder. stir into the avocado mixture. cover and chill in the refrigerator 1/2 hour before serving.",
+      "cuisine_path": "/appetizers and snacks/dips and spreads recipes/guacamole recipes/",
+      "timing": "prep time: 10 mins, additional time: 30 mins, total time: 40 mins, servings: 16, yield: 2 cups",
+      "nutrition": "total fat 9g 12%, saturated fat 3g 17%, cholesterol 12mg 4%, sodium 67mg 3%, total carbohydrate 4g 1%, dietary fiber 3g 9%, total sugars 0g, protein 2g, vitamin c 4mg 19%, calcium 15mg 1%, iron 0mg 2%, potassium 204mg 4%",
+      "combined_text": "easy never forgotten guacamole 3  avocados - peeled, pitted and diced, 1 tablespoon sour cream, 2 (3 ounce) packages cream cheese, softened, 2 tablespoons salsa, 1 pinch salt, 1 dash ground black pepper, 1 dash garlic salt, 1 dash  /appetizers and snacks/dips and spreads recipes/guacamole recipes/ prep time: 10 mins, additional time: 30 mins, total time: 40 mins, servings: 16, yield: 2 cups"
+    },
+    "original_data": {
+      "cuisine_path": "/Appetizers and Snacks/Dips and Spreads Recipes/Guacamole Recipes/",
+      "ingredients": "3  avocados - peeled, pitted and diced, 1 tablespoon sour cream, 2 (3 ounce) packages cream cheese, softened, 2 tablespoons salsa, 1 pinch salt, 1 dash ground black pepper, 1 dash garlic salt, 1 dash onion powder",
+      "prep_time": "10 mins",
+      "cook_time": NaN,
+      "servings": 16
+    }
+  },
+  {
+    "id": 848,
+    "name": "Absolutely Amazing Ahi",
+    "collection": "appetizers-snacks",
+    "confidence": 5,
+    "features": {
+      "name": "absolutely amazing ahi",
+      "ingredients": "¾ pound sashimi grade tuna steak, diced, ½ cup diced cucumber, 1  avocados - peeled, pitted and diced, ¼ cup chopped green onion, 1 ½ teaspoons red pepper flakes, 1 tablespoon toasted sesame seeds, 1 ½ teaspoons lemon juice, 2 teaspoons sesame oil, ½ cup soy sauce",
+      "directions": "in a medium bowl, combine the tuna, cucumber, avocado, green onion, red pepper flakes and sesame seeds. pour in the lemon juice, sesame oil and soy sauce, and stir carefully to blend so as not to mash the avocado. place this bowl into a larger bowl that has been filled with ice. chill in the refrigerator for 15 minutes, but no longer - the terrific freshness of the fish will be lost.\nonce chilled, remove the bowl from the ice, and invert onto a serving plate. serve with toasted bread or your favorite crackers.",
+      "cuisine_path": "/appetizers and snacks/seafood/",
+      "timing": "prep time: 10 mins, cook time: 15 mins, total time: 25 mins, servings: 6, yield: 6 servings",
+      "nutrition": "total fat 8g 10%, saturated fat 1g 6%, cholesterol 26mg 9%, sodium 1227mg 53%, total carbohydrate 6g 2%, dietary fiber 3g 11%, total sugars 1g, protein 16g, vitamin c 6mg 31%, calcium 38mg 3%, iron 1mg 8%, potassium 513mg 11%",
+      "combined_text": "absolutely amazing ahi ¾ pound sashimi grade tuna steak, diced, ½ cup diced cucumber, 1  avocados - peeled, pitted and diced, ¼ cup chopped green onion, 1 ½ teaspoons red pepper flakes, 1 tablespoon toasted sesame seeds, 1  /appetizers and snacks/seafood/ prep time: 10 mins, cook time: 15 mins, total time: 25 mins, servings: 6, yield: 6 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Appetizers and Snacks/Seafood/",
+      "ingredients": "¾ pound sashimi grade tuna steak, diced, ½ cup diced cucumber, 1  avocados - peeled, pitted and diced, ¼ cup chopped green onion, 1 ½ teaspoons red pepper flakes, 1 tablespoon toasted sesame seeds, 1 ½ teaspoons lemon juice, 2 teaspoons sesame oil, ½ cup soy sauce",
+      "prep_time": "10 mins",
+      "cook_time": "15 mins",
+      "servings": 6
+    }
+  },
+  {
+    "id": 849,
+    "name": "Quick and Easy Guacamole",
+    "collection": "appetizers-snacks",
+    "confidence": 6,
+    "features": {
+      "name": "quick and easy guacamole",
+      "ingredients": "2  avocados - peeled, pitted, and diced, 2  green onions, chopped, 1 tablespoon chopped fresh cilantro, 1 teaspoon seasoned salt, 1 teaspoon ground black pepper, 1 teaspoon garlic, minced, ½  lime, juiced",
+      "directions": "combine avocado, green onion, cilantro, seasoned salt, black pepper, garlic, and lime juice in a bowl; mash with a spoon or potato masher until mostly smooth with small chunks.",
+      "cuisine_path": "/appetizers and snacks/dips and spreads recipes/guacamole recipes/",
+      "timing": "prep time: 10 mins, total time: 10 mins, servings: 4, yield: 4 servings",
+      "nutrition": "total fat 15g 19%, saturated fat 2g 11%, sodium 238mg 10%, total carbohydrate 10g 4%, dietary fiber 7g 25%, total sugars 1g, protein 2g, vitamin c 14mg 68%, calcium 27mg 2%, iron 1mg 5%, potassium 532mg 11%",
+      "combined_text": "quick and easy guacamole 2  avocados - peeled, pitted, and diced, 2  green onions, chopped, 1 tablespoon chopped fresh cilantro, 1 teaspoon seasoned salt, 1 teaspoon ground black pepper, 1 teaspoon garlic, minced, ½  lime, ju /appetizers and snacks/dips and spreads recipes/guacamole recipes/ prep time: 10 mins, total time: 10 mins, servings: 4, yield: 4 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Appetizers and Snacks/Dips and Spreads Recipes/Guacamole Recipes/",
+      "ingredients": "2  avocados - peeled, pitted, and diced, 2  green onions, chopped, 1 tablespoon chopped fresh cilantro, 1 teaspoon seasoned salt, 1 teaspoon ground black pepper, 1 teaspoon garlic, minced, ½  lime, juiced",
+      "prep_time": "10 mins",
+      "cook_time": NaN,
+      "servings": 4
+    }
+  },
+  {
+    "id": 855,
+    "name": "Mean Green Guacamole Salsa",
+    "collection": "appetizers-snacks",
+    "confidence": 8,
+    "features": {
+      "name": "mean green guacamole salsa",
+      "ingredients": "10  fresh tomatillos, husks removed, 2  fresh jalapeno peppers, stems removed, 1 bunch fresh cilantro, stems trimmed, 3  avocados, peeled and pitted, 1 tablespoon garlic powder,   salt to taste",
+      "directions": "bring a pot of water to a boil and stir in tomatillos and jalapenos. boil until tomatillos turn bright green and soft, about 10 minutes.\nplace cilantro, avocados, cooked tomatillos, and cooked jalapenos into a blender, working in batches if necessary. blend until smooth, 1 to 2 minutes. add about 1 tablespoon of tomatillo cooking water, or as needed, if salsa is too thick.\nstop the blender, and season the salsa with garlic powder and salt to taste. blend again briefly to mix in the seasonings. transfer to a bowl for serving.",
+      "cuisine_path": "/appetizers and snacks/dips and spreads recipes/salsa recipes/salsa verde recipes/",
+      "timing": "prep time: 10 mins, cook time: 10 mins, total time: 20 mins, servings: 12, yield: 12 servings",
+      "nutrition": "total fat 8g 10%, saturated fat 1g 6%, sodium 6mg 0%, total carbohydrate 7g 2%, dietary fiber 4g 15%, total sugars 2g, protein 2g, vitamin c 11mg 54%, calcium 12mg 1%, iron 1mg 3%, potassium 357mg 8%",
+      "combined_text": "mean green guacamole salsa 10  fresh tomatillos, husks removed, 2  fresh jalapeno peppers, stems removed, 1 bunch fresh cilantro, stems trimmed, 3  avocados, peeled and pitted, 1 tablespoon garlic powder,   salt to taste /appetizers and snacks/dips and spreads recipes/salsa recipes/salsa verde recipes/ prep time: 10 mins, cook time: 10 mins, total time: 20 mins, servings: 12, yield: 12 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Appetizers and Snacks/Dips and Spreads Recipes/Salsa Recipes/Salsa Verde Recipes/",
+      "ingredients": "10  fresh tomatillos, husks removed, 2  fresh jalapeno peppers, stems removed, 1 bunch fresh cilantro, stems trimmed, 3  avocados, peeled and pitted, 1 tablespoon garlic powder,   salt to taste",
+      "prep_time": "10 mins",
+      "cook_time": "10 mins",
+      "servings": 12
+    }
+  },
+  {
+    "id": 872,
+    "name": "Apricot Leather",
+    "collection": "appetizers-snacks",
+    "confidence": 8,
+    "features": {
+      "name": "apricot leather",
+      "ingredients": "1 teaspoon lemon juice, 2 cups pitted and diced fresh apricots, ½ cup white sugar",
+      "directions": "preheat the oven to 150 degrees f (165 degrees c), or the lowest setting you have.\ncombine lemon juice, apricots, and sugar in a saucepan. cook over medium heat until sugar has dissolved. transfer to a blender and puree until smooth.\ncover an 11x17-inch pan or cookie sheet with a layer of plastic wrap. pour pureed fruit onto the prepared pan and spread evenly to within 1 inch of the edge.\nbake for 4 to 6 hours in the preheated oven, using a spoon or a pair of tongs to keep the door slightly ajar, or until puree has dried and is no longer sticky. once dry, you can cut it into strips; store in an airtight container.",
+      "cuisine_path": "/appetizers and snacks/",
+      "timing": "prep time: 30 mins, cook time: 6 hrs, total time: 6 hrs 30 mins, servings: 14",
+      "nutrition": "total fat 0g 0%, sodium 0mg 0%, total carbohydrate 10g 4%, dietary fiber 1g 2%, total sugars 9g, protein 0g, vitamin c 3mg 13%, calcium 3mg 0%, iron 0mg 1%, potassium 62mg 1%",
+      "combined_text": "apricot leather 1 teaspoon lemon juice, 2 cups pitted and diced fresh apricots, ½ cup white sugar /appetizers and snacks/ prep time: 30 mins, cook time: 6 hrs, total time: 6 hrs 30 mins, servings: 14"
+    },
+    "original_data": {
+      "cuisine_path": "/Appetizers and Snacks/",
+      "ingredients": "1 teaspoon lemon juice, 2 cups pitted and diced fresh apricots, ½ cup white sugar",
+      "prep_time": "30 mins",
+      "cook_time": "6 hrs",
+      "servings": 14
+    }
+  },
+  {
+    "id": 875,
+    "name": "Oat-Free and Gluten-Free Granola Bars (Clean Eating)",
+    "collection": "appetizers-snacks",
+    "confidence": 7,
+    "features": {
+      "name": "oat-free and gluten-free granola bars (clean eating)",
+      "ingredients": "1 ¼ cups almonds, divided, 1 ¼ cups sunflower seeds, divided, 2 cups shredded unsweetened coconut, 1 cup diced dried apricots, 1 ½ cups coconut oil, ½ cup honey, ¼ cup ground cinnamon, or as needed, 1 teaspoon vanilla extract, ½ teaspoon salt",
+      "directions": "place 3/4 cups almonds and 3/4 cups sunflower seeds into a food processor; chop until nuts are in 1/4-inch pieces, 1 to 2 minutes. remove from food processor and pour in a bowl. place the remaining almonds and sunflower seeds into the food processor; roughly chop into larger pieces, about 1 minute. mix remaining nuts, seeds, shredded coconut, and dried apricot into the 1/4-inch nuts until fruit and nut mixture is combined.\ncombine coconut oil, honey, ground cinnamon, vanilla extract, and salt in a sauce pan over medium-low heat; cook until the coconut oil mixture bubbles and turns a lighter color, 3 to 5 minutes.\npour coconut oil mixture over the fruit and nut mixture; stir until the granola mixture takes on the consistency of wet sand, about 1 minute.\nline a baking sheet with waxed paper. pour granola mixture onto the sheet; place a second sheet of waxed paper on top of the granola mixture. push down on the waxed paper with you hands until the granola mixture has been evenly spread. pack tightly to ensure that the granola will not fall apart.\ncool until granola has hardened, 2 to 3 hours. cut into bars.",
+      "cuisine_path": "/appetizers and snacks/snacks/kids/healthy/",
+      "timing": "prep time: 10 mins, cook time: 3 mins, additional time: 2 hrs, total time: 2 hrs 13 mins, servings: 20, yield: 20 bars",
+      "nutrition": "total fat 32g 40%, saturated fat 20g 101%, sodium 64mg 3%, total carbohydrate 18g 7%, dietary fiber 5g 16%, total sugars 12g, protein 5g, vitamin c 0mg 2%, calcium 49mg 4%, iron 2mg 8%, potassium 259mg 6%",
+      "combined_text": "oat-free and gluten-free granola bars (clean eating) 1 ¼ cups almonds, divided, 1 ¼ cups sunflower seeds, divided, 2 cups shredded unsweetened coconut, 1 cup diced dried apricots, 1 ½ cups coconut oil, ½ cup honey, ¼ cup ground cinnamon, or as needed, 1 /appetizers and snacks/snacks/kids/healthy/ prep time: 10 mins, cook time: 3 mins, additional time: 2 hrs, total time: 2 hrs 13 mins, servings: 20, yield: 20 bars"
+    },
+    "original_data": {
+      "cuisine_path": "/Appetizers and Snacks/Snacks/Kids/Healthy/",
+      "ingredients": "1 ¼ cups almonds, divided, 1 ¼ cups sunflower seeds, divided, 2 cups shredded unsweetened coconut, 1 cup diced dried apricots, 1 ½ cups coconut oil, ½ cup honey, ¼ cup ground cinnamon, or as needed, 1 teaspoon vanilla extract, ½ teaspoon salt",
+      "prep_time": "10 mins",
+      "cook_time": "3 mins",
+      "servings": 20
+    }
+  },
+  {
+    "id": 887,
+    "name": "Energy Bars",
+    "collection": "appetizers-snacks",
+    "confidence": 8,
+    "features": {
+      "name": "energy bars",
+      "ingredients": "2  eggs, 1 large ripe banana, mashed, 1 cup quick-cooking rolled oats, ½ cup unsalted raw sunflower seeds, ½ teaspoon ground cinnamon, ½ cup nonfat dry milk powder, ½ cup chopped pitted dates, ½ cup raisins, ½ cup chopped walnuts, ½ cup chopped dried apricots, ½ cup toasted wheat germ, ⅓ cup pure maple syrup, ¼ cup whole-wheat pastry flour",
+      "directions": "preheat an oven to 350 degrees f (175 degrees c). lightly oil a 9x13-inch baking dish.\nmix the eggs, banana, oats, sunflower seeds, cinnamon, milk powder, dates, raisins, walnuts, apricots, wheat germ, maple syrup, and whole-wheat pastry flour together in a large bowl until thoroughly combined; spread the mixture evenly into the prepared baking dish.\nbake in the preheated oven for 20 minutes; set aside to cool. cut into 9 bars and wrap with plastic to store.",
+      "cuisine_path": "/appetizers and snacks/snacks/granola bar recipes/",
+      "timing": "prep time: 15 mins, cook time: 20 mins, additional time: 1 hrs, total time: 1 hrs 35 mins, servings: 9, yield: 9 bars",
+      "nutrition": "total fat 11g 14%, saturated fat 1g 7%, cholesterol 43mg 14%, sodium 56mg 2%, total carbohydrate 47g 17%, dietary fiber 5g 19%, total sugars 28g, protein 11g, vitamin c 3mg 14%, calcium 133mg 10%, iron 3mg 14%, potassium 599mg 13%",
+      "combined_text": "energy bars 2  eggs, 1 large ripe banana, mashed, 1 cup quick-cooking rolled oats, ½ cup unsalted raw sunflower seeds, ½ teaspoon ground cinnamon, ½ cup nonfat dry milk powder, ½ cup chopped pitted dates, ½ cup r /appetizers and snacks/snacks/granola bar recipes/ prep time: 15 mins, cook time: 20 mins, additional time: 1 hrs, total time: 1 hrs 35 mins, servings: 9, yield: 9 bars"
+    },
+    "original_data": {
+      "cuisine_path": "/Appetizers and Snacks/Snacks/Granola Bar Recipes/",
+      "ingredients": "2  eggs, 1 large ripe banana, mashed, 1 cup quick-cooking rolled oats, ½ cup unsalted raw sunflower seeds, ½ teaspoon ground cinnamon, ½ cup nonfat dry milk powder, ½ cup chopped pitted dates, ½ cup raisins, ½ cup chopped walnuts, ½ cup chopped dried apricots, ½ cup toasted wheat germ, ⅓ cup pure maple syrup, ¼ cup whole-wheat pastry flour",
+      "prep_time": "15 mins",
+      "cook_time": "20 mins",
+      "servings": 9
+    }
+  },
+  {
+    "id": 893,
+    "name": "Apricot Salsa",
+    "collection": "appetizers-snacks",
+    "confidence": 7,
+    "features": {
+      "name": "apricot salsa",
+      "ingredients": "3 cups chopped fresh apricot, 1 cup shallots, julienned , ½ cup chopped green bell pepper, ½ cup chopped red bell pepper, ½ cup chopped fresh pineapple, ¼ cup chopped cherry tomatoes, 1  habanero pepper, seeded and minced, 2 cloves garlic, minced, 1 teaspoon minced fresh cilantro, ½ teaspoon cumin, ¼ cup fresh lime juice",
+      "directions": "mix the apricots, shallots, green bell pepper, red bell pepper, pineapple, cherry tomatoes, habanero pepper, garlic, cilantro, cumin, and lime juice together in a bowl; refrigerate at least 2 hours before serving.",
+      "cuisine_path": "/appetizers and snacks/dips and spreads recipes/salsa recipes/",
+      "timing": "prep time: 40 mins, additional time: 2 hrs, total time: 2 hrs 40 mins, servings: 15, yield: 5 cups",
+      "nutrition": "total fat 0g 0%, sodium 3mg 0%, total carbohydrate 7g 3%, dietary fiber 1g 4%, total sugars 4g, protein 1g, vitamin c 19mg 95%, calcium 12mg 1%, iron 0mg 2%, potassium 156mg 3%",
+      "combined_text": "apricot salsa 3 cups chopped fresh apricot, 1 cup shallots, julienned , ½ cup chopped green bell pepper, ½ cup chopped red bell pepper, ½ cup chopped fresh pineapple, ¼ cup chopped cherry tomatoes, 1  habanero pepp /appetizers and snacks/dips and spreads recipes/salsa recipes/ prep time: 40 mins, additional time: 2 hrs, total time: 2 hrs 40 mins, servings: 15, yield: 5 cups"
+    },
+    "original_data": {
+      "cuisine_path": "/Appetizers and Snacks/Dips and Spreads Recipes/Salsa Recipes/",
+      "ingredients": "3 cups chopped fresh apricot, 1 cup shallots, julienned , ½ cup chopped green bell pepper, ½ cup chopped red bell pepper, ½ cup chopped fresh pineapple, ¼ cup chopped cherry tomatoes, 1  habanero pepper, seeded and minced, 2 cloves garlic, minced, 1 teaspoon minced fresh cilantro, ½ teaspoon cumin, ¼ cup fresh lime juice",
+      "prep_time": "40 mins",
+      "cook_time": NaN,
+      "servings": 15
+    }
+  },
+  {
+    "id": 913,
+    "name": "Chef John's Nectarine Salsa",
+    "collection": "appetizers-snacks",
+    "confidence": 7,
+    "features": {
+      "name": "chef john's nectarine salsa",
+      "ingredients": "1 cup finely diced nectarine, ½ cup finely diced red bell pepper, ⅓ cup finely diced onions, 2 tablespoons finely diced jalapeno pepper, 1 tablespoon chopped fresh cilantro, 1 tablespoon fresh lime juice, 2 teaspoons olive oil, ½ teaspoon salt, plus more to taste , 1 pinch cayenne pepper, 1 pinch freshly ground black pepper",
+      "directions": "combine nectarines, bell pepper, onions, jalapeno pepper, and cilantro in a bowl. stir in lime juice, olive oil, salt, and cayenne pepper.\ncover bowl with plastic wrap. refrigerate to let flavors develop, 30 minutes to 1 hour.\nbefore serving, stir in black pepper. add a pinch more salt, if needed.\n\n\n\n\n\n\n\n\n\n",
+      "cuisine_path": "/appetizers and snacks/dips and spreads recipes/salsa recipes/peach salsa recipes/",
+      "timing": "prep time: 20 mins, additional time: 30 mins, total time: 50 mins, servings: 6, yield: 2 cups",
+      "nutrition": "total fat 2g 2%, saturated fat 0g 1%, sodium 195mg 8%, total carbohydrate 5g 2%, dietary fiber 1g 3%, total sugars 3g, protein 1g, vitamin c 20mg 98%, calcium 6mg 0%, iron 0mg 1%, potassium 98mg 2%",
+      "combined_text": "chef john's nectarine salsa 1 cup finely diced nectarine, ½ cup finely diced red bell pepper, ⅓ cup finely diced onions, 2 tablespoons finely diced jalapeno pepper, 1 tablespoon chopped fresh cilantro, 1 tablespoon fresh lime ju /appetizers and snacks/dips and spreads recipes/salsa recipes/peach salsa recipes/ prep time: 20 mins, additional time: 30 mins, total time: 50 mins, servings: 6, yield: 2 cups"
+    },
+    "original_data": {
+      "cuisine_path": "/Appetizers and Snacks/Dips and Spreads Recipes/Salsa Recipes/Peach Salsa Recipes/",
+      "ingredients": "1 cup finely diced nectarine, ½ cup finely diced red bell pepper, ⅓ cup finely diced onions, 2 tablespoons finely diced jalapeno pepper, 1 tablespoon chopped fresh cilantro, 1 tablespoon fresh lime juice, 2 teaspoons olive oil, ½ teaspoon salt, plus more to taste , 1 pinch cayenne pepper, 1 pinch freshly ground black pepper",
+      "prep_time": "20 mins",
+      "cook_time": NaN,
+      "servings": 6
+    }
+  },
+  {
+    "id": 924,
+    "name": "Nectarine Salsa",
+    "collection": "appetizers-snacks",
+    "confidence": 8,
+    "features": {
+      "name": "nectarine salsa",
+      "ingredients": "2  nectarines, pitted and chopped, ¼ medium red onion, finely chopped, ¼ cup balsamic vinegar, 1 teaspoon white sugar, ½ teaspoon dried cilantro, ½ teaspoon kosher salt,   freshly ground black pepper to taste",
+      "directions": "in a bowl, mix the nectarines, onion, vinegar, sugar, cilantro, salt, and pepper. allow to sit 5 minutes.\nin a skillet over medium heat, cook and stir the nectarine mixture 10 minutes, until onion and nectarines are tender and lightly browned.",
+      "cuisine_path": "/appetizers and snacks/dips and spreads recipes/salsa recipes/",
+      "timing": "prep time: 10 mins, cook time: 10 mins, additional time: 5 mins, total time: 25 mins, servings: 2, yield: 2 servings",
+      "nutrition": "total fat 1g 1%, sodium 489mg 21%, total carbohydrate 23g 8%, dietary fiber 3g 10%, total sugars 18g, protein 2g, vitamin c 10mg 48%, calcium 25mg 2%, iron 1mg 5%, potassium 331mg 7%",
+      "combined_text": "nectarine salsa 2  nectarines, pitted and chopped, ¼ medium red onion, finely chopped, ¼ cup balsamic vinegar, 1 teaspoon white sugar, ½ teaspoon dried cilantro, ½ teaspoon kosher salt,   freshly ground black pepper  /appetizers and snacks/dips and spreads recipes/salsa recipes/ prep time: 10 mins, cook time: 10 mins, additional time: 5 mins, total time: 25 mins, servings: 2, yield: 2 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Appetizers and Snacks/Dips and Spreads Recipes/Salsa Recipes/",
+      "ingredients": "2  nectarines, pitted and chopped, ¼ medium red onion, finely chopped, ¼ cup balsamic vinegar, 1 teaspoon white sugar, ½ teaspoon dried cilantro, ½ teaspoon kosher salt,   freshly ground black pepper to taste",
+      "prep_time": "10 mins",
+      "cook_time": "10 mins",
+      "servings": 2
+    }
+  },
+  {
+    "id": 945,
+    "name": "Coconut Shrimp",
+    "collection": "appetizers-snacks",
+    "confidence": 6,
+    "features": {
+      "name": "coconut shrimp",
+      "ingredients": "¾ cup all-purpose flour, divided, ⅔ cup beer, 1 large egg, 1 ½ teaspoons baking powder, 2 cups flaked coconut, 24  medium raw shrimp, shelled, deveined, with tails attached, 3 cups oil for frying",
+      "directions": "line a baking sheet with wax paper; set aside.\nwhisk together 1/2 cup flour, beer, egg, and baking powder in a medium bowl until smooth. place coconut and remaining 1/4 cup flour in 2 separate bowls.\none at a time, hold shrimp by the tail and dredge in flour, shaking off excess. dip in beer batter; allow excess to drip off. roll in coconut, then place on the prepared baking sheet. refrigerate for 30 minutes.\nheat oil in a deep fryer or large skillet to 350 degrees f (175 degrees c).\nworking in batches, fry shrimp in hot oil, turning once, until golden brown, 2 to 3 minutes. use tongs to remove shrimp to paper towels to drain.\n\n\n\n\n\n\n\n\n\n\n\njenniwun\n",
+      "cuisine_path": "/appetizers and snacks/seafood/shrimp/",
+      "timing": "prep time: 15 mins, cook time: 10 mins, additional time: 30 mins, total time: 55 mins, servings: 6, yield: 24 coconut shrimp",
+      "nutrition": "total fat 118g 151%, saturated fat 21g 105%, cholesterol 31mg 10%, sodium 205mg 9%, total carbohydrate 26g 9%, dietary fiber 3g 10%, protein 4g, calcium 78mg 6%, iron 1mg 8%, potassium 125mg 3%",
+      "combined_text": "coconut shrimp ¾ cup all-purpose flour, divided, ⅔ cup beer, 1 large egg, 1 ½ teaspoons baking powder, 2 cups flaked coconut, 24  medium raw shrimp, shelled, deveined, with tails attached, 3 cups oil for frying /appetizers and snacks/seafood/shrimp/ prep time: 15 mins, cook time: 10 mins, additional time: 30 mins, total time: 55 mins, servings: 6, yield: 24 coconut shrimp"
+    },
+    "original_data": {
+      "cuisine_path": "/Appetizers and Snacks/Seafood/Shrimp/",
+      "ingredients": "¾ cup all-purpose flour, divided, ⅔ cup beer, 1 large egg, 1 ½ teaspoons baking powder, 2 cups flaked coconut, 24  medium raw shrimp, shelled, deveined, with tails attached, 3 cups oil for frying",
+      "prep_time": "15 mins",
+      "cook_time": "10 mins",
+      "servings": 6
+    }
+  },
+  {
+    "id": 953,
+    "name": "Air Fryer Coconut Shrimp",
+    "collection": "appetizers-snacks",
+    "confidence": 8,
+    "features": {
+      "name": "air fryer coconut shrimp",
+      "ingredients": "½ cup all-purpose flour, 1 ½ teaspoons ground black pepper, 2 large eggs, ⅔ cup unsweetened flaked coconut, ⅓ cup panko bread crumbs, 12 ounces uncooked medium shrimp, peeled and deveined,   cooking spray, ½ teaspoon kosher salt, divided, ¼ cup honey, ¼ cup lime juice, 1  serrano chile, thinly sliced, 2 teaspoons chopped fresh cilantro",
+      "directions": "stir together flour and pepper in a shallow dish. lightly beat eggs in a second shallow dish. stir together coconut and panko in a third shallow dish.\nworking one at a time, dredge shrimp in flour mixture; shake off excess. dip floured shrimp in egg; allow any excess to drip off. finally, dredge in coconut mixture, pressing to adhere. place shrimp on a plate. coat shrimp well with cooking spray.\npreheat the air fryer to 400 degrees f (200 degrees c). place 1/2 of the shrimp in the air fryer and cook about 3 minutes. turn shrimp over and continue cooking until golden, about 3 minutes more. season with 1/4 teaspoon salt. repeat with remaining shrimp.\nmeanwhile, whisk together honey, lime juice, and serrano chile in a small bowl.\nsprinkle fried shrimp with cilantro and serve with honey-lime dip.\n\n\n\n\n\n\n\n\n\n",
+      "cuisine_path": "/appetizers and snacks/seafood/shrimp/",
+      "timing": "prep time: 30 mins, cook time: 15 mins, total time: 45 mins, servings: 6",
+      "nutrition": "total fat 9g 12%, saturated fat 7g 33%, cholesterol 147mg 49%, sodium 316mg 14%, total carbohydrate 28g 10%, dietary fiber 2g 8%, total sugars 13g, protein 14g, vitamin c 5mg 25%, calcium 35mg 3%, iron 3mg 15%, potassium 200mg 4%",
+      "combined_text": "air fryer coconut shrimp ½ cup all-purpose flour, 1 ½ teaspoons ground black pepper, 2 large eggs, ⅔ cup unsweetened flaked coconut, ⅓ cup panko bread crumbs, 12 ounces uncooked medium shrimp, peeled and deveined,   cooking s /appetizers and snacks/seafood/shrimp/ prep time: 30 mins, cook time: 15 mins, total time: 45 mins, servings: 6"
+    },
+    "original_data": {
+      "cuisine_path": "/Appetizers and Snacks/Seafood/Shrimp/",
+      "ingredients": "½ cup all-purpose flour, 1 ½ teaspoons ground black pepper, 2 large eggs, ⅔ cup unsweetened flaked coconut, ⅓ cup panko bread crumbs, 12 ounces uncooked medium shrimp, peeled and deveined,   cooking spray, ½ teaspoon kosher salt, divided, ¼ cup honey, ¼ cup lime juice, 1  serrano chile, thinly sliced, 2 teaspoons chopped fresh cilantro",
+      "prep_time": "30 mins",
+      "cook_time": "15 mins",
+      "servings": 6
+    }
+  },
+  {
+    "id": 965,
+    "name": "Coconut Oil Popcorn",
+    "collection": "appetizers-snacks",
+    "confidence": 5,
+    "features": {
+      "name": "coconut oil popcorn",
+      "ingredients": "2 tablespoons coconut oil, ¼ cup unpopped popcorn,   sea salt to taste",
+      "directions": "place popcorn and oil in a 3-quart pot over medium heat and cover the pot with a lid. shake the pot constantly as popcorn pops. when popping slows to a few seconds in-between pops, after about 3 to 5 minutes, remove pot from heat and pour popcorn into a large bowl. season with sea salt.",
+      "cuisine_path": "/appetizers and snacks/snacks/popcorn recipes/",
+      "timing": "prep time: 5 mins, cook time: 5 mins, total time: 10 mins, servings: 2, yield: 2 large servings",
+      "nutrition": "total fat 15g 19%, saturated fat 13g 63%, sodium 161mg 7%, total carbohydrate 19g 7%, dietary fiber 4g 13%, total sugars 0g, protein 3g, calcium 3mg 0%, iron 3mg 14%, potassium 74mg 2%",
+      "combined_text": "coconut oil popcorn 2 tablespoons coconut oil, ¼ cup unpopped popcorn,   sea salt to taste /appetizers and snacks/snacks/popcorn recipes/ prep time: 5 mins, cook time: 5 mins, total time: 10 mins, servings: 2, yield: 2 large servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Appetizers and Snacks/Snacks/Popcorn Recipes/",
+      "ingredients": "2 tablespoons coconut oil, ¼ cup unpopped popcorn,   sea salt to taste",
+      "prep_time": "5 mins",
+      "cook_time": "5 mins",
+      "servings": 2
+    }
+  },
+  {
+    "id": 967,
+    "name": "Granola Bars",
+    "collection": "appetizers-snacks",
+    "confidence": 7,
+    "features": {
+      "name": "granola bars",
+      "ingredients": "  cooking spray, 2 cups rolled oats, ½ cup shredded coconut, ½ cup honey, 2 tablespoons creamy peanut butter, 1 teaspoon vanilla extract, ⅛ teaspoon salt",
+      "directions": "preheat the oven to 325 degrees f (165 degrees c). grease a 9-inch square baking dish.\nspread oats and coconut evenly across a baking sheet.\ntoast oats and coconut in the preheated oven until browned, about 10 minutes; transfer to a large mixing bowl.\nmix honey, peanut butter, vanilla, and salt in a saucepan over medium-low heat. cook and stir until smooth. pour honey mixture over oats and coconut. stir to coat. spread mixture evenly into the prepared baking dish.\nbake in the preheated oven until beginning to dry, about 15 minutes for crunchy granola bars, less if you like them chewy. cool completely before cutting.\n\n\n\n\n\n\n\n\n\n",
+      "cuisine_path": "/appetizers and snacks/snacks/granola bar recipes/",
+      "timing": "prep time: 15 mins, cook time: 25 mins, additional time: 1 hrs, total time: 1 hrs 40 mins, servings: 8",
+      "nutrition": "total fat 5g 6%, saturated fat 2g 10%, sodium 64mg 3%, total carbohydrate 34g 13%, dietary fiber 3g 10%, protein 4g, vitamin c 0mg 1%, calcium 14mg 1%, iron 1mg 6%, potassium 128mg 3%",
+      "combined_text": "granola bars   cooking spray, 2 cups rolled oats, ½ cup shredded coconut, ½ cup honey, 2 tablespoons creamy peanut butter, 1 teaspoon vanilla extract, ⅛ teaspoon salt /appetizers and snacks/snacks/granola bar recipes/ prep time: 15 mins, cook time: 25 mins, additional time: 1 hrs, total time: 1 hrs 40 mins, servings: 8"
+    },
+    "original_data": {
+      "cuisine_path": "/Appetizers and Snacks/Snacks/Granola Bar Recipes/",
+      "ingredients": "  cooking spray, 2 cups rolled oats, ½ cup shredded coconut, ½ cup honey, 2 tablespoons creamy peanut butter, 1 teaspoon vanilla extract, ⅛ teaspoon salt",
+      "prep_time": "15 mins",
+      "cook_time": "25 mins",
+      "servings": 8
+    }
+  },
+  {
+    "id": 1038,
+    "name": "Cocktail Meatballs",
+    "collection": "appetizers-snacks",
+    "confidence": 8,
+    "features": {
+      "name": "cocktail meatballs",
+      "ingredients": "1 pound lean ground beef, ½ cup bread crumbs, 3 tablespoons minced onion, 2 tablespoons water, 1 large egg, 1 (8 ounce) can jellied cranberry sauce, ¾ cup chili sauce, 1 tablespoon brown sugar, 1 ½ teaspoons lemon juice",
+      "directions": "preheat the oven to 350 degrees f (175 degrees c).\nmix together ground beef, bread crumbs, onion, water, and egg in a large bowl. form into small meatballs and arrange on a nonstick baking sheet.\nbake in the preheated oven for 20 to 25 minutes, turning once.\nstir together cranberry sauce, chili sauce, brown sugar, and lemon juice in a large saucepan over low heat until smooth. add meatballs; simmer for 1 hour before serving.\n\n\n\n\n\n\n\n\n\n\n\nallrecipes magazine \n",
+      "cuisine_path": "/appetizers and snacks/meat and poultry/meatball appetizer recipes/",
+      "timing": "prep time: 20 mins, cook time: 1 hrs 20 mins, total time: 1 hrs 40 mins, servings: 10",
+      "nutrition": "total fat 10g 13%, saturated fat 4g 20%, cholesterol 53mg 18%, sodium 85mg 4%, total carbohydrate 15g 6%, dietary fiber 1g 2%, total sugars 10g, protein 10g, vitamin c 9mg 46%, calcium 19mg 1%, iron 1mg 8%, potassium 183mg 4%",
+      "combined_text": "cocktail meatballs 1 pound lean ground beef, ½ cup bread crumbs, 3 tablespoons minced onion, 2 tablespoons water, 1 large egg, 1 (8 ounce) can jellied cranberry sauce, ¾ cup chili sauce, 1 tablespoon brown sugar, 1 ½ te /appetizers and snacks/meat and poultry/meatball appetizer recipes/ prep time: 20 mins, cook time: 1 hrs 20 mins, total time: 1 hrs 40 mins, servings: 10"
+    },
+    "original_data": {
+      "cuisine_path": "/Appetizers and Snacks/Meat and Poultry/Meatball Appetizer Recipes/",
+      "ingredients": "1 pound lean ground beef, ½ cup bread crumbs, 3 tablespoons minced onion, 2 tablespoons water, 1 large egg, 1 (8 ounce) can jellied cranberry sauce, ¾ cup chili sauce, 1 tablespoon brown sugar, 1 ½ teaspoons lemon juice",
+      "prep_time": "20 mins",
+      "cook_time": "1 hrs 20 mins",
+      "servings": 10
+    }
+  },
+  {
+    "id": 1042,
+    "name": "Cheesecake-Stuffed Strawberries",
+    "collection": "appetizers-snacks",
+    "confidence": 12,
+    "features": {
+      "name": "cheesecake-stuffed strawberries",
+      "ingredients": "1 (8 ounce) package cream cheese, softened, ½ cup confectioners' sugar, ½ teaspoon vanilla extract, 1 pint fresh strawberries, hulled and cored, 3  graham crackers, crushed, or as needed",
+      "directions": "beat cream cheese, confectioners' sugar, and vanilla extract together in a bowl until smooth; spoon into a piping bag or a resealable bag with a corner snipped.\nfill cavities of cored strawberries with the cream cheese mixture. dip-filled side of strawberries in the crushed graham crackers to coat.\n\n\n\n\n\n\n\n\n\n\n\nunknown\n",
+      "cuisine_path": "/appetizers and snacks/fruit/",
+      "timing": "prep time: 20 mins, total time: 20 mins, servings: 20",
+      "nutrition": "total fat 4g 5%, saturated fat 3g 13%, cholesterol 12mg 4%, sodium 40mg 2%, total carbohydrate 6g 2%, dietary fiber 0g 1%, total sugars 4g, protein 1g, vitamin c 11mg 53%, calcium 12mg 1%, iron 0mg 1%, potassium 42mg 1%",
+      "combined_text": "cheesecake-stuffed strawberries 1 (8 ounce) package cream cheese, softened, ½ cup confectioners' sugar, ½ teaspoon vanilla extract, 1 pint fresh strawberries, hulled and cored, 3  graham crackers, crushed, or as needed /appetizers and snacks/fruit/ prep time: 20 mins, total time: 20 mins, servings: 20"
+    },
+    "original_data": {
+      "cuisine_path": "/Appetizers and Snacks/Fruit/",
+      "ingredients": "1 (8 ounce) package cream cheese, softened, ½ cup confectioners' sugar, ½ teaspoon vanilla extract, 1 pint fresh strawberries, hulled and cored, 3  graham crackers, crushed, or as needed",
+      "prep_time": "20 mins",
+      "cook_time": NaN,
+      "servings": 20
+    }
+  },
+  {
+    "id": 1056,
+    "name": "Bacon Wrapped Dates Stuffed with Blue Cheese",
+    "collection": "appetizers-snacks",
+    "confidence": 7,
+    "features": {
+      "name": "bacon wrapped dates stuffed with blue cheese",
+      "ingredients": "1 pound sliced bacon, cut in half, 1 pound pitted dates, 4 ounces blue cheese",
+      "directions": "preheat the oven to 375 degrees f (190 degrees c).\nslice dates in half, and open them up. pinch off pieces of blue cheese, and place them into the center of the dates. close the halves of the dates, and wrap a half-slice of bacon around the outside. secure each one with a toothpick. arrange in a baking dish or on a baking sheet with sides to catch any grease.\nbake for 30 to 40 minutes in the preheated oven, or until the bacon is crisp. turn dates over after the first 20 minutes for even cooking.",
+      "cuisine_path": "/meat and poultry/pork/bacon/appetizers/",
+      "timing": "prep time: 20 mins, cook time: 40 mins, total time: 1 hrs, servings: 32, yield: 32 appetizers",
+      "nutrition": "total fat 3g 4%, saturated fat 1g 7%, cholesterol 8mg 3%, sodium 157mg 7%, total carbohydrate 11g 4%, dietary fiber 1g 4%, total sugars 9g, protein 3g, vitamin c 0mg 1%, calcium 25mg 2%, iron 0mg 1%, potassium 128mg 3%",
+      "combined_text": "bacon wrapped dates stuffed with blue cheese 1 pound sliced bacon, cut in half, 1 pound pitted dates, 4 ounces blue cheese /meat and poultry/pork/bacon/appetizers/ prep time: 20 mins, cook time: 40 mins, total time: 1 hrs, servings: 32, yield: 32 appetizers"
+    },
+    "original_data": {
+      "cuisine_path": "/Meat and Poultry/Pork/Bacon/Appetizers/",
+      "ingredients": "1 pound sliced bacon, cut in half, 1 pound pitted dates, 4 ounces blue cheese",
+      "prep_time": "20 mins",
+      "cook_time": "40 mins",
+      "servings": 32
+    }
+  },
+  {
+    "id": 1064,
+    "name": "Devils on Horseback",
+    "collection": "appetizers-snacks",
+    "confidence": 8,
+    "features": {
+      "name": "devils on horseback",
+      "ingredients": "20  wooden toothpicks, ¼ cup reduced-sodium soy sauce, ½ teaspoon ground ginger, ¾ cup dark brown sugar, 20  dates, pitted and left whole, 20  whole smoked almonds, 10  bacon slices, cut in half crosswise",
+      "directions": "preheat oven to 400 degrees f (200 degrees c). soak the toothpicks in a bowl of water. grease a 9x13-inch baking dish.\nin a bowl, mix together the soy sauce and ground ginger. place the brown sugar into a shallow bowl. spread open a pitted date, then stuff it with a smoked almond. wrap the date with half a bacon slice, secure it with a toothpick, dip the bundle in soy sauce mixture, and then dip it into brown sugar. place the wrapped dates into the prepared baking dish. if desired, sprinkle a little more brown sugar over the bundles.\nbake in the preheated oven until the bacon is brown and crisp, 15 to 25 minutes. allow to cool for about 15 minutes before serving; serve warm or at room temperature.",
+      "cuisine_path": "/appetizers and snacks/wraps and rolls/",
+      "timing": "prep time: 30 mins, cook time: 15 mins, additional time: 15 mins, total time: 1 hrs, servings: 20, yield: 20 stuffed dates",
+      "nutrition": "total fat 7g 9%, saturated fat 2g 11%, cholesterol 10mg 3%, sodium 226mg 10%, total carbohydrate 12g 4%, dietary fiber 1g 3%, total sugars 11g, protein 2g, calcium 12mg 1%, iron 0mg 2%, potassium 106mg 2%",
+      "combined_text": "devils on horseback 20  wooden toothpicks, ¼ cup reduced-sodium soy sauce, ½ teaspoon ground ginger, ¾ cup dark brown sugar, 20  dates, pitted and left whole, 20  whole smoked almonds, 10  bacon slices, cut in half cross /appetizers and snacks/wraps and rolls/ prep time: 30 mins, cook time: 15 mins, additional time: 15 mins, total time: 1 hrs, servings: 20, yield: 20 stuffed dates"
+    },
+    "original_data": {
+      "cuisine_path": "/Appetizers and Snacks/Wraps and Rolls/",
+      "ingredients": "20  wooden toothpicks, ¼ cup reduced-sodium soy sauce, ½ teaspoon ground ginger, ¾ cup dark brown sugar, 20  dates, pitted and left whole, 20  whole smoked almonds, 10  bacon slices, cut in half crosswise",
+      "prep_time": "30 mins",
+      "cook_time": "15 mins",
+      "servings": 20
+    }
+  },
+  {
+    "id": 1068,
+    "name": "Energy Balls without Peanut Butter",
+    "collection": "appetizers-snacks",
+    "confidence": 8,
+    "features": {
+      "name": "energy balls without peanut butter",
+      "ingredients": "1 cup rolled oats, ½ cup pumpkin seeds, ½ cup walnuts, ½ cup pecans, 15  pitted medjool dates, ½ cup brown rice syrup, 1 cup mini chocolate chips, ½ cup shredded coconut, ½ cup raisins, ¼ cup sunflower seeds",
+      "directions": "burst oats into a coarse meal in the bowl of a food processor. add pumpkin seeds, walnuts, and pecans; pulse 10 to 15 times, until chunks are desired size.\ntoss dates into the food processor and mix for 30 seconds. pour rice syrup in slowly, with the processor running, until combined and starting to ball up.\ntransfer to a bowl and mix in chocolate chips, coconut, raisins, and sunflower seeds. pull off dough in 25 gram sections and roll into balls. place in a single layer on a cookie sheet; it's okay if they touch but make sure they are not stacked.\nrefrigerate for 2 to 24 hours before serving.",
+      "cuisine_path": "/appetizers and snacks/snacks/energy ball recipes/",
+      "timing": "prep time: 20 mins, additional time: 2 hrs, total time: 2 hrs 20 mins, servings: 45, yield: 45 balls",
+      "nutrition": "total fat 4g 6%, saturated fat 1g 7%, sodium 5mg 0%, total carbohydrate 11g 4%, dietary fiber 1g 4%, total sugars 8g, protein 2g, vitamin c 0mg 1%, calcium 10mg 1%, iron 1mg 4%, potassium 98mg 2%",
+      "combined_text": "energy balls without peanut butter 1 cup rolled oats, ½ cup pumpkin seeds, ½ cup walnuts, ½ cup pecans, 15  pitted medjool dates, ½ cup brown rice syrup, 1 cup mini chocolate chips, ½ cup shredded coconut, ½ cup raisins, ¼ cup sunflowe /appetizers and snacks/snacks/energy ball recipes/ prep time: 20 mins, additional time: 2 hrs, total time: 2 hrs 20 mins, servings: 45, yield: 45 balls"
+    },
+    "original_data": {
+      "cuisine_path": "/Appetizers and Snacks/Snacks/Energy Ball Recipes/",
+      "ingredients": "1 cup rolled oats, ½ cup pumpkin seeds, ½ cup walnuts, ½ cup pecans, 15  pitted Medjool dates, ½ cup brown rice syrup, 1 cup mini chocolate chips, ½ cup shredded coconut, ½ cup raisins, ¼ cup sunflower seeds",
+      "prep_time": "20 mins",
+      "cook_time": NaN,
+      "servings": 45
+    }
+  },
+  {
+    "id": 1070,
+    "name": "Bacon Wrapped Dates",
+    "collection": "appetizers-snacks",
+    "confidence": 6,
+    "features": {
+      "name": "bacon wrapped dates",
+      "ingredients": "16  fresh or dried pitted dates, such as medjool, 16  smoked almonds, 8 thick slices applewood-smoked bacon, halved crosswise,   reynolds wrap® aluminum foil",
+      "directions": "preheat oven to 400 degrees f. cut a slit in each date. place almonds inside slits. press together the dates to close slits. wrap each date with a piece of bacon.\nline a shallow baking pan with reynolds wrap® aluminum foil. add a roasting rack; place the dates on rack. roast for 15 to 20 minutes or until bacon is crisp. serve immediately with toothpicks. dates will be hot inside.",
+      "cuisine_path": "/appetizers and snacks/",
+      "timing": "prep time: 10 mins, cook time: 15 mins, total time: 25 mins, servings: 16, yield: 16 appetizer servings",
+      "nutrition": "total fat 3g 4%, saturated fat 1g 5%, cholesterol 7mg 2%, sodium 145mg 6%, total carbohydrate 7g 2%, dietary fiber 1g 3%, total sugars 5g, protein 3g, calcium 7mg 1%, iron 0mg 1%, potassium 99mg 2%",
+      "combined_text": "bacon wrapped dates 16  fresh or dried pitted dates, such as medjool, 16  smoked almonds, 8 thick slices applewood-smoked bacon, halved crosswise,   reynolds wrap® aluminum foil /appetizers and snacks/ prep time: 10 mins, cook time: 15 mins, total time: 25 mins, servings: 16, yield: 16 appetizer servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Appetizers and Snacks/",
+      "ingredients": "16  fresh or dried pitted dates, such as Medjool, 16  smoked almonds, 8 thick slices applewood-smoked bacon, halved crosswise,   Reynolds Wrap® Aluminum Foil",
+      "prep_time": "10 mins",
+      "cook_time": "15 mins",
+      "servings": 16
+    }
+  },
+  {
+    "id": 1075,
+    "name": "Bacon and Date Appetizer",
+    "collection": "appetizers-snacks",
+    "confidence": 7,
+    "features": {
+      "name": "bacon and date appetizer",
+      "ingredients": "1 (8 ounce) package pitted dates, 4 ounces almonds, 1 pound sliced bacon",
+      "directions": "preheat the broiler.\nslit dates. place one almond inside each date. wrap dates with bacon, using toothpicks to hold them together.\nbroil 10 minutes, or until bacon is evenly brown and crisp.",
+      "cuisine_path": "/meat and poultry/pork/bacon/appetizers/",
+      "timing": "prep time: 30 mins, cook time: 5 mins, total time: 35 mins, servings: 6, yield: 6 servings",
+      "nutrition": "total fat 44g 56%, saturated fat 12g 61%, cholesterol 52mg 17%, sodium 631mg 27%, total carbohydrate 32g 12%, dietary fiber 5g 19%, total sugars 25g, protein 14g, vitamin c 0mg 1%, calcium 65mg 5%, iron 2mg 8%, potassium 538mg 11%",
+      "combined_text": "bacon and date appetizer 1 (8 ounce) package pitted dates, 4 ounces almonds, 1 pound sliced bacon /meat and poultry/pork/bacon/appetizers/ prep time: 30 mins, cook time: 5 mins, total time: 35 mins, servings: 6, yield: 6 servings"
+    },
+    "original_data": {
+      "cuisine_path": "/Meat and Poultry/Pork/Bacon/Appetizers/",
+      "ingredients": "1 (8 ounce) package pitted dates, 4 ounces almonds, 1 pound sliced bacon",
+      "prep_time": "30 mins",
+      "cook_time": "5 mins",
+      "servings": 6
+    }
+  },
+  {
+    "id": 1077,
+    "name": "Pecan Pie Energy Bites",
+    "collection": "appetizers-snacks",
+    "confidence": 9,
+    "features": {
+      "name": "pecan pie energy bites",
+      "ingredients": "1 cup pecan halves, ⅓ cup rolled oats, 1 cup pitted medjool dates, ⅛ teaspoon ground cinnamon, ¼ teaspoon kosher salt, ¼ teaspoon vanilla extract, 1 tablespoon maple syrup",
+      "directions": "preheat the oven to 350 degrees f (175 degrees c). line a baking sheet with parchment paper.\narrange a single layer of pecans on the prepared baking sheet. top with rolled oats. bake in the preheated oven until toasted, about 10 minutes. allow to cool completely.\npulse pecans, oats, dates, cinnamon, salt, vanilla extract, and maple syrup in a food processor until nuts are ground to desired consistency.\nshape mixture into twelve 2-inch tightly-packed balls. refrigerate before serving.\n\n\n\n\n\n\n\n\n\n\n\nchef john\n",
+      "cuisine_path": "/appetizers and snacks/snacks/energy ball recipes/",
+      "timing": "prep time: 15 mins, cook time: 10 mins, total time: 25 mins, servings: 12, yield: 12 2-inch balls",
+      "nutrition": "total fat 7g 8%, saturated fat 1g 3%, sodium 41mg 2%, total carbohydrate 15g 5%, dietary fiber 2g 7%, protein 2g, potassium 144mg 3%",
+      "combined_text": "pecan pie energy bites 1 cup pecan halves, ⅓ cup rolled oats, 1 cup pitted medjool dates, ⅛ teaspoon ground cinnamon, ¼ teaspoon kosher salt, ¼ teaspoon vanilla extract, 1 tablespoon maple syrup /appetizers and snacks/snacks/energy ball recipes/ prep time: 15 mins, cook time: 10 mins, total time: 25 mins, servings: 12, yield: 12 2-inch balls"
+    },
+    "original_data": {
+      "cuisine_path": "/Appetizers and Snacks/Snacks/Energy Ball Recipes/",
+      "ingredients": "1 cup pecan halves, ⅓ cup rolled oats, 1 cup pitted Medjool dates, ⅛ teaspoon ground cinnamon, ¼ teaspoon kosher salt, ¼ teaspoon vanilla extract, 1 tablespoon maple syrup",
+      "prep_time": "15 mins",
+      "cook_time": "10 mins",
+      "servings": 12
+    }
+  },
+  {
+    "id": 1089,
+    "name": "Chef John's Chocolate Energy Bars",
+    "collection": "appetizers-snacks",
+    "confidence": 10,
+    "features": {
+      "name": "chef john's chocolate energy bars",
+      "ingredients": "2 cups pitted medjool dates, roughly chopped, 2 cups raw cashews, 1 cup raw or roasted unsalted almonds, ¾ cup high-quality unsweetened cocoa powder (such as guittard® cocoa rouge), 2 tablespoons coconut oil, melted, ½ cup unsweetened shredded coconut, 2 teaspoons vanilla extract, 1 tablespoon cold espresso, or more as needed (or water), ½ teaspoon kosher salt, ½ pinch cayenne pepper",
+      "directions": "place cashews, almonds, coconut, dates, cocoa, coconut oil, vanilla, cold coffee, cayenne and salt in the bowl of a food processor. pulse on and off to start. process about 1 minute; check to ensure mixture is sticky and moist enough to stick together. add more coffee if needed. continue to process until mixture becomes a chunky mass.\nline a baking pan with plastic wrap. scoop mixture into pan. press down with a spatula until mixture is even. place a layer of plastic wrap on the surface and smooth again with your hands.\nrefrigerate until cold and firm, 2 or 3 hours.\nremove from the pan and unwrap. cut into bars of your preferred size. store in a zip top back in the refrigerator.\n\n\n\n\n\n\n\n\n\n\n\nunknown\n",
+      "cuisine_path": "/appetizers and snacks/snacks/granola bar recipes/",
+      "timing": "prep time: 15 mins, additional time: 2 hrs 45 mins, total time: 3 hrs, servings: 12, yield: 12 bars",
+      "nutrition": "total fat 22g 28%, saturated fat 7g 36%, sodium 230mg 10%, total carbohydrate 36g 13%, dietary fiber 7g 25%, total sugars 21g, protein 8g, vitamin c 0mg 1%, calcium 59mg 5%, iron 3mg 17%, potassium 515mg 11%",
+      "combined_text": "chef john's chocolate energy bars 2 cups pitted medjool dates, roughly chopped, 2 cups raw cashews, 1 cup raw or roasted unsalted almonds, ¾ cup high-quality unsweetened cocoa powder (such as guittard® cocoa rouge), 2 tablespoons coco /appetizers and snacks/snacks/granola bar recipes/ prep time: 15 mins, additional time: 2 hrs 45 mins, total time: 3 hrs, servings: 12, yield: 12 bars"
+    },
+    "original_data": {
+      "cuisine_path": "/Appetizers and Snacks/Snacks/Granola Bar Recipes/",
+      "ingredients": "2 cups pitted Medjool dates, roughly chopped, 2 cups raw cashews, 1 cup raw or roasted unsalted almonds, ¾ cup high-quality unsweetened cocoa powder (such as Guittard® Cocoa Rouge), 2 tablespoons coconut oil, melted, ½ cup unsweetened shredded coconut, 2 teaspoons vanilla extract, 1 tablespoon cold espresso, or more as needed (or water), ½ teaspoon kosher salt, ½ pinch cayenne pepper",
+      "prep_time": "15 mins",
+      "cook_time": NaN,
+      "servings": 12
+    }
+  }
+]

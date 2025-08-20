@@ -8,3 +8,4 @@ pandas==2.0.3
 torch==2.0.1
 transformers==4.30.2
 qdrant-client==1.4.0
+sentence-transformers==2.2.2

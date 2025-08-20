@@ -1,0 +1,254 @@
+{
+  "created_at": "2025-07-23T23:23:30.185946",
+  "security_measures": [
+    "API keys stored in environment variables only",
+    "No hardcoded credentials",
+    "Beverage collection excluded as requested",
+    "Error handling and validation implemented"
+  ],
+  "collections": {
+    "desserts-sweets": {
+      "vectors_count": 0,
+      "points_count": 2465,
+      "config": {
+        "description": "All sweet treats and desserts",
+        "priority": "high",
+        "batch_size": 50,
+        "estimated_count": 2465
+      },
+      "embedding_strategy": {
+        "focus_fields": [
+          "title",
+          "sweet_ingredients",
+          "dessert_type"
+        ],
+        "boost_keywords": [
+          "chocolate",
+          "vanilla",
+          "sugar",
+          "cake",
+          "cookie"
+        ],
+        "max_length": 400
+      }
+    },
+    "protein-mains": {
+      "vectors_count": 0,
+      "points_count": 1379,
+      "config": {
+        "description": "Meat, poultry, seafood main dishes",
+        "priority": "high",
+        "batch_size": 30,
+        "estimated_count": 1379
+      },
+      "embedding_strategy": {
+        "focus_fields": [
+          "title",
+          "protein_type",
+          "cooking_method"
+        ],
+        "boost_keywords": [
+          "chicken",
+          "beef",
+          "salmon",
+          "grilled",
+          "roasted"
+        ],
+        "max_length": 450
+      }
+    },
+    "quick-light": {
+      "vectors_count": 0,
+      "points_count": 2476,
+      "config": {
+        "description": "Fast preparation and light meals",
+        "priority": "medium",
+        "batch_size": 40,
+        "estimated_count": 2476
+      },
+      "embedding_strategy": {
+        "focus_fields": [
+          "title",
+          "simple_ingredients",
+          "prep_method"
+        ],
+        "boost_keywords": [
+          "quick",
+          "easy",
+          "simple",
+          "light",
+          "fast"
+        ],
+        "max_length": 350
+      }
+    },
+    "fresh-cold": {
+      "vectors_count": 0,
+      "points_count": 945,
+      "config": {
+        "description": "Salads and raw preparations",
+        "priority": "medium",
+        "batch_size": 25,
+        "estimated_count": 950
+      },
+      "embedding_strategy": {
+        "focus_fields": [
+          "title",
+          "fresh_ingredients",
+          "raw_prep"
+        ],
+        "boost_keywords": [
+          "fresh",
+          "raw",
+          "salad",
+          "cold",
+          "crisp"
+        ],
+        "max_length": 400
+      }
+    },
+    "baked-breads": {
+      "vectors_count": 0,
+      "points_count": 885,
+      "config": {
+        "description": "Baking-method specific items",
+        "priority": "medium",
+        "batch_size": 25,
+        "estimated_count": 885
+      },
+      "embedding_strategy": {
+        "focus_fields": [
+          "title",
+          "flour_ingredients",
+          "baking_method"
+        ],
+        "boost_keywords": [
+          "bread",
+          "baked",
+          "flour",
+          "yeast",
+          "oven"
+        ],
+        "max_length": 400
+      }
+    },
+    "comfort-cooked": {
+      "vectors_count": 0,
+      "points_count": 718,
+      "config": {
+        "description": "Slow-cooked and braised dishes",
+        "priority": "low",
+        "batch_size": 20,
+        "estimated_count": 718
+      },
+      "embedding_strategy": {
+        "focus_fields": [
+          "title",
+          "comfort_ingredients",
+          "slow_method"
+        ],
+        "boost_keywords": [
+          "braised",
+          "stewed",
+          "comfort",
+          "warm",
+          "hearty"
+        ],
+        "max_length": 450
+      }
+    },
+    "breakfast-morning": {
+      "vectors_count": 0,
+      "points_count": 415,
+      "config": {
+        "description": "Morning-specific foods",
+        "priority": "low",
+        "batch_size": 15,
+        "estimated_count": 415
+      },
+      "embedding_strategy": {
+        "focus_fields": [
+          "title",
+          "morning_ingredients",
+          "breakfast_type"
+        ],
+        "boost_keywords": [
+          "breakfast",
+          "morning",
+          "eggs",
+          "pancakes",
+          "oats"
+        ],
+        "max_length": 350
+      }
+    },
+    "plant-based": {
+      "vectors_count": 0,
+      "points_count": 78,
+      "config": {
+        "description": "Vegetarian and vegan dishes",
+        "priority": "low",
+        "batch_size": 10,
+        "estimated_count": 78
+      },
+      "embedding_strategy": {
+        "focus_fields": [
+          "title",
+          "plant_ingredients",
+          "veggie_method"
+        ],
+        "boost_keywords": [
+          "vegetarian",
+          "vegan",
+          "plant",
+          "vegetables",
+          "beans"
+        ],
+        "max_length": 400
+      }
+    }
+  },
+  "processing_stats": {
+    "baked-breads": {
+      "processed": 885,
+      "errors": 0,
+      "total": 885
+    },
+    "quick-light": {
+      "processed": 2476,
+      "errors": 0,
+      "total": 2476
+    },
+    "protein-mains": {
+      "processed": 1379,
+      "errors": 0,
+      "total": 1379
+    },
+    "comfort-cooked": {
+      "processed": 718,
+      "errors": 0,
+      "total": 718
+    },
+    "desserts-sweets": {
+      "processed": 2465,
+      "errors": 0,
+      "total": 2465
+    },
+    "breakfast-morning": {
+      "processed": 415,
+      "errors": 0,
+      "total": 415
+    },
+    "plant-based": {
+      "processed": 78,
+      "errors": 0,
+      "total": 78
+    },
+    "fresh-cold": {
+      "processed": 945,
+      "errors": 5,
+      "total": 950
+    }
+  },
+  "total_recipes_processed": 9361
+}

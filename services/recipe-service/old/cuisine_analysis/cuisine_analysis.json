@@ -1,0 +1,475 @@
+{
+  "total_recipes": 1090,
+  "raw_cuisine_paths": {
+    "side dish/sauces and condiments/canning and preserving recipes/jams and jellies recipes": 36,
+    "desserts/fruit desserts/peach dessert recipes": 30,
+    "desserts/pies/apple pie recipes": 26,
+    "desserts/fruit desserts/apple dessert recipes": 23,
+    "desserts/fruit desserts/cherry dessert recipes": 22,
+    "salad/fruit salad recipes": 21,
+    "breakfast and brunch/drinks": 20,
+    "desserts/fruit desserts/banana dessert recipes": 16,
+    "desserts/crisps and crumbles recipes/apple crisps and crumbles recipes": 16,
+    "side dish": 14,
+    "cuisine/latin american/mexican": 14,
+    "breakfast and brunch/breakfast bread recipes": 13,
+    "salad/green salad recipes/spinach salad recipes": 12,
+    "drinks recipes/smoothie recipes/strawberry": 11,
+    "desserts/pies/fruit pies/pear pie recipes": 10,
+    "side dish/sauces and condiments/sauces": 10,
+    "bread/quick bread recipes/fruit bread recipes/banana bread": 9,
+    "desserts": 9,
+    "desserts/pies/tarts/fruit tart recipes": 9,
+    "bread/quick bread recipes/fruit bread recipes": 9,
+    "bread/quick bread recipes/muffin recipes/apple muffin recipes": 9,
+    "bread/quick bread recipes/muffin recipes/banana muffin recipes": 8,
+    "desserts/specialty dessert recipes/caramel apple recipes": 8,
+    "desserts/pies/fruit pies": 8,
+    "desserts/cookies/fruit cookie recipes/date": 8,
+    "cuisine/european/french": 8,
+    "side dish/sauces and condiments/canning and preserving recipes/fruit butter recipes": 8,
+    "bread/quick bread recipes/muffin recipes": 8,
+    "desserts/custards and puddings": 7,
+    "desserts/cakes/coffee cake recipes": 7,
+    "drinks recipes/juice recipes": 7,
+    "salad/green salad recipes": 7,
+    "main dishes/pork/ham/whole": 7,
+    "desserts/fruit desserts/pineapple dessert recipes": 7,
+    "meat and poultry/chicken/chicken breast": 7,
+    "side dish/sauces and condiments/chutney recipes": 7,
+    "bread/quick bread recipes": 7,
+    "cuisine/european/german": 6,
+    "appetizers and snacks/dips and spreads recipes/guacamole recipes": 6,
+    "cuisine/european/uk and ireland/english": 6,
+    "drinks recipes/smoothie recipes": 6,
+    "desserts/pies/fruit pies/peach pie recipes": 6,
+    "cuisine/latin american/caribbean": 6,
+    "desserts/crisps and crumbles recipes": 6,
+    "cuisine/asian": 6,
+    "breakfast and brunch/cereals/oatmeal recipes": 6,
+    "desserts/fruit desserts/fig dessert recipes": 6,
+    "desserts/specialty dessert recipes/dessert salad recipes/jell-o® salad": 5,
+    "salad/pasta salad/fruit pasta salad recipes": 5,
+    "desserts/pies/no-bake pie recipes": 5
+  },
+  "category_distribution": {
+    "desserts": 408,
+    "side dish": 111,
+    "salads": 103,
+    "drinks recipes": 82,
+    "appetizers": 70,
+    "bread": 67,
+    "chicken": 50,
+    "breakfast": 49,
+    "pork": 37,
+    "american": 28,
+    "seafood": 25,
+    "cuisine": 23,
+    "soups": 21,
+    "mexican": 21,
+    "italian": 17,
+    "asian": 13,
+    "main dishes": 12,
+    "healthy": 11,
+    "french": 10,
+    "beef": 5,
+    "everyday cooking": 5,
+    "quick bread recipes": 3,
+    "trusted brands: recipes and tips": 2,
+    "fruits and vegetables": 2,
+    "holidays and events recipes": 1,
+    "mediterranean": 1
+  },
+  "proposed_collections": {
+    "baking-desserts": 398,
+    "uncategorized": 308,
+    "soups-stews": 21,
+    "american-comfort": 29,
+    "healthy-light": 132,
+    "meat-mains": 59,
+    "breakfast-brunch": 42,
+    "italian-mediterranean": 28,
+    "asian-pacific": 13,
+    "appetizers-snacks": 60
+  },
+  "collection_samples": {
+    "baking-desserts": [
+      {
+        "name": "Apple-Cranberry Crostada",
+        "categories": [
+          "desserts"
+        ],
+        "original_path": "/Desserts/Fruit Desserts/Apple Dessert Recipes/"
+      },
+      {
+        "name": "Apple Pie by Grandma Ople",
+        "categories": [
+          "desserts"
+        ],
+        "original_path": "/Desserts/Pies/Apple Pie Recipes/"
+      },
+      {
+        "name": "Apple Crisp",
+        "categories": [
+          "desserts"
+        ],
+        "original_path": "/Desserts/Crisps and Crumbles Recipes/Apple Crisps and Crumbles Recipes/"
+      },
+      {
+        "name": "Apple Pie Filling",
+        "categories": [
+          "desserts"
+        ],
+        "original_path": "/Desserts/Pies/Apple Pie Recipes/"
+      },
+      {
+        "name": "Easy Apple Crisp with Oat Topping",
+        "categories": [
+          "desserts"
+        ],
+        "original_path": "/Desserts/Crisps and Crumbles Recipes/Apple Crisps and Crumbles Recipes/"
+      }
+    ],
+    "uncategorized": [
+      {
+        "name": "Sarah's Homemade Applesauce",
+        "categories": [
+          "side dish"
+        ],
+        "original_path": "/Side Dish/Applesauce Recipes/"
+      },
+      {
+        "name": "Easy Apple Cider",
+        "categories": [
+          "drinks recipes"
+        ],
+        "original_path": "/Drinks Recipes/Cider Recipes/"
+      },
+      {
+        "name": "Southern Fried Apples",
+        "categories": [
+          "side dish"
+        ],
+        "original_path": "/Side Dish/"
+      },
+      {
+        "name": "Sauteed Apples",
+        "categories": [
+          "side dish"
+        ],
+        "original_path": "/Side Dish/"
+      },
+      {
+        "name": "Homemade Apple Cider",
+        "categories": [
+          "drinks recipes"
+        ],
+        "original_path": "/Drinks Recipes/Juice Recipes/"
+      }
+    ],
+    "soups-stews": [
+      {
+        "name": "Mulligatawny Soup",
+        "categories": [
+          "soups",
+          "chicken"
+        ],
+        "original_path": "/Soups, Stews and Chili Recipes/Soup Recipes/Chicken Soup Recipes/"
+      },
+      {
+        "name": "Mulligatawny Soup",
+        "categories": [
+          "soups",
+          "chicken"
+        ],
+        "original_path": "/Soups, Stews and Chili Recipes/Soup Recipes/Chicken Soup Recipes/"
+      },
+      {
+        "name": "Mulligatawny Soup",
+        "categories": [
+          "soups",
+          "chicken"
+        ],
+        "original_path": "/Soups, Stews and Chili Recipes/Soup Recipes/Chicken Soup Recipes/"
+      },
+      {
+        "name": "Mulligatawny Soup",
+        "categories": [
+          "soups",
+          "chicken"
+        ],
+        "original_path": "/Soups, Stews and Chili Recipes/Soup Recipes/Chicken Soup Recipes/"
+      },
+      {
+        "name": "Watermelon Soup",
+        "categories": [
+          "soups"
+        ],
+        "original_path": "/Soups, Stews and Chili Recipes/Soup Recipes/Fruit Soup Recipes/"
+      }
+    ],
+    "american-comfort": [
+      {
+        "name": "Awesome Sausage, Apple and Cranberry Stuffing",
+        "categories": [
+          "american"
+        ],
+        "original_path": "/Side Dish/Stuffing and Dressing Recipes/Sausage Stuffing and Dressing Recipes/"
+      },
+      {
+        "name": "Awesome Sausage, Apple and Cranberry Stuffing",
+        "categories": [
+          "american"
+        ],
+        "original_path": "/Side Dish/Stuffing and Dressing Recipes/Sausage Stuffing and Dressing Recipes/"
+      },
+      {
+        "name": "Awesome Sausage, Apple and Cranberry Stuffing",
+        "categories": [
+          "american"
+        ],
+        "original_path": "/Side Dish/Stuffing and Dressing Recipes/Sausage Stuffing and Dressing Recipes/"
+      },
+      {
+        "name": "Awesome Sausage, Apple and Cranberry Stuffing",
+        "categories": [
+          "american"
+        ],
+        "original_path": "/Side Dish/Stuffing and Dressing Recipes/Sausage Stuffing and Dressing Recipes/"
+      },
+      {
+        "name": "Heavenly Honeydew Juice",
+        "categories": [
+          "mexican",
+          "american"
+        ],
+        "original_path": "/Cuisine/Latin American/Mexican/"
+      }
+    ],
+    "healthy-light": [
+      {
+        "name": "Waldorf Salad",
+        "categories": [
+          "salads"
+        ],
+        "original_path": "/Salad/Waldorf Salad Recipes/"
+      },
+      {
+        "name": "Waldorf Salad",
+        "categories": [
+          "salads"
+        ],
+        "original_path": "/Salad/Waldorf Salad Recipes/"
+      },
+      {
+        "name": "Waldorf Salad",
+        "categories": [
+          "salads"
+        ],
+        "original_path": "/Salad/Waldorf Salad Recipes/"
+      },
+      {
+        "name": "Waldorf Salad",
+        "categories": [
+          "salads"
+        ],
+        "original_path": "/Salad/Waldorf Salad Recipes/"
+      },
+      {
+        "name": "Apple Chips",
+        "categories": [
+          "healthy",
+          "appetizers"
+        ],
+        "original_path": "/Appetizers and Snacks/Snacks/Kids/Healthy/"
+      }
+    ],
+    "meat-mains": [
+      {
+        "name": "Applesauce Pork Chops",
+        "categories": [
+          "pork"
+        ],
+        "original_path": "/Main Dishes/Pork/Pork Chop Recipes/Baked/"
+      },
+      {
+        "name": "Instant Pot Meatloaf",
+        "categories": [
+          "beef"
+        ],
+        "original_path": "/Main Dishes/Meatloaf Recipes/Beef Meatloaf Recipes/"
+      },
+      {
+        "name": "Pork Tenderloin with Apples and Onions",
+        "categories": [
+          "chicken",
+          "pork"
+        ],
+        "original_path": "/Meat and Poultry/Pork/Pork Tenderloin Recipes/"
+      },
+      {
+        "name": "Baked Ham with Sweet Glaze",
+        "categories": [
+          "pork"
+        ],
+        "original_path": "/Main Dishes/Pork/Ham/Whole/"
+      },
+      {
+        "name": "Pineapple Glaze for Ham",
+        "categories": [
+          "pork"
+        ],
+        "original_path": "/Side Dish/Sauces and Condiments/Sauces/Ham Glaze Recipes/"
+      }
+    ],
+    "breakfast-brunch": [
+      {
+        "name": "Simple Summer Smoothie",
+        "categories": [
+          "breakfast"
+        ],
+        "original_path": "/Breakfast and Brunch/Drinks/"
+      },
+      {
+        "name": "Fig Smoothie",
+        "categories": [
+          "breakfast"
+        ],
+        "original_path": "/Breakfast and Brunch/Drinks/"
+      },
+      {
+        "name": "Banana Peach Bread",
+        "categories": [
+          "breakfast"
+        ],
+        "original_path": "/Breakfast and Brunch/Breakfast Bread Recipes/"
+      },
+      {
+        "name": "Bananerberry Smoothie",
+        "categories": [
+          "breakfast"
+        ],
+        "original_path": "/Breakfast and Brunch/Drinks/"
+      },
+      {
+        "name": "Pear Bread I",
+        "categories": [
+          "breakfast"
+        ],
+        "original_path": "/Breakfast and Brunch/Breakfast Bread Recipes/"
+      }
+    ],
+    "italian-mediterranean": [
+      {
+        "name": "Clafoutis aux Cerises (Classic Clafouti)",
+        "categories": [
+          "french"
+        ],
+        "original_path": "/Cuisine/European/French/"
+      },
+      {
+        "name": "Risotto with Fresh Figs and Prosciutto",
+        "categories": [
+          "italian"
+        ],
+        "original_path": "/Main Dishes/Rice/Risotto Recipes/"
+      },
+      {
+        "name": "Fresh Fig and Prosciutto Pasta Sauce",
+        "categories": [
+          "italian"
+        ],
+        "original_path": "/Sauces and Condiments/Sauces/Pasta Sauces/Creamy/"
+      },
+      {
+        "name": "Dolce Pesca (Sweet Peaches)",
+        "categories": [
+          "italian"
+        ],
+        "original_path": "/Cuisine/European/Italian/"
+      },
+      {
+        "name": "Frog Eye Salad",
+        "categories": [
+          "italian",
+          "salads"
+        ],
+        "original_path": "/Salad/Pasta Salad/Fruit Pasta Salad Recipes/"
+      }
+    ],
+    "asian-pacific": [
+      {
+        "name": "Cherry Chicken",
+        "categories": [
+          "asian"
+        ],
+        "original_path": "/Cuisine/Asian/"
+      },
+      {
+        "name": "Khoresht Fesenjaan (Chicken with Pomegranate Sauce)",
+        "categories": [
+          "asian"
+        ],
+        "original_path": "/Cuisine/Asian/"
+      },
+      {
+        "name": "Char Siu (Chinese Barbeque Pork)",
+        "categories": [
+          "asian"
+        ],
+        "original_path": "/Cuisine/Asian/Chinese/"
+      },
+      {
+        "name": "Thai Pineapple Chicken Curry",
+        "categories": [
+          "asian"
+        ],
+        "original_path": "/Cuisine/Asian/Thai/"
+      },
+      {
+        "name": "Easy Sweet and Sour Chicken",
+        "categories": [
+          "asian"
+        ],
+        "original_path": "/Cuisine/Asian/"
+      }
+    ],
+    "appetizers-snacks": [
+      {
+        "name": "Elegant Fig Appetizers with Goat Cheese and Almonds",
+        "categories": [
+          "appetizers"
+        ],
+        "original_path": "/Appetizers and Snacks/Fruit/"
+      },
+      {
+        "name": "Figs and Toasted Almonds Brie",
+        "categories": [
+          "appetizers"
+        ],
+        "original_path": "/Appetizers and Snacks/Cheese/Baked Brie Recipes/"
+      },
+      {
+        "name": "Fig and Prosciutto Appetizer Bites",
+        "categories": [
+          "appetizers"
+        ],
+        "original_path": "/Appetizers and Snacks/Wraps and Rolls/"
+      },
+      {
+        "name": "Bourbon Fig Compote",
+        "categories": [
+          "appetizers"
+        ],
+        "original_path": "/Appetizers and Snacks/Dips and Spreads Recipes/"
+      },
+      {
+        "name": "Burrata Bruschetta with Figs",
+        "categories": [
+          "appetizers"
+        ],
+        "original_path": "/Appetizers and Snacks/Bruschetta Recipes/"
+      }
+    ]
+  }
+}
