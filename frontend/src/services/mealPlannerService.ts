@@ -367,15 +367,23 @@ export const getGroceryList = async (mealPlanId: number) => {
 };
 
 // Move a meal to a different day or meal type
-export const moveMeal = async (mealPlanId: number, recipeId: number, toDay: number, toMealType: string): Promise<boolean> => {
+export const moveMeal = async (mealPlanId: number, recipeId: number, toDay: number, toMealType: string, fromDay?: number, fromMealType?: string): Promise<boolean> => {
   try {
     const token = localStorage.getItem('token');
+    const requestBody: any = {
+      recipe_id: recipeId,
+      to_day: toDay,
+      to_meal_type: toMealType
+    };
+    
+    // Add source location if provided for more precise matching
+    if (fromDay !== undefined && fromMealType !== undefined) {
+      requestBody.from_day = fromDay;
+      requestBody.from_meal_type = fromMealType;
+    }
+    
     const response = await axios.post(`${API_URL}/${mealPlanId}/move-meal`, 
-      {
-        recipe_id: recipeId,
-        to_day: toDay,
-        to_meal_type: toMealType
-      },
+      requestBody,
       {
         headers: {
           Authorization: `Bearer ${token}`

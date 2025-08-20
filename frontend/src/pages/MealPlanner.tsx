@@ -398,22 +398,35 @@ const MealPlanner: React.FC = () => {
       // Create a new meal plan with the changes
       const newMealPlan = [...mealPlan];
       
-      // Update source and destination meals
-      newMealPlan[sourceDayIndex] = {
-        ...mealPlan[sourceDayIndex],
-        meals: {
-          ...mealPlan[sourceDayIndex].meals,
-          [sourceMealType]: destMeal
-        }
-      };
-      
-      newMealPlan[destDayIndex] = {
-        ...mealPlan[destDayIndex],
-        meals: {
-          ...mealPlan[destDayIndex].meals,
-          [destMealType]: sourceMeal
-        }
-      };
+      // Handle same-day swaps differently to avoid overwriting
+      if (sourceDayIndex === destDayIndex) {
+        // Same day swap - update both meals in a single operation
+        newMealPlan[sourceDayIndex] = {
+          ...mealPlan[sourceDayIndex],
+          meals: {
+            ...mealPlan[sourceDayIndex].meals,
+            [sourceMealType]: destMeal,
+            [destMealType]: sourceMeal
+          }
+        };
+      } else {
+        // Different day swap - update each day separately
+        newMealPlan[sourceDayIndex] = {
+          ...mealPlan[sourceDayIndex],
+          meals: {
+            ...mealPlan[sourceDayIndex].meals,
+            [sourceMealType]: destMeal
+          }
+        };
+        
+        newMealPlan[destDayIndex] = {
+          ...mealPlan[destDayIndex],
+          meals: {
+            ...mealPlan[destDayIndex].meals,
+            [destMealType]: sourceMeal
+          }
+        };
+      }
       
       // Update UI optimistically
       setMealPlan(newMealPlan);
@@ -426,7 +439,9 @@ const MealPlanner: React.FC = () => {
             selectedMealPlanId, 
             sourceMeal.recipe_id, 
             destDayId, 
-            destMealType
+            destMealType,
+            sourceDayId,
+            sourceMealType
           );
           setShowUndoSnackbar(true);
         } catch (err) {

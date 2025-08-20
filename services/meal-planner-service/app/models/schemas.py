@@ -72,6 +72,8 @@ class MoveMealRequest(BaseModel):
     recipe_id: int
     to_day: int
     to_meal_type: str
+    from_day: Optional[int] = None
+    from_meal_type: Optional[str] = None
     
     class Config:
         orm_mode = True

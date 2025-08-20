@@ -248,7 +248,9 @@ async def move_meal(
             meal_plan_id=meal_plan_id,
             recipe_id=move_request.recipe_id,
             to_day=move_request.to_day,
-            to_meal_type=move_request.to_meal_type
+            to_meal_type=move_request.to_meal_type,
+            from_day=move_request.from_day,
+            from_meal_type=move_request.from_meal_type
         )
         
         if not success:

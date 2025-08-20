@@ -406,7 +406,7 @@ class MealPlanService:
             logger.error(f"Error deleting meal plan: {e}")
             return False
     
-    async def move_meal(self, db: Session, meal_plan_id: int, recipe_id: int, to_day: int, to_meal_type: str) -> bool:
+    async def move_meal(self, db: Session, meal_plan_id: int, recipe_id: int, to_day: int, to_meal_type: str, from_day: int = None, from_meal_type: str = None) -> bool:
         """
         Move a meal to a different day or meal type
         
@@ -416,6 +416,8 @@ class MealPlanService:
             recipe_id: Recipe ID within the meal plan
             to_day: Destination day
             to_meal_type: Destination meal type
+            from_day: Source day (optional for more precise matching)
+            from_meal_type: Source meal type (optional for more precise matching)
             
         Returns:
             True if successful, False otherwise
@@ -428,7 +430,7 @@ class MealPlanService:
                 return False
             
             # Move the meal
-            result = self.meal_plan_repository.move_meal(db, meal_plan_id, recipe_id, to_day, to_meal_type)
+            result = self.meal_plan_repository.move_meal(db, meal_plan_id, recipe_id, to_day, to_meal_type, from_day, from_meal_type)
             
             # If successful, update the plan_data field
             if result:
