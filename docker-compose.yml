@@ -29,6 +29,11 @@ services:
       - MEAL_PLANNER_SERVICE_URL=http://meal-planner-service:8002
       - JWT_SECRET=your-secret-key-for-development-only
       - CORS_ORIGIN=http://localhost
+      # Rate limiting configuration
+      - CHAT_RATE_LIMIT_ENABLED=true
+      - CHAT_RATE_LIMIT_WINDOW_MS=60000
+      - CHAT_RATE_LIMIT_MAX=6
+      - BYPASS_RATE_LIMIT_FOR_TESTS=true
     depends_on:
       - user-service
       - recipe-service

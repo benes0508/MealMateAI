@@ -13,6 +13,11 @@ router.get('/search', recipeServiceProxy);
 router.get('/tags', recipeServiceProxy);
 router.get('/categories', recipeServiceProxy);
 router.get('/csv', recipeServiceProxy); // New endpoint for CSV recipes
+router.get('/collections', recipeServiceProxy); // Get all collections
+router.get('/collections/:name/info', recipeServiceProxy); // Get collection info
+router.post('/collections/:name/search', authenticateToken, recipeServiceProxy); // Collection search - requires auth for user context
+router.post('/recommendations', authenticateToken, recipeServiceProxy); // AI recommendations - requires auth
+router.post('/search', recipeServiceProxy); // Direct search - public
 router.get('/:id', recipeServiceProxy); // This must be last as it's a catch-all
 
 // Protected routes that require authentication

@@ -28,7 +28,10 @@ import {
   AccordionDetails,
   Badge,
   Tooltip,
-  Snackbar
+  Snackbar,
+  TextField,
+  Collapse,
+  ButtonGroup
 } from '@mui/material';
 import { 
   Close as CloseIcon,
@@ -40,10 +43,13 @@ import {
   DragIndicator as DragIndicatorIcon,
   SwapVert as SwapVertIcon,
   Undo as UndoIcon,
-  Code as CodeIcon
+  Code as CodeIcon,
+  SwapHoriz as SwapHorizIcon,
+  Search as SearchIcon,
+  Add as AddIcon
 } from '@mui/icons-material';
 import { DragDropContext, Droppable, Draggable, DropResult, DroppableProvided } from 'react-beautiful-dnd';
-import { getMealPlan, generateMealPlan, getUserMealPlans, getGroceryList, moveMeal, swapDays, reorderDays } from '../services/mealPlannerService';
+import { getMealPlan, generateMealPlan, getUserMealPlans, getGroceryList, moveMeal, swapDays, reorderDays, searchRecipeReplacements, searchMultipleCollections, getAvailableCollections, replaceRecipeInMealPlan, Collection } from '../services/mealPlannerService';
 
 interface Meal {
   id: string;
@@ -116,6 +122,20 @@ const MealPlanner: React.FC = () => {
   const [lastMealPlanState, setLastMealPlanState] = useState<DayPlan[] | null>(null);
   const [showUndoSnackbar, setShowUndoSnackbar] = useState<boolean>(false);
 
+  // Recipe replacement state
+  const [activeReplaceSearch, setActiveReplaceSearch] = useState<string | null>(null); // "dayNumber-mealType"
+  const [searchQuery, setSearchQuery] = useState<string>('');
+  const [searchResults, setSearchResults] = useState<any[]>([]);
+  const [isSearching, setIsSearching] = useState<boolean>(false);
+  
+  // Enhanced search state
+  const [availableCollections, setAvailableCollections] = useState<Collection[]>([]);
+  const [selectedCollections, setSelectedCollections] = useState<string[]>([]);
+  const [loadingCollections, setLoadingCollections] = useState<boolean>(false);
+  const [searchResultsPage, setSearchResultsPage] = useState<number>(1);
+  const [hasMoreResults, setHasMoreResults] = useState<boolean>(false);
+  const [maxResultsPerSearch] = useState<number>(20);
+
   const location = useLocation();
 
   useEffect(() => {
@@ -153,6 +173,23 @@ const MealPlanner: React.FC = () => {
     }
   }, [selectedMealPlanId]);
 
+  // Load available collections for recipe search
+  useEffect(() => {
+    const loadCollections = async () => {
+      setLoadingCollections(true);
+      try {
+        const collections = await getAvailableCollections();
+        setAvailableCollections(collections);
+      } catch (error) {
+        console.error('Failed to load collections:', error);
+      } finally {
+        setLoadingCollections(false);
+      }
+    };
+
+    loadCollections();
+  }, []);
+
   // Fetch all meal plans for the current user
   const fetchUserMealPlans = async () => {
     setLoadingMealPlans(true);
@@ -181,12 +218,12 @@ const MealPlanner: React.FC = () => {
   };
 
   // Fetch grocery list for the current meal plan
-  const fetchGroceryList = async (mealPlanId: number) => {
+  const fetchGroceryList = async (mealPlanId: number, forceRegenerate: boolean = false) => {
     if (!mealPlanId) return;
     
     setLoadingGroceryList(true);
     try {
-      const data = await getGroceryList(mealPlanId);
+      const data = await getGroceryList(mealPlanId, forceRegenerate);
       setGroceryList(data);
       // Clear any previous errors
       setError(null);
@@ -210,7 +247,8 @@ const MealPlanner: React.FC = () => {
 
   // Handle toggle grocery list
   const handleToggleGroceryList = () => {
-    if (!showGroceryList && selectedMealPlanId && !groceryList) {
+    if (!showGroceryList && selectedMealPlanId) {
+      // Always fetch grocery list when showing (even if cached) to ensure fresh data
       fetchGroceryList(selectedMealPlanId);
     }
     setShowGroceryList(prev => !prev);
@@ -317,6 +355,260 @@ const MealPlanner: React.FC = () => {
 
   const handleCloseUndoSnackbar = () => {
     setShowUndoSnackbar(false);
+  };
+
+  // Category detection logic for recipe replacement
+  const detectRecipeCategory = (meal: Meal, mealType: string): string => {
+    // Map meal types and ingredients to recipe collections
+    const mealName = meal.name.toLowerCase();
+    const ingredients = Array.isArray(meal.ingredients) ? meal.ingredients.join(' ').toLowerCase() : '';
+    
+    // Desserts are easy to detect
+    if (mealName.includes('cake') || mealName.includes('cookie') || mealName.includes('dessert') || 
+        mealName.includes('sweet') || mealName.includes('chocolate') || mealName.includes('ice cream') ||
+        ingredients.includes('sugar') && (ingredients.includes('chocolate') || ingredients.includes('vanilla'))) {
+      return 'desserts-sweets';
+    }
+    
+    // Breakfast items
+    if (mealType === 'breakfast' || mealName.includes('breakfast') || mealName.includes('cereal') ||
+        mealName.includes('oats') || mealName.includes('pancake') || mealName.includes('waffle') ||
+        mealName.includes('toast') || mealName.includes('yogurt') || mealName.includes('smoothie')) {
+      return 'breakfast-morning';
+    }
+    
+    // Protein mains (meat, poultry, seafood)
+    if (ingredients.includes('chicken') || ingredients.includes('beef') || ingredients.includes('pork') ||
+        ingredients.includes('salmon') || ingredients.includes('fish') || ingredients.includes('shrimp') ||
+        ingredients.includes('turkey') || mealName.includes('grilled') || mealName.includes('roasted') ||
+        (mealType === 'dinner' && (mealName.includes('chicken') || mealName.includes('beef')))) {
+      return 'protein-mains';
+    }
+    
+    // Salads and cold dishes
+    if (mealName.includes('salad') || mealName.includes('cold') || mealName.includes('gazpacho') ||
+        ingredients.includes('lettuce') || ingredients.includes('greens') || 
+        (mealType === 'lunch' && mealName.includes('fresh'))) {
+      return 'fresh-cold';
+    }
+    
+    // Quick and light meals
+    if (mealType === 'lunch' || mealName.includes('quick') || mealName.includes('light') ||
+        mealName.includes('wrap') || mealName.includes('sandwich') || mealName.includes('bowl')) {
+      return 'quick-light';
+    }
+    
+    // Comfort food / slow cooked
+    if (mealName.includes('stew') || mealName.includes('braised') || mealName.includes('slow') ||
+        mealName.includes('comfort') || mealName.includes('casserole') || mealName.includes('soup')) {
+      return 'comfort-cooked';
+    }
+    
+    // Vegetarian/vegan
+    if (mealName.includes('vegan') || mealName.includes('vegetarian') || 
+        (ingredients.includes('tofu') || ingredients.includes('beans') && !ingredients.includes('meat'))) {
+      return 'plant-based';
+    }
+    
+    // Baked goods
+    if (mealName.includes('bread') || mealName.includes('baked') || mealName.includes('muffin') ||
+        ingredients.includes('flour') || ingredients.includes('yeast')) {
+      return 'baked-breads';
+    }
+    
+    // Default fallback based on meal type
+    if (mealType === 'breakfast') return 'breakfast-morning';
+    if (mealType === 'lunch') return 'quick-light';
+    if (mealType === 'dinner') return 'protein-mains';
+    
+    // Ultimate fallback
+    return 'quick-light';
+  };
+
+  // Get smart collection defaults based on meal type
+  const getSmartCollectionDefaults = (mealType: string): string[] => {
+    switch (mealType) {
+      case 'breakfast':
+        return ['breakfast-morning', 'quick-light'];
+      case 'lunch':
+        return ['quick-light', 'fresh-cold', 'plant-based'];
+      case 'dinner':
+        return ['protein-mains', 'comfort-cooked'];
+      default:
+        return ['quick-light', 'protein-mains'];
+    }
+  };
+
+  // Get color coding for collections
+  const getCollectionColor = (collectionName: string): string => {
+    const colors = {
+      'breakfast-morning': '#FF6B35',  // Orange
+      'quick-light': '#4ECDC4',       // Teal
+      'protein-mains': '#FF6B9D',     // Pink
+      'comfort-cooked': '#A8E6CF',    // Light Green
+      'desserts-sweets': '#FFD93D',   // Yellow
+      'fresh-cold': '#6BCF7F',        // Green
+      'plant-based': '#95E1D3',       // Mint
+      'baked-breads': '#C44569'       // Purple
+    };
+    return colors[collectionName] || '#9E9E9E'; // Default gray
+  };
+
+  // Handle starting recipe replacement search
+  const handleStartReplaceSearch = (dayNumber: number, mealType: string, currentMeal: Meal) => {
+    const searchKey = `${dayNumber}-${mealType}`;
+    setActiveReplaceSearch(searchKey);
+    setSearchQuery('');
+    setSearchResults([]);
+    setSearchResultsPage(1);
+    setHasMoreResults(false);
+    
+    // Smart collection selection based on meal type
+    const smartCollections = getSmartCollectionDefaults(mealType);
+    setSelectedCollections(smartCollections);
+    
+    // Auto-generate initial search query based on current meal
+    const initialQuery = `${mealType} similar to ${currentMeal.name}`;
+    setSearchQuery(initialQuery);
+    
+    // Perform initial search with smart collections
+    performEnhancedRecipeSearch(initialQuery, smartCollections);
+  };
+
+  // Handle canceling recipe replacement
+  const handleCancelReplaceSearch = () => {
+    setActiveReplaceSearch(null);
+    setSearchQuery('');
+    setSearchResults([]);
+    setSelectedCollections([]);
+    setSearchResultsPage(1);
+    setHasMoreResults(false);
+    setIsSearching(false);
+  };
+
+  // Handle collection selection changes
+  const handleCollectionToggle = (collectionName: string) => {
+    setSelectedCollections(prev => {
+      const newCollections = prev.includes(collectionName)
+        ? prev.filter(c => c !== collectionName)
+        : [...prev, collectionName];
+      
+      // Re-search with new collection selection
+      if (searchQuery.trim()) {
+        performEnhancedRecipeSearch(searchQuery, newCollections);
+      }
+      
+      return newCollections;
+    });
+  };
+
+  // Handle "Load More" results
+  const handleLoadMoreResults = () => {
+    if (hasMoreResults && !isSearching) {
+      setSearchResultsPage(prev => prev + 1);
+      performEnhancedRecipeSearch(searchQuery, selectedCollections, true);
+    }
+  };
+
+  // Perform recipe search
+  const performRecipeSearch = async (query: string, category: string) => {
+    if (!query.trim()) {
+      setSearchResults([]);
+      return;
+    }
+
+    setIsSearching(true);
+    try {
+      const results = await searchRecipeReplacements(query, category, 5);
+      setSearchResults(results.results || []);
+    } catch (error) {
+      console.error('Error searching for recipes:', error);
+      setError('Failed to search for recipe replacements. Please try again.');
+      setSearchResults([]);
+    } finally {
+      setIsSearching(false);
+    }
+  };
+
+  // Enhanced recipe search across multiple collections
+  const performEnhancedRecipeSearch = async (query: string, collections: string[], loadMore: boolean = false) => {
+    if (!query.trim()) {
+      setSearchResults([]);
+      return;
+    }
+
+    setIsSearching(true);
+    try {
+      const results = await searchMultipleCollections(query, collections, maxResultsPerSearch);
+      
+      if (loadMore) {
+        // Append to existing results for "Load More" functionality
+        setSearchResults(prev => [...prev, ...(results.results || [])]);
+      } else {
+        // Replace results for new search
+        setSearchResults(results.results || []);
+      }
+      
+      // Check if there might be more results (basic heuristic)
+      setHasMoreResults((results.results || []).length >= maxResultsPerSearch);
+      
+    } catch (error) {
+      console.error('Error in enhanced recipe search:', error);
+      setError('Failed to search for recipe replacements. Please try again.');
+      if (!loadMore) {
+        setSearchResults([]);
+      }
+    } finally {
+      setIsSearching(false);
+    }
+  };
+
+  // Handle recipe replacement
+  const handleReplaceRecipe = async (dayNumber: number, mealType: string, currentMeal: Meal, newRecipe: any) => {
+    if (!selectedMealPlanId || !currentMeal.recipe_id) return;
+
+    setLastMealPlanState([...mealPlan]);
+    setIsSearching(true);
+
+    try {
+      const success = await replaceRecipeInMealPlan(
+        selectedMealPlanId,
+        currentMeal.recipe_id,
+        newRecipe.recipe_id,
+        dayNumber,
+        mealType
+      );
+
+      if (success) {
+        // Update the meal plan optimistically
+        const newMealPlan = [...mealPlan];
+        const dayIndex = newMealPlan.findIndex(day => day.dayNumber === dayNumber);
+        if (dayIndex !== -1) {
+          newMealPlan[dayIndex].meals[mealType] = {
+            id: newRecipe.recipe_id,
+            recipe_id: parseInt(newRecipe.recipe_id),
+            name: newRecipe.title,
+            description: newRecipe.summary || '',
+            ingredients: newRecipe.ingredients_preview || [],
+            meal_type: mealType
+          };
+        }
+        setMealPlan(newMealPlan);
+        setShowUndoSnackbar(true);
+        handleCancelReplaceSearch();
+      } else {
+        throw new Error('Failed to replace recipe');
+      }
+    } catch (error) {
+      console.error('Error replacing recipe:', error);
+      setError('Failed to replace recipe. Please try again.');
+      // Revert optimistic update
+      if (lastMealPlanState) {
+        setMealPlan(lastMealPlanState);
+      }
+    } finally {
+      setIsSearching(false);
+    }
   };
 
   // Function to handle drag and drop of meals and days
@@ -471,13 +763,33 @@ const MealPlanner: React.FC = () => {
     }
   };
 
-  const renderMealCard = (meal: Meal | undefined) => {
+  const renderMealCard = (meal: Meal | undefined, dayNumber: number, mealType: string) => {
     if (!meal) return <Typography color="text.secondary">No meal planned</Typography>;
     
     const handleViewRecipe = () => {
       if (meal.recipe_id) {
         navigate(`/recipes/${meal.recipe_id}`);
       }
+    };
+
+    const searchKey = `${dayNumber}-${mealType}`;
+    const isActiveSearch = activeReplaceSearch === searchKey;
+
+    const handleSearchQueryChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      const newQuery = e.target.value;
+      setSearchQuery(newQuery);
+      
+      // Debounce search
+      clearTimeout((window as any).searchTimeout);
+      (window as any).searchTimeout = setTimeout(() => {
+        if (selectedCollections.length > 0) {
+          performEnhancedRecipeSearch(newQuery, selectedCollections);
+        } else {
+          // Fallback to single collection search if no collections selected
+          const category = detectRecipeCategory(meal, mealType);
+          performRecipeSearch(newQuery, category);
+        }
+      }, 500);
     };
     
     return (
@@ -501,8 +813,10 @@ const MealPlanner: React.FC = () => {
               </Typography>
             )}
           </Box>
-          {meal.recipe_id && (
-            <Box sx={{ mt: 2 }}>
+          
+          {/* Action Buttons */}
+          <Box sx={{ mt: 2, display: 'flex', gap: 1, flexWrap: 'wrap' }}>
+            {meal.recipe_id && (
               <Button
                 size="small"
                 variant="outlined"
@@ -511,8 +825,200 @@ const MealPlanner: React.FC = () => {
               >
                 View Recipe
               </Button>
+            )}
+            <Button
+              size="small"
+              variant="outlined"
+              color={isActiveSearch ? "secondary" : "primary"}
+              onClick={() => {
+                if (isActiveSearch) {
+                  handleCancelReplaceSearch();
+                } else {
+                  handleStartReplaceSearch(dayNumber, mealType, meal);
+                }
+              }}
+              startIcon={isActiveSearch ? <CloseIcon /> : <SwapHorizIcon />}
+              disabled={isSearching}
+            >
+              {isActiveSearch ? 'Cancel' : 'Replace'}
+            </Button>
+          </Box>
+
+          {/* Inline Search Interface */}
+          <Collapse in={isActiveSearch}>
+            <Box sx={{ mt: 2, p: 2, bgcolor: 'grey.50', borderRadius: 1 }}>
+              <Typography variant="subtitle2" gutterBottom>
+                Find a replacement for this {mealType}:
+              </Typography>
+              
+              <TextField
+                fullWidth
+                size="small"
+                placeholder="Search for similar recipes..."
+                value={searchQuery}
+                onChange={handleSearchQueryChange}
+                InputProps={{
+                  startAdornment: <SearchIcon sx={{ mr: 1, color: 'grey.500' }} />,
+                }}
+                sx={{ mb: 2 }}
+              />
+
+              {/* Collection Selector */}
+              <Box sx={{ mb: 2 }}>
+                <Typography variant="caption" color="text.secondary" sx={{ mb: 1, display: 'block' }}>
+                  Search in collections:
+                </Typography>
+                <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, maxHeight: 120, overflowY: 'auto' }}>
+                  {availableCollections.map(collection => (
+                    <Chip
+                      key={collection.name}
+                      label={`${collection.description} (${collection.recipe_count})`}
+                      size="small"
+                      clickable
+                      color={selectedCollections.includes(collection.name) ? 'primary' : 'default'}
+                      variant={selectedCollections.includes(collection.name) ? 'filled' : 'outlined'}
+                      onClick={() => handleCollectionToggle(collection.name)}
+                      sx={{ 
+                        fontSize: '0.7rem',
+                        height: 24,
+                        '& .MuiChip-label': { px: 1 }
+                      }}
+                    />
+                  ))}
+                  {availableCollections.length === 0 && (
+                    <Typography variant="caption" color="text.secondary" sx={{ fontStyle: 'italic' }}>
+                      {loadingCollections ? 'Loading collections...' : 'No collections available'}
+                    </Typography>
+                  )}
+                </Box>
+                
+                {/* Quick Actions */}
+                <Box sx={{ mt: 1, display: 'flex', gap: 1 }}>
+                  <Button 
+                    size="small" 
+                    variant="text" 
+                    onClick={() => setSelectedCollections(availableCollections.map(c => c.name))}
+                    disabled={loadingCollections}
+                    sx={{ fontSize: '0.7rem', p: 0.5, minWidth: 'auto' }}
+                  >
+                    Select All
+                  </Button>
+                  <Button 
+                    size="small" 
+                    variant="text" 
+                    onClick={() => setSelectedCollections([])}
+                    disabled={loadingCollections}
+                    sx={{ fontSize: '0.7rem', p: 0.5, minWidth: 'auto' }}
+                  >
+                    Clear All
+                  </Button>
+                </Box>
+              </Box>
+
+              {/* Search Results */}
+              {isSearching ? (
+                <Box sx={{ display: 'flex', justifyContent: 'center', py: 2 }}>
+                  <CircularProgress size={20} />
+                  <Typography variant="body2" sx={{ ml: 1 }}>Searching...</Typography>
+                </Box>
+              ) : searchResults.length > 0 ? (
+                <Box>
+                  {/* Results Summary */}
+                  <Typography variant="caption" color="text.secondary" sx={{ display: 'block', mb: 1 }}>
+                    Found {searchResults.length} recipe{searchResults.length !== 1 ? 's' : ''} 
+                    {selectedCollections.length > 0 && (
+                      <> in {selectedCollections.length} collection{selectedCollections.length !== 1 ? 's' : ''}</>
+                    )}
+                  </Typography>
+                  
+                  {/* Results Container */}
+                  <Box sx={{ maxHeight: 400, overflowY: 'auto', mb: 2 }}>
+                    {searchResults.map((recipe, idx) => (
+                      <Paper 
+                        key={recipe.recipe_id} 
+                        variant="outlined" 
+                        sx={{ 
+                          p: 1.5, 
+                          mb: 1, 
+                          cursor: 'pointer',
+                          '&:hover': { bgcolor: 'primary.50' },
+                          border: '1px solid',
+                          borderColor: 'grey.300'
+                        }}
+                        onClick={() => handleReplaceRecipe(dayNumber, mealType, meal, recipe)}
+                      >
+                        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', mb: 1 }}>
+                          <Typography variant="subtitle2" sx={{ fontWeight: 600, flex: 1 }}>
+                            {recipe.title}
+                          </Typography>
+                          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, ml: 1 }}>
+                            <Chip 
+                              label={Math.round(recipe.similarity_score * 100) + '% match'} 
+                              size="small" 
+                              color="primary"
+                              variant="filled"
+                              sx={{ fontSize: '0.65rem', height: 20, fontWeight: 600 }}
+                            />
+                          </Box>
+                        </Box>
+                        
+                        <Typography variant="body2" color="text.secondary" sx={{ 
+                          fontSize: '0.75rem', 
+                          mb: 1,
+                          display: '-webkit-box',
+                          WebkitLineClamp: 2,
+                          WebkitBoxOrient: 'vertical',
+                          overflow: 'hidden'
+                        }}>
+                          {recipe.summary}
+                        </Typography>
+                        
+                        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                          <Chip 
+                            label={recipe.collection} 
+                            size="small" 
+                            variant="outlined"
+                            sx={{ 
+                              fontSize: '0.65rem', 
+                              height: 20,
+                              bgcolor: getCollectionColor(recipe.collection),
+                              color: 'white',
+                              border: 'none'
+                            }}
+                          />
+                          {recipe.ingredients_preview && recipe.ingredients_preview.length > 0 && (
+                            <Typography variant="caption" color="text.secondary" sx={{ fontSize: '0.65rem' }}>
+                              {recipe.ingredients_preview.length} ingredients
+                            </Typography>
+                          )}
+                        </Box>
+                      </Paper>
+                    ))}
+                  </Box>
+                  
+                  {/* Load More Button */}
+                  {hasMoreResults && (
+                    <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
+                      <Button
+                        variant="outlined"
+                        size="small"
+                        onClick={handleLoadMoreResults}
+                        disabled={isSearching}
+                        startIcon={isSearching ? <CircularProgress size={16} /> : <AddIcon />}
+                        sx={{ fontSize: '0.75rem' }}
+                      >
+                        {isSearching ? 'Loading...' : `Load More Recipes`}
+                      </Button>
+                    </Box>
+                  )}
+                </Box>
+              ) : searchQuery.trim() && !isSearching ? (
+                <Typography variant="body2" color="text.secondary" sx={{ py: 2, textAlign: 'center' }}>
+                  No recipes found. Try a different search term.
+                </Typography>
+              ) : null}
             </Box>
-          )}
+          </Collapse>
         </CardContent>
       </Card>
     );
@@ -636,15 +1142,27 @@ const MealPlanner: React.FC = () => {
                   <Typography variant="h6" component="h2">
                     {currentMealPlanMetadata.plan_name || 'My Meal Plan'}
                   </Typography>
-                  <Button
-                    variant="outlined"
-                    color="primary"
-                    size="small"
-                    startIcon={<ShoppingCartIcon />}
-                    onClick={handleToggleGroceryList}
+                  <Tooltip 
+                    title={
+                      !selectedMealPlanId ? "Select a meal plan first" :
+                      mealPlan.length === 0 ? "No recipes in this meal plan" :
+                      loadingGroceryList ? "Generating grocery list..." :
+                      showGroceryList ? "Hide the grocery list" : "Generate a grocery list from your meal plan recipes"
+                    }
                   >
-                    {showGroceryList ? 'Hide Grocery List' : 'Show Grocery List'}
-                  </Button>
+                    <span>
+                      <Button
+                        variant="outlined"
+                        color="primary"
+                        size="small"
+                        startIcon={<ShoppingCartIcon />}
+                        onClick={handleToggleGroceryList}
+                        disabled={!selectedMealPlanId || mealPlan.length === 0 || loadingGroceryList}
+                      >
+                        {loadingGroceryList ? 'Loading...' : showGroceryList ? 'Hide Grocery List' : 'Show Grocery List'}
+                      </Button>
+                    </span>
+                  </Tooltip>
                 </Box>
                 <Grid container spacing={2}>
                   <Grid item xs={12} md={6}>
@@ -684,11 +1202,60 @@ const MealPlanner: React.FC = () => {
               </AccordionSummary>
               <AccordionDetails>
                 {loadingGroceryList ? (
-                  <Box sx={{ display: 'flex', justifyContent: 'center', py: 2 }}>
-                    <CircularProgress size={24} />
+                  <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', py: 4 }}>
+                    <CircularProgress size={32} sx={{ mb: 2 }} />
+                    <Typography variant="body2" color="text.secondary">
+                      Generating your grocery list...
+                    </Typography>
+                    <Typography variant="caption" color="text.secondary" sx={{ mt: 1 }}>
+                      This may take a moment while we analyze your recipes
+                    </Typography>
+                  </Box>
+                ) : error && (error.includes('grocery list') || error.includes('grocery')) ? (
+                  <Box sx={{ textAlign: 'center', py: 4 }}>
+                    <Alert 
+                      severity="warning" 
+                      action={
+                        <Button 
+                          size="small" 
+                          onClick={() => {
+                            if (selectedMealPlanId) {
+                              setError(null);
+                              fetchGroceryList(selectedMealPlanId, true); // Force regenerate on retry
+                            }
+                          }}
+                        >
+                          Retry
+                        </Button>
+                      }
+                      sx={{ mb: 2 }}
+                    >
+                      Failed to generate grocery list
+                    </Alert>
+                    <Typography variant="body2" color="text.secondary">
+                      There was an issue generating your grocery list. You can try again or manually review your meal plan recipes.
+                    </Typography>
                   </Box>
                 ) : groceryList && groceryList.items && groceryList.items.length > 0 ? (
                   <Box>
+                    <Box sx={{ mb: 2, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                      <Typography variant="body2" color="text.secondary">
+                        {groceryList.items.length} items organized by category
+                      </Typography>
+                      <Button
+                        size="small"
+                        variant="outlined"
+                        onClick={() => {
+                          if (selectedMealPlanId) {
+                            fetchGroceryList(selectedMealPlanId, true); // Force regenerate
+                          }
+                        }}
+                        disabled={loadingGroceryList}
+                      >
+                        Refresh List
+                      </Button>
+                    </Box>
+                    
                     {/* Group by category */}
                     {Object.entries(
                       groceryList.items.reduce((acc: Record<string, GroceryItem[]>, item) => {
@@ -698,27 +1265,72 @@ const MealPlanner: React.FC = () => {
                         return acc;
                       }, {} as Record<string, GroceryItem[]>)
                     ).map(([category, items]) => (
-                      <Box key={category} sx={{ mb: 2 }}>
-                        <Typography variant="subtitle1" gutterBottom sx={{ fontWeight: 'bold' }}>
-                          {category}
+                      <Paper key={category} variant="outlined" sx={{ mb: 2, p: 2 }}>
+                        <Typography variant="subtitle1" gutterBottom sx={{ 
+                          fontWeight: 'bold',
+                          color: 'primary.main',
+                          borderBottom: '1px solid',
+                          borderColor: 'divider',
+                          pb: 1
+                        }}>
+                          {category} ({items.length} items)
                         </Typography>
                         <List dense>
                           {items.map((item, idx) => (
-                            <ListItem key={idx} divider={idx < items.length - 1}>
+                            <ListItem 
+                              key={idx} 
+                              divider={idx < items.length - 1}
+                              sx={{ 
+                                py: 0.5,
+                                '&:hover': { bgcolor: 'grey.50' }
+                              }}
+                            >
                               <ListItemText 
-                                primary={item.name}
-                                secondary={item.quantity}
+                                primary={
+                                  <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                    <Typography variant="body2" sx={{ fontWeight: 500 }}>
+                                      {item.name}
+                                    </Typography>
+                                    <Chip 
+                                      label={item.quantity} 
+                                      size="small" 
+                                      variant="outlined"
+                                      sx={{ fontSize: '0.7rem' }}
+                                    />
+                                  </Box>
+                                }
                               />
                             </ListItem>
                           ))}
                         </List>
-                      </Box>
+                      </Paper>
                     ))}
+                    
+                    <Typography variant="caption" color="text.secondary" sx={{ mt: 2, display: 'block', textAlign: 'center' }}>
+                      💡 Tip: This list combines and organizes ingredients from all recipes in your meal plan
+                    </Typography>
                   </Box>
                 ) : (
-                  <Typography variant="body1" color="text.secondary">
-                    No grocery list available for this meal plan.
-                  </Typography>
+                  <Box sx={{ textAlign: 'center', py: 4 }}>
+                    <ShoppingCartIcon sx={{ fontSize: 48, color: 'grey.400', mb: 2 }} />
+                    <Typography variant="body1" color="text.secondary" gutterBottom>
+                      No grocery list available
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+                      Generate a grocery list from your meal plan recipes
+                    </Typography>
+                    {selectedMealPlanId && mealPlan.length > 0 && (
+                      <Button
+                        variant="contained"
+                        color="primary"
+                        onClick={() => fetchGroceryList(selectedMealPlanId)} // Uses cached if available
+                        disabled={loadingGroceryList}
+                        startIcon={<ShoppingCartIcon />}
+                      >
+                        Generate Grocery List
+                      </Button>
+                    )}
+                  </Box>
                 )}
               </AccordionDetails>
             </Accordion>
@@ -815,7 +1427,7 @@ const MealPlanner: React.FC = () => {
                                               }}
                                               aria-label={`Drag ${dayPlan.meals.breakfast?.name} to move to another slot`}
                                             >
-                                              {renderMealCard(dayPlan.meals.breakfast)}
+                                              {renderMealCard(dayPlan.meals.breakfast, dayPlan.dayNumber, 'breakfast')}
                                             </div>
                                           )}
                                         </Draggable>
@@ -876,7 +1488,7 @@ const MealPlanner: React.FC = () => {
                                               }}
                                               aria-label={`Drag ${dayPlan.meals.lunch?.name} to move to another slot`}
                                             >
-                                              {renderMealCard(dayPlan.meals.lunch)}
+                                              {renderMealCard(dayPlan.meals.lunch, dayPlan.dayNumber, 'lunch')}
                                             </div>
                                           )}
                                         </Draggable>
@@ -937,7 +1549,7 @@ const MealPlanner: React.FC = () => {
                                               }}
                                               aria-label={`Drag ${dayPlan.meals.dinner?.name} to move to another slot`}
                                             >
-                                              {renderMealCard(dayPlan.meals.dinner)}
+                                              {renderMealCard(dayPlan.meals.dinner, dayPlan.dayNumber, 'dinner')}
                                             </div>
                                           )}
                                         </Draggable>

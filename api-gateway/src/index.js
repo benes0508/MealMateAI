@@ -30,14 +30,25 @@ app.use(cors({
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
-// Rate limiting
-const limiter = rateLimit({
-  windowMs: config.RATE_LIMIT_WINDOW_MS,
-  max: config.RATE_LIMIT_MAX,
-  standardHeaders: true,
-  legacyHeaders: false
-});
-app.use(limiter);
+// Rate limiting with bypass for testing - DISABLED FOR TESTING
+if (!config.BYPASS_RATE_LIMIT_FOR_TESTS) {
+  const limiter = rateLimit({
+    windowMs: config.RATE_LIMIT_WINDOW_MS,
+    max: config.RATE_LIMIT_MAX,
+    standardHeaders: true,
+    legacyHeaders: false,
+    skip: (req) => {
+      // Skip rate limiting if bypass header is present
+      if (req.headers['x-bypass-rate-limit'] === 'true') {
+        return true;
+      }
+      return false;
+    }
+  });
+  app.use(limiter);
+} else {
+  console.log('[API-GATEWAY] Global rate limiting DISABLED for testing');
+}
 
 // Request logging
 app.use(morgan('combined'));

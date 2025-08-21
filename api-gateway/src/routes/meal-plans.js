@@ -3,11 +3,15 @@
 const express = require('express');
 const {authenticateToken, isSameUser} = require('../middleware/auth');
 const {createServiceProxy} = require('../utils/proxy');
+const {createChatRateLimiter} = require('../middleware/rateLimiting');
 
 const router = express.Router();
 
 // Create a proxy to the meal planner service
 const mealPlannerServiceProxy = createServiceProxy('meal-plans');
+
+// Create chat rate limiter for AI-powered endpoints
+const chatRateLimiter = createChatRateLimiter();
 
 // All meal plan routes require authentication
 router.use(authenticateToken);
@@ -21,19 +25,20 @@ router.get('/current', mealPlannerServiceProxy);
 // Create a new meal plan
 router.post('/', mealPlannerServiceProxy);
 
+// AI-powered meal plan endpoints - apply chat rate limiting
 // Generate a meal plan based on preferences
-router.post('/generate', mealPlannerServiceProxy);
+router.post('/generate', chatRateLimiter, mealPlannerServiceProxy);
 
 // RAG-based meal plan endpoints (must come before /:id routes)
-router.post('/rag/generate', mealPlannerServiceProxy);
-router.post('/rag/modify', mealPlannerServiceProxy);
-router.post('/rag/finalize', mealPlannerServiceProxy);
+router.post('/rag/generate', chatRateLimiter, mealPlannerServiceProxy);
+router.post('/rag/modify', chatRateLimiter, mealPlannerServiceProxy);
+router.post('/rag/finalize', chatRateLimiter, mealPlannerServiceProxy);
 
 // Text input meal plan generation (must come before /:id routes)
-router.post('/text-input', mealPlannerServiceProxy);
+router.post('/text-input', chatRateLimiter, mealPlannerServiceProxy);
 
 // Edit meal plan with text (must come before /:id routes)
-router.post('/:id/edit-with-text', mealPlannerServiceProxy);
+router.post('/:id/edit-with-text', chatRateLimiter, mealPlannerServiceProxy);
 
 // Get a specific meal plan
 router.get('/:id', mealPlannerServiceProxy);
@@ -64,5 +69,8 @@ router.post('/:id/swap-days', mealPlannerServiceProxy);
 
 // Reorder days in a meal plan
 router.post('/:id/reorder-days', mealPlannerServiceProxy);
+
+// Replace a recipe in a meal plan
+router.post('/:id/replace-recipe', mealPlannerServiceProxy);
 
 module.exports = router;

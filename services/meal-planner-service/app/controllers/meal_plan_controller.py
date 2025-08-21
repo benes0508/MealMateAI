@@ -2,6 +2,7 @@ from fastapi import APIRouter, Depends, HTTPException, Query, Body, Header
 from sqlalchemy.orm import Session
 from typing import List, Optional
 import logging
+import json
 from datetime import datetime
 
 from app.database import get_db
@@ -146,13 +147,18 @@ async def get_user_meal_plans(
 @router.get("/{meal_plan_id}/grocery-list", response_model=schemas.GroceryList)
 async def get_grocery_list(
     meal_plan_id: int,
+    force_regenerate: bool = False,
     db: Session = Depends(get_db)
 ):
     """
-    Generate a grocery list for a meal plan
+    Generate or retrieve cached grocery list for a meal plan
+    
+    Args:
+        meal_plan_id: ID of the meal plan
+        force_regenerate: If True, regenerate grocery list even if cached version exists
     """
     try:
-        grocery_list = await meal_plan_service.generate_grocery_list(db, meal_plan_id)
+        grocery_list = await meal_plan_service.generate_grocery_list(db, meal_plan_id, force_regenerate)
         return grocery_list
     except ValueError as e:
         raise HTTPException(status_code=404, detail=str(e))
@@ -435,36 +441,136 @@ async def finalize_rag_meal_plan(
     Finalize RAG meal plan and save to database (Step 5)
     """
     try:
-        logger.info(f"Finalizing RAG meal plan for conversation {request.conversation_id}")
+        logger.info(f"=== START FINALIZE RAG MEAL PLAN ===")
+        logger.info(f"Request data: conversation_id={request.conversation_id}, user_id={request.user_id}")
         
         # Retrieve the conversation data
         if request.conversation_id not in rag_conversations:
+            logger.error(f"Conversation {request.conversation_id} not found. Available conversations: {list(rag_conversations.keys())}")
             raise HTTPException(status_code=404, detail="Conversation not found or expired")
         
         conversation_data = rag_conversations[request.conversation_id]
+        logger.info(f"Found conversation data with keys: {list(conversation_data.keys())}")
         
         # Verify user matches
         if conversation_data["user_id"] != request.user_id:
+            logger.error(f"User mismatch: expected {conversation_data['user_id']}, got {request.user_id}")
             raise HTTPException(status_code=403, detail="User mismatch")
         
-        # Save the meal plan to the database using the text_input workflow
-        # since it has the proper saving logic
-        saved_meal_plan = await meal_plan_service.process_text_input(
-            db=db,
-            user_id=request.user_id,
-            input_text=conversation_data["user_prompt"]
-        )
+        # Get the pre-generated meal plan data
+        meal_plan_data = conversation_data.get("meal_plan_data", {})
+        response_data = conversation_data.get("response", {})
+        
+        logger.info(f"Meal plan data keys: {list(meal_plan_data.keys()) if meal_plan_data else 'None'}")
+        logger.info(f"Response data keys: {list(response_data.keys()) if response_data else 'None'}")
+        
+        # Extract key information
+        days = response_data.get("days", 7)
+        meals_per_day = response_data.get("meals_per_day", 3)
+        plan_name = response_data.get("plan_name", "AI Generated Meal Plan")
+        plan_explanation = response_data.get("plan_explanation", meal_plan_data.get("explanation", "Your personalized meal plan"))
+        
+        logger.info(f"Creating meal plan: name='{plan_name}', days={days}, meals_per_day={meals_per_day}")
+        logger.info(f"Plan explanation: {plan_explanation[:100]}..." if plan_explanation else "No explanation")
+        
+        # Get the meal plan array
+        meal_plan_array = meal_plan_data.get("meal_plan", [])
+        logger.info(f"Meal plan array type: {type(meal_plan_array)}, length: {len(meal_plan_array) if isinstance(meal_plan_array, list) else 'N/A'}")
+        
+        # Create the meal plan in the database (without optional fields that may not exist in DB)
+        try:
+            logger.info(f"Calling create_meal_plan with plan_data type: {type(meal_plan_array)}")
+            db_meal_plan = meal_plan_service.meal_plan_repository.create_meal_plan(
+                db=db,
+                user_id=request.user_id,
+                plan_name=plan_name,
+                days=days,
+                meals_per_day=meals_per_day,
+                plan_data=meal_plan_array,  # Pass the array directly, repository will handle JSON conversion
+                plan_explanation=plan_explanation
+            )
+            logger.info(f"Successfully created meal plan with ID: {db_meal_plan.id}")
+        except Exception as e:
+            logger.error(f"Failed to create meal plan in database: {str(e)}")
+            logger.error(f"Error type: {type(e).__name__}")
+            import traceback
+            logger.error(f"Traceback: {traceback.format_exc()}")
+            raise
+        
+        # Add recipes to the meal plan
+        logger.info(f"Adding recipes to meal plan. Recipe data structure: {type(meal_plan_array)}")
+        recipe_count = 0
+        for idx, day_data in enumerate(meal_plan_array):
+            logger.info(f"Processing day {idx}: type={type(day_data)}, keys={list(day_data.keys()) if isinstance(day_data, dict) else 'N/A'}")
+            if isinstance(day_data, dict) and "meals" in day_data:
+                for meal_idx, meal in enumerate(day_data["meals"]):
+                    recipe_id = meal.get("recipe_id")
+                    day = day_data.get("day", 1)
+                    meal_type = meal.get("meal_type", "lunch")
+                    logger.info(f"  Adding recipe {meal_idx}: recipe_id={recipe_id}, day={day}, meal_type={meal_type}")
+                    try:
+                        meal_plan_service.meal_plan_repository.add_recipe_to_meal_plan(
+                            db=db,
+                            meal_plan_id=db_meal_plan.id,
+                            recipe_id=recipe_id,
+                            day=day,
+                            meal_type=meal_type
+                        )
+                        recipe_count += 1
+                    except Exception as e:
+                        logger.error(f"  Failed to add recipe: {str(e)}")
+        
+        logger.info(f"Added {recipe_count} recipes to meal plan")
+        
+        # Get the saved meal plan with all relationships
+        logger.info(f"Fetching saved meal plan with ID {db_meal_plan.id}")
+        saved_meal_plan = meal_plan_service.meal_plan_repository.get_meal_plan(db, db_meal_plan.id)
+        
+        if saved_meal_plan:
+            logger.info(f"Retrieved saved meal plan: {type(saved_meal_plan)}")
+            # Check if it's a model object and needs conversion
+            if hasattr(saved_meal_plan, '__dict__'):
+                logger.info(f"Converting meal plan model to dict")
+                saved_meal_plan_dict = {
+                    "id": saved_meal_plan.id,
+                    "user_id": saved_meal_plan.user_id,
+                    "plan_name": saved_meal_plan.plan_name,
+                    "created_at": saved_meal_plan.created_at.isoformat() if saved_meal_plan.created_at else None,
+                    "days": saved_meal_plan.days,
+                    "meals_per_day": saved_meal_plan.meals_per_day,
+                    "plan_explanation": saved_meal_plan.plan_explanation,
+                    "recipes": []
+                }
+                logger.info(f"Converted meal plan to dict with ID {saved_meal_plan_dict['id']}")
+            else:
+                saved_meal_plan_dict = saved_meal_plan
+        else:
+            logger.error(f"Failed to retrieve saved meal plan with ID {db_meal_plan.id}")
+            saved_meal_plan_dict = {
+                "id": db_meal_plan.id,
+                "user_id": db_meal_plan.user_id,
+                "plan_name": db_meal_plan.plan_name,
+                "created_at": db_meal_plan.created_at.isoformat() if db_meal_plan.created_at else None,
+                "days": db_meal_plan.days,
+                "meals_per_day": db_meal_plan.meals_per_day,
+                "plan_explanation": db_meal_plan.plan_explanation,
+                "recipes": []
+            }
         
         # Clean up the conversation
         del rag_conversations[request.conversation_id]
+        logger.info(f"Cleaned up conversation {request.conversation_id}")
         
-        logger.info(f"Successfully saved RAG meal plan with ID {saved_meal_plan['id']}")
-        return saved_meal_plan
+        logger.info(f"=== SUCCESSFULLY FINALIZED MEAL PLAN {saved_meal_plan_dict['id']} ===")
+        return saved_meal_plan_dict
         
     except HTTPException:
+        logger.error(f"HTTP Exception in finalize_rag_meal_plan")
         raise
     except Exception as e:
-        logger.exception(f"Error finalizing RAG meal plan: {str(e)}")
+        logger.exception(f"Unexpected error finalizing RAG meal plan: {str(e)}")
+        import traceback
+        logger.error(f"Full traceback: {traceback.format_exc()}")
         raise HTTPException(status_code=500, detail=f"An error occurred while finalizing the meal plan: {str(e)}")
 
 @router.post("/{meal_plan_id}/continue-chat", response_model=schemas.MealPlanResponse)
@@ -523,3 +629,34 @@ async def get_meal_plan_conversation(
     except Exception as e:
         logger.exception(f"Error retrieving conversation for meal plan {meal_plan_id}: {str(e)}")
         raise HTTPException(status_code=500, detail=f"An error occurred while retrieving the conversation: {str(e)}")
+
+@router.post("/{meal_plan_id}/replace-recipe", response_model=schemas.MealPlanModuleResponse)
+async def replace_recipe(
+    meal_plan_id: int,
+    replace_request: schemas.ReplaceRecipeRequest,
+    db: Session = Depends(get_db)
+):
+    """
+    Replace a recipe in a meal plan with a new recipe
+    """
+    try:
+        logger.debug(f"Replacing recipe in plan {meal_plan_id}: old_recipe_id={replace_request.old_recipe_id}, new_recipe_id={replace_request.new_recipe_id}, day={replace_request.day}, meal_type={replace_request.meal_type}")
+        
+        success = await meal_plan_service.replace_recipe(
+            db=db,
+            meal_plan_id=meal_plan_id,
+            old_recipe_id=replace_request.old_recipe_id,
+            new_recipe_id=replace_request.new_recipe_id,
+            day=replace_request.day,
+            meal_type=replace_request.meal_type
+        )
+        
+        if not success:
+            raise HTTPException(status_code=404, detail=f"Failed to replace recipe. Meal plan or recipe not found.")
+        
+        return {"success": True, "message": "Recipe replaced successfully"}
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.exception(f"Error replacing recipe: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"An error occurred while replacing the recipe: {str(e)}")

@@ -46,6 +46,12 @@ const createServiceProxy = (serviceName) => {
     logLevel: 'debug',
     timeout: 30000,
     proxyTimeout: 30000,
+    onProxyReq: (proxyReq, req, res) => {
+      console.log(`[PROXY] ${req.method} ${req.url} -> ${target}${proxyReq.path}`);
+    },
+    onProxyRes: (proxyRes, req, res) => {
+      console.log(`[PROXY] Response: ${proxyRes.statusCode} for ${req.method} ${req.url}`);
+    },
     onError: (err, req, res) => {
       console.error(`[PROXY ERROR] ${serviceName} service error:`, err);
       console.error(`[PROXY ERROR] Request details: ${req.method} ${req.originalUrl} -> ${target}${req.path}`);

@@ -15,9 +15,15 @@ const JWT_EXPIRY = process.env.JWT_EXPIRY || '1d';
 // CORS configuration
 const CORS_ORIGIN = process.env.CORS_ORIGIN || '*';
 
-// Rate limiting
+// Rate limiting - Global
 const RATE_LIMIT_WINDOW_MS = process.env.RATE_LIMIT_WINDOW_MS || 15 * 60 * 1000; // 15 minutes
 const RATE_LIMIT_MAX = process.env.RATE_LIMIT_MAX || 100; // 100 requests per window
+
+// Rate limiting - Chat/RAG endpoints (AI-powered endpoints)
+const CHAT_RATE_LIMIT_ENABLED = process.env.CHAT_RATE_LIMIT_ENABLED !== 'false'; // Default enabled
+const CHAT_RATE_LIMIT_WINDOW_MS = process.env.CHAT_RATE_LIMIT_WINDOW_MS || 60 * 1000; // 1 minute
+const CHAT_RATE_LIMIT_MAX = process.env.CHAT_RATE_LIMIT_MAX || 6; // 6 requests per minute (10 sec cooldown)
+const BYPASS_RATE_LIMIT_FOR_TESTS = process.env.BYPASS_RATE_LIMIT_FOR_TESTS === 'true'; // Default disabled
 
 module.exports = {
   PORT,
@@ -31,4 +37,8 @@ module.exports = {
   CORS_ORIGIN,
   RATE_LIMIT_WINDOW_MS,
   RATE_LIMIT_MAX,
+  CHAT_RATE_LIMIT_ENABLED,
+  CHAT_RATE_LIMIT_WINDOW_MS,
+  CHAT_RATE_LIMIT_MAX,
+  BYPASS_RATE_LIMIT_FOR_TESTS,
 };

@@ -616,19 +616,20 @@ async def get_recipe_details(
         if not recipe_details:
             raise HTTPException(status_code=404, detail=f"Recipe {recipe_id} not found")
         
-        # Convert to frontend format
+        # Convert RecipeDetail object to frontend format
+        # Access attributes properly from the Pydantic model
         frontend_recipe = {
-            "id": recipe_details["recipe_id"],
-            "name": recipe_details["title"],
-            "description": recipe_details["summary"] or "No description available",
+            "id": recipe_details.recipe_id,
+            "name": recipe_details.title,
+            "description": recipe_details.summary or "No description available",
             "imageUrl": None,
             "prepTime": 30,
             "cookTime": 45,
             "servings": 4,
             "difficulty": "medium",
-            "ingredients": recipe_details["ingredients"],
-            "instructions": recipe_details["instructions"].split('\n') if recipe_details["instructions"] else [],
-            "tags": [recipe_details["collection"]] if recipe_details["collection"] else [],
+            "ingredients": recipe_details.ingredients or [],
+            "instructions": recipe_details.instructions.split('\n') if recipe_details.instructions else [],
+            "tags": [recipe_details.collection] if recipe_details.collection else [],
             "nutritionalInfo": {
                 "calories": 0,
                 "protein": 0,

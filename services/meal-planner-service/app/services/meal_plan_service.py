@@ -267,6 +267,13 @@ class MealPlanService:
             
             logger.debug(f"DEBUG: create_rag_meal_plan returned: {rag_response}")
             
+            # Get user preferences for conversation context
+            try:
+                user_preferences = await self._get_user_preferences(db, user_id)
+            except Exception as e:
+                logger.warning(f"Failed to get user preferences: {e}")
+                user_preferences = {}
+            
             # Extract plan name from explanation or create default
             plan_name = "AI Generated Meal Plan"
             if rag_response.get("explanation"):
@@ -374,13 +381,14 @@ class MealPlanService:
                 })
         return recipes
     
-    async def generate_grocery_list(self, db: Session, meal_plan_id: int) -> Dict[str, Any]:
+    async def generate_grocery_list(self, db: Session, meal_plan_id: int, force_regenerate: bool = False) -> Dict[str, Any]:
         """
-        Generate a grocery list for a meal plan using Gemini
+        Generate or retrieve cached grocery list for a meal plan
         
         Args:
             db: Database session
             meal_plan_id: Meal plan ID
+            force_regenerate: If True, regenerate even if cached version exists
             
         Returns:
             Grocery list for the meal plan
@@ -391,6 +399,20 @@ class MealPlanService:
             if not db_meal_plan:
                 logger.error(f"Meal plan {meal_plan_id} not found")
                 raise ValueError(f"Meal plan {meal_plan_id} not found")
+            
+            # Check if we have a cached grocery list and it's not a forced regeneration
+            if not force_regenerate and db_meal_plan.grocery_list and db_meal_plan.grocery_list_generated_at:
+                logger.info(f"Returning cached grocery list for meal plan {meal_plan_id}")
+                try:
+                    import json
+                    cached_grocery_list = json.loads(db_meal_plan.grocery_list)
+                    return cached_grocery_list
+                except (json.JSONDecodeError, TypeError) as e:
+                    logger.warning(f"Invalid cached grocery list data for meal plan {meal_plan_id}: {e}")
+                    # Fall through to regenerate
+            
+            # Generate new grocery list
+            logger.info(f"Generating new grocery list for meal plan {meal_plan_id}")
             
             # Get the recipes for the meal plan
             db_recipes = self.meal_plan_repository.get_meal_plan_recipes(db, meal_plan_id)
@@ -405,11 +427,45 @@ class MealPlanService:
             # Generate the grocery list using Gemini
             grocery_list_result = self.gemini_service.generate_grocery_list(recipes_details)
             
+            # Cache the grocery list in the database
+            await self._cache_grocery_list(db, meal_plan_id, grocery_list_result)
+            
             return grocery_list_result
             
         except Exception as e:
             logger.error(f"Error generating grocery list: {e}")
             raise
+    
+    async def _cache_grocery_list(self, db: Session, meal_plan_id: int, grocery_list_data: Dict[str, Any]):
+        """Cache grocery list data in the meal plan record"""
+        try:
+            import json
+            from datetime import datetime
+            
+            # Get the meal plan
+            db_meal_plan = self.meal_plan_repository.get_meal_plan(db, meal_plan_id)
+            if db_meal_plan:
+                # Update with cached grocery list
+                db_meal_plan.grocery_list = json.dumps(grocery_list_data)
+                db_meal_plan.grocery_list_generated_at = datetime.utcnow()
+                db.commit()
+                logger.info(f"Cached grocery list for meal plan {meal_plan_id}")
+        except Exception as e:
+            logger.error(f"Failed to cache grocery list for meal plan {meal_plan_id}: {e}")
+            # Don't raise - caching failure shouldn't break the main functionality
+    
+    async def _clear_grocery_list_cache(self, db: Session, meal_plan_id: int):
+        """Clear cached grocery list when meal plan is modified"""
+        try:
+            db_meal_plan = self.meal_plan_repository.get_meal_plan(db, meal_plan_id)
+            if db_meal_plan and db_meal_plan.grocery_list:
+                db_meal_plan.grocery_list = None
+                db_meal_plan.grocery_list_generated_at = None
+                db.commit()
+                logger.info(f"Cleared grocery list cache for meal plan {meal_plan_id}")
+        except Exception as e:
+            logger.error(f"Failed to clear grocery list cache for meal plan {meal_plan_id}: {e}")
+            # Don't raise - cache clearing failure shouldn't break the main functionality
     
     async def delete_meal_plan(self, db: Session, meal_plan_id: int) -> bool:
         """
@@ -488,6 +544,10 @@ class MealPlanService:
                 
                 # Update the meal plan data
                 self.meal_plan_repository.update_meal_plan_data(db, meal_plan_id, json.dumps(updated_plan))
+                
+                # Clear grocery list cache since meal plan changed
+                await self._clear_grocery_list_cache(db, meal_plan_id)
+                
                 return True
             
             return result
@@ -547,6 +607,10 @@ class MealPlanService:
                 
                 # Update the meal plan data
                 self.meal_plan_repository.update_meal_plan_data(db, meal_plan_id, json.dumps(updated_plan))
+                
+                # Clear grocery list cache since meal plan changed
+                await self._clear_grocery_list_cache(db, meal_plan_id)
+                
                 return True
             
             return result
@@ -587,6 +651,10 @@ class MealPlanService:
             
             # Reorder the days
             result = self.meal_plan_repository.reorder_meal_plan_days(db, meal_plan_id, day_order)
+            
+            # Clear grocery list cache since meal plan changed
+            if result:
+                await self._clear_grocery_list_cache(db, meal_plan_id)
             
             return result
         except Exception as e:
@@ -1177,3 +1245,80 @@ class MealPlanService:
         except Exception as e:
             logger.error(f"Error in edit_meal_plan_with_rag: {e}")
             raise
+    
+    async def replace_recipe(self, db: Session, meal_plan_id: int, old_recipe_id: int, new_recipe_id: int, day: int, meal_type: str) -> bool:
+        """
+        Replace a recipe in a meal plan with a new recipe
+        
+        Args:
+            db: Database session
+            meal_plan_id: Meal plan ID
+            old_recipe_id: ID of the recipe to replace
+            new_recipe_id: ID of the new recipe
+            day: Day of the meal
+            meal_type: Type of meal (breakfast, lunch, dinner)
+            
+        Returns:
+            True if successful, False otherwise
+        """
+        try:
+            # Check if the meal plan exists
+            db_meal_plan = self.meal_plan_repository.get_meal_plan(db, meal_plan_id)
+            if not db_meal_plan:
+                logger.error(f"Meal plan {meal_plan_id} not found")
+                return False
+            
+            # Get the specific meal plan recipe to replace
+            db_recipes = self.meal_plan_repository.get_meal_plan_recipes(db, meal_plan_id)
+            target_recipe = None
+            
+            for recipe in db_recipes:
+                if recipe.recipe_id == old_recipe_id and recipe.day == day and recipe.meal_type == meal_type:
+                    target_recipe = recipe
+                    break
+            
+            if not target_recipe:
+                logger.error(f"Recipe {old_recipe_id} not found in meal plan {meal_plan_id} for day {day}, meal {meal_type}")
+                return False
+            
+            # Delete the old recipe from the meal plan
+            from sqlalchemy import delete
+            from app.models.models import MealPlanRecipe
+            
+            db.execute(
+                delete(MealPlanRecipe).where(
+                    MealPlanRecipe.id == target_recipe.id
+                )
+            )
+            
+            # Add the new recipe to the meal plan
+            self.meal_plan_repository.add_recipe_to_meal_plan(db, meal_plan_id, new_recipe_id, day, meal_type)
+            
+            # Update the plan_data field with the new recipe structure
+            # Get all recipes for the meal plan after the update
+            updated_recipes = self.meal_plan_repository.get_meal_plan_recipes(db, meal_plan_id)
+            
+            # Get recipe details for the updated meal plan
+            recipes_details = []
+            for db_recipe in updated_recipes:
+                recipe_detail = await self.microservice_client.get_recipe(db_recipe.recipe_id)
+                if recipe_detail:
+                    recipes_details.append({
+                        **recipe_detail,
+                        "day": db_recipe.day,
+                        "meal_type": db_recipe.meal_type
+                    })
+            
+            # Update the plan_data field
+            updated_plan_data = json.dumps(recipes_details)
+            self.meal_plan_repository.update_meal_plan_data(db, meal_plan_id, updated_plan_data)
+            
+            # Clear grocery list cache since meal plan changed
+            await self._clear_grocery_list_cache(db, meal_plan_id)
+            
+            logger.info(f"Successfully replaced recipe {old_recipe_id} with {new_recipe_id} in meal plan {meal_plan_id}")
+            return True
+            
+        except Exception as e:
+            logger.error(f"Error replacing recipe in meal plan: {e}")
+            return False

@@ -36,7 +36,7 @@ class MicroserviceClient:
         """
         try:
             async with httpx.AsyncClient(timeout=self.timeout) as client:
-                response = await client.get(f"{self.recipe_service_url}/{recipe_id}")
+                response = await client.get(f"{self.recipe_service_url}/recipes/{recipe_id}")
                 response.raise_for_status()
                 return response.json()
         except httpx.HTTPError as e:

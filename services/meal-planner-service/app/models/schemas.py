@@ -51,6 +51,9 @@ class MealPlanResponse(BaseModel):
     conversation_data: Optional[str] = None
     conversation_title: Optional[str] = None
     original_prompt: Optional[str] = None
+    # Cached grocery list
+    grocery_list: Optional[str] = None  # JSON string of cached grocery list
+    grocery_list_generated_at: Optional[datetime] = None
     
     class Config:
         orm_mode = True
@@ -66,7 +69,7 @@ class UserPreference(BaseModel):
 
 class GroceryListItem(BaseModel):
     name: str
-    amount: str
+    quantity: str  # Changed from 'amount' to 'quantity' to match frontend/Gemini expectations
     category: Optional[str] = None
 
 class GroceryList(BaseModel):
@@ -143,3 +146,33 @@ class ConversationData(BaseModel):
     user_preferences: Optional[Dict[str, Any]] = Field(None, description="User preferences context")
     meal_plan_history: Optional[List[int]] = Field(default=[], description="Previous meal plan IDs")
     analysis_context: Optional[Dict[str, Any]] = Field(None, description="RAG analysis metadata")
+
+class MoveMealRequest(BaseModel):
+    recipe_id: int
+    to_day: int
+    to_meal_type: str
+    from_day: Optional[int] = None
+    from_meal_type: Optional[str] = None
+    
+    class Config:
+        orm_mode = True
+
+class ReplaceRecipeRequest(BaseModel):
+    old_recipe_id: int
+    new_recipe_id: int
+    day: int
+    meal_type: str
+    
+    class Config:
+        orm_mode = True
+
+class SwapDaysRequest(BaseModel):
+    day1: int
+    day2: int
+    
+    class Config:
+        orm_mode = True
+
+class MealPlanModuleResponse(BaseModel):
+    success: bool
+    message: str

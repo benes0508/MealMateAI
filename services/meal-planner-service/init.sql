@@ -23,7 +23,10 @@ CREATE TABLE IF NOT EXISTS meal_plans (
     days INTEGER NOT NULL,
     meals_per_day INTEGER NOT NULL,
     plan_data TEXT NOT NULL,
-    plan_explanation TEXT NOT NULL
+    plan_explanation TEXT NOT NULL,
+    -- Cached grocery list fields
+    grocery_list TEXT,
+    grocery_list_generated_at TIMESTAMP
 );
 
 CREATE TABLE IF NOT EXISTS meal_plan_recipes (
@@ -57,6 +60,7 @@ CREATE TABLE IF NOT EXISTS recipe_embeddings (
 
 -- Create indexes for better performance
 CREATE INDEX IF NOT EXISTS idx_meal_plans_user_id ON meal_plans(user_id);
+CREATE INDEX IF NOT EXISTS idx_meal_plans_grocery_list_generated_at ON meal_plans(grocery_list_generated_at);
 CREATE INDEX IF NOT EXISTS idx_meal_plan_recipes_meal_plan_id ON meal_plan_recipes(meal_plan_id);
 CREATE INDEX IF NOT EXISTS idx_user_preferences_cache_user_id ON user_preferences_cache(user_id);
 CREATE INDEX IF NOT EXISTS idx_recipe_embeddings_recipe_id ON recipe_embeddings(recipe_id);

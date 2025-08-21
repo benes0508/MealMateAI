@@ -20,11 +20,16 @@ class MealPlan(Base):
     # JSON string with LLM response containing the meal plan explanation
     plan_explanation = Column(Text)
     
+    # Cached grocery list (JSON string) - automatically cleared when meal plan changes
+    grocery_list = Column(Text, nullable=True)
+    grocery_list_generated_at = Column(DateTime, nullable=True)
+    
     # Chat conversation integration fields (optional - for future enhancement)
     # These columns may not exist on all deployments, so they're handled gracefully
-    conversation_data = Column(Text, nullable=True)  # JSON string of full chat history
-    conversation_title = Column(String(500), nullable=True)  # Auto-generated chat title
-    original_prompt = Column(Text, nullable=True)  # User's initial request for future RAG analysis
+    # COMMENTED OUT: Database doesn't have these columns yet
+    # conversation_data = Column(Text, nullable=True)  # JSON string of full chat history
+    # conversation_title = Column(String(500), nullable=True)  # Auto-generated chat title
+    # original_prompt = Column(Text, nullable=True)  # User's initial request for future RAG analysis
     
     # Relationship with MealPlanRecipes
     recipes = relationship("MealPlanRecipe", back_populates="meal_plan")

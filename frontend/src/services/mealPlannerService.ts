@@ -351,10 +351,11 @@ export const editMealPlanWithText = async (mealPlanId: number, userFeedback: str
 };
 
 // Get grocery list for a specific meal plan
-export const getGroceryList = async (mealPlanId: number) => {
+export const getGroceryList = async (mealPlanId: number, forceRegenerate: boolean = false) => {
   try {
     const token = localStorage.getItem('token');
-    const response = await axios.get(`${API_URL}/${mealPlanId}/grocery-list`, {
+    const params = forceRegenerate ? '?force_regenerate=true' : '';
+    const response = await axios.get(`${API_URL}/${mealPlanId}/grocery-list${params}`, {
       headers: {
         Authorization: `Bearer ${token}`
       }
@@ -579,6 +580,165 @@ export const finalizeRAGMealPlan = async (conversationId: string): Promise<MealP
   }
 };
 
+// Collection interface for type safety
+export interface Collection {
+  name: string;
+  description: string;
+  recipe_count: number;
+  status: string;
+  last_updated: string;
+}
+
+// Get available recipe collections
+export const getAvailableCollections = async (): Promise<Collection[]> => {
+  try {
+    const token = localStorage.getItem('token');
+    const response = await axios.get('/api/recipes/collections', {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    });
+    
+    return response.data.collections || [];
+  } catch (error) {
+    console.error('Error fetching collections:', error);
+    throw error;
+  }
+};
+
+// Search across multiple collections with enhanced results
+export const searchMultipleCollections = async (
+  query: string, 
+  collections: string[], 
+  maxResults: number = 20
+) => {
+  try {
+    const token = localStorage.getItem('token');
+    const url = '/api/recipes/search';
+    
+    console.log('🔍 Multi-collection search:', { url, query, collections, maxResults });
+    
+    const response = await axios.post(
+      url,
+      {
+        query: query,
+        collections: collections,
+        max_results: maxResults
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        }
+      }
+    );
+    
+    console.log('✅ Multi-collection search response:', response.data);
+    
+    // Sort results by similarity score in descending order
+    const sortedResults = (response.data.results || []).sort(
+      (a: any, b: any) => b.similarity_score - a.similarity_score
+    );
+    
+    return {
+      ...response.data,
+      results: sortedResults
+    };
+  } catch (error) {
+    console.error('❌ Error in multi-collection search:', error);
+    throw error;
+  }
+};
+
+// Search for recipe replacements using RAG (legacy single-collection function)
+export const searchRecipeReplacements = async (query: string, collection: string, maxResults: number = 5) => {
+  try {
+    const token = localStorage.getItem('token');
+    const url = `/api/recipes/collections/${collection}/search`;
+    
+    console.log('🔍 Searching recipes:', { url, query, collection, maxResults });
+    console.log('🔐 Token available:', !!token);
+    
+    const response = await axios.post(
+      url,
+      {
+        query: query,
+        max_results: maxResults
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        }
+      }
+    );
+    
+    console.log('✅ Search response:', response.data);
+    return response.data;
+  } catch (error) {
+    console.error('❌ Error searching for recipe replacements:', error);
+    console.error('Full error details:', {
+      message: error.message,
+      status: error.response?.status,
+      statusText: error.response?.statusText,
+      url: error.config?.url,
+      method: error.config?.method
+    });
+    throw error;
+  }
+};
+
+// Replace a recipe in the meal plan
+export const replaceRecipeInMealPlan = async (
+  mealPlanId: number, 
+  oldRecipeId: number, 
+  newRecipeId: string, 
+  day: number, 
+  mealType: string
+): Promise<boolean> => {
+  try {
+    // Use the existing moveMeal function but replace the recipe
+    const token = localStorage.getItem('token');
+    const response = await axios.post(
+      `/api/meal-plans/${mealPlanId}/replace-recipe`,
+      {
+        old_recipe_id: oldRecipeId,
+        new_recipe_id: parseInt(newRecipeId),
+        day: day,
+        meal_type: mealType
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      }
+    );
+    return response.data.success;
+  } catch (error) {
+    console.error('Error replacing recipe in meal plan:', error);
+    // Fallback: try to add the new recipe to the same slot
+    try {
+      const token = localStorage.getItem('token');
+      const response = await axios.post(`/api/meal-plans/${mealPlanId}/move-meal`, 
+        {
+          recipe_id: parseInt(newRecipeId),
+          to_day: day,
+          to_meal_type: mealType
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        }
+      );
+      return response.data.success;
+    } catch (fallbackError) {
+      console.error('Fallback replacement also failed:', fallbackError);
+      throw error;
+    }
+  }
+};
+
 export default {
   getMealPlan,
   getUserMealPlans,
@@ -592,5 +752,9 @@ export default {
   deleteMealPlan,
   generateRAGMealPlan,
   modifyRAGMealPlan,
-  finalizeRAGMealPlan
+  finalizeRAGMealPlan,
+  searchRecipeReplacements,
+  searchMultipleCollections,
+  getAvailableCollections,
+  replaceRecipeInMealPlan
 };

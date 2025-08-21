@@ -136,7 +136,7 @@ class GeminiService:
     
     def generate_grocery_list(self, recipes: List[Dict[str, Any]]) -> Dict[str, Any]:
         """
-        Generate a grocery list from a list of recipes
+        Generate a grocery list from a list of recipes with robust error handling
         
         Args:
             recipes: List of recipes included in the meal plan
@@ -145,74 +145,181 @@ class GeminiService:
             Dictionary containing the grocery list with items organized by category
         """
         try:
-            # Extract ingredients from the recipes
+            # Validate input
+            if not recipes:
+                logger.warning("No recipes provided for grocery list generation")
+                return {"items": []}
+            
+            # Extract and preprocess ingredients from the recipes
             all_ingredients = []
             for recipe in recipes:
-                all_ingredients.extend(recipe.get("ingredients", []))
+                ingredients = recipe.get("ingredients", [])
+                if isinstance(ingredients, list):
+                    # Clean and normalize ingredients
+                    for ingredient in ingredients:
+                        if ingredient and isinstance(ingredient, str):
+                            # Remove extra whitespace and empty ingredients
+                            clean_ingredient = ingredient.strip()
+                            if clean_ingredient:
+                                all_ingredients.append(clean_ingredient)
+                elif isinstance(ingredients, str):
+                    # Handle case where ingredients might be a string
+                    if ingredients.strip():
+                        all_ingredients.append(ingredients.strip())
             
-            # Create simple prompt for grocery list generation
+            # If no ingredients found, create fallback list
+            if not all_ingredients:
+                logger.warning("No valid ingredients found in recipes")
+                return self._create_fallback_grocery_list_from_recipes(recipes)
+            
+            # Try to generate grocery list with retry logic
+            max_retries = 3
+            for attempt in range(max_retries):
+                try:
+                    grocery_list_data = self._generate_grocery_list_with_gemini(all_ingredients, attempt + 1)
+                    if grocery_list_data:
+                        # Convert to expected format
+                        return self._convert_to_expected_format(grocery_list_data)
+                except Exception as e:
+                    logger.warning(f"Attempt {attempt + 1} failed: {str(e)}")
+                    if attempt == max_retries - 1:
+                        # Final attempt failed, create fallback
+                        logger.error("All attempts to generate grocery list with Gemini failed")
+                        return self._create_fallback_grocery_list_from_ingredients(all_ingredients)
+                    else:
+                        # Wait before retry (exponential backoff)
+                        import time
+                        time.sleep(2 ** attempt)
+            
+            # Fallback if everything fails
+            return self._create_fallback_grocery_list_from_ingredients(all_ingredients)
+            
+        except Exception as e:
+            logger.error(f"Unexpected error in generate_grocery_list: {str(e)}")
+            return self._create_fallback_grocery_list_from_recipes(recipes)
+
+    def _generate_grocery_list_with_gemini(self, ingredients: List[str], attempt: int) -> Dict[str, Any]:
+        """Generate grocery list using Gemini API with enhanced prompt"""
+        try:
+            # Create optimized prompt for grocery list generation
             prompt = f"""
-            Create an optimized grocery list from these recipe ingredients:
-            {json.dumps(all_ingredients, indent=2)}
+            Create an optimized grocery list from these recipe ingredients. Be thorough and accurate.
+
+            INGREDIENTS TO PROCESS:
+            {json.dumps(ingredients, indent=2)}
             
-            Instructions:
-            1. Combine identical or similar ingredients
-            2. Group items by grocery store categories (produce, dairy, meat, etc.)
-            3. Standardize units where possible
-            4. Include quantities needed
-            
-            Return JSON format:
+            INSTRUCTIONS:
+            1. Combine identical or very similar ingredients (e.g., "2 cups milk" + "1/2 cup milk" = "2.5 cups milk")
+            2. Group items by grocery store categories (Produce, Dairy, Meat & Seafood, Pantry, etc.)
+            3. Standardize units where possible (convert teaspoons to tablespoons, etc.)
+            4. Include estimated quantities needed
+            5. Remove duplicates and consolidate similar items
+            6. If no quantity is specified, assume "as needed" or standard package size
+
+            RETURN EXACT JSON FORMAT (no markdown formatting):
             {{
-                "grocery_list": [
+                "items": [
                     {{
-                        "category": "Produce",
-                        "items": [
-                            {{"name": "Ingredient name", "amount": "Quantity needed"}}
-                        ]
+                        "name": "Item name",
+                        "quantity": "Amount needed", 
+                        "category": "Store category"
                     }}
                 ]
             }}
+
+            Important: Return ONLY the JSON, no additional text or formatting.
             """
             
             response = self.model.generate_content(prompt)
-            result = response.text
+            result = response.text.strip()
+            
+            # Clean response (remove markdown formatting if present)
+            if result.startswith('```json'):
+                result = result.replace('```json', '').replace('```', '').strip()
+            elif result.startswith('```'):
+                result = result.replace('```', '').strip()
             
             # Parse the JSON response
-            try:
-                grocery_list_data = json.loads(result)
-                # Ensure the required fields exist in the response
-                if "grocery_list" not in grocery_list_data:
-                    logger.error("Invalid response from Gemini API")
-                    return {"grocery_list": self._create_fallback_grocery_list(all_ingredients)}
-                
-                return grocery_list_data
-            except json.JSONDecodeError:
-                logger.error("Failed to parse JSON from Gemini response")
-                return {"grocery_list": self._create_fallback_grocery_list(all_ingredients)}
+            grocery_list_data = json.loads(result)
             
+            # Validate the structure
+            if "items" not in grocery_list_data or not isinstance(grocery_list_data["items"], list):
+                raise ValueError("Invalid response structure from Gemini API")
+            
+            # Validate each item has required fields
+            for item in grocery_list_data["items"]:
+                if not isinstance(item, dict) or not all(key in item for key in ["name", "quantity", "category"]):
+                    raise ValueError("Invalid item structure in Gemini response")
+            
+            logger.info(f"Successfully generated grocery list with {len(grocery_list_data['items'])} items (attempt {attempt})")
+            return grocery_list_data
+            
+        except json.JSONDecodeError as e:
+            logger.error(f"JSON parsing error (attempt {attempt}): {str(e)}")
+            logger.error(f"Gemini response: {result[:500]}...")
+            raise
         except Exception as e:
-            logger.error(f"Error generating grocery list with Gemini: {e}")
-            return {"grocery_list": self._create_fallback_grocery_list(all_ingredients)}
+            logger.error(f"Error generating grocery list with Gemini (attempt {attempt}): {str(e)}")
+            raise
 
-    def _create_fallback_grocery_list(self, ingredients: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
-        """Creates a fallback grocery list if the API call fails"""
-        items = []
+    def _convert_to_expected_format(self, grocery_list_data: Dict[str, Any]) -> Dict[str, Any]:
+        """Convert Gemini response to expected format"""
+        return grocery_list_data
+
+    def _create_fallback_grocery_list_from_ingredients(self, ingredients: List[str]) -> Dict[str, Any]:
+        """Create a basic grocery list from ingredients when Gemini fails"""
+        logger.info("Creating fallback grocery list from ingredients")
+        
+        # Basic categorization
+        categories = {
+            "produce": ["tomato", "onion", "garlic", "lettuce", "spinach", "carrot", "potato", "bell pepper", "mushroom", "cucumber", "avocado", "lemon", "lime"],
+            "dairy": ["milk", "cheese", "butter", "yogurt", "cream", "sour cream"],
+            "meat": ["chicken", "beef", "pork", "turkey", "fish", "salmon", "tuna", "shrimp", "bacon"],
+            "pantry": ["flour", "sugar", "salt", "pepper", "oil", "vinegar", "rice", "pasta", "bread", "eggs"],
+            "herbs": ["parsley", "basil", "oregano", "thyme", "rosemary", "cilantro", "dill"]
+        }
+        
+        fallback_items = []
+        seen_ingredients = set()
+        
         for ingredient in ingredients:
-            name = ingredient.get("name", "Unknown ingredient")
-            amount = ingredient.get("amount", "")
-            unit = ingredient.get("unit", "")
+            # Normalize ingredient name
+            clean_ingredient = ingredient.lower().strip()
             
-            amount_str = f"{amount} {unit}".strip()
+            # Skip if we've already processed this ingredient
+            if clean_ingredient in seen_ingredients:
+                continue
+            seen_ingredients.add(clean_ingredient)
             
-            items.append({
-                "name": name,
-                "amount": amount_str if amount_str else "as needed"
+            # Determine category
+            category = "Other"
+            for cat_name, keywords in categories.items():
+                if any(keyword in clean_ingredient for keyword in keywords):
+                    category = cat_name.title()
+                    break
+            
+            fallback_items.append({
+                "name": ingredient.title(),
+                "quantity": "as needed",
+                "category": category
             })
         
-        return [{
-            "category": "All ingredients", 
-            "items": items
-        }]
+        return {"items": fallback_items}
+
+    def _create_fallback_grocery_list_from_recipes(self, recipes: List[Dict[str, Any]]) -> Dict[str, Any]:
+        """Create a very basic grocery list when recipes are malformed"""
+        logger.info("Creating basic fallback grocery list from recipe names")
+        
+        items = []
+        for recipe in recipes:
+            recipe_name = recipe.get("name", recipe.get("title", "Unknown Recipe"))
+            items.append({
+                "name": f"Ingredients for {recipe_name}",
+                "quantity": "check recipe",
+                "category": "General"
+            })
+        
+        return {"items": items}
 
     def generate_search_queries(self, user_prompt: str) -> List[str]:
         """Generate search queries for the vector database using Gemini"""
