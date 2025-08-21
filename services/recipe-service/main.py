@@ -61,8 +61,12 @@ import os
 import sys
 from fastapi import FastAPI, HTTPException, Depends, Request
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 from contextlib import asynccontextmanager
 import uvicorn
+import psycopg2
+from psycopg2.extras import RealDictCursor
+import json
 
 # Add current directory to Python path for imports
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
@@ -84,6 +88,51 @@ from services.recommendation_service import RecommendationService
 # Global service instance - shared across all API requests
 # This prevents reinitialization on every request and maintains AI model state
 recommendation_service = None
+
+# PostgreSQL configuration
+# Support both DATABASE_URL (Docker) and individual params (local dev)
+DATABASE_URL = os.getenv('DATABASE_URL')
+
+if DATABASE_URL:
+    # Parse DATABASE_URL for Docker environment
+    # Format: postgresql://user:password@host:port/database
+    import re
+    match = re.match(r'postgresql://([^:]+):([^@]+)@([^:]+):(\d+)/(.+)', DATABASE_URL)
+    if match:
+        DB_CONFIG = {
+            'user': match.group(1),
+            'password': match.group(2),
+            'host': match.group(3),
+            'port': match.group(4),
+            'database': match.group(5)
+        }
+    else:
+        # Fallback if parsing fails
+        DB_CONFIG = {
+            'host': 'postgres',
+            'port': '5432',
+            'database': 'recipe_db',
+            'user': 'recipe_user',
+            'password': 'recipe_password'
+        }
+else:
+    # Local development configuration
+    DB_CONFIG = {
+        'host': os.getenv('DB_HOST', 'localhost'),
+        'port': os.getenv('DB_PORT', '15432'),
+        'database': os.getenv('DB_NAME', 'recipe_db'),
+        'user': os.getenv('DB_USER', 'recipe_user'),
+        'password': os.getenv('DB_PASSWORD', 'recipe_password')
+    }
+
+def get_db_connection():
+    """Get PostgreSQL connection"""
+    try:
+        conn = psycopg2.connect(**DB_CONFIG, cursor_factory=RealDictCursor)
+        return conn
+    except Exception as e:
+        logger.error(f"Failed to connect to PostgreSQL: {e}")
+        raise HTTPException(status_code=500, detail="Database connection failed")
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -211,6 +260,14 @@ app.add_middleware(
     allow_methods=["*"],   # Allow all HTTP methods
     allow_headers=["*"],   # Allow all headers
 )
+
+# === STATIC FILES ===
+# Mount the images directory to serve recipe images
+from pathlib import Path
+images_path = Path("NewDataset13k/Food Images/Food Images")
+if images_path.exists():
+    app.mount("/images", StaticFiles(directory=str(images_path)), name="images")
+    logger.info(f"✅ Mounted images directory at /images")
 
 # === DEPENDENCY INJECTION ===
 
@@ -544,13 +601,14 @@ async def get_collection_info(
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error getting collection info: {str(e)}")
 
-@app.get("/recipes/{recipe_id}", response_model=RecipeDetail)
+@app.get("/recipes/{recipe_id}")
 async def get_recipe_details(
     recipe_id: str,
     service: RecommendationService = Depends(get_recommendation_service)
 ):
     """
     Get detailed information about a specific recipe
+    Returns in frontend-compatible format
     """
     try:
         recipe_details = await service.get_recipe_details(recipe_id)
@@ -558,48 +616,304 @@ async def get_recipe_details(
         if not recipe_details:
             raise HTTPException(status_code=404, detail=f"Recipe {recipe_id} not found")
         
-        return recipe_details
+        # Convert to frontend format
+        frontend_recipe = {
+            "id": recipe_details["recipe_id"],
+            "name": recipe_details["title"],
+            "description": recipe_details["summary"] or "No description available",
+            "imageUrl": None,
+            "prepTime": 30,
+            "cookTime": 45,
+            "servings": 4,
+            "difficulty": "medium",
+            "ingredients": recipe_details["ingredients"],
+            "instructions": recipe_details["instructions"].split('\n') if recipe_details["instructions"] else [],
+            "tags": [recipe_details["collection"]] if recipe_details["collection"] else [],
+            "nutritionalInfo": {
+                "calories": 0,
+                "protein": 0,
+                "carbs": 0,
+                "fat": 0
+            },
+            "dietaryInfo": {
+                "vegetarian": True,
+                "vegan": False,
+                "glutenFree": False,
+                "dairyFree": False,
+                "nutFree": True,
+                "lowCarb": False
+            },
+            "createdAt": "2025-01-01T00:00:00Z",
+            "updatedAt": "2025-01-01T00:00:00Z"
+        }
+        
+        return frontend_recipe
         
     except HTTPException:
         raise
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error getting recipe details: {str(e)}")
 
-# === LEGACY ENDPOINTS (for backward compatibility) ===
+# === LEGACY ENDPOINTS (for frontend compatibility) ===
 
 @app.get("/")
-async def list_recipes_legacy():
+async def get_all_recipes(
+    page: int = 1,
+    limit: int = 12
+):
     """
-    Legacy endpoint - redirects to collections info
+    Legacy endpoint - Get all recipes from PostgreSQL for frontend compatibility
     """
-    return {
-        "message": "This endpoint has been upgraded. Use /collections for collection info or /recommendations for AI-powered suggestions",
-        "new_endpoints": {
-            "collections": "/collections",
-            "recommendations": "/recommendations",
-            "search": "/search"
-        },
-        "status": "deprecated"
-    }
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    
+    try:
+        # Calculate offset
+        offset = (page - 1) * limit
+        
+        # Get total count
+        cursor.execute("SELECT COUNT(*) as total FROM recipes")
+        total_count = cursor.fetchone()['total']
+        
+        # Get paginated recipes
+        cursor.execute("""
+            SELECT id, name, ingredients, meal_type, dietary_tags, allergens,
+                   difficulty, cuisine, tags, directions, img_src, 
+                   prep_time, cook_time, servings, rating, nutrition, url,
+                   created_at, updated_at
+            FROM recipes
+            ORDER BY id
+            LIMIT %s OFFSET %s
+        """, (limit, offset))
+        
+        recipes = cursor.fetchall()
+        
+        # Convert to frontend format
+        formatted_recipes = []
+        for recipe in recipes:
+            formatted_recipe = {
+                "id": recipe['id'],
+                "name": recipe['name'],
+                "ingredients": recipe['ingredients'] if recipe['ingredients'] else [],
+                "meal_type": recipe['meal_type'] if recipe['meal_type'] else [],
+                "dietary_tags": recipe['dietary_tags'] if recipe['dietary_tags'] else [],
+                "allergens": recipe['allergens'] if recipe['allergens'] else [],
+                "difficulty": recipe['difficulty'],
+                "cuisine": recipe['cuisine'] if recipe['cuisine'] else [],
+                "tags": recipe['tags'] if recipe['tags'] else [],
+                "directions": recipe['directions'],
+                "img_src": recipe['img_src'],
+                "prep_time": recipe['prep_time'],
+                "cook_time": recipe['cook_time'],
+                "servings": recipe['servings'],
+                "rating": recipe['rating'],
+                "nutrition": recipe['nutrition'],
+                "url": recipe['url'],
+                "created_at": recipe['created_at'].isoformat() if recipe['created_at'] else None,
+                "updated_at": recipe['updated_at'].isoformat() if recipe['updated_at'] else None
+            }
+            formatted_recipes.append(formatted_recipe)
+        
+        total_pages = max(1, (total_count + limit - 1) // limit)
+        
+        return {
+            "recipes": formatted_recipes,
+            "total": total_count,
+            "page": page,
+            "total_pages": total_pages
+        }
+        
+    except Exception as e:
+        logger.error(f"Error in get_all_recipes: {e}")
+        return {
+            "recipes": [],
+            "total": 0,
+            "page": page,
+            "total_pages": 1
+        }
+    finally:
+        cursor.close()
+        conn.close()
 
 @app.get("/search")
-async def search_recipes_legacy():
+async def search_recipes_legacy(
+    query: str = "",
+    dietary: str = "",
+    tags: str = "",
+    page: int = 1,
+    limit: int = 12,
+    request: Request = None
+):
     """
-    Legacy endpoint - provides migration info
+    Legacy search endpoint - searches PostgreSQL
+    Handles both array parameters (dietary[]=value) and comma-separated strings
     """
-    return {
-        "message": "This endpoint has been upgraded. Use POST /search for semantic search",
-        "example": {
-            "url": "/search",
-            "method": "POST",
-            "body": {
-                "query": "chocolate cake recipes",
-                "max_results": 10,
-                "collections": ["desserts-sweets", "baked-breads"]
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    
+    try:
+        # Handle array parameters from query string
+        query_params = request.query_params if request else {}
+        
+        # Process dietary filters - handle both array and string formats
+        dietary_list = []
+        if 'dietary[]' in query_params:
+            # Handle array format from frontend (dietary[]=vegetarian&dietary[]=vegan)
+            dietary_list = query_params.getlist('dietary[]')
+        elif dietary:
+            # Handle comma-separated string format
+            dietary_list = [d.strip() for d in dietary.split(",") if d.strip()]
+        
+        # Process tags - handle both array and string formats
+        tags_list = []
+        if 'tags[]' in query_params:
+            # Handle array format from frontend
+            tags_list = query_params.getlist('tags[]')
+        elif tags:
+            # Handle comma-separated string format
+            tags_list = [t.strip() for t in tags.split(",") if t.strip()]
+        
+        # Calculate offset
+        offset = (page - 1) * limit
+        
+        # Build WHERE clause
+        where_conditions = []
+        params = []
+        
+        if query:
+            where_conditions.append("(name ILIKE %s OR directions ILIKE %s)")
+            params.extend([f'%{query}%', f'%{query}%'])
+        
+        if dietary_list:
+            dietary_placeholders = ','.join(['%s'] * len(dietary_list))
+            where_conditions.append(f"dietary_tags && ARRAY[{dietary_placeholders}]")
+            params.extend(dietary_list)
+        
+        if tags_list:
+            tags_placeholders = ','.join(['%s'] * len(tags_list))
+            where_conditions.append(f"tags && ARRAY[{tags_placeholders}]")
+            params.extend(tags_list)
+        
+        where_clause = "WHERE " + " AND ".join(where_conditions) if where_conditions else ""
+        
+        # Get total count
+        count_query = f"SELECT COUNT(*) as total FROM recipes {where_clause}"
+        cursor.execute(count_query, params)
+        total_count = cursor.fetchone()['total']
+        
+        # Get paginated recipes
+        search_query = f"""
+            SELECT id, name, ingredients, meal_type, dietary_tags, allergens,
+                   difficulty, cuisine, tags, directions, img_src,
+                   prep_time, cook_time, servings, rating, nutrition, url,
+                   created_at, updated_at
+            FROM recipes
+            {where_clause}
+            ORDER BY id
+            LIMIT %s OFFSET %s
+        """
+        params.extend([limit, offset])
+        cursor.execute(search_query, params)
+        
+        recipes = cursor.fetchall()
+        
+        # Convert to frontend format
+        formatted_recipes = []
+        for recipe in recipes:
+            formatted_recipe = {
+                "id": recipe['id'],
+                "name": recipe['name'],
+                "ingredients": recipe['ingredients'] if recipe['ingredients'] else [],
+                "meal_type": recipe['meal_type'] if recipe['meal_type'] else [],
+                "dietary_tags": recipe['dietary_tags'] if recipe['dietary_tags'] else [],
+                "allergens": recipe['allergens'] if recipe['allergens'] else [],
+                "difficulty": recipe['difficulty'],
+                "cuisine": recipe['cuisine'] if recipe['cuisine'] else [],
+                "tags": recipe['tags'] if recipe['tags'] else [],
+                "directions": recipe['directions'],
+                "img_src": recipe['img_src'],
+                "prep_time": recipe['prep_time'],
+                "cook_time": recipe['cook_time'],
+                "servings": recipe['servings'],
+                "rating": recipe['rating'],
+                "nutrition": recipe['nutrition'],
+                "url": recipe['url'],
+                "created_at": recipe['created_at'].isoformat() if recipe['created_at'] else None,
+                "updated_at": recipe['updated_at'].isoformat() if recipe['updated_at'] else None
             }
-        },
-        "status": "deprecated"
-    }
+            formatted_recipes.append(formatted_recipe)
+        
+        total_pages = max(1, (total_count + limit - 1) // limit)
+        
+        return {
+            "recipes": formatted_recipes,
+            "total": total_count,
+            "page": page,
+            "total_pages": total_pages
+        }
+        
+    except Exception as e:
+        logger.error(f"Error in search endpoint: {e}")
+        return {
+            "recipes": [],
+            "total": 0,
+            "page": page,
+            "total_pages": 1
+        }
+    finally:
+        cursor.close()
+        conn.close()
+
+@app.get("/csv")
+async def get_csv_recipes():
+    """
+    Legacy CSV endpoint - returns recipes in CSV format from PostgreSQL
+    """
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    
+    try:
+        # Get first 100 recipes for CSV format
+        cursor.execute("""
+            SELECT id, name, ingredients, directions, img_src,
+                   prep_time, cook_time, servings, tags
+            FROM recipes
+            ORDER BY id
+            LIMIT 100
+        """)
+        
+        recipes = cursor.fetchall()
+        
+        # Convert to CSV format expected by frontend
+        csv_recipes = []
+        for recipe in recipes:
+            csv_recipe = {
+                "Unnamed_0": str(recipe['id']),
+                "recipe_name": recipe['name'],
+                "ingredients": ", ".join(recipe['ingredients']) if recipe['ingredients'] else "",
+                "directions": recipe['directions'] if recipe['directions'] else "",
+                "img_src": recipe['img_src'],
+                "prep_time": recipe['prep_time'],
+                "cook_time": recipe['cook_time'],
+                "servings": recipe['servings'],
+                "cuisine_path": "/".join(recipe['tags']) if recipe['tags'] else ""
+            }
+            csv_recipes.append(csv_recipe)
+        
+        return {
+            "recipes": csv_recipes,
+            "total": len(csv_recipes)
+        }
+        
+    except Exception as e:
+        logger.error(f"Error in CSV endpoint: {e}")
+        return {
+            "recipes": [],
+            "total": 0
+        }
+    finally:
+        cursor.close()
+        conn.close()
 
 # Removed problematic catch-all route /{recipe_id} that was intercepting /collections and other routes
 # Legacy recipe access is now only available through /recipes/{recipe_id}

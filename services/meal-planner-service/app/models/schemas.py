@@ -47,6 +47,10 @@ class MealPlanResponse(BaseModel):
     meals_per_day: int
     plan_explanation: str
     recipes: List[MealPlanRecipeResponse]
+    # Chat conversation fields
+    conversation_data: Optional[str] = None
+    conversation_title: Optional[str] = None
+    original_prompt: Optional[str] = None
     
     class Config:
         orm_mode = True
@@ -124,3 +128,18 @@ class RAGFeedbackRequest(BaseModel):
 class RAGFinalizeRequest(BaseModel):
     conversation_id: str = Field(..., description="Conversation ID to finalize")
     user_id: int = Field(..., description="User ID")
+
+class ContinueChatRequest(BaseModel):
+    new_message: str = Field(..., description="New message to add to conversation")
+    
+class ConversationMessage(BaseModel):
+    role: str = Field(..., description="Message role: 'user' or 'assistant'")
+    content: str = Field(..., description="Message content")
+    timestamp: str = Field(..., description="Message timestamp")
+    meal_plan_id: Optional[int] = Field(None, description="Associated meal plan ID if applicable")
+
+class ConversationData(BaseModel):
+    messages: List[ConversationMessage] = Field(default=[], description="Chat messages")
+    user_preferences: Optional[Dict[str, Any]] = Field(None, description="User preferences context")
+    meal_plan_history: Optional[List[int]] = Field(default=[], description="Previous meal plan IDs")
+    analysis_context: Optional[Dict[str, Any]] = Field(None, description="RAG analysis metadata")

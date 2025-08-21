@@ -70,6 +70,14 @@ app.use('/api/recipes', recipesRoutes);
 app.use('/api/meal-plans', mealPlansRoutes);
 app.use('/api/notifications', notificationsRoutes);
 
+// Proxy image requests to Recipe Service
+const { createProxyMiddleware } = require('http-proxy-middleware');
+app.use('/images', createProxyMiddleware({
+  target: config.RECIPE_SERVICE_URL,
+  changeOrigin: true,
+  logLevel: 'debug'
+}));
+
 // Error logging
 app.use(expressWinston.errorLogger({
   transports: [

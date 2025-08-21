@@ -1,0 +1,129 @@
+graph TD
+    subgraph "Client Request"
+        UserInput[User Conversation<br/>Natural Language]
+    end
+    
+    subgraph "Recipe Service API Layer"
+        FastAPI[FastAPI Application<br/>main.py]
+        HealthCheck[Health Check<br/>/health]
+        SearchEndpoint[Direct Search<br/>/search]
+        RecommendationEndpoint[AI Recommendations<br/>/recommendations]
+        CollectionsEndpoint[Collections Info<br/>/collections]
+        RecipeDetailEndpoint[Recipe Details<br/>/recipes/{id}]
+    end
+    
+    subgraph "RAG Orchestration Layer"
+        RecommendationService[Recommendation Service<br/>RAG Orchestrator]
+        QueryAnalysis[Conversation Analysis]
+        QueryGeneration[Smart Query Generation]
+        ResultProcessing[Result Assembly & Filtering]
+    end
+    
+    subgraph "AI Services Layer"
+        QueryGenerationService[Query Generation Service<br/>Gemini LLM Integration]
+        VectorSearchService[Vector Search Service<br/>Qdrant Interface]
+        EmbeddingModel[SentenceTransformer<br/>all-mpnet-base-v2]
+    end
+    
+    subgraph "Data Processing Layer"
+        FunctionClassifier[Function-Based Classifier<br/>9 Categories]
+        SummaryGenerator[Gemini Summary Generator<br/>9,366 Summaries]
+        VectorLoader[Qdrant Loader<br/>Batch Processing]
+    end
+    
+    subgraph "Vector Database Layer"
+        QdrantDB[(Qdrant Vector DB<br/>Port 6333)]
+        
+        subgraph "8 Recipe Collections"
+            Collection1[desserts-sweets<br/>2,465 recipes]
+            Collection2[quick-light<br/>2,476 recipes]
+            Collection3[protein-mains<br/>1,379 recipes]
+            Collection4[baked-breads<br/>885 recipes]
+            Collection5[comfort-cooked<br/>718 recipes]
+            Collection6[fresh-cold<br/>950 recipes]
+            Collection7[breakfast-morning<br/>415 recipes]
+            Collection8[plant-based<br/>78 recipes]
+        end
+    end
+    
+    subgraph "Data Sources"
+        NewDataset[NewDataset13k<br/>13,501 Raw Recipes]
+        ClassificationResults[Function Classification Results<br/>Recipe Metadata]
+        RecipeSummaries[Recipe Summaries<br/>AI-Generated Content]
+    end
+    
+    subgraph "External AI APIs"
+        GeminiAPI[Google Gemini API<br/>gemini-2.5-flash]
+        HuggingFace[HuggingFace Hub<br/>Model Downloads]
+    end
+    
+    %% API Request Flow
+    UserInput --> FastAPI
+    FastAPI --> RecommendationEndpoint
+    FastAPI --> SearchEndpoint
+    FastAPI --> CollectionsEndpoint
+    FastAPI --> RecipeDetailEndpoint
+    FastAPI --> HealthCheck
+    
+    %% RAG Workflow
+    RecommendationEndpoint --> RecommendationService
+    RecommendationService --> QueryAnalysis
+    QueryAnalysis --> QueryGenerationService
+    QueryGenerationService --> GeminiAPI
+    QueryGenerationService --> QueryGeneration
+    QueryGeneration --> VectorSearchService
+    
+    %% Vector Search Flow
+    SearchEndpoint --> VectorSearchService
+    VectorSearchService --> EmbeddingModel
+    EmbeddingModel --> QdrantDB
+    QdrantDB --> Collection1
+    QdrantDB --> Collection2
+    QdrantDB --> Collection3
+    QdrantDB --> Collection4
+    QdrantDB --> Collection5
+    QdrantDB --> Collection6
+    QdrantDB --> Collection7
+    QdrantDB --> Collection8
+    
+    %% Result Processing
+    VectorSearchService --> ResultProcessing
+    ResultProcessing --> RecommendationService
+    
+    %% Collections Info
+    CollectionsEndpoint --> VectorSearchService
+    VectorSearchService --> ClassificationResults
+    
+    %% Recipe Details
+    RecipeDetailEndpoint --> VectorSearchService
+    VectorSearchService --> ClassificationResults
+    
+    %% Data Processing Pipeline
+    NewDataset --> FunctionClassifier
+    FunctionClassifier --> ClassificationResults
+    ClassificationResults --> SummaryGenerator
+    SummaryGenerator --> GeminiAPI
+    SummaryGenerator --> RecipeSummaries
+    RecipeSummaries --> VectorLoader
+    VectorLoader --> EmbeddingModel
+    EmbeddingModel --> HuggingFace
+    VectorLoader --> QdrantDB
+    
+    %% Styling
+    classDef client fill:#d4f1f9,stroke:#333,stroke-width:2px,color:#000
+    classDef api fill:#ffcc99,stroke:#333,stroke-width:2px,color:#000
+    classDef service fill:#c2e0c6,stroke:#333,stroke-width:2px,color:#000
+    classDef ai fill:#e0c6c2,stroke:#333,stroke-width:2px,color:#000
+    classDef data fill:#c6c2e0,stroke:#333,stroke-width:2px,color:#000
+    classDef external fill:#e0e0c2,stroke:#333,stroke-width:2px,color:#000
+    classDef database fill:#9370db,stroke:#333,stroke-width:2px,color:#fff
+    classDef collections fill:#dda0dd,stroke:#333,stroke-width:1px,color:#000
+    
+    class UserInput client
+    class FastAPI,HealthCheck,SearchEndpoint,RecommendationEndpoint,CollectionsEndpoint,RecipeDetailEndpoint api
+    class RecommendationService,QueryAnalysis,QueryGeneration,ResultProcessing service
+    class QueryGenerationService,VectorSearchService,EmbeddingModel ai
+    class FunctionClassifier,SummaryGenerator,VectorLoader,NewDataset,ClassificationResults,RecipeSummaries data
+    class GeminiAPI,HuggingFace external
+    class QdrantDB database
+    class Collection1,Collection2,Collection3,Collection4,Collection5,Collection6,Collection7,Collection8 collections

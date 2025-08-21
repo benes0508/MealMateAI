@@ -466,3 +466,60 @@ async def finalize_rag_meal_plan(
     except Exception as e:
         logger.exception(f"Error finalizing RAG meal plan: {str(e)}")
         raise HTTPException(status_code=500, detail=f"An error occurred while finalizing the meal plan: {str(e)}")
+
+@router.post("/{meal_plan_id}/continue-chat", response_model=schemas.MealPlanResponse)
+async def continue_meal_plan_chat(
+    meal_plan_id: int,
+    request: schemas.ContinueChatRequest,
+    db: Session = Depends(get_db)
+):
+    """
+    Continue an existing meal plan conversation with a new message
+    
+    This allows users to modify or discuss their existing meal plans in a conversational manner.
+    The full conversation history is maintained and used for context in generating updates.
+    """
+    try:
+        logger.info(f"Continuing conversation for meal plan {meal_plan_id}")
+        
+        updated_meal_plan = await meal_plan_service.continue_meal_plan_conversation(
+            db=db,
+            meal_plan_id=meal_plan_id,
+            new_message=request.new_message
+        )
+        
+        return updated_meal_plan
+        
+    except ValueError as e:
+        raise HTTPException(status_code=404, detail=str(e))
+    except Exception as e:
+        logger.exception(f"Error continuing meal plan conversation: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"An error occurred while continuing the conversation: {str(e)}")
+
+@router.get("/{meal_plan_id}/conversation")
+async def get_meal_plan_conversation(
+    meal_plan_id: int,
+    db: Session = Depends(get_db)
+):
+    """
+    Get the conversation history for a meal plan
+    
+    Returns the full chat context that was used to create and modify the meal plan.
+    Useful for the frontend to display conversation history or continue conversations.
+    """
+    try:
+        conversation_data = meal_plan_service.meal_plan_repository.get_meal_plan_conversation(
+            db=db,
+            meal_plan_id=meal_plan_id
+        )
+        
+        if not conversation_data:
+            raise HTTPException(status_code=404, detail="Conversation data not found for this meal plan")
+        
+        return conversation_data
+        
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.exception(f"Error retrieving conversation for meal plan {meal_plan_id}: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"An error occurred while retrieving the conversation: {str(e)}")

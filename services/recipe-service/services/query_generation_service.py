@@ -12,19 +12,41 @@ def check_api_security():
     """Check that API keys are properly secured"""
     api_key = os.getenv("GOOGLE_API_KEY")
     if not api_key:
-        return False
-    return api_key.startswith("AIza") and len(api_key) > 35
+        return False, "No API key found"
+    if not api_key.startswith("AIza"):
+        return False, "API key format invalid"
+    if len(api_key) < 35:
+        return False, "API key too short"
+    return True, "Valid API key format"
 
-if not check_api_security():
-    print("❌ GOOGLE_API_KEY not found or invalid in environment variables")
-    print("💡 Please set GOOGLE_API_KEY in your environment")
-    # Don't exit, just warn - service can still work without query generation
+def log_startup_status():
+    """Log detailed startup status for debugging"""
+    print("🚀 Initializing Query Generation Service...")
+    
+    # Check API key
+    api_valid, api_reason = check_api_security()
+    if api_valid:
+        # Mask the API key for security
+        api_key = os.getenv("GOOGLE_API_KEY", "")
+        masked_key = f"{api_key[:8]}...{api_key[-4:]}" if len(api_key) > 12 else "***"
+        print(f"✅ GOOGLE_API_KEY: {masked_key} ({api_reason})")
+    else:
+        print(f"❌ GOOGLE_API_KEY: {api_reason}")
+        print("💡 To enable Gemini query generation, set GOOGLE_API_KEY environment variable")
+        print("💡 Format: export GOOGLE_API_KEY='AIzaS...'")
+    
+    return api_valid
+
+# Log startup status
+GOOGLE_API_KEY_VALID = log_startup_status()
 
 try:
     from google import genai
     GEMINI_AVAILABLE = True
+    print("✅ Google Gemini library imported successfully")
 except ImportError as e:
-    print(f"Warning: Google Gemini API not available: {e}")
+    print(f"❌ Google Gemini library import failed: {e}")
+    print("💡 Install with: pip install google-generativeai")
     GEMINI_AVAILABLE = False
 
 from models import ConversationMessage, AVAILABLE_COLLECTIONS
@@ -38,17 +60,30 @@ class QueryGenerationService:
         self.genai_client = None
         self._initialized = False
         
-        if GEMINI_AVAILABLE:
-            try:
-                self.genai_client = genai.Client()
-                self._initialized = True
-            except Exception as e:
-                print(f"Failed to initialize Gemini client: {e}")
-                self._initialized = False
+        print("🔧 Setting up Gemini client...")
+        
+        if not GEMINI_AVAILABLE:
+            print("❌ Gemini library not available - query generation will use fallbacks")
+            return
+        
+        if not GOOGLE_API_KEY_VALID:
+            print("❌ Invalid API key - query generation will use fallbacks")
+            return
+        
+        try:
+            print("🔗 Connecting to Gemini API...")
+            self.genai_client = genai.Client()
+            self._initialized = True
+            print("✅ Gemini client initialized successfully")
+            print("🎯 Smart query generation enabled!")
+        except Exception as e:
+            print(f"❌ Failed to initialize Gemini client: {e}")
+            print("⚠️ Query generation will use fallbacks")
+            self._initialized = False
     
     def is_available(self) -> bool:
         """Check if query generation service is available"""
-        return self._initialized and GEMINI_AVAILABLE
+        return self._initialized and GEMINI_AVAILABLE and GOOGLE_API_KEY_VALID
     
     async def analyze_conversation_context(
         self,
@@ -117,24 +152,51 @@ class QueryGenerationService:
     ) -> Dict[str, List[str]]:
         """Generate 2 optimized queries per collection based on conversation context"""
         
+        print("🎯 Generating collection-specific queries...")
+        print(f"🔍 Gemini available: {self.is_available()}")
+        
         if not self.is_available():
+            print("⚠️ Gemini not available, using fallback queries")
+            print("💡 Reason: API key missing or Gemini client initialization failed")
             return self._fallback_queries(conversation_history)
         
         if not context_analysis:
+            print("📋 Analyzing conversation context...")
             context_analysis = await self.analyze_conversation_context(conversation_history)
+        
+        print(f"🎯 Extracted context:")
+        print(f"   • Detected Preferences: {context_analysis.get('detected_preferences', [])}")
+        print(f"   • Detected Restrictions: {context_analysis.get('detected_restrictions', [])}")
+        print(f"   • Meal Context: {context_analysis.get('meal_context', 'None')}")
+        print(f"   • Cooking Preferences: {context_analysis.get('cooking_preferences', [])}")
+        print(f"   • Ingredients Mentioned: {context_analysis.get('ingredients_mentioned', [])}")
+        print(f"   • Cuisine Preferences: {context_analysis.get('cuisine_preferences', [])}")
+        
+        # Extract the actual user message for better context
+        user_request = ""
+        if conversation_history:
+            user_request = conversation_history[-1].content  # Get the latest user message
+        
+        print(f"📝 User Request: '{user_request}'")
         
         # Prepare context summary
         context_summary = self._create_context_summary(context_analysis, conversation_history)
         
         query_prompt = f"""
-        Based on this food conversation context:
+        IMPORTANT: The user specifically requested: "{user_request}"
+        
+        Context analysis:
         {context_summary}
         
-        Generate 2 optimized search queries for each of these recipe collections:
+        Generate 2 highly specific search queries for each recipe collection that directly address the user's request. 
+        
+        User wants: {user_request}
+        
+        For EACH collection below, create 2 targeted queries that incorporate the user's specific requirements:
         
         Collections:
         - baked-breads: Baking-focused dishes (breads, pastries, baked goods)
-        - quick-light: Fast preparation and light meals (salads, wraps, quick dishes)
+        - quick-light: Fast preparation and light meals (salads, wraps, quick dishes)  
         - protein-mains: Meat, poultry, seafood main dishes
         - comfort-cooked: Slow-cooked and braised dishes (stews, braises, comfort food)
         - desserts-sweets: All sweet treats and desserts
@@ -142,19 +204,40 @@ class QueryGenerationService:
         - plant-based: Vegetarian and vegan dishes
         - fresh-cold: Salads and raw preparations (fresh, uncooked dishes)
         
-        For each collection, create 2 specific, targeted search queries that would find relevant recipes based on the conversation context. Make queries specific to what the user might want from each category.
+        CRITICAL: If the user said "no salads", do NOT include salad queries.
+        CRITICAL: If the user wants "high protein", include "high protein" in relevant queries.
+        CRITICAL: If the user wants "low carbs", include "low carb" in relevant queries.
+        CRITICAL: If the user wants "easy to cook", include "easy" or "quick" or "simple" in queries.
+        
+        Examples based on user request "{user_request}":
+        - For protein-mains: ["easy high protein chicken recipes", "simple low carb beef dishes"]
+        - For quick-light: ["quick high protein meals", "easy low carb lunch ideas"]
+        - For breakfast-morning: ["high protein low carb breakfast", "easy morning protein meals"]
         
         Return as JSON format:
         {{
           "baked-breads": ["query1", "query2"],
           "quick-light": ["query1", "query2"],
-          ...
+          "protein-mains": ["query1", "query2"],
+          "comfort-cooked": ["query1", "query2"],
+          "desserts-sweets": ["query1", "query2"],
+          "breakfast-morning": ["query1", "query2"],
+          "plant-based": ["query1", "query2"],
+          "fresh-cold": ["query1", "query2"]
         }}
         
-        Return only valid JSON, no additional text.
+        Return ONLY valid JSON, no markdown, no additional text.
         """
         
+        print("📝 Constructing enhanced prompt for Gemini...")
+        print("="*80)
+        print("📤 EXACT PROMPT SENT TO GEMINI:")
+        print("="*80)
+        print(query_prompt)
+        print("="*80)
+        
         try:
+            print("⏳ Sending request to Gemini API...")
             response = self.genai_client.models.generate_content(
                 model="gemini-2.5-flash", 
                 contents=[query_prompt]
@@ -170,26 +253,43 @@ class QueryGenerationService:
                     if content and hasattr(content, "text"):
                         response_text = content.text
             
+            print("="*80)
+            print("📥 EXACT RESPONSE FROM GEMINI:")
+            print("="*80)
+            print(response_text)
+            print("="*80)
+            
             if response_text:
                 import json
                 try:
+                    print("🔄 Parsing Gemini response...")
                     queries = json.loads(response_text)
                     # Validate structure
                     if isinstance(queries, dict):
                         validated_queries = {}
+                        successful_collections = 0
                         for collection in AVAILABLE_COLLECTIONS.keys():
                             if collection in queries and isinstance(queries[collection], list):
                                 validated_queries[collection] = queries[collection][:2]  # Limit to 2 queries
+                                successful_collections += 1
                             else:
+                                print(f"⚠️ Collection '{collection}' missing or invalid in Gemini response, using fallback")
                                 validated_queries[collection] = self._fallback_collection_queries(collection)
+                        
+                        print(f"✅ Using Gemini-generated queries ({successful_collections}/{len(AVAILABLE_COLLECTIONS)} collections successful)")
                         return validated_queries
-                except json.JSONDecodeError:
-                    pass
+                except json.JSONDecodeError as e:
+                    print(f"❌ Failed to parse Gemini JSON response: {e}")
+                    print("⚠️ Falling back to default queries")
+            else:
+                print("❌ Empty response from Gemini")
+                print("⚠️ Falling back to default queries")
             
             return self._fallback_queries(conversation_history)
             
         except Exception as e:
-            print(f"Error generating collection queries: {e}")
+            print(f"❌ Error generating collection queries with Gemini: {e}")
+            print("⚠️ Falling back to default queries due to API error")
             return self._fallback_queries(conversation_history)
     
     def _format_conversation(self, conversation_history: List[ConversationMessage]) -> str:
@@ -294,8 +394,11 @@ class QueryGenerationService:
     
     def _fallback_queries(self, conversation_history: List[ConversationMessage]) -> Dict[str, List[str]]:
         """Generate fallback queries when Gemini is not available"""
+        print("🔄 Generating fallback queries with keyword-based customization...")
+        
         # Extract key terms from conversation
         text = " ".join([msg.content.lower() for msg in conversation_history[-3:]])
+        print(f"📝 Analyzing text for keywords: '{text[:100]}...'")
         
         # Default queries for each collection
         base_queries = {
@@ -310,13 +413,22 @@ class QueryGenerationService:
         }
         
         # Try to customize based on keywords found
+        customizations = []
         if "healthy" in text or "diet" in text:
             base_queries["quick-light"] = ["healthy quick meals", "nutritious light dishes"]
             base_queries["fresh-cold"] = ["healthy salads", "fresh vegetable dishes"]
+            customizations.append("healthy")
         
         if "sweet" in text or "dessert" in text:
             base_queries["desserts-sweets"] = ["sweet desserts", "indulgent treats"]
+            customizations.append("sweet/dessert")
         
+        if customizations:
+            print(f"🎯 Applied keyword customizations: {customizations}")
+        else:
+            print("📋 Using default fallback queries (no specific keywords detected)")
+        
+        print("⚠️ Using fallback queries instead of Gemini-generated queries")
         return base_queries
     
     def _fallback_collection_queries(self, collection_name: str) -> List[str]:

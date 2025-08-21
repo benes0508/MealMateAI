@@ -277,16 +277,48 @@ class MealPlanService:
                 else:
                     plan_name = f"{days}-Day Personalized Meal Plan"
             
-            # Save the meal plan to the database
-            db_meal_plan = self.meal_plan_repository.create_meal_plan(
-                db=db,
-                user_id=user_id,
-                plan_name=plan_name,
-                days=days,
-                meals_per_day=meals_per_day,
-                plan_data=json.dumps(rag_response.get("meal_plan", [])),
-                plan_explanation=rag_response.get("explanation", "Your personalized meal plan created by AI.")
-            )
+            # Try to get user's meal plan history for context (optional)
+            try:
+                user_meal_plans = await self.get_user_meal_plans(db, user_id)
+                meal_plan_history = [plan["id"] for plan in user_meal_plans[:3]]  # Last 3 meal plans
+            except:
+                meal_plan_history = []
+            
+            # Create conversation context for saving with meal plan (optional enhancement)
+            try:
+                conversation_context = self._create_conversation_context(
+                    user_prompt=input_text,
+                    rag_response=rag_response,
+                    user_preferences=user_preferences or {},
+                    meal_plan_history=meal_plan_history
+                )
+                conversation_title = self._generate_conversation_title(input_text)
+                
+                # Save the meal plan with conversation context
+                db_meal_plan = self.meal_plan_repository.create_meal_plan(
+                    db=db,
+                    user_id=user_id,
+                    plan_name=plan_name,
+                    days=days,
+                    meals_per_day=meals_per_day,
+                    plan_data=json.dumps(rag_response.get("meal_plan", [])),
+                    plan_explanation=rag_response.get("explanation", "Your personalized meal plan created by AI."),
+                    conversation_data=json.dumps(conversation_context),
+                    conversation_title=conversation_title,
+                    original_prompt=input_text
+                )
+            except Exception as e:
+                logger.warning(f"Failed to save conversation context (database may not support it): {e}")
+                # Fallback to basic meal plan creation
+                db_meal_plan = self.meal_plan_repository.create_meal_plan(
+                    db=db,
+                    user_id=user_id,
+                    plan_name=plan_name,
+                    days=days,
+                    meals_per_day=meals_per_day,
+                    plan_data=json.dumps(rag_response.get("meal_plan", [])),
+                    plan_explanation=rag_response.get("explanation", "Your personalized meal plan created by AI.")
+                )
             
             # Add recipes to the meal plan
             meal_plan_data = rag_response.get("meal_plan", [])
@@ -600,9 +632,20 @@ class MealPlanService:
         if user_prefs:
             preferences["cuisine_preferences"] = user_prefs.get("cuisine_preferences", [])
             preferences["disliked_ingredients"] = user_prefs.get("disliked_ingredients", [])
+            # Add the rich preferences JSON field data
+            preferences["cooking_preferences"] = user_prefs.get("preferences", {}).get("cooking_style", [])
+            preferences["meal_timing"] = user_prefs.get("preferences", {}).get("meal_timing", {})
+            preferences["portion_preferences"] = user_prefs.get("preferences", {}).get("portion_size", "medium")
+            preferences["spice_tolerance"] = user_prefs.get("preferences", {}).get("spice_level", "medium")
+            preferences["texture_preferences"] = user_prefs.get("preferences", {}).get("texture_likes", [])
         else:
             preferences["cuisine_preferences"] = []
             preferences["disliked_ingredients"] = []
+            preferences["cooking_preferences"] = []
+            preferences["meal_timing"] = {}
+            preferences["portion_preferences"] = "medium"
+            preferences["spice_tolerance"] = "medium"
+            preferences["texture_preferences"] = []
         
         # Cache the preferences
         self.meal_plan_repository.cache_user_preferences(db, user_id, preferences)
@@ -610,38 +653,115 @@ class MealPlanService:
         return preferences
 
     async def create_rag_meal_plan(self, db: Session, user_id: int, user_prompt: str) -> Dict[str, Any]:
-        """Complete RAG workflow: Generate meal plan from user prompt"""
+        """Complete RAG workflow: Generate meal plan from user prompt using AI recommendations"""
         try:
-            # Step 2: Generate search queries
-            queries = self.gemini_service.generate_search_queries(user_prompt)
+            logger.info("="*80)
+            logger.info("🧠 STARTING RAG MEAL PLAN THINKING PROCESS")
+            logger.info("="*80)
             
-            # Step 3: Search for recipes using multiple queries
-            retrieved_recipes = await self._search_recipes_with_multiple_queries(queries)
+            # Step 1: Get user preferences for enhanced AI recommendations
+            logger.info("📋 STEP 1: Gathering User Context")
+            user_preferences = await self._get_user_preferences(db, user_id)
+            logger.info(f"👤 User ID: {user_id}")
+            logger.info(f"💬 Original Prompt: '{user_prompt}'")
+            logger.info(f"🎯 User Preferences Retrieved:")
+            logger.info(f"   • Dietary Restrictions: {user_preferences.get('dietary_restrictions', [])}")
+            logger.info(f"   • Allergies: {user_preferences.get('allergies', [])}")
+            logger.info(f"   • Cuisine Preferences: {user_preferences.get('cuisine_preferences', [])}")
+            logger.info(f"   • Cooking Style: {user_preferences.get('cooking_preferences', [])}")
+            logger.info(f"   • Spice Tolerance: {user_preferences.get('spice_tolerance', 'unknown')}")
+            logger.info(f"   • Portion Preference: {user_preferences.get('portion_preferences', 'unknown')}")
+            
+            # Step 2: Check for user's recent meal plans to add context
+            logger.info("\n📚 STEP 2: Analyzing Meal Plan History")
+            try:
+                user_meal_plans = await self.get_user_meal_plans(db, user_id)
+                meal_plan_history = [plan["id"] for plan in user_meal_plans[:3]]  # Last 3 meal plans
+                logger.info(f"🗂️ Recent Meal Plans (last 3): {meal_plan_history}")
+                if user_meal_plans:
+                    for i, plan in enumerate(user_meal_plans[:3]):
+                        logger.info(f"   Plan {i+1}: {plan.get('plan_name', 'Unknown')} (ID: {plan.get('id')})")
+                else:
+                    logger.info("   ⚪ No previous meal plans found - first time user")
+            except Exception as e:
+                logger.error(f"Error getting user meal plans: {e}")
+                logger.info(f"🗂️ Recent Meal Plans (last 3): []")
+                logger.info("   ⚪ No previous meal plans found - first time user")
+                meal_plan_history = []
+            
+            # Step 3: Use AI-powered recipe recommendations instead of basic queries
+            logger.info("\n🤖 STEP 3: AI-Powered Recipe Recommendations")
+            logger.info(f"🔍 Searching for recipes with enhanced context...")
+            retrieved_recipes = await self._search_recipes_with_ai_recommendations(
+                user_prompt=user_prompt,
+                user_preferences=user_preferences,
+                max_results=50
+            )
             
             if not retrieved_recipes:
                 return {
                     "meal_plan": [],
                     "explanation": "No suitable recipes found for your request. Please try a different query.",
-                    "queries_used": queries,
+                    "ai_analysis": "No AI analysis available",
                     "recipes_found": 0
                 }
             
-            # Step 3: Generate meal plan using retrieved recipes
+            # Step 4: Generate meal plan using AI-retrieved recipes
+            logger.info(f"\n🎭 STEP 4: Meal Plan Generation with {len(retrieved_recipes)} recipes")
             meal_plan = self.gemini_service.generate_rag_meal_plan(user_prompt, retrieved_recipes)
             
-            # Add metadata
-            meal_plan["queries_used"] = queries
+            # Add enhanced metadata
+            logger.info(f"\n📊 STEP 5: Adding Enhanced Metadata")
+            meal_plan["ai_enhanced"] = True
             meal_plan["recipes_found"] = len(retrieved_recipes)
             meal_plan["user_prompt"] = user_prompt
+            meal_plan["user_preferences_applied"] = bool(user_preferences)
+            
+            # Add recipe quality metrics
+            if retrieved_recipes:
+                avg_similarity = sum(r.get("similarity_score", 0) for r in retrieved_recipes) / len(retrieved_recipes)
+                meal_plan["avg_recipe_similarity"] = avg_similarity
+                meal_plan["recipe_collections"] = list(set(r.get("cuisine_type", "") for r in retrieved_recipes if r.get("cuisine_type")))
+                
+                logger.info(f"📈 Quality Metrics:")
+                logger.info(f"   • Average Recipe Similarity: {avg_similarity:.3f}")
+                logger.info(f"   • Collections Used: {meal_plan['recipe_collections']}")
+                logger.info(f"   • User Preferences Applied: {meal_plan['user_preferences_applied']}")
+            
+            logger.info("="*80)
+            logger.info("🎉 RAG MEAL PLAN THINKING PROCESS COMPLETE")
+            logger.info("="*80)
+            logger.info(f"✅ Final Meal Plan Generated:")
+            logger.info(f"   • Recipes Found: {meal_plan['recipes_found']}")
+            logger.info(f"   • AI Enhanced: {meal_plan['ai_enhanced']}")
+            logger.info(f"   • Processing Quality: {avg_similarity:.3f} average similarity")
+            logger.info(f"   • Collections: {len(meal_plan['recipe_collections'])} different types")
+            logger.info("="*80)
             
             return meal_plan
             
         except Exception as e:
-            logger.error(f"Error in RAG meal plan creation: {e}")
+            logger.error(f"Error in AI-enhanced RAG meal plan creation: {e}")
+            # Fallback to basic method
+            try:
+                logger.info("Falling back to basic meal plan generation")
+                queries = self.gemini_service.generate_search_queries(user_prompt)
+                fallback_recipes = await self._search_recipes_with_multiple_queries_fallback(user_prompt)
+                
+                if fallback_recipes:
+                    meal_plan = self.gemini_service.generate_rag_meal_plan(user_prompt, fallback_recipes)
+                    meal_plan["ai_enhanced"] = False
+                    meal_plan["fallback_used"] = True
+                    meal_plan["recipes_found"] = len(fallback_recipes)
+                    return meal_plan
+            except Exception as fallback_error:
+                logger.error(f"Fallback meal plan creation also failed: {fallback_error}")
+            
             return {
                 "meal_plan": [],
                 "explanation": f"An error occurred while generating your meal plan: {str(e)}",
-                "queries_used": [],
+                "ai_enhanced": False,
+                "error": True,
                 "recipes_found": 0
             }
 
@@ -667,54 +787,329 @@ class MealPlanService:
             logger.error(f"Error modifying RAG meal plan: {e}")
             return current_meal_plan
 
-    async def _search_recipes_with_multiple_queries(self, queries: List[str]) -> List[Dict[str, Any]]:
-        """Search recipes using multiple queries and combine results"""
+    def _convert_user_prompt_to_conversation(self, user_prompt: str) -> List[Dict[str, str]]:
+        """Convert a user prompt to conversation format for RAG system"""
+        return [
+            {
+                "role": "user", 
+                "content": user_prompt
+            }
+        ]
+    
+    def _convert_recipe_recommendations_to_meal_plan_format(self, recommendations: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+        """Convert Recipe Service recommendations to meal plan format"""
+        converted_recipes = []
+        
+        for rec in recommendations:
+            # Handle both old format and new RAG format
+            recipe_data = {
+                "id": rec.get("recipe_id") or rec.get("id"),
+                "recipe_id": rec.get("recipe_id") or rec.get("id"),
+                "recipe_name": rec.get("title") or rec.get("name"),
+                "ingredients": rec.get("ingredients_preview", []) or rec.get("ingredients", []),
+                "cuisine_type": rec.get("collection", ""),
+                "summary": rec.get("summary", ""),
+                "similarity_score": rec.get("similarity_score", 0.0),
+                "confidence": rec.get("confidence", 0.0)
+            }
+            converted_recipes.append(recipe_data)
+        
+        return converted_recipes
+
+    async def _search_recipes_with_ai_recommendations(self, user_prompt: str, user_preferences: Optional[Dict[str, Any]] = None, max_results: int = 50) -> List[Dict[str, Any]]:
+        """Search recipes using AI-powered recommendations from Recipe Service"""
+        try:
+            logger.info("🔄 Converting prompt to conversation format...")
+            # Convert user prompt to conversation format
+            conversation_history = self._convert_user_prompt_to_conversation(user_prompt)
+            logger.info(f"💬 Conversation History Sent to Recipe Service:")
+            import json
+            logger.info(json.dumps(conversation_history, indent=4))
+            
+            logger.info(f"\n📤 Sending Request to Recipe Service RAG System:")
+            logger.info(f"   • Max Results: {max_results}")
+            logger.info(f"   • User Preferences Included: {bool(user_preferences)}")
+            if user_preferences:
+                logger.info(f"   • Preferences Data: {json.dumps(user_preferences, indent=6)}")
+            
+            # Get AI-powered recommendations
+            logger.info(f"\n⚡ Calling Recipe Service /recommendations endpoint...")
+            ai_response = await self.microservice_client.get_ai_recommendations(
+                conversation_history=conversation_history,
+                max_results=max_results,
+                user_preferences=user_preferences
+            )
+            
+            logger.info(f"📥 Recipe Service Response Status: {ai_response.get('status', 'unknown')}")
+            logger.info(f"🔢 Total Results Returned: {ai_response.get('total_results', 0)}")
+            
+            if ai_response.get("status") == "success" and ai_response.get("recommendations"):
+                recommendations = ai_response["recommendations"]
+                logger.info(f"✅ SUCCESS: AI recommendations returned {len(recommendations)} recipes")
+                
+                # Log query analysis from Recipe Service
+                if "query_analysis" in ai_response:
+                    query_analysis = ai_response["query_analysis"]
+                    logger.info(f"\n🔍 Recipe Service Query Analysis:")
+                    logger.info(f"   • Detected Preferences: {query_analysis.get('detected_preferences', [])}")
+                    logger.info(f"   • Detected Restrictions: {query_analysis.get('detected_restrictions', [])}")
+                    logger.info(f"   • Meal Context: {query_analysis.get('meal_context', 'None')}")
+                    logger.info(f"   • Collections Searched: {query_analysis.get('collections_searched', [])}")
+                    logger.info(f"   • Processing Time: {query_analysis.get('processing_time_ms', 0)}ms")
+                    
+                    if "generated_queries" in query_analysis:
+                        logger.info(f"\n🎯 Generated Queries by Collection:")
+                        for collection, queries in query_analysis["generated_queries"].items():
+                            logger.info(f"     {collection}: {queries}")
+                
+                # Log sample of retrieved recipes
+                logger.info(f"\n📋 Sample Retrieved Recipes (top 5):")
+                for i, recipe in enumerate(recommendations[:5]):
+                    logger.info(f"   {i+1}. {recipe.get('title', 'Unknown')} (Collection: {recipe.get('collection', 'N/A')}, Score: {recipe.get('similarity_score', 0):.3f})")
+                
+                # Convert to meal plan format and add user preferences for context
+                logger.info(f"\n🔄 Converting {len(recommendations)} recipes to meal plan format...")
+                converted_recipes = self._convert_recipe_recommendations_to_meal_plan_format(recommendations)
+                
+                # Add user preferences to first recipe for context passing to Gemini
+                if converted_recipes and user_preferences:
+                    converted_recipes[0]["user_preferences"] = user_preferences
+                    logger.info(f"✅ Added user preferences to recipe data for Gemini context")
+                
+                logger.info(f"✅ Recipe conversion complete: {len(converted_recipes)} recipes ready for meal plan generation")
+                return converted_recipes
+            else:
+                logger.warning(f"❌ AI recommendations failed or returned no results: {ai_response.get('status')}")
+                logger.info(f"🔄 Falling back to basic keyword search...")
+                return await self._search_recipes_with_multiple_queries_fallback(user_prompt)
+                
+        except Exception as e:
+            logger.error(f"Error getting AI recommendations: {e}")
+            return await self._search_recipes_with_multiple_queries_fallback(user_prompt)
+
+    async def _search_recipes_with_multiple_queries_fallback(self, user_prompt: str) -> List[Dict[str, Any]]:
+        """Fallback method using multiple queries (original implementation)"""
+        # Extract keywords from user prompt for basic search
+        keywords = ["healthy", "vegetarian", "protein", "quick", "dessert", "chicken", "beef", "fish"]
+        relevant_keywords = [word for word in keywords if word.lower() in user_prompt.lower()]
+        
+        if not relevant_keywords:
+            relevant_keywords = ["chicken", "salad", "sandwich"]  # Default fallback
+        
         all_recipes = []
         seen_recipe_ids = set()
         
-        for query in queries:
-            logger.info(f"Searching recipes with query: {query}")
+        for query in relevant_keywords:
+            logger.info(f"Fallback search with query: {query}")
             recipes = await self.microservice_client.search_recipes(query, limit=20)
-            
-            # If no recipes found with this query, try fallback searches
-            if not recipes and query in ["vegetarian", "vegan"]:
-                logger.info(f"No recipes found for '{query}', trying vegetarian-friendly alternatives")
-                fallback_queries = ["salad", "avocado", "toast"]
-                for fallback_query in fallback_queries:
-                    fallback_recipes = await self.microservice_client.search_recipes(fallback_query, limit=10)
-                    recipes.extend(fallback_recipes)
-            elif not recipes and query in ["protein"]:
-                logger.info(f"No recipes found for '{query}', trying protein-rich alternatives")
-                fallback_queries = ["chicken", "beef", "eggs"]
-                for fallback_query in fallback_queries:
-                    fallback_recipes = await self.microservice_client.search_recipes(fallback_query, limit=10)
-                    recipes.extend(fallback_recipes)
             
             # Add unique recipes
             for recipe in recipes:
                 recipe_id = recipe.get("id") or recipe.get("recipe_id")
                 if recipe_id and recipe_id not in seen_recipe_ids:
-                    all_recipes.append(recipe)
+                    # Convert to consistent format
+                    recipe_data = {
+                        "id": recipe_id,
+                        "recipe_id": recipe_id,
+                        "recipe_name": recipe.get("name", "Unknown Recipe"),
+                        "ingredients": recipe.get("ingredients", []),
+                        "cuisine_type": recipe.get("tags", [{}])[0] if recipe.get("tags") else "",
+                        "summary": recipe.get("description", ""),
+                        "similarity_score": 0.5,  # Default score for fallback
+                        "confidence": 0.5
+                    }
+                    all_recipes.append(recipe_data)
                     seen_recipe_ids.add(recipe_id)
         
-        # If still no recipes found, try a broad search
-        if not all_recipes:
-            logger.warning("No recipes found with any queries, trying broad search")
-            broad_queries = ["chicken", "salad", "sandwich"]
-            for broad_query in broad_queries:
-                broad_recipes = await self.microservice_client.search_recipes(broad_query, limit=10)
-                for recipe in broad_recipes:
-                    recipe_id = recipe.get("id") or recipe.get("recipe_id")
-                    if recipe_id and recipe_id not in seen_recipe_ids:
-                        all_recipes.append(recipe)
-                        seen_recipe_ids.add(recipe_id)
+        logger.info(f"Fallback search found {len(all_recipes)} unique recipes")
+        return all_recipes[:50]  # Limit results
+
+    def _create_conversation_context(self, user_prompt: str, rag_response: Dict[str, Any], user_preferences: Dict[str, Any], meal_plan_history: List[int] = None) -> Dict[str, Any]:
+        """Create structured conversation context for saving with meal plan"""
+        from datetime import datetime
         
-        # Limit to 100 recipes total
-        if len(all_recipes) > 100:
-            all_recipes = all_recipes[:100]
+        # Create conversation messages
+        messages = [
+            {
+                "role": "user",
+                "content": user_prompt,
+                "timestamp": datetime.now().isoformat()
+            },
+            {
+                "role": "assistant", 
+                "content": rag_response.get("explanation", "I've created a personalized meal plan for you."),
+                "timestamp": datetime.now().isoformat(),
+                "meal_plan_generated": True
+            }
+        ]
         
-        logger.info(f"Found {len(all_recipes)} unique recipes from {len(queries)} queries")
-        return all_recipes
+        # Create analysis context from RAG response
+        analysis_context = {
+            "ai_enhanced": rag_response.get("ai_enhanced", False),
+            "recipes_found": rag_response.get("recipes_found", 0),
+            "avg_recipe_similarity": rag_response.get("avg_recipe_similarity"),
+            "recipe_collections": rag_response.get("recipe_collections", []),
+            "fallback_used": rag_response.get("fallback_used", False)
+        }
+        
+        return {
+            "messages": messages,
+            "user_preferences": user_preferences,
+            "meal_plan_history": meal_plan_history or [],  # Previous meal plan IDs
+            "analysis_context": analysis_context
+        }
+
+    def _generate_conversation_title(self, user_prompt: str) -> str:
+        """Generate a descriptive title from user prompt"""
+        # Simple title generation - could be enhanced with AI in the future
+        prompt_lower = user_prompt.lower()
+        
+        # Extract key dietary terms
+        dietary_terms = []
+        if "vegetarian" in prompt_lower:
+            dietary_terms.append("Vegetarian")
+        if "vegan" in prompt_lower:
+            dietary_terms.append("Vegan")
+        if "healthy" in prompt_lower:
+            dietary_terms.append("Healthy")
+        if "protein" in prompt_lower:
+            dietary_terms.append("High Protein")
+        if "low carb" in prompt_lower:
+            dietary_terms.append("Low Carb")
+        
+        # Extract time frame
+        days = 7  # default
+        if "3 day" in prompt_lower:
+            days = 3
+        elif "5 day" in prompt_lower:
+            days = 5
+        elif "week" in prompt_lower or "7 day" in prompt_lower:
+            days = 7
+        elif "14 day" in prompt_lower or "2 week" in prompt_lower:
+            days = 14
+            
+        # Build title
+        title_parts = []
+        if dietary_terms:
+            title_parts.extend(dietary_terms)
+        title_parts.append(f"{days}-Day Meal Plan")
+        
+        return " ".join(title_parts)
+
+    async def continue_meal_plan_conversation(self, db: Session, meal_plan_id: int, new_message: str) -> Dict[str, Any]:
+        """Continue an existing meal plan conversation with a new message"""
+        try:
+            # Get the existing meal plan and conversation
+            db_meal_plan = self.meal_plan_repository.get_meal_plan(db, meal_plan_id)
+            if not db_meal_plan:
+                raise ValueError(f"Meal plan {meal_plan_id} not found")
+            
+            # Load existing conversation context
+            conversation_context = {}
+            if db_meal_plan.conversation_data:
+                conversation_context = json.loads(db_meal_plan.conversation_data)
+            
+            # Add new user message to conversation
+            from datetime import datetime
+            new_user_message = {
+                "role": "user",
+                "content": new_message,
+                "timestamp": datetime.now().isoformat()
+            }
+            
+            if "messages" not in conversation_context:
+                conversation_context["messages"] = []
+            conversation_context["messages"].append(new_user_message)
+            
+            # Get user preferences
+            user_preferences = await self._get_user_preferences(db, db_meal_plan.user_id)
+            
+            # Create conversation history for RAG system
+            conversation_history = self._format_conversation_for_rag(conversation_context["messages"])
+            
+            # Get AI recommendations using full conversation context
+            retrieved_recipes = await self._search_recipes_with_ai_recommendations(
+                user_prompt=new_message,
+                user_preferences=user_preferences,
+                max_results=50
+            )
+            
+            # Generate new meal plan using conversation context
+            meal_plan = self.gemini_service.generate_rag_meal_plan(new_message, retrieved_recipes)
+            
+            # Add assistant response to conversation
+            assistant_message = {
+                "role": "assistant",
+                "content": meal_plan.get("explanation", "I've updated your meal plan based on your feedback."),
+                "timestamp": datetime.now().isoformat(),
+                "meal_plan_updated": True
+            }
+            conversation_context["messages"].append(assistant_message)
+            
+            # Update meal plan with new conversation and plan data
+            updated_meal_plan = self.meal_plan_repository.create_meal_plan(
+                db=db,
+                user_id=db_meal_plan.user_id,
+                plan_name=f"Updated {db_meal_plan.plan_name}",
+                days=db_meal_plan.days,
+                meals_per_day=db_meal_plan.meals_per_day,
+                plan_data=json.dumps(meal_plan.get("meal_plan", [])),
+                plan_explanation=meal_plan.get("explanation", "Updated meal plan"),
+                conversation_data=json.dumps(conversation_context),
+                conversation_title=db_meal_plan.conversation_title,
+                original_prompt=db_meal_plan.original_prompt
+            )
+            
+            # Add recipes to the new meal plan
+            meal_plan_data = meal_plan.get("meal_plan", [])
+            for day_plan in meal_plan_data:
+                day = day_plan.get("day", 1)
+                for meal in day_plan.get("meals", []):
+                    recipe_id = meal.get("recipe_id")
+                    if recipe_id:
+                        self.meal_plan_repository.add_recipe_to_meal_plan(
+                            db=db,
+                            meal_plan_id=updated_meal_plan.id,
+                            recipe_id=recipe_id,
+                            day=day,
+                            meal_type=meal.get("meal_type", "meal")
+                        )
+            
+            # Return updated meal plan
+            return {
+                "id": updated_meal_plan.id,
+                "days": updated_meal_plan.days,
+                "plan_name": updated_meal_plan.plan_name,
+                "plan_explanation": updated_meal_plan.plan_explanation,
+                "created_at": updated_meal_plan.created_at.isoformat(),
+                "user_id": updated_meal_plan.user_id,
+                "meals_per_day": updated_meal_plan.meals_per_day,
+                "recipes": self._convert_to_recipes_format(meal_plan_data),
+                "meal_plan": meal_plan,
+                "conversation_id": f"continued-{updated_meal_plan.id}",
+                "status": "updated",
+                "conversation_data": conversation_context
+            }
+            
+        except Exception as e:
+            logger.error(f"Error continuing meal plan conversation: {e}")
+            raise
+
+    def _format_conversation_for_rag(self, messages: List[Dict[str, Any]]) -> List[Dict[str, str]]:
+        """Format conversation messages for RAG system"""
+        formatted_messages = []
+        for msg in messages[-10:]:  # Use last 10 messages for context
+            formatted_messages.append({
+                "role": msg["role"],
+                "content": msg["content"]
+            })
+        return formatted_messages
+
+    async def _search_recipes_with_multiple_queries(self, queries: List[str]) -> List[Dict[str, Any]]:
+        """Legacy method - now redirects to AI-powered search if available"""
+        # Create a combined prompt from the queries
+        user_prompt = " ".join(queries)
+        return await self._search_recipes_with_ai_recommendations(user_prompt)
 
     async def edit_meal_plan_with_rag(self, db: Session, meal_plan_id: int, current_meal_plan: Dict[str, Any], user_feedback: str) -> Dict[str, Any]:
         """

@@ -6,20 +6,47 @@ from datetime import datetime
 
 class MealPlanRepository:
     def create_meal_plan(self, db: Session, user_id: int, plan_name: str, days: int, meals_per_day: int, 
-                          plan_data: dict, plan_explanation: str):
-        """Create a new meal plan in the database"""
-        db_meal_plan = MealPlan(
-            user_id=user_id,
-            plan_name=plan_name,
-            days=days,
-            meals_per_day=meals_per_day,
-            plan_data=json.dumps(plan_data),
-            plan_explanation=plan_explanation
-        )
-        db.add(db_meal_plan)
-        db.commit()
-        db.refresh(db_meal_plan)
-        return db_meal_plan
+                          plan_data: dict, plan_explanation: str, conversation_data: str = None, 
+                          conversation_title: str = None, original_prompt: str = None):
+        """Create a new meal plan in the database with optional conversation context"""
+        # Create base meal plan
+        meal_plan_data = {
+            "user_id": user_id,
+            "plan_name": plan_name,
+            "days": days,
+            "meals_per_day": meals_per_day,
+            "plan_data": json.dumps(plan_data),
+            "plan_explanation": plan_explanation
+        }
+        
+        # Add conversation fields only if provided (for backward compatibility)
+        if conversation_data:
+            meal_plan_data["conversation_data"] = conversation_data
+        if conversation_title:
+            meal_plan_data["conversation_title"] = conversation_title
+        if original_prompt:
+            meal_plan_data["original_prompt"] = original_prompt
+            
+        try:
+            db_meal_plan = MealPlan(**meal_plan_data)
+            db.add(db_meal_plan)
+            db.commit()
+            db.refresh(db_meal_plan)
+            return db_meal_plan
+        except Exception as e:
+            # If conversation columns don't exist, create without them
+            basic_meal_plan = MealPlan(
+                user_id=user_id,
+                plan_name=plan_name,
+                days=days,
+                meals_per_day=meals_per_day,
+                plan_data=json.dumps(plan_data),
+                plan_explanation=plan_explanation
+            )
+            db.add(basic_meal_plan)
+            db.commit()
+            db.refresh(basic_meal_plan)
+            return basic_meal_plan
 
     def add_recipe_to_meal_plan(self, db: Session, meal_plan_id: int, recipe_id: int, day: int, meal_type: str):
         """Add a recipe to a meal plan"""
@@ -93,6 +120,25 @@ class MealPlanRepository:
             "cuisine_preferences": json.loads(db_pref.cuisine_preferences) if db_pref.cuisine_preferences else [],
             "disliked_ingredients": json.loads(db_pref.disliked_ingredients) if db_pref.disliked_ingredients else []
         }
+
+    def update_meal_plan_conversation(self, db: Session, meal_plan_id: int, conversation_data: str, conversation_title: str = None):
+        """Update conversation data for an existing meal plan"""
+        db_meal_plan = db.query(MealPlan).filter(MealPlan.id == meal_plan_id).first()
+        if db_meal_plan:
+            db_meal_plan.conversation_data = conversation_data
+            if conversation_title:
+                db_meal_plan.conversation_title = conversation_title
+            db_meal_plan.updated_at = datetime.utcnow()
+            db.commit()
+            db.refresh(db_meal_plan)
+        return db_meal_plan
+
+    def get_meal_plan_conversation(self, db: Session, meal_plan_id: int):
+        """Get conversation data for a meal plan"""
+        db_meal_plan = db.query(MealPlan).filter(MealPlan.id == meal_plan_id).first()
+        if db_meal_plan and db_meal_plan.conversation_data:
+            return json.loads(db_meal_plan.conversation_data)
+        return None
 
     def update_meal_plan_recipe(self, db: Session, recipe_id: int, day: int, meal_type: str):
         """Update a meal plan recipe's day and/or meal type"""

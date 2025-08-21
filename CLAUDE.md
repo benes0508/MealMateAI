@@ -33,16 +33,19 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **Build**: `npm run build` (from `/frontend`)
 - **Preview build**: `npm run serve` (from `/frontend`)
 - **Tests**: `npm test` (from `/frontend`)
+- **Lint/Type check**: Check package.json scripts for linting commands
 
 ### API Gateway (Express.js)
 - **Development**: `npm run dev` (from `/api-gateway`)
 - **Production**: `npm start` (from `/api-gateway`)
 - **Tests**: `npm test` (from `/api-gateway`)
+- **Lint/Type check**: Check package.json scripts for linting commands
 
 ### Python Services (FastAPI)
 - **Run locally**: `python run.py` or `python run_local.py` (from service directory)
 - **Tests**: `pytest` (from service directory)
 - **Dependencies**: Install from `requirements.txt` in each service
+- **Lint/Type check**: `ruff check .` and `ruff format .` (if ruff is configured) or check individual service requirements
 
 ### Recipe Service Specific Commands
 - **Classify recipes**: `python3.9 function_based_classifier.py` (from `/services/recipe-service`)
@@ -59,6 +62,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **End-to-end tests**: `python scripts/test_end_to_end.py`
 - **RAG workflow test**: `./test_rag_workflow.sh`
 - **Detailed RAG test**: `./test_rag_detailed.sh`
+- **Individual service tests**: Run `pytest` from any `/services/<service-name>/` directory
 
 ## Architecture Overview
 
@@ -481,6 +485,12 @@ QDRANT_URL=http://localhost:6333        # Vector database connection
 - **Data Preservation**: Never overwrite good data, only regenerate empty/failed items
 
 ## Development Guidelines
+
+### Code Quality and Linting
+- **Always run linting** before committing code
+- **Python services**: Use `ruff check .` and `ruff format .` for code formatting (if configured)
+- **Frontend/API Gateway**: Check individual `package.json` files for ESLint/Prettier configurations
+- **Testing**: Run tests before merging - use service-specific test commands above
 
 ### Adding New Features
 1. Determine appropriate service or create new microservice
